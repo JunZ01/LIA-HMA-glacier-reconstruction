@@ -277,3 +277,87 @@ def poisson_extend_thickness(
         "curvature_per_m": float(np.mean(q)),
         "maximum_thickness_m": float(thickness[inside].max()) if inside.any() else 0.0,
     }
+
+
+def _interior_laplacian(inside: np.ndarray) -> sparse.csr_matrix:
+    """Five-point Laplacian rows at cells whose four neighbours are inside."""
+    index = np.full(inside.shape, -1, dtype=np.int64)
+    index[inside] = np.arange(int(inside.sum()))
+    interior = inside & ~raster_boundary(inside)
+    r, c = np.nonzero(interior)
+    n = len(r)
+    rows = [np.arange(n)]
+    cols = [index[r, c]]
+    vals = [np.full(n, -4.0)]
+    for dr, dc in _OFFSETS:
+        rows.append(np.arange(n))
+        cols.append(index[r + dr, c + dc])
+        vals.append(np.ones(n))
+    return sparse.csr_matrix(
+        (np.concatenate(vals), (np.concatenate(rows), np.concatenate(cols))),
+        shape=(n, int(inside.sum())),
+    )
+
+
+def thinplate_extend_thickness(
+    mask: np.ndarray,
+    centerline_rows: np.ndarray,
+    centerline_cols: np.ndarray,
+    centerline_thickness_m: np.ndarray,
+    *,
+    centerline_surface_m: np.ndarray | None = None,
+    duplicate_tolerance_m: float = 1e-3,
+    boundary_tolerance_m: float = 1e-3,
+) -> tuple[np.ndarray, dict]:
+    """Operator T: thin-plate (minimum-curvature) thickness interpolation.
+
+    Same inputs and boundary convention as the legacy harmonic operator:
+    H = 0 on the raster boundary, H fixed at flowline constraint cells. The
+    interior minimises the discrete curvature sum ||laplace(H)||^2 instead of
+    the gradient sum ||grad(H)||^2. This is the class of interpolator used by
+    ANUDEM / ArcGIS 'Topo to Raster' in VOLTA and PalaeoIce (Li, 2023), which
+    additionally applies drainage enforcement; it is an approximation of that
+    tool, not a reimplementation. Negative values (curvature overshoot) are
+    clipped to zero and reported.
+    """
+    inside, rows, cols = _validate_inputs(mask, centerline_rows, centerline_cols)
+    values = np.asarray(centerline_thickness_m, dtype=float)
+    if np.any(values < 0) or not np.isfinite(values).all():
+        raise ValueError("Centerline thickness must be finite and non-negative")
+    rows, cols, values, cmeta = consolidate_constraints(
+        inside.shape, rows, cols, values,
+        comparison_values=centerline_surface_m,
+        duplicate_tolerance_m=duplicate_tolerance_m,
+    )
+    boundary = raster_boundary(inside)
+    if np.any(boundary[rows, cols] & (values > boundary_tolerance_m)):
+        raise ValueError("centerline-boundary-conflict: positive thickness on the zero-thickness margin")
+    fixed = boundary.copy()
+    fixed_values = np.where(boundary, 0.0, np.nan)
+    fixed[rows, cols] = True
+    fixed_values[rows, cols] = values
+    L = _interior_laplacian(inside)
+    f = fixed[inside]
+    u = ~f
+    result = np.zeros(inside.shape, dtype=float)
+    if u.any():
+        A = (L.T @ L).tocsr()
+        xf = fixed_values[inside][f]
+        xu = spsolve(A[u][:, u].tocsc(), -(A[u][:, f] @ xf))
+        full = np.empty(int(inside.sum()))
+        full[f] = xf
+        full[u] = xu
+        result[inside] = full
+        finite = bool(np.isfinite(xu).all())
+    else:
+        finite = True
+    negative = inside & (result < 0)
+    thickness = np.where(inside, np.maximum(result, 0.0), 0.0)
+    return thickness, {
+        **cmeta,
+        "status": "converged" if finite else "solver-non-finite",
+        "operator": "thin-plate-thickness",
+        "negative_raw_cells_percent": float(100 * negative.sum() / max(int(inside.sum()), 1)),
+        "clipped_volume_per_cell_area_m": float(-result[negative].sum()),
+        "maximum_thickness_m": float(thickness[inside].max()) if inside.any() else 0.0,
+    }

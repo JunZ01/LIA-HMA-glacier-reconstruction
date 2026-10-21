@@ -4,6 +4,7 @@ from .extension_operators import (
     dirichlet_poisson_solve,
     poisson_extend_thickness,
     surface_extend_thickness,
+    thinplate_extend_thickness,
 )
 from .network import (
     FlowlineBranch,
@@ -27,6 +28,7 @@ __all__ = [
     "dirichlet_poisson_solve",
     "poisson_extend_thickness",
     "surface_extend_thickness",
+    "thinplate_extend_thickness",
     "FlowlineBranch",
     "FlowlineNetworkSolution",
     "JunctionDiagnostic",

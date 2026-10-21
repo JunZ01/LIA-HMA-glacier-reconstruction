@@ -117,3 +117,21 @@ def test_surface_operator_reproduces_below_sea_level_valley():
     )
     assert meta["status"] == "converged"
     assert np.allclose(shifted[mask], thickness[mask], atol=1e-7)
+
+
+def test_thinplate_honours_constraints_and_zero_margin_and_beats_harmonic():
+    from ice_surface_reconstruction.core import thinplate_extend_thickness
+    mask, _, _, thickness, rows, cols = _valley()
+    true_volume = thickness[mask].sum()
+    legacy, _ = harmonic_extend_thickness(
+        mask, rows, cols, thickness[rows, cols],
+        method="conjugate-gradient", max_iterations=20000,
+    )
+    tp, meta = thinplate_extend_thickness(mask, rows, cols, thickness[rows, cols])
+    assert meta["status"] == "converged"
+    assert np.allclose(tp[rows, cols], thickness[rows, cols])
+    assert np.all(tp[raster_boundary(mask)] == 0.0)
+    assert np.all(tp >= 0.0)
+    legacy_bias = abs(legacy[mask].sum() / true_volume - 1.0)
+    tp_bias = abs(tp[mask].sum() / true_volume - 1.0)
+    assert tp_bias < 0.5 * legacy_bias
