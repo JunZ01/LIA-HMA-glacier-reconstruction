@@ -1,0 +1,44 @@
+{
+  "systems": 22,
+  "complete": 22,
+  "technical_complete_share": 1.0,
+  "volume_loss_share_of_complete": 0.9090909090909091,
+  "volume_loss_count": 20,
+  "volume_loss_share_of_all": 0.9090909090909091,
+  "volume_change_definition": "V_modern(T) minus V_LIA(T); negative denotes loss; percent uses V_LIA(T)",
+  "sum_V_lia_T_km3": 62.048031411695064,
+  "sum_V_mod_T_km3": 42.39018708181603,
+  "sum_dV_T_km3": -19.657844329879037,
+  "sum_dV_T_percent_of_lia": -31.681656746605256,
+  "median_dV_T_percent": -20.32848330004998,
+  "systems_gaining_volume": [
+    1412,
+    3053
+  ],
+  "sum_dV_old_static_percent_same_systems": 2.548477224912469,
+  "gate_technical": true,
+  "gate_volume_loss": true,
+  "checkpoint2_pass": true,
+  "gates": {
+    "technical_complete_share_min": 0.8,
+    "volume_loss_share_min": 0.8
+  },
+  "elapsed_seconds": 26.318037600023672,
+  "plan": {
+    "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_lia_end_20261021_v1",
+    "systems": 22,
+    "missing_tau": [],
+    "legacy_lia_netcdf_dirs": [
+      "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3"
+    ],
+    "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+    "grid_output_subdir": "static_samemethod_lia_end_20261021_v1/system_grids",
+    "operator": "thin-plate (operator T)",
+    "bed": "farinotti2019",
+    "gates": {
+      "technical_complete_share_min": 0.8,
+      "volume_loss_share_min": 0.8
+    }
+  },
+  "scope": "same-method static volume change on the frozen 22-system pilot; model-to-model comparisons only; no dynamic run"
+}

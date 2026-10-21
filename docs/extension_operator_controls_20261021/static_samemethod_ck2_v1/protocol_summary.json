@@ -1,0 +1,94 @@
+{
+  "scope": "checkpoint2, frozen 22 singleton systems only",
+  "ids": [
+    214,
+    558,
+    1412,
+    1545,
+    1871,
+    1931,
+    2321,
+    2353,
+    2727,
+    2729,
+    2815,
+    2906,
+    2907,
+    3053,
+    3131,
+    3185,
+    3244,
+    3632,
+    3904,
+    4464,
+    5127,
+    5443
+  ],
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_lia_end_20261021.py",
+    "--config",
+    "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+    "--pilot-csv",
+    "H:\\ToYangxin\\result_yx\\volume_tau_pilot_20261021\\selection\\pilot_systems.csv",
+    "--modern-end-csv",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\modern_end\\static_modern_end.csv",
+    "--pairing-csv",
+    "H:\\ToYangxin\\result_yx\\hma_harmonized_analysis_20261012_v1\\legacy_volume_comparability\\legacy191_source_pairing_diagnostic.csv",
+    "--output-subdir",
+    "static_samemethod_lia_end_20261021_v1",
+    "--external-flowline-root",
+    "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3"
+  ],
+  "environment": {
+    "LIA_PROJECT_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+    "LIA_REPO_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized",
+    "LIA_VALIDATION_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_lia_end_20261021_v1",
+  "source_config_provenance": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_static_samemethod_ck2_20261021_v1\\source_configuration_verified.json",
+  "dry_run_plan": {
+    "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_lia_end_20261021_v1",
+    "systems": 22,
+    "missing_tau": [],
+    "legacy_lia_netcdf_dirs": [
+      "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3"
+    ],
+    "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+    "grid_output_subdir": "static_samemethod_lia_end_20261021_v1/system_grids",
+    "operator": "thin-plate (operator T)",
+    "bed": "farinotti2019",
+    "gates": {
+      "technical_complete_share_min": 0.8,
+      "volume_loss_share_min": 0.8
+    }
+  },
+  "gates": {
+    "technical_complete_share_min": 0.8,
+    "technical_denominator": 22,
+    "minimum_complete": 18,
+    "volume_loss_share_min": 0.8,
+    "volume_loss_denominator": "finite complete paired endpoints",
+    "also_report_all22_loss_share": true
+  },
+  "workers": 1,
+  "numerical_threads": 1,
+  "estimated_seconds": [
+    120,
+    900
+  ],
+  "checkpoint": "production atomic per-system NetCDF; no automatic retry or completed-system recomputation",
+  "output_isolation": "new output root, tau subdirectory and system-grid JSON cache subdirectory",
+  "production_driver_modified": false,
+  "numerical_parameters_changed_beyond_authorized_tau_operator": false,
+  "new_dynamic_or_191_run": false,
+  "fingerprint": "191789bdfba0d3f9bf0c0d40ddd73d0bb4bbb5ecd066d7a458334d9cf4589e5c",
+  "full_source_manifest_local_file": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_static_samemethod_ck2_20261021_v1\\protocol.json",
+  "full_protocol_sha256": "12c69b25c464a8adad4a39da929d70689ae96a58a92d4cadea867b79a604ecb2",
+  "source_hash_count": 2331
+}

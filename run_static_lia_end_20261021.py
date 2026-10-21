@@ -10,7 +10,8 @@ unchanged except for two inputs, so both ends use the same static method:
 Bed scenario is restricted to farinotti2019 (the only bed calibrated in
 checkpoint 1). Output goes to a new output_subdir; production outputs are not
 touched. Then the same-method volume change is computed per system:
-    dV = V_LIA(T) - V_modern(T),   dV% = dV / V_LIA(T)
+    dV = V_modern(T) - V_LIA(T),   dV% = 100 * dV / V_LIA(T)
+Negative dV denotes volume loss since the LIA.
 with the old static result (legacy LIA harmonic vs modern reference) and the
 mean-thickness change reported beside it.
 
@@ -86,16 +87,20 @@ def volume_change(system_results: pd.DataFrame, modern_end: pd.DataFrame,
     lia["lia_complete"] = lia.status.astype(str).isin(["success", "success-with-documented-exclusion"])
     lia = lia.rename(columns={"volume_km3_finite_components": "V_lia_T_km3",
                               "finite_lia_cell_count": "lia_cells", "system_grid_dx_m": "lia_dx_m"})
+    for col in ["V_lia_T_km3", "lia_cells", "lia_dx_m"]:
+        if col not in lia:
+            lia[col] = np.nan
     keep = ["lia_unique_id", "status", "lia_complete", "V_lia_T_km3", "lia_cells", "lia_dx_m",
             "missing_component_area_fraction"]
     t = pilot[["lia_unique_id", "region", "area_km2"]].merge(
-        lia[[c for c in keep if c in lia.columns]], on="lia_unique_id", how="left")
+        lia[[c for c in keep if c in lia.columns]], on="lia_unique_id", how="left", validate="one_to_one")
     m = modern_end[["lia_unique_id", "status", "static_volume_thinplate_km3", "reference_volume_km3"]].rename(
         columns={"status": "modern_status", "static_volume_thinplate_km3": "V_mod_T_km3",
                  "reference_volume_km3": "V_mod_reference_km3"})
-    t = t.merge(m, on="lia_unique_id", how="left")
+    t = t.merge(m, on="lia_unique_id", how="left", validate="one_to_one")
     t["lia_complete"] = t.lia_complete.fillna(False).astype(bool)
-    ok = t.lia_complete & (t.modern_status == "solved")
+    ok = (t.lia_complete & (t.modern_status == "solved")
+          & np.isfinite(t.V_lia_T_km3) & np.isfinite(t.V_mod_T_km3))
     t["dV_T_km3"] = np.where(ok, t.V_mod_T_km3 - t.V_lia_T_km3, np.nan)
     t["dV_T_percent"] = 100 * t.dV_T_km3 / t.V_lia_T_km3
     t["lia_area_km2"] = t.lia_cells * t.lia_dx_m ** 2 / 1e6
@@ -103,7 +108,7 @@ def volume_change(system_results: pd.DataFrame, modern_end: pd.DataFrame,
     t["volume_loss"] = t.dV_T_km3 < 0
     if pairing is not None:
         p = pairing[["lia_unique_id", "lia_saved_array_volume_km3", "modern_reference_native_sum_km3"]]
-        t = t.merge(p, on="lia_unique_id", how="left")
+        t = t.merge(p, on="lia_unique_id", how="left", validate="one_to_one")
         t["dV_old_static_km3"] = t.modern_reference_native_sum_km3 - t.lia_saved_array_volume_km3
         t["dV_old_static_percent"] = 100 * t.dV_old_static_km3 / t.lia_saved_array_volume_km3
     complete = t[ok]
@@ -113,6 +118,9 @@ def volume_change(system_results: pd.DataFrame, modern_end: pd.DataFrame,
         "complete": int(ok.sum()),
         "technical_complete_share": float(ok.sum() / max(n_all, 1)),
         "volume_loss_share_of_complete": float(complete.volume_loss.mean()) if len(complete) else None,
+        "volume_loss_count": int(complete.volume_loss.sum()),
+        "volume_loss_share_of_all": float(complete.volume_loss.sum() / max(n_all, 1)),
+        "volume_change_definition": "V_modern(T) minus V_LIA(T); negative denotes loss; percent uses V_LIA(T)",
         "sum_V_lia_T_km3": float(complete.V_lia_T_km3.sum()),
         "sum_V_mod_T_km3": float(complete.V_mod_T_km3.sum()),
         "sum_dV_T_km3": float(complete.dV_T_km3.sum()),
@@ -145,6 +153,10 @@ def main() -> None:
     config = copy.deepcopy(json.loads(args.config.read_text(encoding="utf-8")))
     pilot = pd.read_csv(args.pilot_csv, encoding="utf-8-sig")
     modern_end = pd.read_csv(args.modern_end_csv)
+    if len(pilot) != 22 or pilot.lia_unique_id.duplicated().any() or pilot.rgi_id.duplicated().any():
+        raise ValueError("Expected the frozen 22 unique pilot systems")
+    if modern_end.lia_unique_id.duplicated().any() or modern_end.rgi_id.duplicated().any():
+        raise ValueError("Duplicate modern identities are not allowed")
     taus = tau_table(modern_end)
     root = resolve(config["output_dir"])
     out_dir = root / args.output_subdir
@@ -153,12 +165,17 @@ def main() -> None:
     tau_subdir = f"{args.output_subdir}/unified_bed_tau"
     config["modern_tau_calibration"]["output_subdir"] = tau_subdir
     config.setdefault("lia_3d_system_grid_pilot_v1", {})["output_subdir"] = args.output_subdir
+    # Grid construction writes a JSON cache; isolate that output too.
+    config.setdefault("lia_system_grid", {})["grid_output_subdir"] = f"{args.output_subdir}/system_grids"
     config["bed_scenarios"] = [BED]
     selected = set(pilot.rgi_id.astype(str)) & set(taus.rgi_id)
+    if len(selected) != 22 or not np.isfinite(taus.tau_kpa).all():
+        raise ValueError("All 22 systems require finite checkpoint-1 tau; never launch an empty/all-system selection")
     plan = {"output_dir": str(out_dir), "systems": len(selected),
             "missing_tau": sorted(set(pilot.rgi_id.astype(str)) - set(taus.rgi_id)),
             "legacy_lia_netcdf_dirs": sorted({str(Path(p).parent) for p in pilot.lia_netcdf}),
             "external_flowline_root": str(args.external_flowline_root) if args.external_flowline_root else None,
+            "grid_output_subdir": config["lia_system_grid"]["grid_output_subdir"],
             "operator": "thin-plate (operator T)", "bed": BED, "gates": GATES}
     print(json.dumps(plan, indent=2, ensure_ascii=False))
     if args.dry_run:

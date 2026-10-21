@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "selected": 22,
+  "recorded": 22,
+  "published_netcdf": 22,
+  "production_status_counts": {
+    "success": 22
+  },
+  "input_and_code_hashes_checked": 2331,
+  "changed_source_files": [],
+  "arithmetic_verified": true,
+  "volume_losses": 20,
+  "volume_gains": 2
+}

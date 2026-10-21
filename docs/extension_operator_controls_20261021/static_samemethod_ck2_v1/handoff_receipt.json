@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\lia_end\\static_samemethod_volume_change.csv",
+      "bytes": 6357,
+      "sha256": "2fe3a63a91cd44196a7d529bc6db0494fbad2055fabeab7478e588eabcd5410d"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\lia_end\\static_samemethod_volume_change_summary.json",
+      "bytes": 1827,
+      "sha256": "f243cf6ef0279e1deac6c1c70ce94cc1a9fdd0be58cd15a0ef30173305689961"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\lia_end\\lia_system_grid_results_v1.csv",
+      "bytes": 3673,
+      "sha256": "9d0431dc7fe48823a456ba816ee8fbfdf5988ba94fa3cb315fd0815e7fc68d54"
+    }
+  ],
+  "archive": "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\static_samemethod_ck2_results_20261021.zip",
+  "archive_bytes": 5644,
+  "archive_sha256": "de327aa8cb2031668ca4ef497cc53dd97e2cb6925a4703e37a7cd7524bbfec36"
+}

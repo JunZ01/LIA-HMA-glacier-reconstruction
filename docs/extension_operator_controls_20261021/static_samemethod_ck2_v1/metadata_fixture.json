@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "fixture_only": true,
+  "glacier_solves": 0,
+  "checks": [
+    "22-system failure denominator",
+    "loss fraction uses complete denominator, all-system fraction reported",
+    "modern-minus-LIA sign",
+    "17/22 fails completeness",
+    "duplicate identities rejected"
+  ]
+}

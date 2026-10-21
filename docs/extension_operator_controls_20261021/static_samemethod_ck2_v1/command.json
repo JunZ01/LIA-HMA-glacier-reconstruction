@@ -1,0 +1,29 @@
+{
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_lia_end_20261021.py",
+    "--config",
+    "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+    "--pilot-csv",
+    "H:\\ToYangxin\\result_yx\\volume_tau_pilot_20261021\\selection\\pilot_systems.csv",
+    "--modern-end-csv",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\modern_end\\static_modern_end.csv",
+    "--pairing-csv",
+    "H:\\ToYangxin\\result_yx\\hma_harmonized_analysis_20261012_v1\\legacy_volume_comparability\\legacy191_source_pairing_diagnostic.csv",
+    "--output-subdir",
+    "static_samemethod_lia_end_20261021_v1",
+    "--external-flowline-root",
+    "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3"
+  ],
+  "environment": {
+    "LIA_PROJECT_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+    "LIA_REPO_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized",
+    "LIA_VALIDATION_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "cwd": "E:\\lia-gh-20261021-v2"
+}

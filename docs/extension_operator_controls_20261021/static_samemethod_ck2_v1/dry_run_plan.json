@@ -1,0 +1,16 @@
+{
+  "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_lia_end_20261021_v1",
+  "systems": 22,
+  "missing_tau": [],
+  "legacy_lia_netcdf_dirs": [
+    "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3"
+  ],
+  "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+  "grid_output_subdir": "static_samemethod_lia_end_20261021_v1/system_grids",
+  "operator": "thin-plate (operator T)",
+  "bed": "farinotti2019",
+  "gates": {
+    "technical_complete_share_min": 0.8,
+    "volume_loss_share_min": 0.8
+  }
+}

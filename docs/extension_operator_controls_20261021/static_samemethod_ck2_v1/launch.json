@@ -1,0 +1,29 @@
+{
+  "pid": 35276,
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_lia_end_20261021.py",
+    "--config",
+    "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+    "--pilot-csv",
+    "H:\\ToYangxin\\result_yx\\volume_tau_pilot_20261021\\selection\\pilot_systems.csv",
+    "--modern-end-csv",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_20261021\\modern_end\\static_modern_end.csv",
+    "--pairing-csv",
+    "H:\\ToYangxin\\result_yx\\hma_harmonized_analysis_20261012_v1\\legacy_volume_comparability\\legacy191_source_pairing_diagnostic.csv",
+    "--output-subdir",
+    "static_samemethod_lia_end_20261021_v1",
+    "--external-flowline-root",
+    "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3"
+  ],
+  "started_at_utc": "2026-10-21T14:43:33.959348+00:00",
+  "output_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_lia_end_20261021_v1",
+  "fingerprint": "191789bdfba0d3f9bf0c0d40ddd73d0bb4bbb5ecd066d7a458334d9cf4589e5c",
+  "checkpoint_cadence": "one atomic NetCDF per completed system",
+  "estimated_seconds": [
+    120,
+    900
+  ],
+  "stop_conditions": "process error; per-system failures retained; no parameter changes or automatic retry"
+}

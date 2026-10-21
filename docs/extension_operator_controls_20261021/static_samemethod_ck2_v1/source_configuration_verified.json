@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-07-26T12:34:09.522Z",
+  "call_id": "call_CVT9S6wn8Ci9Yl57sRGrmKF3",
+  "executed_tool_input": "const r = await tools.shell_command({\n  command: \"& 'C:\\\\Users\\\\JUNZ\\\\.conda\\\\envs\\\\oggm_env1\\\\python.exe' -m ice_surface_reconstruction.drivers.lia_3d_system_grid_pilot_v1 --config 'ice_surface_reconstruction\\\\config\\\\lia_surface_production_v01.json' --external-flowline-root 'E:\\\\3spyderProject\\\\1_LIA_himalaya_oggm\\\\validation_data\\\\results\\\\paleo_surface_validation_v0\\\\lia_gdir_anchor_reroute_core191_v3' --output-subdir 'core191_anchor_reroute_f19_v3' --bed-scenario farinotti2019\",\n  workdir: \"E:\\\\3spyderProject\\\\1_LIA_himalaya_oggm\\\\Himalaya_greatGlacier\\\\With_Rec_climate_organized\",\n  timeout_ms: 1800000\n});\ntext(r);\n",
+  "configuration": "ice_surface_reconstruction/config/lia_surface_production_v01.json",
+  "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+  "old_output_subdir": "core191_anchor_reroute_f19_v3",
+  "bed_scenario": "farinotti2019",
+  "source_session_file": "C:/Users/JUNZ/.codex/sessions/2026/07/24/rollout-2026-07-24T12-13-14-019f9253-bf6f-7180-bc1f-18707fa74c53.jsonl.zst",
+  "interpretation": "Original recorded shell invocation establishes v01 config and external root. Current static configuration and driver are frozen separately."
+}
