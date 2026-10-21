@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "facts_section": 1497,
+  "facts_sha256": "FC91E02BC68A1BA4606582F281E9434A9F8880E46BC886A8F82F56B92B578201",
+  "state_sha256": "1057D5661881057583DE4BEA265C695E0AB2F0F6C2579F1A93F1FB92F726683D",
+  "route": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_extension_operator_controls_20261021_v1/route-completed-diagnostic-v1.json",
+    "sha256": "62A87D5997A158BA8A9A7FEC5AAA335754E3B928F9E5D5FEDECD57A1E45BF498"
+  },
+  "evidence": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_extension_operator_controls_20261021_v1/evidence.json",
+    "sha256": "E69F72FBAD8309A4B9645AA1D6BE02A6C1709EDD791F3273D088F2B54A80D22F"
+  },
+  "counts_preserved": true,
+  "current_focus_preserved": true,
+  "next_action_preserved": true,
+  "existing_research_branches_preserved": true,
+  "production_promoted": false
+}

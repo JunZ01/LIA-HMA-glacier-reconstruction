@@ -23,3 +23,7 @@ The legacy 191-system Himalayan static reconstruction has a known comparability 
 Requirements differ between model branches; consult their requirements files. Production simulations require external inputs and the execution-state validator. No simulation or model test suite was run for this export.
 
 `EXPORT_MANIFEST.json` records per-file hashes and notebook transformations. `UPLOAD_PREPARATION.json` records preparation and credential-pattern scan status. No new license is assigned by this snapshot.
+
+## Extension operator research follow-up (2026-10-21)
+
+The local research branch adds candidate harmonic-surface and Poisson-thickness extensions. Nine pytest cases pass and seven supplied synthetic cases reproduce. Three modern-reference controls improve aggregate volume consistency with operator A, but surface interpolation error and negative-thickness clipping remain. Boundary propagation accounts for a substantial part of the legacy deficit. Candidates are not connected to production. See `docs/extension_operator_controls_20261021/report.html` and the accompanying CSV/JSON files. These modern controls are not independent validation of reconstructed LIA thickness.

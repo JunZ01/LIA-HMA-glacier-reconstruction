@@ -1,0 +1,171 @@
+{
+  "status": "completed",
+  "grid_dx_m": 50.0,
+  "boundary_exclusion_m": 100.0,
+  "poisson_q_fitted_on": "straight_parabolic",
+  "poisson_q_per_m": 0.0010509709839519707,
+  "results": [
+    {
+      "case": "straight_parabolic",
+      "true_volume_km3": 1.1847549842538663,
+      "cells": 4500,
+      "constraints": 176,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -28.954752547563135,
+        "rmse_m": 34.68639993058839,
+        "mean_bias_m": -30.492699909833544
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 0.04350022360513073,
+        "rmse_m": 0.1476676409618079,
+        "mean_bias_m": 0.0458107615398475,
+        "negative_raw_fraction": 0.0
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": 0.0,
+        "rmse_m": 9.969945952456566,
+        "mean_bias_m": 7.427540064478913e-15
+      },
+      "A_surface_interpolation_rmse_m": 0.14766764096181026
+    },
+    {
+      "case": "straight_elliptical",
+      "true_volume_km3": 1.3715856674134188,
+      "cells": 4500,
+      "constraints": 176,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -38.583353230564136,
+        "rmse_m": 54.523276025438456,
+        "mean_bias_m": -47.040332703814194
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 0.037574836159892655,
+        "rmse_m": 0.14766764096182214,
+        "mean_bias_m": 0.045810761539856186,
+        "negative_raw_fraction": 0.0
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": -13.572675287819147,
+        "rmse_m": 26.385799421326826,
+        "mean_bias_m": -16.547632793981336
+      },
+      "A_surface_interpolation_rmse_m": 0.14766764096181026
+    },
+    {
+      "case": "straight_oggm_d025",
+      "true_volume_km3": 1.374835525188085,
+      "cells": 4500,
+      "constraints": 176,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -39.29435641953507,
+        "rmse_m": 57.02153175278185,
+        "mean_bias_m": -48.02069079553716
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 0.037486016172949554,
+        "rmse_m": 0.1476676409618109,
+        "mean_bias_m": 0.04581076153984782,
+        "negative_raw_fraction": 0.0
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": -14.342799109524062,
+        "rmse_m": 31.647355751598425,
+        "mean_bias_m": -17.527990885697537
+      },
+      "A_surface_interpolation_rmse_m": 0.14766764096181026
+    },
+    {
+      "case": "straight_parabolic_convex20m",
+      "true_volume_km3": 1.1847549842538663,
+      "cells": 4500,
+      "constraints": 176,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -28.954752547563135,
+        "rmse_m": 34.68639993058839,
+        "mean_bias_m": -30.492699909833544
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": -2.591128675694132,
+        "rmse_m": 3.1306588838490867,
+        "mean_bias_m": -2.72875787855263,
+        "negative_raw_fraction": 0.0
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": 0.0,
+        "rmse_m": 9.969945952456566,
+        "mean_bias_m": 7.427540064478913e-15
+      },
+      "A_surface_interpolation_rmse_m": 3.130658883849089
+    },
+    {
+      "case": "straight_parabolic_concave20m",
+      "true_volume_km3": 1.1847549842538663,
+      "cells": 4500,
+      "constraints": 176,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -28.954752547563135,
+        "rmse_m": 34.68639993058839,
+        "mean_bias_m": -30.492699909833544
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 2.6781291229043047,
+        "rmse_m": 3.2379905531058815,
+        "mean_bias_m": 2.820379401632266,
+        "negative_raw_fraction": 0.0
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": 0.0,
+        "rmse_m": 9.969945952456566,
+        "mean_bias_m": 7.427540064478913e-15
+      },
+      "A_surface_interpolation_rmse_m": 3.2379905531058797
+    },
+    {
+      "case": "confluence_parabolic",
+      "true_volume_km3": 1.8898494284527223,
+      "cells": 8097,
+      "constraints": 355,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -24.2758468250446,
+        "rmse_m": 26.73305011251769,
+        "mean_bias_m": -22.664046065217416
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 0.026140220498804823,
+        "rmse_m": 4.712348908467007,
+        "mean_bias_m": 0.024404634195018683,
+        "negative_raw_fraction": 0.019883907620106212
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": 16.17893831002146,
+        "rmse_m": 24.03427099799203,
+        "mean_bias_m": 15.104733762216076
+      },
+      "A_surface_interpolation_rmse_m": 4.757954746471269
+    },
+    {
+      "case": "confluence_oggm_d025",
+      "true_volume_km3": 2.187306169193724,
+      "cells": 8097,
+      "constraints": 355,
+      "legacy_harmonic_H": {
+        "volume_bias_percent": -34.9822193573192,
+        "rmse_m": 46.555973327316416,
+        "mean_bias_m": -37.80008606266635
+      },
+      "A_harmonic_surface": {
+        "volume_bias_percent": 0.02258535246002502,
+        "rmse_m": 4.712348908467006,
+        "mean_bias_m": 0.024404634195018177,
+        "negative_raw_fraction": 0.019883907620106212
+      },
+      "C_poisson_H": {
+        "volume_bias_percent": -0.02897246280872956,
+        "rmse_m": 27.980993167952633,
+        "mean_bias_m": -0.03130623521711735
+      },
+      "A_surface_interpolation_rmse_m": 4.757954746471269
+    }
+  ],
+  "scope": "synthetic known-geometry operator benchmark; no observed or LIA data"
+}

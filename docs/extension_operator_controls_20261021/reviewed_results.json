@@ -1,0 +1,71 @@
+{
+  "status": "completed",
+  "scope": "Modern-reference operator diagnostic, not independent validation or LIA reconstruction",
+  "tests_passed": 9,
+  "synthetic_cases_reproduced": 7,
+  "real_systems": 3,
+  "gaps_m": [
+    0,
+    100
+  ],
+  "production_promoted": false,
+  "production_sources_unchanged": true,
+  "new_dynamic_runs": 0,
+  "new_LIA_reconstructions": 0,
+  "results_100m": [
+    {
+      "system_id": 3632,
+      "region": "西喜马拉雅3632",
+      "legacy_bias_percent": -28.145059620100675,
+      "A_bias_percent": 0.6494275400996008,
+      "A_raw_unclipped_bias_percent": 0.12140636029045337,
+      "A_raw_surface_rmse_m": 23.29628369166709,
+      "A_realized_surface_rmse_m": 22.673910402992057,
+      "A_negative_raw_cells_percent": 3.58389348500517,
+      "A_clipped_volume_percent_of_reference": 0.5280211798091474,
+      "boundary_direct_volume_percent": 1.161425487004882,
+      "boundary_total_effect_percentage_points": 14.520503404717193,
+      "boundary_counterfactual_bias_percent": -13.6245562153835,
+      "legacy_deficit_removed_by_reference_boundary_percent": 51.59165978226216,
+      "C_leave_one_out_bias_percent": -15.49041877591879,
+      "legacy_bias_monotonic_by_distance": true,
+      "native_1d_2d_volume_difference_percent": -1.7249135453312192e-08
+    },
+    {
+      "system_id": 3131,
+      "region": "中喜马拉雅3131",
+      "legacy_bias_percent": -29.230191572417585,
+      "A_bias_percent": -3.685622794616583,
+      "A_raw_unclipped_bias_percent": -6.011665140883861,
+      "A_raw_surface_rmse_m": 28.499300663482646,
+      "A_realized_surface_rmse_m": 25.871895678772045,
+      "A_negative_raw_cells_percent": 10.69547071702244,
+      "A_clipped_volume_percent_of_reference": 2.3260423462672777,
+      "boundary_direct_volume_percent": 1.0247722709877738,
+      "boundary_total_effect_percentage_points": 15.537326937190688,
+      "boundary_counterfactual_bias_percent": -13.692864635226886,
+      "legacy_deficit_removed_by_reference_boundary_percent": 53.15506365634682,
+      "C_leave_one_out_bias_percent": -7.434952447709453,
+      "legacy_bias_monotonic_by_distance": true,
+      "native_1d_2d_volume_difference_percent": 3.534750270262066e-09
+    },
+    {
+      "system_id": 2906,
+      "region": "东喜马拉雅2906",
+      "legacy_bias_percent": -36.40344468820464,
+      "A_bias_percent": -3.579670425526049,
+      "A_raw_unclipped_bias_percent": -6.826360548454676,
+      "A_raw_surface_rmse_m": 33.34448235458881,
+      "A_realized_surface_rmse_m": 28.054603881458213,
+      "A_negative_raw_cells_percent": 6.75630810092961,
+      "A_clipped_volume_percent_of_reference": 3.2466901229286265,
+      "boundary_direct_volume_percent": 0.4138819937815551,
+      "boundary_total_effect_percentage_points": 12.86369931304415,
+      "boundary_counterfactual_bias_percent": -23.539745375160503,
+      "legacy_deficit_removed_by_reference_boundary_percent": 35.336489233976835,
+      "C_leave_one_out_bias_percent": 197.9330777560343,
+      "legacy_bias_monotonic_by_distance": true,
+      "native_1d_2d_volume_difference_percent": -5.535771840925463e-09
+    }
+  ]
+}

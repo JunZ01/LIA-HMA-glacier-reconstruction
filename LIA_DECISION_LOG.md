@@ -9491,3 +9491,8 @@ Fact 1495. 已取得并逐成员校验Jouberton2022归档的Parlung4原始/处�
 ## lia_observation_validation829_20261020_v1 / record-current-results
 
 Fact 1496. 已执行的观测核查、逐测点生产床面对照及历史资料审计见版本化current_results.json；未满足同期高程、基准或历史轮廓条件者明确列出，不写成通过，不将本次诊断阶段等同全部检验完成。继续授权范围不变，0正式接受及0动态模拟；无关状态保持。
+
+
+## 2026-10-21T03:30:30.048819+00:00 — Extension operator diagnostic completed
+
+Facts1497; synthetic reproduction and three modern-reference controls registered. Boundary propagation and clipping limitations quantified. Research candidates only; production and accepted counts unchanged. Evidence `validation_data/results/paleo_surface_validation_v0/lia_extension_operator_controls_20261021_v1/evidence.json`.

@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "source_hash_audit_pass": true,
+  "production_files_unchanged": true,
+  "legacy_baselines_reproduced": 6,
+  "max_legacy_bias_delta_percentage_points": 2.1316282072803006e-14,
+  "all_q_scan_volumes_finite": true,
+  "report_links_missing": [],
+  "visual_review": "pass",
+  "tests_passed": 9,
+  "new_dynamic_runs": 0,
+  "new_LIA_reconstructions": 0,
+  "production_promotion": false
+}

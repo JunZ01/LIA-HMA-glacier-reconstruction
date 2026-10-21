@@ -1,5 +1,10 @@
 """Numerical core for boundary-constrained paleo-surface reconstruction."""
 
+from .extension_operators import (
+    dirichlet_poisson_solve,
+    poisson_extend_thickness,
+    surface_extend_thickness,
+)
 from .network import (
     FlowlineBranch,
     FlowlineNetworkSolution,
@@ -19,6 +24,9 @@ from .solver import (
 )
 
 __all__ = [
+    "dirichlet_poisson_solve",
+    "poisson_extend_thickness",
+    "surface_extend_thickness",
     "FlowlineBranch",
     "FlowlineNetworkSolution",
     "JunctionDiagnostic",
