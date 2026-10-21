@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "facts_section": 1500,
+  "evidence": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_input_export_20261021_v1/evidence.json",
+    "sha256": "A670BD20A63465721DB3EF2294C9DA9E88902D5AF66084EE30C032BE88CEFC4A"
+  },
+  "route": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_input_export_20261021_v1/route-completed-export-v1.json",
+    "sha256": "9AEA08976D86BBDECF762FEDC1CD2B4EB2DD47F87F8562EEC9AA0FB65F52270C"
+  },
+  "facts_sha256": "190BC67F10264F3B6DD29F76761FAFBC4F178F7B23B28315C943D983C3E48556",
+  "counts_preserved": true,
+  "existing_branches_preserved": true,
+  "current_focus_preserved": true,
+  "next_action_preserved": true,
+  "production_promoted": false,
+  "new_model_runs": 0
+}

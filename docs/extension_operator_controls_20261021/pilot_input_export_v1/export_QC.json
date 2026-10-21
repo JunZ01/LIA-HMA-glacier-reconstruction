@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "selected_systems": 22,
+  "exported": 22,
+  "failed": 0,
+  "npz_bytes": 54551723,
+  "controls_comparison": [
+    {
+      "uid": 3131,
+      "different_value_keys": [
+        "source_manifest_json"
+      ],
+      "key_sets_identical": true,
+      "shared_source_hashes_identical": true,
+      "omitted_prior_control_npz_source_entries": 1
+    },
+    {
+      "uid": 2906,
+      "different_value_keys": [
+        "source_manifest_json"
+      ],
+      "key_sets_identical": true,
+      "shared_source_hashes_identical": true,
+      "omitted_prior_control_npz_source_entries": 1
+    },
+    {
+      "uid": 3632,
+      "different_value_keys": [
+        "source_manifest_json"
+      ],
+      "key_sets_identical": true,
+      "shared_source_hashes_identical": true,
+      "omitted_prior_control_npz_source_entries": 1
+    }
+  ],
+  "all_load_without_pickle": true,
+  "file_hashes_verified": true,
+  "new_model_runs": 0,
+  "selection_counts": {
+    "Central Himalaya": 9,
+    "East Himalaya": 4,
+    "West Himalaya": 9
+  }
+}

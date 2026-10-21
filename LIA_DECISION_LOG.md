@@ -9506,3 +9506,8 @@ Facts1498; supplied residual variants not rerun. Frozen modern inputs exported, 
 ## 2026-10-21T05:21:29.052058+00:00 — Supplied modern full-chain replay review
 
 Facts1499; supplied replay not rerun locally, eight network unit tests passed and archive metadata matched. Next-pilot experimental choice: volume calibration primary, profile fit structural sensitivity; interpolated volume roots are not completed fits. No production promotion or new model run. Counts/current_focus/next_action and prior branches preserved. Evidence `validation_data/results/paleo_surface_validation_v0/lia_fullchain_replay_review_20261021_v1/evidence.json`.
+
+
+## 2026-10-21T07:48:03.802875+00:00 — Volume-tau pilot input handoff
+
+Facts1500; unchanged selection rule yields22, not27, due sparse East singleton population. Export22success/0failure. Multi-member coverage gap156/191. Runner denominator fixed, gates unchanged. No local model run or production promotion; unrelated state preserved. Evidence `validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_input_export_20261021_v1/evidence.json`.

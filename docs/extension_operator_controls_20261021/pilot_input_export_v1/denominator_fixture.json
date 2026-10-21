@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "fixture": "three selected, two mock solved, one missing export",
+  "denominator": 3,
+  "passed": 2,
+  "pass_share": 0.6666666666666666,
+  "new_glacier_model_runs": 0
+}

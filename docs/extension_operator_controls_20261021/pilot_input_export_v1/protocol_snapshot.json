@@ -1,0 +1,32 @@
+{
+  "scope": "steps 0-2 only; selection and read-only export",
+  "intended_balanced_design_systems": 27,
+  "actual_selected_systems": 22,
+  "new_model_runs": 0,
+  "selection_rule_changed": false,
+  "gates_changed": false,
+  "gates": {
+    "closure_abs_bias_percent_max": 0.1,
+    "flowline_rmse_ratio_max": 1.25,
+    "surface_rmse_increase_m_max": 1.0,
+    "tau_strictly_inside_kpa": [
+      40,
+      260
+    ]
+  },
+  "proposed_pass_share": 0.8,
+  "pilot_run_executed": false,
+  "route_decision_executed": false,
+  "multi_member_population_count": 156,
+  "population": 191,
+  "multi_member_share_percent": 81.7,
+  "existing_controls_previous_results_known": true,
+  "runner_denominator_fix": "frozen selection includes missing exports",
+  "source_hashes": {
+    "calibrate_volume_tau_20261021.py": "30b1c8950bf03c526718528a26d310a7cc29d8a88b7da7994440d126e9b5fb95",
+    "export_fullchain_inputs_batch_20261021.py": "ea8aee412bcc9ace11ae20f6c43ab31860bbcef96a4e9b871a0134803e03d0a8",
+    "replay_modern_fullchain_20261021.py": "2d2a2c1635db8e2eaed830646412fd6c4146a4e2b5507a1eb092fa948c07bfe2",
+    "run_volume_tau_pilot_20261021.py": "a8cec4b50e446230af6310e61834d08edc178ee48a610615e4e90edb969daabc",
+    "select_pilot_systems_20261021.py": "b8e4387885d3db0950503e919d724dba436b959ca04a31eb20d513057d8e3ea3"
+  }
+}

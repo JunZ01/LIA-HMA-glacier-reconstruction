@@ -1,0 +1,20 @@
+{
+  "population_systems": 191,
+  "by_region_member_type": {
+    "Central Himalaya|multi": 70,
+    "Central Himalaya|single": 19,
+    "East Himalaya|multi": 14,
+    "East Himalaya|single": 4,
+    "West Himalaya|multi": 72,
+    "West Himalaya|single": 12
+  },
+  "pilot_systems": 22,
+  "existing_controls_included": [
+    2906,
+    3131,
+    3632
+  ],
+  "multi_member_systems_not_covered": 156,
+  "multi_member_share_of_population_percent": 81.7,
+  "multi_member_note": "exporter reads one modern gdir per system; multi-member systems need an exporter extension before they can enter a pilot"
+}
