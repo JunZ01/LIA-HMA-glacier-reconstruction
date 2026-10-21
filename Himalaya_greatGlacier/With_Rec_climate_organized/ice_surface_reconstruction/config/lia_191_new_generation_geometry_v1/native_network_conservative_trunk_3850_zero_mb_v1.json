@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "experiment": "native-network-conservative-trunk-condensation-v1",
+  "stage": "zero-mb",
+  "system_id": 3850,
+  "static_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_new_generation_geometry_v1/native_network_conservative_trunk_3850_v1/static_summary.json",
+  "trunk_flowline": "validation_data/results/paleo_surface_validation_v0/lia_191_new_generation_geometry_v1/native_network_conservative_trunk_3850_v1/conservative_trunk_flowline.pkl.gz",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_new_generation_geometry_v1/native_network_conservative_trunk_3850_v1/zero_mb_v1",
+  "stage2": {
+    "glen_a": 7.375294604960076e-24,
+    "fs": 0.0
+  },
+  "gates": {
+    "volume_drift_max": 0.001,
+    "terminal_thickness_m_max": 10.0
+  },
+  "authorization": {
+    "zero_mb": true,
+    "steady_50y": false,
+    "historical": false
+  }
+}

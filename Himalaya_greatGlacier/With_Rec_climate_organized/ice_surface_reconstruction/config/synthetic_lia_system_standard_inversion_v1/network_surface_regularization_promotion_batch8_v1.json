@@ -1,0 +1,12 @@
+{
+  "output_root": "w263reggeom_batch8_v1",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {"maximum_adjustment_m": 150.0, "mean_adjustment_m": 20.0, "cdf_error_100m": 0.02, "root_length_relative_error": 0.1},
+  "cases": [
+    {"system_id": 2547, "source_gdir": "w262geom2547v1/synthetic_gdir/RGI60-13/RGI60-13.92/RGI60-13.92547", "registered_lia_length_m": 10880.107358095134},
+    {"system_id": 4631, "source_gdir": "w262geom4631v1/synthetic_gdir/RGI60-14/RGI60-14.94/RGI60-14.94631", "registered_lia_length_m": 11045.992494933404}
+  ]
+}

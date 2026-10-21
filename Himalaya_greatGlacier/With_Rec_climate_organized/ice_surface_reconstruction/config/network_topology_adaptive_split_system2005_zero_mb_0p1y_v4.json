@@ -1,0 +1,30 @@
+{
+  "experiment": "lia-191-network-topology-adaptive-split-system2005-zero-mb-0p1y-v4",
+  "system_id": 2005,
+  "model_flowlines": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_2005/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92005/model_flowlines.pkl",
+  "failure_state_step_gate": "validation_data/results/paleo_surface_validation_v0/lia_191_network_monotone_positive_conservative_system2005_failure_state_step_v3/summary.json",
+  "closed_predecessor": "validation_data/results/paleo_surface_validation_v0/lia_191_network_monotone_positive_conservative_system2005_zero_mb_0p1y_v1/summary.json",
+  "technical_predecessor": "validation_data/results/paleo_surface_validation_v0/lia_191_network_topology_adaptive_split_system2005_zero_mb_0p1y_v3/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_network_topology_adaptive_split_system2005_zero_mb_0p1y_v4",
+  "years": 0.1,
+  "maximum_timestep_seconds": 3600.0,
+  "minimum_timestep_seconds": 30.0,
+  "section_solver_interior_floor_m2": 0.0,
+  "active_set_tolerance": 1e-13,
+  "boundary_canonicalization_tolerance_m2": 1e-12,
+  "active_thickness_tolerance_m": 1e-6,
+  "glen_a": 4.355770498109968e-23,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "terminal_thickness_m_max": 10.0
+  },
+  "authorization": {
+    "exact_zero_boundary_canonicalization": "negative roundoff within 1e-12 m2 is set to zero with exactly equal volume removed from a positive donor control volume",
+    "dynamic_component_split": true,
+    "artificial_positive_support": false,
+    "zero_mb_5y_on_pass": true,
+    "steady_on_pass": false,
+    "historical": false
+  }
+}

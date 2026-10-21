@@ -1,0 +1,9 @@
+## 301. Perfect-model joint-network fusion closure (2026-08-21)
+
+- Round 165 compared the current mean of separately assimilated proxy6/proxy9 posterior means with one stacked 499-proxy update under the exact Round 161-164 noise-free held-out-truth design. Archived R and the predeclared `0.0001` diagnostic scale were tested without proxy selection, localization, or real-data tuning.
+- Joint assimilation improves HMA ratio-of-median-RMSE skill from `0.2787` to `0.3095` at archived R, a gain of `0.0308`. At near-zero R it improves skill from `0.4816` to `0.49989`, a gain of `0.0183`.
+- The near-zero joint value misses the frozen `0.50` threshold by only `0.00011`, so the threshold-edge distinction is not scientifically material. The substantive result is that network fusion contributes only two to three percentage points and cannot explain the large archived-R deficit.
+- Regionally, near-zero joint skill is `0.5834` west, `0.4926` central, and `0.5535` east. Central HMA remains the weakest region even after both residual suppression and joint fusion.
+- Decision: close separate-posterior averaging as a secondary inefficiency, but do not promote stacked assimilation. The stacked branch assumes cross-network residual independence that has not been established, and its archived-R skill remains only `0.3095`. Stop R reduction, gain scaling, network averaging/stacking, localization, and prior-member weighting within this archived temperature family.
+- Round 165 used no actual proxy observations or instrumental values, accessed no 1921-1939 or Jionglacuo value, changed no declared source, and ran neither production reconstruction nor OGGM. Evidence is in `validation_data/results/paleo_surface_validation_v0/climate_reconstruction_improvement_loop_v2/round_165_temperature_twin_joint_network_fusion_v1/`.
+

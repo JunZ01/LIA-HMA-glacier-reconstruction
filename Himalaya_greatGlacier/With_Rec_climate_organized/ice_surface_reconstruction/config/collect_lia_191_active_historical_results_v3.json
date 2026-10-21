@@ -1,0 +1,19 @@
+{
+  "project_root": ".",
+  "accepted_registry_csv": "validation_data/results/paleo_surface_validation_v0/lia_191_accepted_48_registry_v1/accepted_48_curve_metrics.csv",
+  "remaining_route_csv": "validation_data/results/paleo_surface_validation_v0/lia_191_remaining_route_audit_v3/lia_191_route_status.csv",
+  "scan_globs": [
+    "w689*", "w676*", "w696*", "w700*", "w699*", "w701*", "w702*",
+    "w704*", "w719*", "w721*", "w722*", "w723*", "w725*", "w726*", "w727*"
+  ],
+  "thresholds": {
+    "total_error_max": 0.10,
+    "separation_error_max": 0.20,
+    "stability_abs_fraction_max": 0.02,
+    "steady_free_downstream_m_min": 5000.0
+  },
+  "python_executable": "D:/Anaconda/envs/oggm_env2/python.exe",
+  "reproduction_runner_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.run_conservative_historical_ramp_overlay_v1",
+  "reproduction_compare_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.compare_historical_reproduction_v1",
+  "output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_active_historical_result_collector_v3"
+}

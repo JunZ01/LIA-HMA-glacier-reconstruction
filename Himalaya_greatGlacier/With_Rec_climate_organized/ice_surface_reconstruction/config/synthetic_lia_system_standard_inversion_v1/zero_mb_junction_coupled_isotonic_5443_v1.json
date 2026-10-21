@@ -1,0 +1,29 @@
+{
+  "experiment": "junction-coupled-minimal-isotonic-projection-v1",
+  "system_id": 5443,
+  "source_steady_root": {
+    "anchor": "project",
+    "sub": "w733steady_rescore4_5443_mindt30_bisect_dt0p0_v1"
+  },
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_junction_coupled_isotonic_5443_v1"
+  },
+  "target_path": [
+    {"flowline": 7, "node": 72},
+    {"flowline": 7, "node": 73},
+    {"flowline": 11, "node": 97}
+  ],
+  "glen_a": 3.5525414505349314e-24,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "gates": {
+    "maximum_absolute_surface_adjustment_m": 1.0,
+    "volume_relative_change_max": 1e-10,
+    "area_relative_change_max": 1e-12,
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "reverse_surface_tolerance_m": 1e-8
+  },
+  "stop_rule": "One deterministic cross-junction weighted isotonic projection only; static or 5-year zero-MB failure closes this mechanism without smoothing, retuning, or lowering the 30 s floor."
+}

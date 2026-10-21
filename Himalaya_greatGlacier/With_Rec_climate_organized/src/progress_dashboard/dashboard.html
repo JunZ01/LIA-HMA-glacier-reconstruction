@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HMA run monitor</title>
+  <style>
+    :root { color-scheme: dark; --ink:#e6edf3; --muted:#9aa8b6; --line:#334250; --paper:#0a1016; --panel:#111a23; --teal:#2dd4bf; --amber:#f59e0b; --red:#fb7185; --blue:#60a5fa; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { background:#070b10; color:#f8fafc; border-bottom:1px solid var(--line); padding:22px 28px; display:flex; justify-content:space-between; gap:24px; align-items:flex-end; }
+    h1,h2,p { margin:0; }
+    h1 { font-size:22px; letter-spacing:0; }
+    h2 { font-size:13px; text-transform:uppercase; color:var(--muted); letter-spacing:.08em; margin-bottom:12px; }
+    .sub { color:#9aa8b6; margin-top:4px; font-size:12px; }
+    main { max-width:1280px; margin:0 auto; padding:24px 28px 40px; }
+    .toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; gap:16px; }
+    button { border:1px solid #526475; background:#16212b; color:var(--ink); padding:7px 12px; border-radius:4px; cursor:pointer; font:inherit; }
+    button:hover { border-color:var(--teal); color:var(--teal); }
+    .state { font-weight:700; }
+    .state.complete { color:var(--teal); } .state.running { color:var(--blue); } .state.stale { color:var(--red); }
+    .progress { background:#253442; height:12px; border-radius:2px; overflow:hidden; margin:8px 0 20px; }
+    .progress > div { height:100%; background:var(--teal); width:0; transition:width .25s ease; }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:26px; }
+    .metric { background:var(--panel); border:1px solid var(--line); padding:15px 16px; min-height:94px; }
+    .metric .label { color:var(--muted); font-size:12px; }
+    .metric .value { font-size:25px; font-weight:700; margin-top:9px; }
+    section { background:var(--panel); border:1px solid var(--line); border-top:3px solid #526475; padding:18px 18px 16px; margin-top:16px; }
+    .columns { display:grid; grid-template-columns:1.15fr .85fr; gap:16px; align-items:start; }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    th,td { text-align:left; border-bottom:1px solid var(--line); padding:8px 6px; vertical-align:top; }
+    th { color:var(--muted); font-weight:600; }
+    td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+    pre { white-space:pre-wrap; background:#070c12; color:#b7f7df; border:1px solid #263746; padding:14px; min-height:150px; max-height:320px; overflow:auto; font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .path { color:var(--muted); word-break:break-all; font:12px ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .note { color:var(--muted); font-size:12px; }
+    @media (max-width:850px) { header { padding:18px; } main { padding:18px; } .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .columns { grid-template-columns:1fr; } }
+    @media (max-width:500px) { .grid { grid-template-columns:1fr; } .toolbar { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>HMA run monitor</h1><p class="sub" id="run-id">Loading...</p></div>
+    <div class="sub" id="clock">--</div>
+  </header>
+  <main>
+    <div class="toolbar"><div><span class="state" id="state">--</span> <span class="note" id="stale"></span></div><button id="refresh">Refresh</button></div>
+    <div class="progress"><div id="bar"></div></div>
+    <div class="grid">
+      <div class="metric"><div class="label" id="completed-label">Completed</div><div class="value" id="completed">--</div></div>
+      <div class="metric"><div class="label" id="failures-label">Failures</div><div class="value" id="failures">--</div></div>
+      <div class="metric"><div class="label" id="gate-rows-label">Gate rows</div><div class="value" id="gate-rows">--</div></div>
+      <div class="metric"><div class="label" id="workers-label">Workers</div><div class="value" id="workers">--</div></div>
+    </div>
+    <section id="live-panel" hidden>
+      <h2>Current work</h2>
+      <table><tbody>
+        <tr><th>Phase</th><td id="live-phase">--</td></tr>
+        <tr><th>Activity</th><td id="live-activity">--</td></tr>
+        <tr><th>Last action</th><td id="live-action">--</td></tr>
+        <tr id="live-error-row" hidden><th>Error</th><td id="live-error"></td></tr>
+      </tbody></table>
+      <h2 style="margin-top:18px">Plan</h2>
+      <table><thead><tr><th>Step</th><th>Status</th></tr></thead><tbody id="live-plan"></tbody></table>
+    </section>
+    <section id="readiness-section" hidden><h2>Stage 3 readiness</h2><table><tbody id="readiness-summary"></tbody></table></section>
+    <section id="section-audit-section" hidden><h2>Section audit consensus</h2><table><thead><tr><th>Class</th><th class="num">Systems</th></tr></thead><tbody id="section-audit-classes"></tbody></table></section>
+    <section id="pressure-section"><h2>Pressure-list attribution</h2><table><thead><tr><th>Scenario</th><th>Class</th><th class="num">Systems</th></tr></thead><tbody id="pressure-classes"></tbody></table><p class="note">Priority: imbalance envelope, then debris-associated residual, then unexplained residual.</p></section>
+    <section id="surface-section"><h2>Surface factor sensitivity</h2><table><thead><tr><th>Scenario</th><th class="num">Balance gates 1.25</th><th class="num">Balance gates 1.00</th><th class="num">Envelope systems 1.25</th><th class="num">Envelope systems 1.00</th></tr></thead><tbody id="surface-sensitivity"></tbody></table></section>
+    <div class="columns">
+      <section id="reachability-section"><h2>All-system envelope reachability</h2><table><thead><tr><th>Scenario</th><th>Class</th><th class="num">Systems</th></tr></thead><tbody id="classes"></tbody></table></section>
+      <section><h2>Run summary</h2><table><tbody id="summary"></tbody></table></section>
+    </div>
+    <section><h2>Latest log</h2><pre id="log">--</pre><p class="path" id="path"></p></section>
+  </main>
+  <script>
+    const $ = id => document.getElementById(id);
+    const fmt = x => (x === null || x === undefined || x === '') ? '--' : Number.isFinite(Number(x)) ? Number(x).toLocaleString() : String(x);
+    function setText(id, value) { $(id).textContent = value; }
+    function render(data) {
+      const p = data.progress || {}, a = data.attribution_summary || {}, r = data.run_summary || {}, d = data.diagnostic_summary || {}, routing = data.routing_summary || {}, live = data.live_status || {}, s3p = data.stage3_progress || {}, s3s = data.stage3_summary || {};
+      const hasStage3 = Object.keys(s3p).length > 0;
+      const done = Number(hasStage3 ? (s3p.completed_task_count ?? 0) : (live.completed_step_count ?? p.completed_task_count ?? p.completed_system_count ?? 0)), total = Number(hasStage3 ? (s3p.total_task_count ?? 0) : (live.total_step_count ?? p.total_task_count ?? p.total_system_count ?? 0));
+      const pct = total ? Math.min(100, done / total * 100) : 0;
+      setText('run-id', live.title || p.run_id || r.pilot_id || data.run_dir);
+      setText('state', String(data.state || '--').toUpperCase());
+      $('state').className = 'state ' + String(data.state || '');
+      setText('stale', data.stale_seconds == null ? '' : `updated ${Math.round(data.stale_seconds)}s ago`);
+      setText('clock', new Date(data.server_time_utc || Date.now()).toLocaleString());
+      const hasReadiness = Object.keys(routing).length > 0;
+      if (hasStage3) {
+        setText('completed-label', 'Stage 3 tasks'); setText('completed', `${fmt(done)} / ${fmt(total)}`);
+        setText('failures-label', 'Dynamic failures'); setText('failures', fmt(s3s.dynamic_failure_count ?? 0));
+        setText('gate-rows-label', 'Candidates'); setText('gate-rows', fmt(s3p.completed_candidate_count ?? s3s.candidate_count ?? 0));
+        setText('workers-label', 'Current offset'); setText('workers', fmt(s3p.current_offset_k ?? '--'));
+      } else if (hasReadiness) {
+        setText('completed-label', 'Core systems'); setText('completed', `${fmt(routing.core_191_count)} / ${fmt(routing.routing_system_count)}`);
+        setText('failures-label', 'Excluded branch'); setText('failures', fmt(routing.excluded_54_count));
+        setText('gate-rows-label', 'System ensemble'); setText('gate-rows', fmt(routing.system_ensemble_row_count));
+        setText('workers-label', 'Member ensemble'); setText('workers', fmt(routing.member_ensemble_row_count));
+      } else {
+        setText('completed-label', 'Completed'); setText('completed', `${fmt(done)} / ${fmt(total)}`);
+        setText('failures-label', 'Failures'); setText('failures', fmt(live.last_error ? 1 : (a.failure_count ?? d.failure_count ?? data.failure_stats?.rows ?? r.failure_count)));
+        setText('gate-rows-label', 'Gate rows'); setText('gate-rows', fmt(a.gate_row_count ?? d.gate_row_count ?? r.gate_residual_count ?? r.gate_rows));
+        setText('workers-label', 'Workers'); setText('workers', fmt(a.worker_count ?? d.worker_count ?? r.worker_count ?? '--'));
+      }
+      $('bar').style.width = pct + '%';
+      $('path').textContent = data.run_dir || '';
+      $('log').textContent = (data.log_tail || []).join('\n') || 'No log lines yet.';
+      const hasLive = Object.keys(live).length > 0;
+      $('live-panel').hidden = !hasLive;
+      if (hasLive) {
+        setText('live-phase', live.phase || '--');
+        setText('live-activity', live.current_activity || '--');
+        setText('live-action', live.last_action || '--');
+        $('live-error-row').hidden = !live.last_error;
+        setText('live-error', live.last_error || '');
+        $('live-plan').innerHTML = (live.plan || []).map(item => `<tr><td>${item.step}</td><td>${String(item.status || '--').toUpperCase()}</td></tr>`).join('') || '<tr><td colspan="2">No plan registered.</td></tr>';
+      }
+      const rows = [];
+      const classes = a.attribution_class_by_scenario || {};
+      Object.entries(classes).forEach(([scenario, counts]) => Object.entries(counts).forEach(([name, count]) => rows.push(`<tr><td>${scenario}</td><td>${name}</td><td class="num">${fmt(count)}</td></tr>`)));
+      $('classes').innerHTML = rows.join('') || '<tr><td colspan="3">No attribution classes yet.</td></tr>';
+      $('reachability-section').hidden = Object.keys(classes).length === 0;
+      const pressureRows = [];
+      const pressureClasses = a.three_way_pressure_list_by_scenario || {};
+      Object.entries(pressureClasses).forEach(([scenario, counts]) => Object.entries(counts).forEach(([name, count]) => pressureRows.push(`<tr><td>${scenario}</td><td>${name}</td><td class="num">${fmt(count)}</td></tr>`)));
+      $('pressure-classes').innerHTML = pressureRows.join('') || '<tr><td colspan="3">No pressure-list attribution yet.</td></tr>';
+      $('pressure-section').hidden = Object.keys(pressureClasses).length === 0;
+      const sensitivityRows = [];
+      const sensitivity = a.surface_factor_sensitivity_by_scenario || {};
+      Object.entries(sensitivity).forEach(([scenario, values]) => sensitivityRows.push(`<tr><td>${scenario}</td><td class="num">${fmt(values.balance_observation_interval_gate_count_factor_1p25)}</td><td class="num">${fmt(values.balance_observation_interval_gate_count_factor_1p00)}</td><td class="num">${fmt(values.extreme_envelope_all_gate_system_count_factor_1p25)}</td><td class="num">${fmt(values.extreme_envelope_all_gate_system_count_factor_1p00)}</td></tr>`));
+      $('surface-sensitivity').innerHTML = sensitivityRows.join('') || '<tr><td colspan="5">No surface-factor sensitivity yet.</td></tr>';
+      $('surface-section').hidden = Object.keys(sensitivity).length === 0;
+      const sectionClasses = d.consensus_class_counts || {};
+      $('section-audit-section').hidden = hasReadiness || Object.keys(sectionClasses).length === 0;
+      $('section-audit-classes').innerHTML = Object.entries(sectionClasses).map(([name, count]) => `<tr><td>${name}</td><td class="num">${fmt(count)}</td></tr>`).join('');
+      $('readiness-section').hidden = !hasReadiness;
+      const readinessRows = [['Status', routing.status], ['Millan scenario', routing.millan_scenario_available_count], ['Velocity strict anomalies', routing.velocity_strict_anomaly_count], ['Velocity selection weight', routing.stage2_velocity_selection_weight], ['Maximum MB residual', routing.maximum_absolute_mb_residual_kg_m2_yr]];
+      $('readiness-summary').innerHTML = readinessRows.map(row => `<tr><th>${row[0]}</th><td>${fmt(row[1])}</td></tr>`).join('');
+      const summaryRows = [['Status', s3p.state || s3s.status || a.status || d.status || r.status || live.state || '--'], ['Last system', s3p.current_task_key || `${p.last_scenario || p.last_rgi_id || ''} ${p.last_system_id || ''}`], ['Elapsed (s)', s3s.elapsed_seconds ?? a.elapsed_seconds ?? d.elapsed_seconds ?? r.elapsed_seconds ?? '--']];
+      $('summary').innerHTML = summaryRows.map(row => `<tr><th>${row[0]}</th><td>${fmt(row[1])}</td></tr>`).join('');
+    }
+    async function refresh() { try { const response = await fetch('/api/status?ts=' + Date.now()); render(await response.json()); } catch (error) { setText('state', 'OFFLINE'); $('state').className = 'state stale'; } }
+    $('refresh').addEventListener('click', refresh); refresh(); setInterval(refresh, 3000);
+  </script>
+</body>
+</html>

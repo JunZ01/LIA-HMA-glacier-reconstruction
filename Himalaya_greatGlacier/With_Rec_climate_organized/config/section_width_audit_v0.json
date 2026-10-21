@@ -1,0 +1,15 @@
+{
+  "run_id": "section-width-operator-audit-v0",
+  "method_version": "signed-interval-aware-section-audit-v0",
+  "attribution_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/attribution_preflight_v0",
+  "velocity_gate_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/velocity_gate_1205_stats.csv",
+  "gdir_root": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_bed_full_farinotti_v0/oggm_workdir/per_glacier",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/section_width_audit_v0",
+  "scenarios": {
+    "farinotti": "_f19_fs0_full_v0",
+    "millan": "_m22_fs0_full_v0"
+  },
+  "workers": 4,
+  "section_reproduction_relative_tolerance": 1e-9,
+  "width_reproduction_relative_tolerance": 1e-9
+}

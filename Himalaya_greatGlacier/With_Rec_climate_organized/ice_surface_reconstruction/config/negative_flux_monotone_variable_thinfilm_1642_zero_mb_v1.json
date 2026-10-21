@@ -1,0 +1,22 @@
+{
+  "experiment": "negative-flux-monotone-variable-thinfilm-v1",
+  "stage": "1642-representative-formal-zero-mb",
+  "system_id": 1642,
+  "synthetic_rgi_id": "RGI60-15.91642",
+  "inversion_root": {"anchor": "project", "sub": "w1642monothinfilmv3"},
+  "output_root": {"anchor": "project", "sub": "w1642monothinfilmzero60v1"},
+  "glen_a": 2.8279057824102704e-23,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-6
+  },
+  "authorization": {
+    "static_preflight_required": true,
+    "minimum_timestep_seconds": 60.0,
+    "steady_50y": false,
+    "historical": false
+  }
+}

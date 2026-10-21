@@ -1,0 +1,40 @@
+{
+  "experiment": "igm-3p2-planform2d-system2005-v1",
+  "stage": "formal-static-preflight",
+  "system_id": 2005,
+  "main_rgi_id": "RGI60-15.09991",
+  "paired_grid": "validation_data/results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_2005_RGI60-15.09991_system_grid_v1.nc",
+  "lia_network": "validation_data/results/paleo_surface_validation_v0/lia_gdir_anchor_reroute_core191_v3/2005/component_0/lia_centerline_network.pkl.gz",
+  "regional_dem": "D:/01 文件整理/04 数据/HMA_newregion/DEM_clip/Himalaya_3regions_DEM.tif",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_igm_planform2d_system2005_static_v1",
+  "padding_m": 5000.0,
+  "registered_lia_length_m": 25985.52229946727,
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 4.423276567913738,
+    "prcp_fac": 4.4304250713067,
+    "glen_a": 4.355770498109968e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 3.749750918800543,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "area_relative_error_max": 0.005,
+    "volume_relative_error_max": 0.005,
+    "hypsometry_cdf_error_max": 0.02,
+    "length_relative_error_max": 0.1,
+    "length_ice_threshold_m": 10.0,
+    "minimum_ice_to_grid_edge_m": 5000.0,
+    "bed_surface_closure_m_max": 0.001,
+    "numerical_negative_thickness_tolerance_m": 1e-6
+  },
+  "authorization": {
+    "igm_load_gpu_smoke_after_static_pass": true,
+    "zero_mb_0p1y": false,
+    "zero_mb_5y": false,
+    "steady_50y": false,
+    "historical": false,
+    "promotion": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "prepared-awaiting-github-auth",
+  "target_owner": "JunZ01",
+  "proposed_repository": "LIA-HMA-glacier-reconstruction",
+  "visibility": "private",
+  "export_root": "E:\\lia-gh-20261021-v2",
+  "source_files": 5222,
+  "exported_source_bytes": 38973195,
+  "notebooks_cleared": 10,
+  "potential_secret_findings": [],
+  "original_source_mutations": 0,
+  "github_repository_created": false,
+  "github_push_completed": false,
+  "prior_findings_resolved": "Four token-pattern matches were substrings of mask-/highrisk- identifiers; corrected word-boundary scan.",
+  "export_hash_mismatches": [],
+  "source_changes_during_export": [],
+  "checked_utc": "2026-10-21T02:40:13.249403+00:00"
+}

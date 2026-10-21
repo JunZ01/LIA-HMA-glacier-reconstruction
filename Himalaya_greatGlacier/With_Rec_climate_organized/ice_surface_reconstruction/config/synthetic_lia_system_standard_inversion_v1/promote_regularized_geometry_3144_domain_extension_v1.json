@@ -1,0 +1,10 @@
+{
+  "regularization_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/domain_3144_true_dem_extension_v2/regularization/summary.json",
+  "cases": [
+    {
+      "system_id": 3144,
+      "original_geometry_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/domain_3144_true_dem_extension_v2/geometry/geometry_summary.json",
+      "output": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/domain_3144_true_dem_extension_v2/regularization/system_3144/geometry_summary_formal.json"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "pilot_id": "stage1-turnover-pilot-farinotti-v1",
+  "parent_pilot_id": "stage1-turnover-pilot-farinotti-v0",
+  "method_version": "turnover-adaptive-equivalence-grid-v1",
+  "stage0_config_path": "config/stage0a_bed_full_farinotti_v0.json",
+  "stage0_output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_bed_full_farinotti_v0",
+  "manifest_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/system_manifest_work/system_manifest_245_v0.csv",
+  "velocity_gate_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/velocity_gate_1205_stats.csv",
+  "velocity_baseline_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/velocity_baseline_farinotti_stats.csv",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_v1",
+  "oggm_workdir_name": "oggm_workdir",
+  "lia_system_ids": [2692, 2907, 4637, 5180, 2619, 334, 1856, 3082],
+  "sample_roles": {
+    "2692": "review-system-large-membership",
+    "2907": "review-system-single-usable-gate",
+    "4637": "review-system-weak-mb-identifiability",
+    "5180": "baseline-near-observation",
+    "2619": "severe-baseline-speed-excess",
+    "334": "weak-slow-gates-only",
+    "1856": "unusable-gates-only",
+    "3082": "zero-fixed-section-operator-failure"
+  },
+  "candidate_generation": "adaptive-equivalence-grid",
+  "equivalence_candidate_count": 13,
+  "melt_f_bounds_kg_m2_day_k": [1.5, 17.0],
+  "mb_period": "2000-01-01_2020-01-01",
+  "strong_velocity_qc": ["usable", "weak-slow"],
+  "velocity_qc_weights": {
+    "usable": 1.0,
+    "weak-slow": 0.25
+  },
+  "mb_residual_tolerance_kg_m2_yr": 0.1,
+  "baseline_speed_reproduction_relative_tolerance": 1e-6,
+  "fixed_thickness_filesuffix": "_f19_fs0_full_v0",
+  "surface_to_integrated_speed_factor": 1.25,
+  "use_multiprocessing": false,
+  "mp_processes": 1,
+  "border": 240
+}

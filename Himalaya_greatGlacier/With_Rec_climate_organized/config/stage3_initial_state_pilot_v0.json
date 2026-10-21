@@ -1,0 +1,110 @@
+{
+  "run_id": "stage3-initial-state-pilot-v0",
+  "method_version": "system-geometry-timing-bisection-v0",
+  "readiness_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0",
+  "manifest_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/system_manifest_work/system_manifest_245_v0.csv",
+  "timing_registry_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/lia_timing_work/lia_timing_registry_245.csv",
+  "modern_geometry_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/target_rgi60_1205_esri102027.gpkg",
+  "lia_geometry_path": "../Him_10_lia_with_large.shp",
+  "surface_dem_path": "D:/01 \u6587\u4ef6\u6574\u7406/04 \u6570\u636e/HMA_newregion/DEM_clip/Himalaya_3regions_DEM.tif",
+  "stage0_source_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_bed_full_farinotti_v0",
+  "stage0_inversion_filesuffix": "_f19_fs0_full_v0",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage3_initial_state_pilot_v0",
+  "oggm_workdir_path": "../../s3w/p0",
+  "wave_output_dirs": {
+    "operator-smoke": "operator-smoke-v10",
+    "turnover-pilot": "turnover-pilot-v10",
+    "climate-replication": "climate-replication-v10"
+  },
+  "model_filesuffix_tag": "s3p0v10",
+  "border": 240,
+  "pilot_system_count": 12,
+  "pilot_region_count": 4,
+  "pilot_per_region": 3,
+  "pilot_area_quantiles": [0.25, 0.5, 0.75],
+  "required_review_system_ids": [2692, 2907, 4637],
+  "climate_members": [
+    {
+      "climate_id": "ensemble_6",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_6.nc"
+    },
+    {
+      "climate_id": "ensemble_9",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_9.nc"
+    },
+    {
+      "climate_id": "ensemble_all_methods",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_all_methods.nc"
+    },
+    {
+      "climate_id": "ensemble_my_methods",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_my_methods.nc"
+    },
+    {
+      "climate_id": "ensemble_rec_ref",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc"
+    },
+    {
+      "climate_id": "ensemble_rec_result",
+      "path": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_result.nc"
+    }
+  ],
+  "operator_smoke_climate_id": "ensemble_rec_ref",
+  "operator_smoke_ensemble_role": "mid-turnover",
+  "maximum_reconstruction_pixel_distance_m": 100000.0,
+  "hypsometry_quantiles": [0.1, 0.25, 0.5, 0.75, 0.9],
+  "minimum_hypsometry_pixels": 100,
+  "length_polygon_buffer_grid_cells": 1.0,
+  "geometry_weights": {
+    "area": 0.5,
+    "length": 0.3,
+    "hypsometry": 0.2
+  },
+  "geometry_tolerances": {
+    "area_relative": 0.15,
+    "length_relative": 0.15,
+    "hypsometry_rmse_m": 200.0
+  },
+  "spinup": {
+    "zero_initial_glacier": true,
+    "years": 600,
+    "extension_step_years": 300,
+    "maximum_years": 1200,
+    "climate_center_year": 1015,
+    "climate_halfsize_years": 15,
+    "transient_start_year": 1000,
+    "offset_taper_end_year": 1050,
+    "convergence_window_years": 50,
+    "maximum_area_change_fraction": 0.02
+  },
+  "search": {
+    "cold_offset_k": -4.0,
+    "warm_offset_k": 1.0,
+    "minimum_cold_offset_k": -6.0,
+    "maximum_warm_offset_k": 4.0,
+    "bracket_expansion_step_k": 1.0,
+    "zero_initial_area_tolerance_km2": 1e-6,
+    "minimum_insensitive_candidate_count": 3,
+    "minimum_insensitive_offset_span_k": 2.0,
+    "maximum_insensitive_area_log_residual_span": 0.005,
+    "maximum_insensitive_geometry_score_span": 0.01,
+    "maximum_insensitive_best_year_span": 5,
+    "maximum_iterations": 12,
+    "minimum_offset_interval_k": 0.05,
+    "domain_boundary_offset_tolerance_k": 0.25,
+    "area_log_tolerance": 0.05
+  },
+  "execution": {
+    "resume": true,
+    "retain_all_candidate_model_files_for_pilot": true,
+    "use_multiprocessing": false,
+    "mp_processes": 1,
+    "candidate_process_isolation": true,
+    "candidate_timeout_seconds": 7200
+  },
+  "expected_readiness_systems": 245,
+  "expected_core_systems": 191,
+  "expected_system_ensemble_rows": 573,
+  "expected_member_ensemble_rows": 2850,
+  "expected_climate_members": 6
+}

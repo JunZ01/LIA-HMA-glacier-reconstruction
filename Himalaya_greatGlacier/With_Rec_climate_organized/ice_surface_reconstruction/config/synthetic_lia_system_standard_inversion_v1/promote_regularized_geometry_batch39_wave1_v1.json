@@ -1,0 +1,11 @@
+{
+  "regularization_summary": "w600reggeom_batch39_wave1_v1/summary.json",
+  "cases": [
+    {"system_id": 3906, "original_geometry_summary": "w588geom3906v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_3906/geometry_summary_formal.json"},
+    {"system_id": 3907, "original_geometry_summary": "w589geom3907v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_3907/geometry_summary_formal.json"},
+    {"system_id": 2727, "original_geometry_summary": "w593geom2727v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_2727/geometry_summary_formal.json"},
+    {"system_id": 558, "original_geometry_summary": "w594geom558v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_558/geometry_summary_formal.json"},
+    {"system_id": 2538, "original_geometry_summary": "w598geom2538v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_2538/geometry_summary_formal.json"},
+    {"system_id": 2141, "original_geometry_summary": "w599geom2141v1/geometry_summary.json", "output": "w600reggeom_batch39_wave1_v1/system_2141/geometry_summary_formal.json"}
+  ]
+}

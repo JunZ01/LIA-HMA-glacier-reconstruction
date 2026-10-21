@@ -1,0 +1,80 @@
+# Temporary files and local caches
+_tmp/
+**/node_modules/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+*.log
+*.tmp
+*.bak
+*~
+
+# Raw and generated scientific arrays
+*.nc
+*.nc4
+*.h5
+*.hdf5
+*.mat
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.parquet
+*.feather
+*.ndjson
+*.zarr/
+
+# Raster and vector data products
+*.tif
+*.tiff
+*.ovr
+*.vrt
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.sbn
+*.sbx
+*.qix
+*.xml
+
+# Download archives and generated media
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.xlsx
+*.xls
+
+# Operating-system and editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+*.sr.lock
+
+# JSON/CSV registries, Markdown, notebooks, and source code remain trackable.
+
+# Local OGGM run state is reproducible but too large/noisy for Git.
+outputs/**/oggm_workdir/
+outputs/**/oggm_cache/
+outputs/**/oggm_tmp/
+outputs/**/oggm_rgi/
+outputs/**/oggm_tests/
+
+# Superseded local turnover-pilot development runs; v2 is the audited artifact.
+outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_v0/
+outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_v1/
+
+# Persistent local dashboard runtime state.
+outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/live_monitor/

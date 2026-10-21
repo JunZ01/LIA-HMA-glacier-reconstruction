@@ -1,0 +1,9 @@
+## 300. Noise-free residual-variance ablation boundary (2026-08-20)
+
+- Round 164 replayed the exact noise-free perfect-model twin at residual-variance scales `1`, `0.25`, `0.0625`, `0.01`, and `0.0001`. These were diagnostic ablations, not production candidates or selected hyperparameters.
+- The archived-R equal-network HMA ratio-of-median-RMSE skill exactly closes Round 161 at `0.2787`. Reducing R monotonically raises it to `0.4816` at scale `0.0001`, still below the frozen `0.50` gate. Residual-error shrinkage therefore explains most, but not all, of the idealized recovery deficit.
+- Near-zero-R proxy9 reaches HMA skill `0.4909`, proxy6 `0.4453`, and their simple posterior average `0.4816`. The equal average is not better than the stronger network. Regionally the equal branch reaches `0.5707` west and `0.5470` east but only `0.4476` central HMA.
+- Modal transfer confirms unequal rather than scalar attenuation. At archived R, equal-network slopes for modes 1-6 are `0.868`, `0.724`, `0.446`, `0.252`, `0.336`, and `0.254`; near-zero R raises them to `0.985`, `1.040`, `0.808`, `0.864`, `0.846`, and `0.864`, but mode-6 RMSE skill remains only `0.294` because its direction/case transfer is unstable.
+- Decision: stop reducing R. The next perfect-model mechanism test must compare the current mean of two separately assimilated network posteriors with one joint proxy6+proxy9 assimilation. This tests information fusion directly without localization, real-data tuning, or a new PSM.
+- Round 164 used no actual proxy observations or instrumental values, accessed no 1921-1939 or Jionglacuo value, changed no declared source, and ran neither production reconstruction nor OGGM. Evidence is in `validation_data/results/paleo_surface_validation_v0/climate_reconstruction_improvement_loop_v2/round_164_temperature_twin_residual_variance_ablation_v1/`.
+

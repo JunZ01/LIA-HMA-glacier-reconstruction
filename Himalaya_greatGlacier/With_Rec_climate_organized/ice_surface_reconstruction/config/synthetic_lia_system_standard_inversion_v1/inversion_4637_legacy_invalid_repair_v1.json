@@ -1,0 +1,32 @@
+{
+  "experiment": "synthetic-lia-system-standard-inversion-v2",
+  "stage": "legacy-invalid-outline-topology-repair-standard-inversion-v1",
+  "system_id": 4637,
+  "main_rgi_id": "RGI60-14.11859",
+  "synthetic_rgi_id": "RGI60-14.94637",
+  "geometry_summary": {"anchor": "project", "sub": "wcr10legacyinvalid5staticv1/system_4637/geometry/geometry_summary.json"},
+  "geometry_gdir_base": {"anchor": "project", "sub": "wcr10legacyinvalid5staticv1/system_4637/geometry/synthetic_gdir"},
+  "paired_grid": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_4637_RGI60-14.11859_system_grid_v1.nc"},
+  "source_gdir_root": {"anchor": "repo", "sub": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier"},
+  "climate_pixels": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv"},
+  "climate_id": "ensemble_rec_ref",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "output_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_legacy_invalid5_repair_v1/system_4637/inversion_v1"},
+  "flowline_dx": 2.0,
+  "registered_lia_length_m": 10826.95265641254,
+  "spinup_window": [1441, 1470],
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 3.28974567087962,
+    "prcp_fac": 3.326003400559113,
+    "glen_a": 1.3660888984628624e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": -4.613800057600861,
+    "delta_t_c": 0.75,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {"reverse_slope_tolerance_m": 1e-7, "model_area_relative_error_max": 0.1, "root_length_relative_error_max": 0.1, "minimum_free_downstream_m": 5000.0},
+  "authorization": {"zero_mb": false, "steady_50y": false, "historical": false},
+  "registered_parent_task": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_4637/B_delta_boundary_extension_v1/65b9d6877ec2ba70/task.json"
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "experiment": "true-mainline-area-equivalent-width-conservative-rectangular-v1",
+  "system_id": 3850,
+  "bed_scenario": "farinotti2019",
+  "paired_source_grid": "validation_data/results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_3850_RGI60-14.15895_system_grid_v1.nc",
+  "paired_network": "validation_data/results/paleo_surface_validation_v0/lia_gdir_anchor_reroute_core191_v3/3850/component_0/lia_centerline_network.pkl.gz",
+  "lia_outline": "Himalaya_greatGlacier/Him_10_lia_with_large.shp",
+  "length_references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+  "parent_chain_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_3850/B_delta_boundary_extension_v1/4bee8f7272a0ad45/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle3/true_mainline_area_equivalent_width_conservative_rectangular_v1/preflight_3850_v1",
+  "target_node_spacing_m": 50.0,
+  "downstream_safety_buffer_m": 200000.0,
+  "downstream_bed_slope": 0.01,
+  "thickness_positive_tolerance_m": 1e-6,
+  "optimization": {
+    "method": "SLSQP",
+    "maximum_iterations": 4000,
+    "function_tolerance": 1e-10,
+    "constraint_tolerance_m": 1e-7,
+    "volume_constraint_tolerance_fraction": 1e-9,
+    "sample_rounding_decimals": 8
+  },
+  "static_gates": {
+    "length_relative_error_max": 1e-10,
+    "area_relative_error_max": 0.005,
+    "volume_relative_error_max": 0.005,
+    "hypsometry_100m_cumulative_error_max": 0.02,
+    "reverse_surface_slope_count_max": 0,
+    "negative_thickness_count_max": 0,
+    "omitted_positive_cell_count_max": 0,
+    "duplicated_positive_cell_count_max": 0
+  },
+  "zero_mb": {
+    "checkpoints_years": [0.1, 5.0],
+    "volume_drift_absolute_fraction_max": 0.001,
+    "terminal_thickness_m_max": 10.0,
+    "fs": 0.0,
+    "check_for_boundaries": true
+  },
+  "historical_chain_authorized": false
+}

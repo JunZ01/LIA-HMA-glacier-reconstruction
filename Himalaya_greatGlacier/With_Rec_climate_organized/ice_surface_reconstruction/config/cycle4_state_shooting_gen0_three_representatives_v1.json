@@ -1,0 +1,70 @@
+{
+  "experiment_id": "cycle4_state_shooting_gen0_three_representatives_v1",
+  "generation": 0,
+  "members_per_system": 18,
+  "max_workers": 12,
+  "maximin_lhs_candidate_designs": 4096,
+  "overall_invalid_stop_fraction": 0.30,
+  "svd_relative_rank_threshold": 0.05,
+  "svd_absolute_rank_threshold": 1e-8,
+  "global_delta_t_range_c": [-3.0, 1.5],
+  "q_v_range": [0.7, 1.3],
+  "z_shape_range": [-1.0, 1.0],
+  "representatives": [
+    {
+      "system_id": 2727,
+      "rgi_id": "RGI60-15.07073",
+      "area_km2": 11.958,
+      "parent_delta_t_c": 0.5,
+      "parent_formal_objective_sep": 6.896859527415575,
+      "lhs_seed": 42727,
+      "parent_task_path": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/runs/system_2727/B_delta_t_profile_stage2_physics/b1d5eb3a14a534c0/task.json",
+      "parent_physics": {"melt_f": 2.7154421322857, "prcp_fac": 2.89354347890094, "glen_a": 1.87920233981451e-23, "fs": 0.0, "temp_bias": 0.0, "temp_melt_c": -1.0}
+    },
+    {
+      "system_id": 2559,
+      "rgi_id": "RGI60-13.26642",
+      "area_km2": 22.931,
+      "parent_delta_t_c": 1.0,
+      "parent_formal_objective_sep": 2.0317020371124856,
+      "lhs_seed": 42559,
+      "parent_task_path": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/runs/system_2559/B_delta_t_profile_stage2_physics/b00a48170dce2cad/task.json",
+      "parent_physics": {"melt_f": 4.27195652392846, "prcp_fac": 3.67236186057523, "glen_a": 2.59537935175261e-23, "fs": 0.0, "temp_bias": 0.0, "temp_melt_c": -1.0}
+    },
+    {
+      "system_id": 5180,
+      "rgi_id": "RGI60-14.15008",
+      "area_km2": 43.617,
+      "parent_delta_t_c": 0.375,
+      "parent_formal_objective_sep": 0.7755566383475212,
+      "lhs_seed": 45180,
+      "parent_task_path": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_5180/B_delta_boundary_extension_v1/84c6be2bd9ef29bc/task.json",
+      "parent_physics": {"melt_f": 2.343273191976388, "prcp_fac": 4.105094429034675, "glen_a": 5.279634265120009e-24, "fs": 0.0, "temp_bias": 0.0, "temp_melt_c": -1.0}
+    }
+  ],
+  "member_contract": {
+    "ensemble_role": "mid-turnover",
+    "climate_id": "ensemble_rec_ref",
+    "prcp_mode": "off",
+    "shooting_window_start": 1441,
+    "shooting_window_end": 1470,
+    "shooting_years": 200,
+    "forward_start_year": 1470,
+    "forward_end_year": 2000,
+    "zero_mb_checkpoints_years": [0.1, 5.0],
+    "fixed_dt_days": 1.25,
+    "geometry": {"q_v_min": 0.7, "q_v_max": 1.3, "z_shape_min": -1.0, "z_shape_max": 1.0, "active_thickness_epsilon_m": 1e-6, "surface_monotonic_tolerance_m": 1e-7, "identity_float_tolerance": 0.0, "area_relative_tolerance": 1e-12, "volume_relative_tolerance": 1e-12, "registered_length_relative_tolerance": 0.1},
+    "gates": {"zero_mb_max_relative_volume_drift": 0.001, "terminal_array_end_max_thickness_m": 10.0, "shooting_max_absolute_signed_volume_change": 0.02, "total_length_relative_tolerance": 0.1, "separation_relative_tolerance": 0.2, "observation_domain_overflow_thickness_m": 10.0}
+  },
+  "paths": {
+    "facts": "LIA_PROJECT_FACTS.md",
+    "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+    "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+    "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+    "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+    "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+    "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+    "workdir_root": "w191_cycle4_state_shooting_gen0_v1",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle4/state_shooting_eki_v1/gen0_three_representatives_v1"
+  }
+}

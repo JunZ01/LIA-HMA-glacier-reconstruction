@@ -1,0 +1,7 @@
+{
+  "schema": "lia-191-system2005-terminal-retreat-gap-adjudication-config-v1",
+  "ledger_root": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_internal_gap_ledger_50y_v2",
+  "reference_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_network_topology_adaptive_split_system2005_steady_50y_coldm0p125_6hour_v1/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_terminal_retreat_gap_adjudication_v1",
+  "flowline_dx_m": 50.0
+}

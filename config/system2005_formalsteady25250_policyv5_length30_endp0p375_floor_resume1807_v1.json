@@ -1,0 +1,51 @@
+{
+  "experiment": "lia-191-system2005-policyv5-length30-endp0p375-floor-resume1807-v1",
+  "stage": "resume1807-to-2000-v9-policyv5-floor-adaptive",
+  "system_id": 2005,
+  "main_rgi_id": "RGI60-15.09991",
+  "synthetic_rgi_id": "RGI60-15.92005",
+  "inversion_root": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_2005",
+  "steady_root": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/lia_191_system2005_terminal_retreat_gap_adjudication_v2",
+  "output_root": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/s2005fs25250p5h0375floorresume1807v1",
+  "tributary_separation_policy": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/lia_191_disconnection_diagnostic_length30_policy_v5/contract.json",
+  "climate_pixels": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+  "climate_id": "ensemble_rec_ref",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "start_year": 1470,
+  "end_year": 2000,
+  "forward_delta_t_end_c": 0.375,
+  "maximum_timestep_seconds": 43200.0,
+  "minimum_timestep_seconds": 30.0,
+  "section_solver_interior_floor_m2": 0.0,
+  "active_set_tolerance": 1E-13,
+  "boundary_canonicalization_tolerance_m2": 1E-09,
+  "active_thickness_tolerance_m": 1E-06,
+  "lia_registered_length_m": 25985.52229946727,
+  "rgi_registered_length_m": 23308.5403923166,
+  "stage2": {
+    "melt_f": 4.423276567913738,
+    "prcp_fac": 4.4304250713067,
+    "glen_a": 4.355770498109968E-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 3.749750918800543,
+    "delta_t_c": -0.125,
+    "prcp_anomaly_mode": "off"
+  },
+  "formal_gates": {
+    "total_length_error_max": 0.1,
+    "separation_length_error_max": 0.3,
+    "observation_domain_overflow_allowed": false,
+    "runtime_error_allowed": false,
+    "initial_peak_hard_bound": true
+  },
+  "adaptive_timestep_fallback_errors": [
+    "KKT-stationarity:",
+    "affine-active-set-maximum-iterations"
+  ],
+  "adaptive_timestep_retry_factor": 0.5,
+  "resume_import_checkpoint_manifest": "E:/3spyderProject/1_LIA_himalaya_oggm/validation_data/results/paleo_surface_validation_v0/s2005fs25250p5h0375adaptivev1/checkpoints/year_1807/manifest.json",
+  "resume_import_checkpoint_schema": "lia-191-system2005-historical-checkpoint-v3-adaptive",
+  "resume_import_contract_sha256": "b78c5f17e017a0aa3f6d7beac050d59aa3407d51f37c0fe13e1cfcc7402ccfb1",
+  "resume_import_state_sha256": "adaa5c7a1cafce8194bd0ed121b42e1cdf83f23ec8fec0f197d47b431e38a8f9"
+}

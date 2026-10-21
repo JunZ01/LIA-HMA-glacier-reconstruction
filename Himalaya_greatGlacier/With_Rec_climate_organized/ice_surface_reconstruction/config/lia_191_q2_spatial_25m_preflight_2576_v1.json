@@ -1,0 +1,16 @@
+{
+  "project_root": ".",
+  "system_ids": [2576],
+  "task_manifest": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle1/Q2_25m_promotion35_v1/task_manifest.csv",
+  "core_25m_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_cycle1_25m_q2_promotion35_v1_buffer200km",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle2/Q2_spatial_25m_preflight_2576_v1",
+  "required_node_dx_m": 25.0,
+  "safety_tail_m": 5000.0,
+  "minimum_safety_tail_slope_deg": 1.0,
+  "trapezoid_lambda": 2.0,
+  "zero_mb_checkpoints_years": [0.1, 5.0],
+  "zero_mb_glen_a": 2.4e-24,
+  "zero_mb_fs": 0.0,
+  "zero_mb_volume_gate_fraction": 0.001,
+  "historical_chain_release": false
+}

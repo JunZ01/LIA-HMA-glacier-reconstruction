@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "experiment": "deterministic-invalid-lia-polygon-topology-repair-v2",
+  "stage": "invalid-outline-highrisk3-independent-static-batch-v1",
+  "output_root": {"anchor": "project", "sub": "wcr10invpoly_highrisk3v1"},
+  "topology_repair_gates": {"maximum_area_relative_change": 1e-12, "maximum_boundary_hausdorff_distance_m": 1e-6, "required_explicit_hole_count_change": 1, "raster_support_dx_m": 25.0, "maximum_raster_support_changed_cells": 0, "required_output_geometry_type": "Polygon"},
+  "cases": [
+    {"system_id": 1639, "source_geometry_config": {"anchor": "project", "sub": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/geometry_1639_highrisk_rebuild_v1.json"}},
+    {"system_id": 2692, "source_geometry_config": {"anchor": "project", "sub": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/geometry_2692_highrisk_rebuild_v1.json"}},
+    {"system_id": 5508, "source_geometry_config": {"anchor": "project", "sub": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/geometry_5508_highrisk_rebuild_v1.json"}}
+  ],
+  "authorization": {"inversion_on_geometry_pass": false, "zero_mb_on_geometry_pass": false, "steady_50y": false, "historical": false, "promotion": false},
+  "predecessor": "lia_191_current_route_v10_25"
+}

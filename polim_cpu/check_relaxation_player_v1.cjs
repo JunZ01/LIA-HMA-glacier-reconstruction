@@ -1,0 +1,16 @@
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const root=path.resolve(__dirname,'reports/fixed-material-relaxation-v1');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const ids=[...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
+const elements={};for(const id of ids)elements[id]={value:'0',max:'24',textContent:'',innerHTML:'',src:'',addEventListener(event,fn){this[event]=fn;}};
+let callback=null;const ctx={window:{},document:{getElementById(id){if(!elements[id])throw Error('Missing element '+id);return elements[id];}},setInterval(fn){callback=fn;return 1},clearInterval(){callback=null}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'data.js'),'utf8'),ctx);
+for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))vm.runInContext(script[1],ctx);
+const assert=(value,label)=>{if(!value)throw Error(label)};
+assert(elements.clock.textContent==='0 小时','initial');elements.time.value='12';elements.time.input();assert(elements.clock.textContent==='12 小时','slider');
+elements.play.onclick();for(let i=0;i<12;i++)callback();assert(elements.clock.textContent==='24 小时'&&callback===null,'play finish');
+elements.play.onclick();assert(elements.clock.textContent==='0 小时','replay');elements.play.onclick();assert(callback===null,'pause');
+assert(elements.outcome.textContent.includes(ctx.window.RELAXATION_DATA.peak_change_percent.toFixed(2)),'outcome');
+for(const image of [...ctx.window.RELAXATION_DATA.images,'history.png'])assert(fs.existsSync(path.join(root,image)),image);
+const result={status:'pass',initial:true,slider:true,play:true,replay:true,pause:true,outcome:true,all_images_exist:true,scope:'Actual delivered JavaScript executed in a minimal Node DOM/timer harness; not native browser automation'};
+fs.writeFileSync(path.join(root,'player-check.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));

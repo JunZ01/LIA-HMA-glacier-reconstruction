@@ -1,0 +1,6 @@
+## 310. Correction: Zhu 2011 ResearchGate data candidate (2026-08-21)
+
+- Section 309's closure of anonymous public recovery is too broad and is superseded for one remaining route. ResearchGate's indexed publication page explicitly lists two supplementary Data resources: `Zhuetal2011P3.xls` and `A summer temperature reconstruction for southeast Tibetan Plateau, China`; the parent page displays a download label for the XLS resource.
+- The indexed XLS metadata page is `https://www.researchgate.net/publication/355473374_Zhuetal2011P3xls`. A direct programmatic request returned HTTP 403, so the existence of an anonymously downloadable file is not yet confirmed; the resource may require an authenticated browser session.
+- Decision: reopen Zhu 2011 public recovery only for this exact ResearchGate access check. Do not reopen broader publisher/repository searching. If downloaded, save the file unopened and hash it before a separately contracted parser skips 1921-1939 rows before value decoding.
+- No file, spreadsheet cell, annual value, locked-period value, or Jionglacuo value has been opened. No EnKF or OGGM run occurred. Evidence is in `validation_data/results/paleo_surface_validation_v0/climate_reconstruction_improvement_loop_v2/round_174_zhu2011_researchgate_candidate_access_v1/`.

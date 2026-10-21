@@ -1,0 +1,81 @@
+{
+  "experiment": "synthetic-lia-nodal-apparent-mb-least-change-v1",
+  "stage": "system-1642-standard-inversion-static-pilot-v1",
+  "system_id": 1642,
+  "main_rgi_id": "RGI60-15.03422",
+  "synthetic_rgi_id": "RGI60-15.91642",
+  "geometry_summary": {
+    "anchor": "project",
+    "sub": "w601reggeom_batch39_wave2_v1/system_1642/geometry_summary_formal.json"
+  },
+  "geometry_gdir_base": {
+    "anchor": "project",
+    "sub": "w601reggeom_batch39_wave2_v1/system_1642/synthetic_gdir"
+  },
+  "paired_grid": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_1642_RGI60-15.03422_system_grid_v1.nc"
+  },
+  "source_gdir_root": {
+    "anchor": "repo",
+    "sub": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier"
+  },
+  "climate_pixels": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv"
+  },
+  "climate_id": "ensemble_rec_ref",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "projection_audit": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_nodal_apparent_mb_least_change_audit_1642_v1/summary.json"
+  },
+  "projection_nodes": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_nodal_apparent_mb_least_change_audit_1642_v1/system_1642_node_projection.csv"
+  },
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_nodal_apparent_mb_least_change_pilot_1642_v1/inversion"
+  },
+  "flowline_dx": 2.0,
+  "registered_lia_length_m": 18771.112271745365,
+  "spinup_window": [1441, 1470],
+  "maximum_source_flux_relative_difference": 1e-12,
+  "maximum_system_total_flux_relative_error": 1e-12,
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 4.988689535833567,
+    "prcp_fac": 4.4304250713067,
+    "glen_a": 2.8279057824102704e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 0.0,
+    "delta_t_c": 0.5,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "reverse_slope_tolerance_m": 1e-7,
+    "model_area_relative_error_max": 0.1,
+    "root_length_relative_error_max": 0.1,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "authorization": {
+    "inversion": true,
+    "formal_static_rescore": true,
+    "zero_mb": false,
+    "steady_50y": false,
+    "historical": false
+  },
+  "frozen_fields": [
+    "outline",
+    "widths",
+    "bed_h",
+    "surface_h",
+    "flowline topology",
+    "climate",
+    "Stage2 parameters",
+    "length scoring",
+    "system-total integrated apparent mass flux"
+  ]
+}

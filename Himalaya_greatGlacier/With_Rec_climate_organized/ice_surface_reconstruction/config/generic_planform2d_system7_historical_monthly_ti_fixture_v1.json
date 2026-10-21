@@ -1,0 +1,47 @@
+{
+  "schema": "lia-191-generic-historical-climate-export-config-v1",
+  "system_id": 7,
+  "main_rgi_id": "RGI60-15.01141",
+  "synthetic_rgi_id": "RGI60-15.90007",
+  "climate_id": "ensemble_rec_ref",
+  "start_year": 1470,
+  "end_year": 2000,
+  "inversion_root": "w194inv7v4",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "reconstruction_climate_sha256": "CC55E3D2772E6B2932895A54A77CB89339B0B24090FBC484E72FA681D7298ADD",
+  "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+  "climate_pixels_sha256": "3589D5B9D7FC31A0A0932BFD8139BB5E14DD435D7783ECC21EC186CB43C6BAB9",
+  "baseline_climate": "w194inv7v4/synthetic_gdir/RGI60-15/RGI60-15.90/RGI60-15.90007/climate_historical.nc",
+  "baseline_climate_sha256": "B8BD0B6A80E607FAACA9F8FF0D1CEC5BAE992F1758FE3D6582BE60F6D4682A4D",
+  "geology": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system7_static_adapter_fixture_v1/geology.nc",
+  "geology_sha256": "81EC68A01CA238FB9ECAB2868D305D0693B79A02C2AF894B7F1C619607ACABB2",
+  "adapter_inputs": {
+    "static_summary": {
+      "path": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system7_static_adapter_fixture_v1/static_summary.json",
+      "sha256": "D75C11E26C3F38232281F19E5EF3CE887DCB176FE816AA833963929C95FB2B58"
+    },
+    "upstream_steady_evidence": {
+      "path": "w201steady7dt0reprov1/steady_50y_summary.json",
+      "sha256": "988592286303A7DABDBCADAB0022BE04F343785D355BC27C643A7835C0EA6DF6"
+    },
+    "upstream_config_snapshot": {
+      "path": "w201steady7dt0reprov1/config_snapshot.json",
+      "sha256": "202630FBD0541217C749E2B7A1840D85291CCD3EFC8FC13236A24E716E54012D"
+    }
+  },
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system7_historical_monthly_ti_fixture_v1",
+  "stage2": {
+    "ensemble_role": "registered-system7",
+    "melt_f": 4.251417112954096,
+    "prcp_fac": 3.700876313134807,
+    "glen_a": 2.0192715122972482e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": -4.718391089499534,
+    "delta_t_c": 0.0,
+    "prcp_anomaly_mode": "off"
+  },
+  "production_temperature_modified": false,
+  "initial_thickness_modification_allowed": false,
+  "model_launch": false
+}

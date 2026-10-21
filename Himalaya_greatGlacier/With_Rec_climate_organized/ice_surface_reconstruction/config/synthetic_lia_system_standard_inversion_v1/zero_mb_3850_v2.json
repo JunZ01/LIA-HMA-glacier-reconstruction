@@ -1,0 +1,25 @@
+{
+  "experiment": "synthetic-lia-system-standard-inversion-v1",
+  "stage": "zero-mb",
+  "system_id": 3850,
+  "synthetic_rgi_id": "RGI60-14.93850",
+  "inversion_root": {"anchor": "project", "sub": "w181inv3850v2"},
+  "output_root": {"anchor": "project", "sub": "w181zero3850v2"},
+  "glen_a": 7.375294604960076e-24,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-6,
+    "observation_domain_overflow_thickness_m": 10.0
+  },
+  "authorization": {
+    "steady_50y": false,
+    "historical": false
+  },
+  "pre_run_history": {
+    "v1": "volume and mass-budget gates passed but observation-domain gate was omitted",
+    "v2_change": "independent rerun with initial root active-node observation domain and 10 m overflow threshold"
+  }
+}

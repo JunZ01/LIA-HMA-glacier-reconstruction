@@ -1,0 +1,256 @@
+﻿<div id="core191-routing-scatters">
+  <h2>可直接比较的 148 条退缩系统：分组端点误差</h2>
+  <div class="plots"></div>
+  <div class="tooltip" role="tooltip" hidden></div>
+</div>
+
+<style>
+  #core191-routing-scatters {
+    position: relative;
+    width: 100%;
+    color: var(--foreground);
+  }
+  #core191-routing-scatters h2,
+  #core191-routing-scatters h3 {
+    font-weight: 500;
+  }
+  #core191-routing-scatters h2 {
+    margin: 0 0 12px;
+  }
+  #core191-routing-scatters h3 {
+    margin: 0 0 4px;
+  }
+  #core191-routing-scatters .plots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+  #core191-routing-scatters .plot-panel {
+    min-width: 0;
+  }
+  #core191-routing-scatters .plot-note {
+    min-height: 20px;
+    margin-bottom: 3px;
+    color: var(--muted-foreground);
+  }
+  #core191-routing-scatters .chart-host {
+    width: 100%;
+    min-height: 330px;
+  }
+  #core191-routing-scatters .routing-scatter {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #core191-routing-scatters .routing-scatter text {
+    fill: var(--foreground);
+    font-size: 12px;
+  }
+  #core191-routing-scatters .routing-scatter .domain,
+  #core191-routing-scatters .routing-scatter .tick line,
+  #core191-routing-scatters .routing-scatter [data-chart-frame] {
+    stroke: var(--border);
+  }
+  #core191-routing-scatters .routing-scatter .domain {
+    display: none;
+  }
+  #core191-routing-scatters .routing-scatter .gate {
+    stroke: var(--foreground);
+    stroke-opacity: 0.55;
+    stroke-dasharray: 5 4;
+  }
+  #core191-routing-scatters .tooltip {
+    position: absolute;
+    z-index: 20;
+    max-width: 240px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    background: var(--popover);
+    color: var(--popover-foreground);
+    pointer-events: none;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 736px) {
+    #core191-routing-scatters .plots {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+(() => {
+  const root = document.getElementById('core191-routing-scatters');
+  const plots = root.querySelector('.plots');
+  const tooltip = root.querySelector('.tooltip');
+  const points = __ROUTING_POINTS__;
+  const gate = 0.2;
+  const definitions = [
+    { route: 'neither', title: '两端均不可达', note: '103 条：LIA 与 RGI 的最小误差都超过 0.20', color: 'var(--viz-series-1)' },
+    { route: 'rgi_only', title: '仅 RGI 可达', note: '38 条：现代端点可达，LIA 状态不可达', color: 'var(--viz-series-2)' },
+    { route: 'lia_only', title: '仅 LIA 可达', note: '5 条：LIA 状态可达，现代端点不可达', color: 'var(--viz-series-3)' },
+    { route: 'endpoint_tradeoff_melt_f_delta_t_closed', title: '两端分别可达但无法同链匹配', note: '2259、4959：melt_f–ΔT 局部方向已关闭', color: 'var(--viz-series-4)' }
+  ];
+
+  definitions.forEach(def => {
+    const panel = document.createElement('section');
+    panel.className = 'plot-panel';
+    panel.innerHTML = `<h3>${def.title}</h3><div class="plot-note">${def.note}</div><div class="chart-host"></div>`;
+    plots.appendChild(panel);
+    const host = panel.querySelector('.chart-host');
+    const subset = points.filter(point => point.route === def.route);
+    const observer = new ResizeObserver(() => draw(host, subset, def));
+    observer.observe(host);
+    draw(host, subset, def);
+  });
+
+  function draw(host, data, def) {
+    host.replaceChildren();
+    const width = Math.max(320, Math.floor(host.getBoundingClientRect().width || 480));
+    const height = 330;
+    const margin = { top: 10, right: 20, bottom: 58, left: 68 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const extentX = d3.extent(data, point => point.eLia);
+    const extentY = d3.extent(data, point => point.eRgi);
+    const maxX = Math.max(gate, extentX[1] || gate);
+    const maxY = Math.max(gate, extentY[1] || gate);
+    const x = d3.scaleLinear()
+      .domain([0, maxX * 1.08])
+      .nice()
+      .range([0, innerWidth]);
+    const y = d3.scaleLinear()
+      .domain([0, maxY * 1.08])
+      .nice()
+      .range([innerHeight, 0]);
+
+    const svg = d3.select(host)
+      .append('svg')
+      .attr('class', 'routing-scatter')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('role', 'img')
+      .attr('aria-label', `${def.title}系统的LIA和RGI最小端点误差散点图`);
+    svg.append('title').text(def.title);
+    svg.append('desc').text('横轴为LIA最小误差，纵轴为RGI最小误差；虚线为0.20路由阈值。');
+    const plot = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+    plot.append('rect')
+      .attr('data-chart-frame', '')
+      .attr('x', 0).attr('y', 0)
+      .attr('width', innerWidth).attr('height', innerHeight)
+      .attr('fill', 'none');
+
+    if (gate <= x.domain()[1]) {
+      plot.append('line').attr('class', 'gate')
+        .attr('x1', x(gate)).attr('x2', x(gate))
+        .attr('y1', 0).attr('y2', innerHeight);
+    }
+    if (gate <= y.domain()[1]) {
+      plot.append('line').attr('class', 'gate')
+        .attr('x1', 0).attr('x2', innerWidth)
+        .attr('y1', y(gate)).attr('y2', y(gate));
+    }
+
+    const marks = plot.selectAll('circle.point')
+      .data(data)
+      .join('circle')
+      .attr('class', 'point')
+      .attr('cx', point => x(point.eLia))
+      .attr('cy', point => y(point.eRgi))
+      .attr('r', data.length <= 5 ? 5 : 3.5)
+      .attr('fill', def.color)
+      .attr('fill-opacity', 0.82);
+
+    if (data.length <= 5) {
+      plot.selectAll('circle.hit')
+        .data(data)
+        .join('circle')
+        .attr('class', 'hit')
+        .attr('data-chart-hit', '')
+        .attr('cx', point => x(point.eLia))
+        .attr('cy', point => y(point.eRgi))
+        .attr('r', 16)
+        .attr('fill', 'transparent')
+        .on('pointerenter pointermove', (event, point) => showTooltip(event, point))
+        .on('pointerleave', hideTooltip);
+    } else {
+      const hoverMarker = plot.append('circle')
+        .attr('data-chart-hover-marker', '')
+        .attr('r', 5)
+        .attr('fill', def.color)
+        .attr('stroke', 'var(--background)')
+        .attr('stroke-width', 1.5)
+        .style('display', 'none')
+        .style('pointer-events', 'none');
+      plot.append('rect')
+        .attr('data-chart-hit', '')
+        .attr('data-chart-hover-overlay', 'nearest-point')
+        .attr('x', 0).attr('y', 0)
+        .attr('width', innerWidth).attr('height', innerHeight)
+        .attr('fill', 'transparent')
+        .on('pointerenter pointermove', function(event) {
+          const [mx, my] = d3.pointer(event, this);
+          const nearest = data.reduce((best, point) => {
+            const distance = (x(point.eLia) - mx) ** 2 + (y(point.eRgi) - my) ** 2;
+            return distance < best.distance ? { point, distance } : best;
+          }, { point: data[0], distance: Infinity }).point;
+          hoverMarker
+            .attr('cx', x(nearest.eLia))
+            .attr('cy', y(nearest.eRgi))
+            .style('display', null);
+          showTooltip(event, nearest);
+        })
+        .on('pointerleave', () => {
+          hoverMarker.style('display', 'none');
+          hideTooltip();
+        });
+    }
+
+    if (data.length <= 5) {
+      plot.selectAll('text.point-label')
+        .data(data)
+        .join('text')
+        .attr('class', 'point-label')
+        .attr('x', point => x(point.eLia) + 7)
+        .attr('y', point => y(point.eRgi) - 7)
+        .text(point => point.id);
+    }
+
+    const ticks = width <= 400 ? 4 : 5;
+    plot.append('g')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x).ticks(ticks).tickFormat(d3.format('.2~f')));
+    plot.append('g')
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.2~f')));
+
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'x')
+      .attr('x', margin.left + innerWidth / 2)
+      .attr('y', height - 8)
+      .attr('text-anchor', 'middle')
+      .text('LIA 最小误差 / LIA–RGI 长度差');
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'y')
+      .attr('transform', `translate(16,${margin.top + innerHeight / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle')
+      .text('RGI 最小误差 / LIA–RGI 长度差');
+
+    function showTooltip(event, point) {
+      tooltip.innerHTML = `系统 ${point.id}<br>LIA误差：${point.eLia.toFixed(3)}<br>RGI误差：${point.eRgi.toFixed(3)}${point.deltaT === null ? '' : `<br>最佳 ΔT：${point.deltaT >= 0 ? '+' : ''}${point.deltaT.toFixed(3)} K`}`;
+      tooltip.hidden = false;
+      const rootRect = root.getBoundingClientRect();
+      const desiredLeft = event.clientX - rootRect.left + 12;
+      const maxLeft = Math.max(4, rootRect.width - tooltip.offsetWidth - 4);
+      tooltip.style.left = `${Math.max(4, Math.min(desiredLeft, maxLeft))}px`;
+      tooltip.style.top = `${event.clientY - rootRect.top + 12}px`;
+    }
+
+    function hideTooltip() {
+      tooltip.hidden = true;
+    }
+  }
+})();
+</script>
+
+

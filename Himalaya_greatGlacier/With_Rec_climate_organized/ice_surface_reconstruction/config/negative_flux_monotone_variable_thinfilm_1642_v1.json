@@ -1,0 +1,60 @@
+{
+  "experiment": "negative-flux-monotone-variable-thinfilm-v1",
+  "stage": "1642-representative-static-preflight",
+  "system_id": 1642,
+  "synthetic_rgi_id": "RGI60-15.91642",
+  "source_inversion_root": {
+    "anchor": "project",
+    "sub": "w622inv1642v2"
+  },
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_inversion_area_repair_v3/system_1642/monotone_variable_thinfilm_static_v1"
+  },
+  "registered_lia_length_m": 18771.112271745365,
+  "maximum_film_thickness_m": 5.0,
+  "minimum_film_thickness_m": 0.001,
+  "surface_monotonic_margin_m": 1e-6,
+  "expected_negative_inactive_nodes": {
+    "0": 11,
+    "1": 8,
+    "2": 9,
+    "3": 11,
+    "4": 11,
+    "6": 15,
+    "9": 3,
+    "11": 7,
+    "12": 6,
+    "13": 12,
+    "17": 27,
+    "22": 67,
+    "24": 9
+  },
+  "stage2_frozen": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 4.988689535833567,
+    "prcp_fac": 4.4304250713067,
+    "glen_a": 2.8279057824102704e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 0.0,
+    "delta_t_c": 0.5,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "volume_conservation_fraction_max": 1e-12,
+    "model_area_relative_error_max": 0.1,
+    "root_length_relative_error_max": 0.1,
+    "hypsometry_bin_m": 100.0,
+    "hypsometry_cdf_error_max": 0.02,
+    "reverse_slope_tolerance_m": 1e-7,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "authorization": {
+    "static_preflight": true,
+    "zero_mb_if_static_pass": true,
+    "steady_50y": false,
+    "historical": false,
+    "other_systems": false
+  }
+}

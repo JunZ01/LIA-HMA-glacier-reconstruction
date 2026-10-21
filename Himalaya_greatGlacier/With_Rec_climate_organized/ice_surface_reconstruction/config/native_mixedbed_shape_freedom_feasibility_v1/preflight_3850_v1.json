@@ -1,0 +1,21 @@
+{
+  "experiment": "cycle6-native-mixedbed-shape-freedom-feasibility-v1",
+  "system_id": 3850,
+  "mapped_nodes_csv": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle5/native_mixedbed_multiflowline_lia_conservative_v1/preflight_3850_v3/mapped_nodes.csv",
+  "junction_slopes_csv": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle5/native_mixedbed_multiflowline_lia_conservative_v1/preflight_3850_v3/junction_slopes.csv",
+  "static_summary_json": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle5/native_mixedbed_multiflowline_lia_conservative_v1/preflight_3850_v3/static_summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle6/native_mixedbed_shape_freedom_feasibility_v1/preflight_3850_v1",
+  "expected_counts": {
+    "active_nodes": 330,
+    "parabolic_nodes": 168,
+    "trapezoid_nodes": 162
+  },
+  "reverse_slope_tolerance_m": 1e-7,
+  "shape_upper_open_epsilon_m": 1e-6,
+  "authorization": {
+    "read_only_saved_state_audit": true,
+    "oggm_run_authorized": false,
+    "zero_mb_authorized": false,
+    "historical_chain_authorized": false
+  }
+}

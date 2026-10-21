@@ -1,0 +1,10 @@
+{
+  "regularization_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/root_length_pilot_2576_v3/regularization/summary.json",
+  "cases": [
+    {
+      "system_id": 2576,
+      "original_geometry_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/root_length_pilot_2576_v3/geometry/geometry_summary_anchor_guided.json",
+      "output": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/root_length_pilot_2576_v3/regularization/system_2576/geometry_summary_formal.json"
+    }
+  ]
+}

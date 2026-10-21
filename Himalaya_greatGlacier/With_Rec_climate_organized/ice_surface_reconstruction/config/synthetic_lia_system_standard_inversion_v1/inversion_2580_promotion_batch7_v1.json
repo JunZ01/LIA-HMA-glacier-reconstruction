@@ -1,0 +1,31 @@
+{
+  "experiment": "synthetic-lia-system-standard-inversion-v2",
+  "stage": "promotion-batch-7-standard-inversion",
+  "system_id": 2580,
+  "main_rgi_id": "RGI60-13.26974",
+  "synthetic_rgi_id": "RGI60-13.92580",
+  "geometry_summary": {"anchor": "project", "sub": "w260reggeom_batch7_v1/system_2580/geometry_summary_formal.json"},
+  "geometry_gdir_base": {"anchor": "project", "sub": "w260reggeom_batch7_v1/system_2580/synthetic_gdir"},
+  "paired_grid": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_2580_RGI60-13.26974_system_grid_v1.nc"},
+  "source_gdir_root": {"anchor": "repo", "sub": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier"},
+  "climate_pixels": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv"},
+  "climate_id": "ensemble_rec_ref",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "output_root": {"anchor": "project", "sub": "w261inv2580v1"},
+  "flowline_dx": 2.0,
+  "registered_lia_length_m": 12640.54539745124,
+  "spinup_window": [1441, 1470],
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 6.056592841616781,
+    "prcp_fac": 3.6474544962996056,
+    "glen_a": 1.447268079505909e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 0.0,
+    "delta_t_c": 0.25,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {"reverse_slope_tolerance_m": 1e-7, "model_area_relative_error_max": 0.1, "root_length_relative_error_max": 0.1, "minimum_free_downstream_m": 5000.0},
+  "authorization": {"zero_mb": false, "steady_50y": false, "historical": false}
+}

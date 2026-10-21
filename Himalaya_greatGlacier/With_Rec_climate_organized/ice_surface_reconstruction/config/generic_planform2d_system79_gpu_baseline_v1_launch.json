@@ -1,0 +1,23 @@
+{
+  "schema": "lia-191-generic-planform2d-gpu-throughput-short-config-v1",
+  "project_root": "E:/3spyderProject/1_LIA_himalaya_oggm",
+  "system_id": 79,
+  "run_role": "isolated-baseline",
+  "target_years": 0.25,
+  "geology": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system79_static_adapter_fixture_v1/geology.nc",
+  "geology_sha256": "FFA249E55B9281E1E5F10C2CDE19D3786FBCEE874310696D1D66F3089DFC650C",
+  "climate_package": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system79_historical_monthly_ti_fixture_v1/monthly_ti_historical_1470_2000.npz",
+  "climate_package_sha256": "359B6148CF6A8616D36B26AFF12A6BEA9BA9D6DDAB87574CED58DB8215CE999E",
+  "glen_a": 1.1458517777724229e-23,
+  "launch_route": "validation_data/results/paleo_surface_validation_v0/lia_191_current_route_v10_166/summary.json",
+  "launch_route_sha256": "B406FE410E860637C47241E944A92B6933CE5DAE1B5C36C5D5856179CF96ABC5",
+  "driver_sha256": "341D7962F247001F0642425E4A17A748AF8417574E655870F5E2AE7F4BB36DBE",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_generic_planform2d_system79_gpu_baseline_v1",
+  "launch_authorized": true,
+  "initial_thickness_modification_allowed": false,
+  "physics_modified": false,
+  "gates_modified": false,
+  "zero_mb_authorized": false,
+  "steady_authorized": false,
+  "historical_authorized": false
+}

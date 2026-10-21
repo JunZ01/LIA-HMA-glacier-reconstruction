@@ -1,0 +1,10 @@
+from pathlib import Path
+s=Path(__file__).with_name('yx_add_common_surface_change_v1.py').read_text(encoding='utf-8')
+s=s.replace("   assert np.max(np.abs(db[mask]))<=.002,(v.record_id,'Fixed bed differs on shared exact grid')\n   assert np.allclose(delta[mask],dh[mask],atol=.002),(v.record_id,'Surface and thickness change differ')", "   original_common=mask.copy()\n   assert np.allclose(delta[mask],dh[mask]+db[mask],atol=.002),(v.record_id,'Surface/thickness/bed decomposition failed')\n   mask &= np.abs(db)<=.002\n   assert mask.any(),(v.record_id,'No numerically consistent common-bed cells')")
+s=s.replace("domain='common reconstructed ice domain only; vanished area is nodata'", "domain='common reconstructed ice and bed-raster agreement within0.002m; vanished area and inconsistent bed cells remain nodata'")
+s=s.replace("'common_ice_area_km2':mask.sum()", "'original_common_ice_area_km2':original_common.sum()*abs(dx*dy)/1e6,'bed_consistent_common_area_fraction':float(mask.sum()/original_common.sum()),'excluded_bed_discrepancy_cells':int((original_common&~mask).sum()),'all_common_bed_raster_max_difference_m':float(np.max(np.abs(db[original_common]))),'common_ice_area_km2':mask.sum()")
+s=s.replace("'interpretation':'model estimate on common ice footprint; percentiles are spatial distribution, not uncertainty limits'", "'interpretation':'model estimate on common ice footprint with bed agreement<=0.002m; remaining common cells nodata; percentiles describe spatial distribution, not uncertainty limits'")
+s=s.replace("共同床面逐像元核验一致。", "仅床面数值差≤0.002m的共同有冰像元参与，床面不一致像元保持缺测，范围另表记录。")
+s=s.replace("'all_common_fixed_bed_and_elevation_change_checks_pass':True", "'surface_thickness_bed_decomposition_pass':True,'derived_product_bed_agreement_tolerance_m':.002,'minimum_common_valid_fraction':min(r['bed_consistent_common_area_fraction'] for r in rows)")
+dst=Path(__file__).with_name('yx_add_common_surface_change_v2.py')
+assert not dst.exists();dst.write_text(s,encoding='utf-8');print(str(dst))

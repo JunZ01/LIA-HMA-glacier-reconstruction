@@ -1,0 +1,45 @@
+{
+  "experiment": "synthetic-lia-system-standard-inversion-v1",
+  "stage": "promotion-batch-37-geometry",
+  "system_id": 1326,
+  "main_rgi_id": "RGI60-15.10342",
+  "synthetic_rgi_id": "RGI60-15.91326",
+  "lia_outline": {
+    "anchor": "project",
+    "sub": "Himalaya_greatGlacier/Him_10_lia_with_large.shp"
+  },
+  "paired_grid": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_1326_RGI60-15.10342_system_grid_v1.nc"
+  },
+  "source_gdir_root": {
+    "anchor": "repo",
+    "sub": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier"
+  },
+  "regional_dem": "D:/01 文件整理/04 数据/HMA_newregion/DEM_clip/Himalaya_3regions_DEM.tif",
+  "output_root": {
+    "anchor": "project",
+    "sub": "w546geom1326v1"
+  },
+  "map_dx_m": 25,
+  "flowline_dx": 2,
+  "buffer_m": 5000,
+  "registered_lia_length_m": 9791.822828138658,
+  "gates": {
+    "root_length_relative_error_max": 0.1,
+    "outline_area_relative_error_max": 0.1,
+    "minimum_free_downstream_m": 5000,
+    "reverse_slope_tolerance_m": 1e-07
+  },
+  "authorization": {
+    "inversion": false,
+    "zero_mb": false,
+    "steady_50y": false,
+    "historical": false
+  },
+  "geometry_parameters": {
+    "filter_min_slope": true,
+    "min_slope_flowline_filter_deg": 1.5,
+    "implementation": "OGGM-native initialize_flowlines filter"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "regularization_summary": "w625reggeom551_recovery_v1/summary.json",
+  "cases": [
+    {
+      "system_id": 551,
+      "original_geometry_summary": "w525geom551v1/geometry_summary.json",
+      "output": "w625reggeom551_recovery_v1/system_551/geometry_summary_formal.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "regularization_summary": "w667reggeom2534_5465_5770_continuous_v1/summary.json",
+  "cases": [
+    {
+      "system_id": 5465,
+      "original_geometry_summary": "w265geom5465v1/geometry_summary.json",
+      "output": "w667reggeom2534_5465_5770_continuous_v1/system_5465/geometry_summary_formal.json"
+    }
+  ]
+}

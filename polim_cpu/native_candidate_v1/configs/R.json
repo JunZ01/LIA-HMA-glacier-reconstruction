@@ -1,0 +1,18 @@
+{
+  "system": 2387,
+  "grid_m": 50,
+  "mesh": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\polim_cpu\\runs\\v32r4-historical-1470-1570-v1\\input.npz",
+  "climate": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\polim_cpu\\runs\\v32r4-historical-1470-1570-v1\\climate.npz",
+  "parameters": {
+    "base_temp_bias_degC": 0.0,
+    "melt_f": 10.207686460617214,
+    "prcp_fac": 3.672361860575085,
+    "temp_melt_degC": -1.0
+  },
+  "case": "R",
+  "start_year": 1553,
+  "end_year": 1554,
+  "resume_bundle": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\polim_cpu\\runs\\v62-native-candidate-v1\\A\\checkpoints\\accepted-1553.json",
+  "shared_forcing": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\polim_cpu\\runs\\v62-native-candidate-v1\\A\\year-1553\\native\\forcing.npz",
+  "output": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\polim_cpu\\runs\\v62-native-candidate-v1\\R"
+}

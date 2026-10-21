@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "experiment": "near-touch-multipolygon-subgrid-closing-v1",
+  "system_id": 2898,
+  "source_geometry_config": {"anchor": "project", "sub": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/geometry_2898_multipolygon_close_source_v1.json"},
+  "output_root": {"anchor": "project", "sub": "wcr8mp2898closev1"},
+  "closing_radius_m": 0.0125,
+  "gates": {
+    "required_source_component_count": 2,
+    "maximum_source_gap_m": 0.025,
+    "maximum_area_relative_change": 1e-6,
+    "maximum_boundary_hausdorff_distance_m": 0.025,
+    "minimum_component_area_coverage": 0.999999,
+    "raster_support_dx_m": 25.0,
+    "maximum_raster_support_changed_cells": 0
+  },
+  "authorization": {"inversion": false, "zero_mb": false, "steady_50y": false, "historical": false}
+}

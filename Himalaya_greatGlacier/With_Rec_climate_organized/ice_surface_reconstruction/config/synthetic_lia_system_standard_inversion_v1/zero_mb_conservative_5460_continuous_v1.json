@@ -1,0 +1,22 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "continuous-remaining-formal-conservative-zero-mb",
+  "system_id": 5460,
+  "synthetic_rgi_id": "RGI60-14.95460",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w673inv5460_continuous_v1"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "w674zero5460_continuous_v1"
+  },
+  "glen_a": 1.018896025415954e-23,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-06
+  }
+}

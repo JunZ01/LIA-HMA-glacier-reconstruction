@@ -1,0 +1,10 @@
+{
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle8/synthetic_lia_system_three_representatives_v1/junction_pix_scan_v1",
+  "tolerance_m": 1e-7,
+  "junction_pix_values": [5, 8, 12, 16, 24],
+  "cases": [
+    {"system_id": 7, "synthetic_rgi_id": "RGI60-15.90007", "source_gdir": "w192geom7v1/synthetic_gdir/RGI60-15/RGI60-15.90/RGI60-15.90007", "registered_lia_length_m": 12168.528086114284},
+    {"system_id": 2546, "synthetic_rgi_id": "RGI60-13.92546", "source_gdir": "w192geom2546v1/synthetic_gdir/RGI60-13/RGI60-13.92/RGI60-13.92546", "registered_lia_length_m": 7261.48701449069},
+    {"system_id": 5537, "synthetic_rgi_id": "RGI60-14.95537", "source_gdir": "w192geom5537v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95537", "registered_lia_length_m": 29075.986323820405}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "regularization_summary": "w207reggeom_batch2_v1/summary.json",
+  "cases": [
+    {"system_id": 2806, "original_geometry_summary": "w206geom2806v1/geometry_summary.json", "output": "w207reggeom_batch2_v1/system_2806/geometry_summary_formal.json"},
+    {"system_id": 4631, "original_geometry_summary": "w206geom4631v1/geometry_summary.json", "output": "w207reggeom_batch2_v1/system_4631/geometry_summary_formal.json"},
+    {"system_id": 2547, "original_geometry_summary": "w206geom2547v1/geometry_summary.json", "output": "w207reggeom_batch2_v1/system_2547/geometry_summary_formal.json"}
+  ]
+}

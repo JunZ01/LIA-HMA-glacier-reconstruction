@@ -1,0 +1,26 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "class-level-cfl30-zero-mb-retry-v1",
+  "system_id": 2541,
+  "synthetic_rgi_id": "RGI60-15.92541",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w560inv2541v1"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "w921zero_cfl30_2541_v1"
+  },
+  "glen_a": 3.086607395599128e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "prior_required_timestep_seconds": 57.9,
+  "source_config": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/zero_mb_conservative_batch35_39_2541_v1.json",
+  "source_config_sha256": "EE01523B9C8106441AC180A8A7F9CEEE37DAF6106181D70BCE4EE85DB9A6C4EA",
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-6
+  }
+}

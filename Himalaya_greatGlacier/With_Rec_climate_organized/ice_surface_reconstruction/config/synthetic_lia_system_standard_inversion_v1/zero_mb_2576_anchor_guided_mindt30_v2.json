@@ -1,0 +1,11 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "root-length-anchor-guided-zero-mb-30s-continuation-v2",
+  "system_id": 2576,
+  "synthetic_rgi_id": "RGI60-13.92576",
+  "inversion_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/root_length_pilot_2576_v3/inversion"},
+  "output_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/root_length_pilot_2576_v3/zero_mb_30s_v2"},
+  "glen_a": 1.2179258243162097e-23,
+  "fs": 0.0,
+  "gates": {"volume_drift_fraction_max": 0.001, "root_terminal_thickness_m_max": 10.0, "mass_creation_relative_fraction": 1e-12, "mass_creation_absolute_m3": 1e-6}
+}

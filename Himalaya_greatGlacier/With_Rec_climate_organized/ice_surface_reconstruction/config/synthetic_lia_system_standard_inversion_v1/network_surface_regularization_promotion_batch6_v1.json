@@ -1,0 +1,8 @@
+{
+  "output_root": "w240reggeom_batch6_v1", "minimum_slope_deg": 1.5, "node_dx_m": 50.0, "map_dx_m": 25.0, "tolerance_m": 1e-7,
+  "gates": {"maximum_adjustment_m": 150.0, "mean_adjustment_m": 20.0, "cdf_error_100m": 0.02, "root_length_relative_error": 0.1},
+  "cases": [
+    {"system_id": 4588, "source_gdir": "w238geom4588v1/synthetic_gdir/RGI60-14/RGI60-14.94/RGI60-14.94588", "registered_lia_length_m": 10016.27678667783},
+    {"system_id": 2906, "source_gdir": "w238geom2906v1/synthetic_gdir/RGI60-13/RGI60-13.92/RGI60-13.92906", "registered_lia_length_m": 14226.73991442814}
+  ]
+}

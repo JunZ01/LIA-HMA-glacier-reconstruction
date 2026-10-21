@@ -1,0 +1,17 @@
+{
+  "experiment": "synthetic-lia-system-standard-inversion-v1",
+  "stage": "zero-mb-final-validation",
+  "system_id": 3850,
+  "synthetic_rgi_id": "RGI60-14.93850",
+  "inversion_root": {"anchor": "project", "sub": "w187inv3850dtm025v1"},
+  "output_root": {"anchor": "project", "sub": "w187zero3850dtm025v1"},
+  "glen_a": 7.375294604960076e-24,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-6
+  },
+  "authorization": {"steady_50y": false, "historical": false}
+}

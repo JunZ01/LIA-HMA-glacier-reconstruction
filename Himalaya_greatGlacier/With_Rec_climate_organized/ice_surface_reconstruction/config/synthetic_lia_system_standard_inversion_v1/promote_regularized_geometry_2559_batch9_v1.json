@@ -1,0 +1,6 @@
+{
+  "regularization_summary":"w266reggeom2559_batch9_v1/summary.json",
+  "cases":[
+    {"system_id":2559,"original_geometry_summary":"w265geom2559v1/geometry_summary.json","output":"w266reggeom2559_batch9_v1/system_2559/geometry_summary_formal.json"}
+  ]
+}

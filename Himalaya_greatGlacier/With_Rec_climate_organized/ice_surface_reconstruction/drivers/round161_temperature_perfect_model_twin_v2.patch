@@ -1,0 +1,24 @@
+diff --git a/Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/drivers/run_round161_temperature_perfect_model_twin_v2.py b/Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/drivers/run_round161_temperature_perfect_model_twin_v2.py
+--- a/Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/drivers/run_round161_temperature_perfect_model_twin_v2.py
++++ b/Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/drivers/run_round161_temperature_perfect_model_twin_v2.py
+@@
+-    output = validation / "climate_reconstruction_improvement_loop_v2/round_161_temperature_perfect_model_twin_v1"
++    output = validation / "climate_reconstruction_improvement_loop_v2/round_161_temperature_perfect_model_twin_v2"
+@@
+-    contract = driver / "round161_temperature_perfect_model_twin_v1_contract.md"
++    contract = driver / "round161_temperature_perfect_model_twin_v2_contract.md"
+@@
+-        "hma_mask": Path(recovered["hma_mask"]["path"]),
++        "native_grid": fold_root / "heldout_oof_fields.npz",
+@@
+-    grid_lat, grid_lon = common.state_coordinates()
+-    mask = np.load(paths["hma_mask"]).astype(bool)
++    with np.load(paths["native_grid"]) as native:
++        grid_lat = np.asarray(native["grid_lat"], dtype=float)
++        grid_lon = np.asarray(native["grid_lon"], dtype=float)
++        mask = np.asarray(native["hma_mask"], dtype=bool)
++    if mask.shape != (len(grid_lat), len(grid_lon)) or mask.size != prior.shape[0]:
++        raise RuntimeError(f"native-grid-contract:{mask.shape}:{prior.shape}")
+@@
+-        "experiment_id": "round_161_temperature_perfect_model_twin_v1",
++        "experiment_id": "round_161_temperature_perfect_model_twin_v2",

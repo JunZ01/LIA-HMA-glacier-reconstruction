@@ -1,0 +1,434 @@
+﻿<div id="lia-tradeoff-curves">
+  <h2>2259 与 4959：melt_f–ΔT 历史长度曲线</h2>
+  <div class="system-sections" aria-live="polite"></div>
+  <div class="tooltip" role="tooltip" hidden></div>
+</div>
+
+<style>
+  #lia-tradeoff-curves {
+    position: relative;
+    width: 100%;
+    color: var(--foreground);
+  }
+  #lia-tradeoff-curves h2,
+  #lia-tradeoff-curves h3,
+  #lia-tradeoff-curves h4 {
+    font-weight: 500;
+  }
+  #lia-tradeoff-curves .system-section + .system-section {
+    margin-top: 28px;
+  }
+  #lia-tradeoff-curves .system-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  #lia-tradeoff-curves .system-heading h3,
+  #lia-tradeoff-curves .panel h4 {
+    margin: 0;
+  }
+  #lia-tradeoff-curves .target-note {
+    color: var(--muted-foreground);
+  }
+  #lia-tradeoff-curves .panel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+  #lia-tradeoff-curves .panel {
+    min-width: 0;
+  }
+  #lia-tradeoff-curves .panel-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  #lia-tradeoff-curves .reference-key,
+  #lia-tradeoff-curves .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px 12px;
+  }
+  #lia-tradeoff-curves .reference-key {
+    color: var(--muted-foreground);
+  }
+  #lia-tradeoff-curves .legend {
+    min-height: 26px;
+    margin-bottom: 3px;
+  }
+  #lia-tradeoff-curves .legend-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 2px 0;
+    border: 0;
+    background: transparent;
+    color: var(--foreground);
+    font: inherit;
+    cursor: pointer;
+  }
+  #lia-tradeoff-curves .legend-toggle[aria-pressed="false"] {
+    color: var(--muted-foreground);
+    text-decoration: line-through;
+  }
+  #lia-tradeoff-curves .swatch {
+    width: 18px;
+    height: 0;
+    border-top: 2px solid var(--swatch-color);
+  }
+  #lia-tradeoff-curves .swatch.dashed {
+    border-top-style: dashed;
+  }
+  #lia-tradeoff-curves .chart-wrap {
+    width: 100%;
+    min-height: 286px;
+  }
+  #lia-tradeoff-curves .tradeoff-chart {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #lia-tradeoff-curves .tradeoff-chart text {
+    fill: var(--foreground);
+    font-size: 12px;
+  }
+  #lia-tradeoff-curves .tradeoff-chart .tick line,
+  #lia-tradeoff-curves .tradeoff-chart .domain,
+  #lia-tradeoff-curves .tradeoff-chart .grid line,
+  #lia-tradeoff-curves .tradeoff-chart [data-chart-frame] {
+    stroke: var(--border);
+  }
+  #lia-tradeoff-curves .tradeoff-chart .domain {
+    display: none;
+  }
+  #lia-tradeoff-curves .tradeoff-chart .grid line {
+    stroke-opacity: 0.55;
+  }
+  #lia-tradeoff-curves .tradeoff-chart .axis-title {
+    fill: var(--foreground);
+  }
+  #lia-tradeoff-curves .tooltip {
+    position: absolute;
+    z-index: 20;
+    max-width: 250px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    background: var(--popover);
+    color: var(--popover-foreground);
+    pointer-events: none;
+  }
+  #lia-tradeoff-curves .tooltip-year {
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  #lia-tradeoff-curves .tooltip-row {
+    display: grid;
+    grid-template-columns: 10px auto auto;
+    gap: 7px;
+    align-items: center;
+  }
+  #lia-tradeoff-curves .tooltip-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--dot-color);
+  }
+  #lia-tradeoff-curves .tooltip-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 736px) {
+    #lia-tradeoff-curves .panel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+(() => {
+  const root = document.getElementById('lia-tradeoff-curves');
+  const data = __TRADEOFF_DATA__;
+  const sectionsHost = root.querySelector('.system-sections');
+  const tooltip = root.querySelector('.tooltip');
+  const colorVars = [
+    'var(--viz-series-1)',
+    'var(--viz-series-2)',
+    'var(--viz-series-3)',
+    'var(--viz-series-4)',
+    'var(--viz-series-5)'
+  ];
+
+  const formatDelta = value => `${value >= 0 ? '+' : ''}${d3.format('.3~f')(value)} K`;
+  const systems = ['2259', '4959'];
+
+  systems.forEach(system => {
+    const target = data.targets[system];
+    const panels = data.panels.filter(panel => panel.system === system);
+    if (!target || panels.length === 0) return;
+
+    const section = document.createElement('section');
+    section.className = 'system-section';
+    const heading = document.createElement('div');
+    heading.className = 'system-heading';
+    heading.innerHTML = `
+      <h3>系统 ${system}</h3>
+      <div class="target-note">LIA ${target.lia.toFixed(2)} km · RGI ${target.rgi.toFixed(2)} km · 容差 ±${(target.separation * 0.2).toFixed(2)} km</div>
+    `;
+    section.appendChild(heading);
+
+    const grid = document.createElement('div');
+    grid.className = 'panel-grid';
+    section.appendChild(grid);
+    sectionsHost.appendChild(section);
+
+    panels.forEach(panel => buildPanel(grid, panel, target));
+  });
+
+  function buildPanel(host, panel, target) {
+    const panelEl = document.createElement('section');
+    panelEl.className = 'panel';
+    const panelHeader = document.createElement('div');
+    panelHeader.className = 'panel-header';
+    panelHeader.innerHTML = `
+      <h4>${panel.label}</h4>
+      <div class="reference-key"><span style="color:var(--viz-series-5)">— LIA</span><span style="color:var(--viz-series-6)">— RGI</span></div>
+    `;
+    panelEl.appendChild(panelHeader);
+
+    const legend = document.createElement('div');
+    legend.className = 'legend';
+    panelEl.appendChild(legend);
+
+    const chartWrap = document.createElement('div');
+    chartWrap.className = 'chart-wrap';
+    panelEl.appendChild(chartWrap);
+    host.appendChild(panelEl);
+
+    const state = {
+      visible: new Map(panel.series.map((series, index) => [index, true]))
+    };
+
+    panel.series.forEach((series, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'legend-toggle';
+      button.setAttribute('aria-pressed', 'true');
+      button.setAttribute('aria-label', `切换 ΔT ${formatDelta(series.deltaT)}，${series.status}`);
+      const swatch = document.createElement('span');
+      swatch.className = `swatch${series.stable ? '' : ' dashed'}`;
+      swatch.style.setProperty('--swatch-color', colorVars[index % colorVars.length]);
+      const label = document.createElement('span');
+      label.textContent = `${formatDelta(series.deltaT)}${series.stable ? '' : ` · ${series.status}`}`;
+      button.append(swatch, label);
+      button.addEventListener('click', () => {
+        const next = !state.visible.get(index);
+        state.visible.set(index, next);
+        button.setAttribute('aria-pressed', String(next));
+        drawPanel(chartWrap, panel, target, state);
+      });
+      legend.appendChild(button);
+    });
+
+    const observer = new ResizeObserver(() => drawPanel(chartWrap, panel, target, state));
+    observer.observe(chartWrap);
+    drawPanel(chartWrap, panel, target, state);
+  }
+
+  function drawPanel(chartWrap, panel, target, state) {
+    chartWrap.replaceChildren();
+    const width = Math.max(320, Math.floor(chartWrap.getBoundingClientRect().width || 480));
+    const height = width <= 400 ? 300 : 310;
+    const margin = { top: 10, right: 18, bottom: 48, left: 68 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const allPoints = panel.series.flatMap(series => series.points);
+    const tolerance = target.separation * 0.2;
+    const yValues = allPoints.map(point => point.l).concat([
+      target.lia - tolerance,
+      target.lia + tolerance,
+      target.rgi - tolerance,
+      target.rgi + tolerance
+    ]);
+    const xExtent = d3.extent(allPoints, point => point.y);
+    const yExtent = d3.extent(yValues);
+    const yPad = Math.max(0.25, (yExtent[1] - yExtent[0]) * 0.06);
+
+    const x = d3.scaleLinear().domain(xExtent).range([0, innerWidth]);
+    const y = d3.scaleLinear().domain([Math.max(0, yExtent[0] - yPad), yExtent[1] + yPad]).nice().range([innerHeight, 0]);
+
+    const svg = d3.select(chartWrap)
+      .append('svg')
+      .attr('class', 'tradeoff-chart')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('role', 'img')
+      .attr('aria-label', `${panel.system} ${panel.label}，1470至2000年冰川长度曲线`);
+
+    svg.append('title').text(`${panel.system} ${panel.label}`);
+    svg.append('desc').text('不同温度补偿的历史长度曲线，叠加LIA和RGI目标及20%端点容差带。');
+
+    const clipId = `clip-${panel.key.replace(/[^a-zA-Z0-9]/g, '-')}`;
+    svg.append('defs').append('clipPath').attr('id', clipId)
+      .append('rect').attr('x', 0).attr('y', 0).attr('width', innerWidth).attr('height', innerHeight);
+
+    const plot = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+    plot.append('rect')
+      .attr('data-chart-frame', '')
+      .attr('x', 0).attr('y', 0)
+      .attr('width', innerWidth).attr('height', innerHeight)
+      .attr('fill', 'none');
+
+    const xTicks = width <= 400 ? 4 : 6;
+    plot.append('g')
+      .attr('class', 'grid')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x).ticks(xTicks).tickSize(-innerHeight).tickFormat(''));
+    plot.append('g')
+      .attr('class', 'grid')
+      .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(''));
+
+    const clipped = plot.append('g').attr('clip-path', `url(#${clipId})`);
+    drawBand(clipped, target.lia, tolerance, 'var(--viz-series-5)');
+    drawBand(clipped, target.rgi, tolerance, 'var(--viz-series-6)');
+    drawReference(clipped, target.lia, 'var(--viz-series-5)');
+    drawReference(clipped, target.rgi, 'var(--viz-series-6)');
+
+    const line = d3.line().x(point => x(point.y)).y(point => y(point.l)).curve(d3.curveMonotoneX);
+    panel.series.forEach((series, index) => {
+      if (!state.visible.get(index)) return;
+      clipped.append('path')
+        .datum(series.points)
+        .attr('data-series-index', index)
+        .attr('fill', 'none')
+        .attr('stroke', colorVars[index % colorVars.length])
+        .attr('stroke-width', 2)
+        .attr('stroke-dasharray', series.stable ? null : '7 5')
+        .attr('d', line);
+    });
+
+    const markerLayer = plot.append('g').attr('data-chart-hover-markers', '').style('pointer-events', 'none');
+    const guide = markerLayer.append('line')
+      .attr('data-chart-hover-guide', '')
+      .attr('y1', 0).attr('y2', innerHeight)
+      .attr('stroke', 'var(--foreground)')
+      .attr('stroke-width', 1)
+      .attr('stroke-opacity', 0.55)
+      .style('display', 'none');
+
+    const overlay = plot.append('rect')
+      .attr('data-chart-hit', '')
+      .attr('data-chart-hover-overlay', 'cross-series')
+      .attr('x', 0).attr('y', 0)
+      .attr('width', innerWidth).attr('height', innerHeight)
+      .attr('fill', 'transparent')
+      .on('pointerenter', () => guide.style('display', null))
+      .on('pointermove', function(event) {
+        const [mx] = d3.pointer(event, this);
+        const exactYear = x.invert(Math.max(0, Math.min(innerWidth, mx)));
+        guide.attr('x1', x(exactYear)).attr('x2', x(exactYear)).style('display', null);
+        markerLayer.selectAll('[data-chart-hover-marker]').remove();
+
+        const rows = [];
+        panel.series.forEach((series, index) => {
+          if (!state.visible.get(index) || series.points.length === 0) return;
+          const value = interpolateSeries(series.points, exactYear);
+          markerLayer.append('circle')
+            .attr('data-chart-hover-marker', '')
+            .attr('cx', x(exactYear))
+            .attr('cy', y(value))
+            .attr('r', 4)
+            .attr('fill', colorVars[index % colorVars.length])
+            .attr('stroke', 'var(--background)')
+            .attr('stroke-width', 1.5);
+          rows.push({ series, index, value });
+        });
+
+        tooltip.innerHTML = `<div class="tooltip-year">${d3.format('.1f')(exactYear)} 年</div>` + rows.map(row => `
+          <div class="tooltip-row">
+            <span class="tooltip-dot" style="--dot-color:${colorVars[row.index % colorVars.length]}"></span>
+            <span>ΔT ${formatDelta(row.series.deltaT)}</span>
+            <span class="tooltip-value">${row.value.toFixed(2)} km</span>
+          </div>
+        `).join('');
+        tooltip.hidden = false;
+        const rootRect = root.getBoundingClientRect();
+        const tooltipWidth = tooltip.offsetWidth;
+        const desiredLeft = event.clientX - rootRect.left + 12;
+        const maxLeft = Math.max(4, rootRect.width - tooltipWidth - 4);
+        tooltip.style.left = `${Math.max(4, Math.min(desiredLeft, maxLeft))}px`;
+        tooltip.style.top = `${event.clientY - rootRect.top + 12}px`;
+      })
+      .on('pointerleave', () => {
+        guide.style('display', 'none');
+        markerLayer.selectAll('[data-chart-hover-marker]').remove();
+        tooltip.hidden = true;
+      });
+
+    plot.append('g')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x).ticks(xTicks).tickFormat(d3.format('d')));
+    plot.append('g')
+      .call(d3.axisLeft(y).ticks(5).tickFormat(value => `${d3.format('~g')(value)}`));
+
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'x')
+      .attr('x', margin.left + innerWidth / 2)
+      .attr('y', height - 7)
+      .attr('text-anchor', 'middle')
+      .text('年份');
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'y')
+      .attr('transform', `translate(16,${margin.top + innerHeight / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle')
+      .text('长度 (km)');
+
+    function drawBand(layer, center, halfWidth, color) {
+      const yTop = y(center + halfWidth);
+      const yBottom = y(center - halfWidth);
+      layer.append('rect')
+        .attr('x', 0)
+        .attr('y', yTop)
+        .attr('width', innerWidth)
+        .attr('height', Math.max(0, yBottom - yTop))
+        .attr('fill', color)
+        .attr('fill-opacity', 0.08);
+    }
+
+    function drawReference(layer, value, color) {
+      layer.append('line')
+        .attr('x1', 0).attr('x2', innerWidth)
+        .attr('y1', y(value)).attr('y2', y(value))
+        .attr('stroke', color)
+        .attr('stroke-width', 1.5);
+    }
+  }
+
+  function interpolateSeries(points, targetYear) {
+    const center = d3.bisector(point => point.y).center(points, targetYear);
+    const nearest = points[Math.max(0, Math.min(points.length - 1, center))];
+    if (nearest.y === targetYear || points.length === 1) return nearest.l;
+    let left;
+    let right;
+    if (nearest.y < targetYear) {
+      left = nearest;
+      right = points[Math.min(points.length - 1, center + 1)];
+    } else {
+      left = points[Math.max(0, center - 1)];
+      right = nearest;
+    }
+    if (left.y === right.y) return left.l;
+    const fraction = (targetYear - left.y) / (right.y - left.y);
+    return left.l + fraction * (right.l - left.l);
+  }
+})();
+</script>
+

@@ -1,0 +1,15 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "geometry-repair-parent-steady-50y",
+  "system_id": 3915,
+  "synthetic_rgi_id": "RGI60-14.93915",
+  "inversion_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_3915"},
+  "zero_mb_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_zero_mb_v1/system_3915_30s"},
+  "output_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_steady_v1/system_3915_parent"},
+  "climate_filesuffix": "_batch1_1441_1470_prcp_off",
+  "spinup_window": [1441, 1470],
+  "registered_lia_length_m": 25132.87380655387,
+  "stage2": {"melt_f": 3.388448972419152, "prcp_fac": 3.8517364288616704, "glen_a": 2.701644736450249e-23, "fs": 0.0, "temp_melt_c": -1.0, "base_temp_bias_c": -3.486978868231108, "delta_t_c": 1.0, "prcp_anomaly_mode": "off"},
+  "gates": {"volume_change_fraction_max": 0.02, "lia_length_relative_error_max": 0.1, "minimum_free_downstream_m": 5000.0},
+  "authorization": {"historical": false, "finite_cold_bracket": true}
+}

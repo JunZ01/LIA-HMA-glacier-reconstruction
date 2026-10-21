@@ -1,0 +1,20 @@
+{
+  "output_root": "wgeomreg1856jointv2",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {
+    "maximum_adjustment_m": 150.0,
+    "mean_adjustment_m": 20.0,
+    "cdf_error_100m": 0.02,
+    "root_length_relative_error": 0.1
+  },
+  "cases": [
+    {
+      "system_id": 1856,
+      "source_gdir": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/regularization_pilot_1856_v1/geometry/synthetic_gdir/RGI60-15/RGI60-15.91/RGI60-15.91856",
+      "registered_lia_length_m": 14211.6322914621
+    }
+  ]
+}

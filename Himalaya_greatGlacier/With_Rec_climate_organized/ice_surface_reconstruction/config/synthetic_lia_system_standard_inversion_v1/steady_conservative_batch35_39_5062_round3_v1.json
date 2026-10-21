@@ -1,0 +1,44 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "batch-35-39-formal-conservative-steady-bisection-round3",
+  "system_id": 5062,
+  "synthetic_rgi_id": "RGI60-14.95062",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w536inv5062v1"
+  },
+  "zero_mb_root": {
+    "anchor": "project",
+    "sub": "w643zero_conservative_batch35_39_5062_v1"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "w650steady_conservative_batch35_39_round3_5062_v1"
+  },
+  "climate_filesuffix": "_batch1_1441_1470_prcp_off",
+  "spinup_window": [
+    1441,
+    1470
+  ],
+  "registered_lia_length_m": 12577.655312649684,
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 2.317777173398418,
+    "prcp_fac": 3.99259383982561,
+    "glen_a": 5.963956256371255e-24,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 0.0,
+    "delta_t_c": 0.375,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "volume_change_fraction_max": 0.02,
+    "lia_length_relative_error_max": 0.1,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "authorization": {
+    "historical": false
+  },
+  "effective_output_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w648steady_conservative_batch35_39_round2_5062_v1"
+}

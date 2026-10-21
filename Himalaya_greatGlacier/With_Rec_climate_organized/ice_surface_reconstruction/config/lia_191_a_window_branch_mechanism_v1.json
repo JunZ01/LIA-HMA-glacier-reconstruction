@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "project_facts": "LIA_PROJECT_FACTS.md",
+  "inputs": {
+    "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+    "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+    "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+    "reconstruction_climate": "E:\\3spyderProject\\HMA_500\\Down_scale_new\\out_data\\oggm_climate\\Ensemble\\climate_oggm_ensemble_rec_ref.nc",
+    "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+    "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+    "source_preflight": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/preflight_manifest.csv"
+  },
+  "forcing": {
+    "climate_id": "ensemble_rec_ref",
+    "ensemble_role": "mid-turnover",
+    "monthly_climatology": "GSWP3-W5E5 1961-1990",
+    "precipitation_anomaly_mode": "off",
+    "temperature_offset_policy": "constant-through-spinup-and-forward"
+  },
+  "workflow": {
+    "spinup_window_start": 1171,
+    "spinup_window_end": 1200,
+    "forward_start_year": 1200,
+    "forward_end_year": 2000,
+    "spinup_min_years": 500,
+    "spinup_max_years": 1500,
+    "spinup_checkpoint_years": 100,
+    "spinup_stability_window_years": 200,
+    "spinup_stability_tolerance": 0.02
+  },
+  "acceptance": {
+    "mode": "mechanism-diagnostic-only",
+    "endpoint_tolerance_fraction_of_separation": 0.2,
+    "normalization": "absolute LIA-RGI length separation",
+    "lia_anchor": "forward_peak",
+    "corridor_buffer_fraction": 0.2,
+    "corridor_is_hard_gate": false,
+    "minimum_at_2000_is_hard_gate": false,
+    "modern_mb_is_hard_gate": false
+  },
+  "pilot_design": {
+    "block": "A_window_branch_mechanism_v1",
+    "purpose": "Test whether the A window moves the stable spin-up branch boundary under frozen Stage-2 physics.",
+    "interpretation_limit": "Three-system six-chain state/window mechanism experiment only; not a new parameter search and not authorization to extrapolate to all 191 systems.",
+    "systems": {
+      "214": {
+        "anchors": [
+          {
+            "anchor_role": "B_RGI_compatible_stable",
+            "delta_t": -0.25,
+            "source_task_id": "214-B_delta_boundary_extension_v1-9aba98c8060e5395",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_214/B_delta_boundary_extension_v1/9aba98c8060e5395",
+            "source_expected_stable": true
+          },
+          {
+            "anchor_role": "B_cold_side_nonconverged_boundary",
+            "delta_t": -0.5,
+            "source_task_id": "214-B_delta_t_profile_stage2_physics-2b478830227516a6",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/runs/system_214/B_delta_t_profile_stage2_physics/2b478830227516a6",
+            "source_expected_stable": false
+          }
+        ]
+      },
+      "3897": {
+        "anchors": [
+          {
+            "anchor_role": "B_RGI_compatible_stable",
+            "delta_t": 1.0,
+            "source_task_id": "3897-B_delta_t_profile_stage2_physics-4fea5afb8ca3b607",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/runs/system_3897/B_delta_t_profile_stage2_physics/4fea5afb8ca3b607",
+            "source_expected_stable": true,
+            "named_preflight": true
+          },
+          {
+            "anchor_role": "B_cold_side_stable_long_branch",
+            "delta_t": 0.875,
+            "source_task_id": "3897-B_delta_boundary_extension_v1-1070d7ccda5b3bd6",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_3897/B_delta_boundary_extension_v1/1070d7ccda5b3bd6",
+            "source_expected_stable": true
+          }
+        ]
+      },
+      "2005": {
+        "anchors": [
+          {
+            "anchor_role": "B_RGI_compatible_stable",
+            "delta_t": 0.375,
+            "source_task_id": "2005-B_delta_boundary_extension_v1-202050d6b0b61d2a",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_2005/B_delta_boundary_extension_v1/202050d6b0b61d2a",
+            "source_expected_stable": true
+          },
+          {
+            "anchor_role": "B_cold_side_nonconverged_boundary",
+            "delta_t": 0.25,
+            "source_task_id": "2005-B_delta_boundary_extension_v1-54979a75371c48fd",
+            "source_output_dir": "validation_data/results/paleo_surface_validation_v0/lia_191_delta_boundary_extension_v1/runs/system_2005/B_delta_boundary_extension_v1/54979a75371c48fd",
+            "source_expected_stable": false
+          }
+        ]
+      }
+    }
+  },
+  "execution": {
+    "python_executable": "D:\\Anaconda\\envs\\oggm_env2\\python.exe",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_a_window_branch_mechanism_v1",
+    "work_root": "w191_awin_v1",
+    "allow_runs": true,
+    "max_workers": 12,
+    "timeout_seconds": 1800
+  }
+}

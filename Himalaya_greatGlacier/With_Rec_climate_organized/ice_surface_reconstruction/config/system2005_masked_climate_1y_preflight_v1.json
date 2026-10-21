@@ -1,0 +1,18 @@
+{
+  "schema": "lia-191-system2005-masked-climate-1y-preflight-config-v1",
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "system_id": 2005,
+  "geology": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_igm_planform2d_system2005_static_v1\\geology.nc",
+  "geology_sha256": "94942C8024533E34EAC721A750FD53823005DA14E80D15DD376EF208799315AC",
+  "climate_package": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_torch_planform2d_system2005_climate_bridge_export_v1\\monthly_ti_package.npz",
+  "climate_package_sha256": "8DF1CB9577AA1568D717825B6A66FF81DE69683E78E25F935217E1CD01C3866F",
+  "domain_variable": "lia_source_mask",
+  "glen_a": 4.355770498109968e-23,
+  "target_years": 1,
+  "output_root": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_system2005_masked_climate_1y_preflight_v1",
+  "expected_route": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_current_route_v10_139\\summary.json",
+  "expected_route_sha256": "E3804F0FEF92406F6980F00B4DF7EA1B2DEA6FE0ED6956BAC582D6A94A1DF105",
+  "runtime_site_packages": ".runtime/torch-cu128-v1/site-packages",
+  "initial_thickness_modification_allowed": false,
+  "historical_run_authorized": false
+}

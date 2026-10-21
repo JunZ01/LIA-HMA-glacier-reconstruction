@@ -1,0 +1,43 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "remaining-route-v3-zero-pass9-parent-steady-50y-v1",
+  "system_id": 3523,
+  "synthetic_rgi_id": "RGI60-14.93523",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w514inv3523v1"
+  },
+  "zero_mb_root": {
+    "anchor": "project",
+    "sub": "w643zero_conservative_batch35_39_3523_v1"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "w704steady_parent_zero_pass9_3523_v1"
+  },
+  "climate_filesuffix": "_batch1_1441_1470_prcp_off",
+  "spinup_window": [
+    1441,
+    1470
+  ],
+  "registered_lia_length_m": 17990.01550382856,
+  "stage2": {
+    "ensemble_role": "mid-turnover",
+    "melt_f": 3.3541062029339552,
+    "prcp_fac": 3.9019813553910647,
+    "glen_a": 1.3802528538481226e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": -4.718494754718972,
+    "delta_t_c": 0.25,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "volume_change_fraction_max": 0.02,
+    "lia_length_relative_error_max": 0.1,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "authorization": {
+    "historical": false
+  }
+}

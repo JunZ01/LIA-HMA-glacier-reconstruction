@@ -1,0 +1,9 @@
+## 299. Temperature PSM mode-observability boundary (2026-08-20)
+
+- Round 163 decomposed the frozen HMA prior and residual-standardized archived proxy operators mode by mode, using the same Round 161/162 500-member pool and 24 held-out truths. It made no selection, localization, gain adjustment, or bias correction.
+- Six area-weighted HMA prior modes contain 80% of state variance. Mode 1 contains `43.07%` of prior variance but `74.86%` of stacked proxy6/proxy9 state-coupling energy, confirming strong common-mode concentration without establishing complete rank collapse.
+- The stacked proxy-anomaly ensemble has participation-ratio effective rank `8.82`, while state/proxy coupling has effective rank only `1.71`; three coupling directions contain 90% and ten contain 99% of coupling energy.
+- The first three prior modes remain materially observable: their exact linear-Gaussian posterior variance reductions are `0.862`, `0.771`, and `0.591`. Modes 4-6 are weaker and uneven at `0.355`, `0.511`, and `0.329`; modes 9-15 are mostly below `0.31`.
+- Therefore Round 162's low practical gain-space skill is not a pure statement that all secondary modes are invisible. It combines overconcentration on the leading common mode with unequal residual-error shrinkage across otherwise observable modes. The next decisive perfect-model test is a frozen noise-free residual-variance (`R`) ablation, not localization or another scalar posterior multiplier.
+- Round 163 used no actual proxy observations or instrumental values, accessed no 1921-1939 or Jionglacuo value, changed no declared source, and ran neither production reconstruction nor OGGM. Evidence is in `validation_data/results/paleo_surface_validation_v0/climate_reconstruction_improvement_loop_v2/round_163_temperature_psm_mode_observability_v1/`.
+

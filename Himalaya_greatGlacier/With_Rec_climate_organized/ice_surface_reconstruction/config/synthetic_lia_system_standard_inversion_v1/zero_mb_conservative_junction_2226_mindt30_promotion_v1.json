@@ -1,0 +1,16 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "continuous-promotion-zero-mb-mindt30",
+  "system_id": 2226,
+  "synthetic_rgi_id": "RGI60-15.92226",
+  "inversion_root": {"anchor": "project", "sub": "w224inv2226v1"},
+  "output_root": {"anchor": "project", "sub": "w229zero2226mindt30v1"},
+  "glen_a": 3.153160044757956e-23,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-6
+  }
+}

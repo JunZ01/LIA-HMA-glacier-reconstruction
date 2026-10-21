@@ -1,0 +1,18 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-identity-v1",
+  "stage": "zero-mb-unrun-inversion-pass-representative-mindt30",
+  "system_id": 3660,
+  "synthetic_rgi_id": "RGI60-14.93660",
+  "inversion_root": {"anchor": "project", "sub": "w382inv3660v1"},
+  "output_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_zero_mb_identity_3660_mindt30_v1"},
+  "glen_a": 1.4759277199273846e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-06
+  },
+  "stop_rule": "Identity mechanism only: no geometry or parameter mutation. Static A/V/length/active-slope failure or 30-second five-year zero-MB failure closes the representative without repair search."
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "project_facts": "LIA_PROJECT_FACTS.md",
+  "inputs": {
+    "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+    "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+    "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+    "reconstruction_climate": "E:\\3spyderProject\\HMA_500\\Down_scale_new\\out_data\\oggm_climate\\Ensemble\\climate_oggm_ensemble_rec_ref.nc",
+    "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+    "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+    "source_preflight": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/preflight_manifest.csv",
+    "declared_preflight_result": "validation_data/results/paleo_surface_validation_v0/lia_191_curve_loop_delta_boundary_preflight_v1/preflight_contract.json"
+  },
+  "forcing": {
+    "climate_id": "ensemble_rec_ref",
+    "ensemble_role": "mid-turnover",
+    "monthly_climatology": "GSWP3-W5E5 1961-1990",
+    "precipitation_anomaly_mode": "off",
+    "temperature_offset_policy": "constant-through-spinup-and-forward"
+  },
+  "workflow": {
+    "spinup_window_start": 1441,
+    "spinup_window_end": 1470,
+    "forward_start_year": 1470,
+    "forward_end_year": 2000,
+    "spinup_min_years": 500,
+    "spinup_max_years": 1500,
+    "spinup_checkpoint_years": 100,
+    "spinup_stability_window_years": 200,
+    "spinup_stability_tolerance": 0.02
+  },
+  "acceptance": {
+    "mode": "first-layer-routing-tolerance",
+    "endpoint_tolerance_fraction_of_separation": 0.2,
+    "normalization": "absolute LIA-RGI length separation",
+    "lia_anchor": "forward_peak",
+    "spinup_length_is_lia_constraint": false,
+    "corridor_buffer_fraction": 0.2,
+    "corridor_is_hard_gate": false,
+    "minimum_at_2000_is_hard_gate": false,
+    "modern_mb_is_hard_gate": false
+  },
+  "pilot_design": {
+    "block": "B_curve_loop_delta_boundary_pilot_v1",
+    "purpose": "Test whether three intermediate delta-T points inside each stable-short versus colder non-converged branch bracket contain a stable curve with improved forward-peak and year-2000 targets. System 520 delta-T 0.875 K was completed separately as the declared preflight.",
+    "systems": {
+      "520": {
+        "delta_t": [0.625, 0.75],
+        "melt_f_stage2_multipliers": [1.0]
+      },
+      "2697": {
+        "delta_t": [0.125, 0.25, 0.375],
+        "melt_f_stage2_multipliers": [1.0]
+      },
+      "3010": {
+        "delta_t": [0.125, 0.25, 0.375],
+        "melt_f_stage2_multipliers": [1.0]
+      }
+    },
+    "prcp_fac_multiplier": 1.0,
+    "glen_a_source": "stage2",
+    "temp_melt": -1.0
+  },
+  "execution": {
+    "python_executable": "D:\\Anaconda\\envs\\oggm_env2\\python.exe",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_curve_loop_delta_boundary_pilot_v1",
+    "work_root": "w191_curvedt",
+    "allow_runs": true,
+    "max_workers": 8,
+    "timeout_seconds": 1200
+  }
+}

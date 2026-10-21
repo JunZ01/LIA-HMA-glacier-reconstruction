@@ -1,0 +1,29 @@
+{
+  "experiment": "junction-coupled-minimal-isotonic-confirmation-v1",
+  "system_id": 1871,
+  "source_steady_root": {
+    "anchor": "project",
+    "sub": "w650steady_conservative_batch35_39_round3_1871_v1"
+  },
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_junction_coupled_isotonic_1871_confirmation_v1"
+  },
+  "target_path": [
+    {"flowline": 0, "node": 44},
+    {"flowline": 0, "node": 45},
+    {"flowline": 2, "node": 45}
+  ],
+  "glen_a": 5.871099642027298e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "gates": {
+    "maximum_absolute_surface_adjustment_m": 1.0,
+    "volume_relative_change_max": 1e-10,
+    "area_relative_change_max": 1e-12,
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "reverse_surface_tolerance_m": 1e-8
+  },
+  "stop_rule": "One frozen three-node confirmation only; static or 5-year zero-MB failure closes promotion, and a pass may proceed only to the registered steady gate."
+}

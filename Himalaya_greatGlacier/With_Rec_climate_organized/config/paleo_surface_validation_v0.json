@@ -1,0 +1,46 @@
+{
+  "validation_id": "paleo-surface-validation-v0",
+  "method_version": "boundary-perfect-plasticity-harmonic-v0",
+  "modern_geometry_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/target_rgi60_1205_esri102027.gpkg",
+  "glathida_root": "../../validation_data/public/glathida_3_1_0",
+  "alps_lia_root": "../../validation_data/public/alps_lia_zenodo_14336827",
+  "itmix_root": "../../validation_data/public/itmix",
+  "output_dir": "../../validation_data/results/paleo_surface_validation_v0",
+  "stage0_gdir_root": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_bed_full_farinotti_v0/oggm_workdir/per_glacier",
+  "velocity_mosaic_dir": "data_raw/velocity/its_live/v2.1/static/target_clip_5km",
+  "pilot_selection_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage3_initial_state_pilot_v0/pilot_selection_12.csv",
+  "farinotti_stats_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/thickness_work/farinotti_glacier_stats.csv",
+  "millan_stats_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/thickness_work/millan_glacier_stats.csv",
+  "hma_bbox_lon_lat": [60.0, 24.0, 106.0, 46.0],
+  "scenarios": [
+    {
+      "scenario_id": "thin",
+      "basal_shear_stress_kpa": 60.0,
+      "shape_factor_multiplier": 1.15
+    },
+    {
+      "scenario_id": "central",
+      "basal_shear_stress_kpa": 100.0,
+      "shape_factor_multiplier": 1.0
+    },
+    {
+      "scenario_id": "thick",
+      "basal_shear_stress_kpa": 140.0,
+      "shape_factor_multiplier": 0.85
+    }
+  ],
+  "bed_scenarios": ["farinotti2019", "millan2022"],
+  "connector_calibration": {
+    "alpha_grid": [0.0, 0.1, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0],
+    "beta_grid": [0.0, 0.03, 0.1, 0.3, 1.0, 3.0]
+  },
+  "baseline_shape_factor": 0.8,
+  "qc": {
+    "maximum_boundary_thickness_m": 5.0,
+    "maximum_centerline_reprojection_rmse_m": 2.0,
+    "maximum_nonfinite_fraction": 0.0,
+    "maximum_negative_thickness_cells": 0,
+    "maximum_short_relaxation_area_change_fraction": 0.02,
+    "maximum_short_relaxation_terminus_shift_grid_cells": 1.0
+  }
+}

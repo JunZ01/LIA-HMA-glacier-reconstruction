@@ -1,0 +1,3 @@
+# Round 144 Temperature-Candidate Boundary Preflight V2
+
+V1 stopped on the first verified Tucson-format variation before workbook access or scientific statistics. The Hengduan measurement rows contain whitespace-delimited integer fields whose widths vary with value magnitude; treating them as six-character fields split `1122` across two slots. V2 changes only RWL value tokenization from assumed fixed width to whitespace tokens. The first eight-character series identifier, four-character year field, sequential year-slot mapping, locked-year rejection before integer decoding, allowed periods, source set, sealed Jionglacuo rule, and every scientific prohibition remain unchanged.

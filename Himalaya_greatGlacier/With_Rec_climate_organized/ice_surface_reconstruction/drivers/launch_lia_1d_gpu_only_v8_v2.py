@@ -1,0 +1,32 @@
+"""Fresh-process launcher for the superseding fixed-24 GPU-only v8-v2 run."""
+from __future__ import annotations
+import os
+from pathlib import Path
+import subprocess
+
+PROJECT_ROOT = Path(__file__).resolve().parents[4]
+SS4_PYTHON = Path("D:/Anaconda/envs/SS4/python.exe")
+TORCH_SITE = PROJECT_ROOT / ".runtime/torch-cu128-v1/site-packages"
+TORCH_LIB = TORCH_SITE / "torch/lib"
+WINDOWS = Path(os.environ.get("SystemRoot", "C:/Windows"))
+RUNNER = Path(__file__).with_name("run_lia_1d_gpu_only_v8_v2.py")
+THREAD_ENVIRONMENT = ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS", "BLIS_NUM_THREADS")
+
+def child_environment() -> dict[str, str]:
+    if os.environ.get("KMP_DUPLICATE_LIB_OK", "").strip():
+        raise RuntimeError("v8-v2 forbids KMP_DUPLICATE_LIB_OK")
+    env = os.environ.copy()
+    env.pop("KMP_DUPLICATE_LIB_OK", None)
+    env.pop("PYTHONHOME", None)
+    env["PATH"] = os.pathsep.join((str(TORCH_LIB), str(WINDOWS / "System32"), str(WINDOWS)))
+    env["PYTHONPATH"] = str(TORCH_SITE)
+    for name in THREAD_ENVIRONMENT:
+        env[name] = "1"
+    env["LIA_1D_GPU_ONLY_V8_V2_CHILD"] = "1"
+    return env
+
+def main() -> int:
+    return subprocess.run([str(SS4_PYTHON), str(RUNNER)], env=child_environment(), check=False).returncode
+
+if __name__ == "__main__":
+    raise SystemExit(main())

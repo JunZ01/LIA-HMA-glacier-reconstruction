@@ -1,0 +1,37 @@
+{
+  "experiment": "lia-191-root-coarsen2x-representatives-static-to-zero-mb-contract-v1",
+  "reference_system": 3660,
+  "representatives": [2378, 2541, 520],
+  "size_classes": {
+    "2378": "small",
+    "2541": "medium",
+    "520": "large"
+  },
+  "mechanism": "uniform-root-2x-width-weighted-conditioned-mixedbed-control-volumes",
+  "static_driver_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.build_lia_191_root_coarsen2x_representative_static_v1",
+  "zero_mb_driver_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.run_lia_191_root_coarsen2x_representative_zero_mb_v1",
+  "config_directory": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/lia_191_root_coarsen2x_representatives_v1",
+  "static_output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_representatives_static_v1",
+  "zero_mb_output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_representatives_zero_mb_v1",
+  "static_authorized": true,
+  "zero_mb_authorized": false,
+  "steady_authorized": false,
+  "historical_authorized": false,
+  "unlock_condition": {
+    "reference_historical_status": "historical-pass",
+    "reference_independent_reproduction_status": "reproduction-pass",
+    "required_authorization_document_fields": {
+      "reference_system": 3660,
+      "historical_status": "historical-pass",
+      "independent_reproduction_status": "reproduction-pass",
+      "representative_zero_mb_authorized": true
+    }
+  },
+  "current_action": "static build and hash verification only",
+  "forbidden_current_actions": [
+    "zero-MB dynamics",
+    "steady 50-year dynamics",
+    "historical dynamics",
+    "parameter or scoring changes"
+  ]
+}

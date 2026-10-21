@@ -1,0 +1,16 @@
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const root=path.resolve(__dirname,'reports/constrained-bed-seam-v1');
+const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const ids=[...html.matchAll(/id="([^"]+)"/g)].map(x=>x[1]);
+const elements={};for(const id of ids)elements[id]={value:'0',max:'6',textContent:'',innerHTML:'',src:'',addEventListener(event,fn){this[event]=fn;}};
+let callback=null;const ctx={window:{},document:{getElementById(id){if(!elements[id])throw Error('Missing element '+id);return elements[id];}},Image:class{},setInterval(fn){callback=fn;return 1},clearInterval(){callback=null}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'data.js'),'utf8'),ctx);
+for(const script of html.matchAll(/<script>([\s\S]*?)<\/script>/g))vm.runInContext(script[1],ctx);
+const assert=(value,label)=>{if(!value)throw Error(label)};
+assert(elements.clock.textContent==='0 分钟','initial');elements.time.value='3';elements.time.input();assert(elements.clock.textContent==='30 分钟','slider');
+elements.play.onclick();for(let i=0;i<3;i++)callback();assert(elements.clock.textContent==='60 分钟'&&callback===null,'play finish');
+elements.play.onclick();assert(elements.clock.textContent==='0 分钟','replay');elements.play.onclick();assert(callback===null,'pause');
+assert(elements.repair.textContent.includes(Math.round(ctx.window.MODEL_DATA.comparison.new_initial_max_speed_m_year).toLocaleString('zh-CN')),'repair comparison');
+for(const image of [...ctx.window.MODEL_DATA.images,'comparison.png','history.png','profiles.png'])assert(fs.existsSync(path.join(root,image)),image);
+const result={status:'pass',initial:true,slider:true,play:true,replay:true,pause:true,comparison:true,all_images_exist:true,scope:'Actual delivered JavaScript executed in a minimal Node DOM/timer harness; not native browser automation'};
+fs.writeFileSync(path.join(root,'player-check.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));

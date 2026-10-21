@@ -1,0 +1,45 @@
+{
+  "pilot_id": "stage0a-full-245-farinotti-b320-v0",
+  "lia_system_ids": "all",
+  "manifest_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/system_manifest_work/system_manifest_245_v0.csv",
+  "modern_geometry_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/target_rgi60_1205_esri102027.gpkg",
+  "surface_dem_path": "D:/01 文件整理/04 数据/HMA_newregion/DEM_clip/Himalaya_3regions_DEM.tif",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_f19_b320_v0",
+  "oggm_workdir_name": "oggm_workdir",
+  "border": 320,
+  "use_multiprocessing": true,
+  "mp_processes": 4,
+  "dem_source": "USER",
+  "include_review_systems": true,
+  "membership_policy_2692": "retain-all-26-with-provisional-flag",
+  "max_failed_system_fraction": 0.35,
+  "max_climate_ref_distance_m": 100000,
+  "w5e5_files": {
+    "tmp": "data_raw/climate/gswp3_w5e5/2023.2/monthly/gswp3-w5e5_obsclim_tas_global_monthly_1901_2019_flat_glaciers.nc",
+    "prcp": "data_raw/climate/gswp3_w5e5/2023.2/monthly/gswp3-w5e5_obsclim_pr_global_monthly_1901_2019_flat_glaciers.nc",
+    "temp_std": "data_raw/climate/gswp3_w5e5/2023.2/monthly/gswp3-w5e5_obsclim_temp_std_global_monthly_1901_2019_flat_glaciers.nc",
+    "inv": "data_raw/climate/gswp3_w5e5/2023.2/monthly/gswp3-w5e5_glacier_invariant_flat.nc"
+  },
+  "hugonnet_paths": [
+    "D:/01 文件整理/04 数据/03 物质平衡数据/hugonnet time_series_13/dh_13_rgi60_pergla_rates.csv",
+    "D:/01 文件整理/04 数据/03 物质平衡数据/hugonnet time_series_14/dh_14_rgi60_pergla_rates.csv",
+    "D:/01 文件整理/04 数据/03 物质平衡数据/hugonnet time_series_15/dh_15_rgi60_pergla_rates.csv"
+  ],
+  "thickness_target_product": "farinotti2019",
+  "thickness_target_stats_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/thickness_work/farinotti_glacier_stats.csv",
+  "mb_period": "2000-01-01_2020-01-01",
+  "mb_candidate": {
+    "precip_prior_multiplier": 1.0,
+    "temp_bias_k": 0.0,
+    "temp_bias_fallback_bounds_k": [-5.0, 5.0],
+    "default_melt_f": 5.0,
+    "melt_f_bounds_kg_m2_day_k": [1.5, 17.0]
+  },
+  "inversion_scenario": {
+    "scenario_id": "f19-b320",
+    "filesuffix": "_b320",
+    "fs": 0.0,
+    "glen_a_multiplier_scan": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0],
+    "system_volume_tolerance_fraction": 0.005
+  }
+}

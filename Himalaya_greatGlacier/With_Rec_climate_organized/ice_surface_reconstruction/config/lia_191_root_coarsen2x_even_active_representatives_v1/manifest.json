@@ -1,0 +1,16 @@
+{
+  "experiment": "lia-191-root-coarsen2x-even-active-representatives-static-v1",
+  "reference_system": 3660,
+  "representatives": [709, 2177],
+  "selection_reason": "only unread same-mechanism candidates from the promotion audit with an even root active-node count",
+  "mechanism": "uniform-root-2x-width-weighted-conditioned-mixedbed-control-volumes",
+  "algorithm_identity": "exact system-3660 v5 conditioned width-weighted pair construction",
+  "static_driver_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.build_lia_191_root_coarsen2x_representative_static_v1",
+  "zero_mb_driver_module": "Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.run_lia_191_root_coarsen2x_representative_zero_mb_v1",
+  "static_output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_even_active_representatives_static_v1",
+  "static_authorized": true,
+  "zero_mb_authorized": false,
+  "steady_authorized": false,
+  "historical_authorized": false,
+  "current_action": "static construction and conservation/hash audit only"
+}

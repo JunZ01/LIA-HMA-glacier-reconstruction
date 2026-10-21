@@ -1,0 +1,20 @@
+{
+  "schema": "lia-system2580-late-only-full-from-1850-config-v1",
+  "system_id": 2580,
+  "expected_route_version": "v10.70",
+  "baseline_root": "w731hist_power_2580_endp0p05_g0p25_from_w726steady_v1",
+  "prefix_root": "w2580latepre1850v2",
+  "output_root": "w2580latefull_m0p250_repro_v1",
+  "start_year": 1470,
+  "resume_year": 1850,
+  "end_year": 2000,
+  "late_delta_t_2000_c": -0.25,
+  "lia_registered_length_m": 12640.54539745124,
+  "rgi_registered_length_m": 11385.10821693654,
+  "minimum_free_downstream_m": 5000.0,
+  "prefix_state_sha256": "71F831C36CA93954586438CE05298612CF555B81CBC71FB82C0B572DC52E7795",
+  "prefix_curve_sha256": "F4E3F9B9A4E4D43F56DEF85883FCF8D04DE229FE5F09A0612E58D8D39B53DAAB",
+  "preflight_summary_sha256": "979A4473C03356343CFE8183812A5D7839F39528891B5441CCD7AE946AB63DA7",
+  "initial_thickness_modification_allowed": false,
+  "prohibited_source_accessed": false
+}

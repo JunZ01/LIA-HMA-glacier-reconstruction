@@ -1,0 +1,28 @@
+{
+  "output_root": "w671reggeom_remaining_both_slope_continuous_v1",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {
+    "maximum_adjustment_m": 150.0,
+    "mean_adjustment_m": 20.0,
+    "cdf_error_100m": 0.02,
+    "root_length_relative_error": 0.1
+  },
+  "cases": [
+    {"system_id": 584, "source_gdir": "w259geom584v1/synthetic_gdir/RGI60-15/RGI60-15.90/RGI60-15.90584", "registered_lia_length_m": 11308.638678433796},
+    {"system_id": 2185, "source_gdir": "w624geom2185v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92185", "registered_lia_length_m": 16527.099831472249},
+    {"system_id": 2342, "source_gdir": "w549geom2342v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92342", "registered_lia_length_m": 18728.3469993061},
+    {"system_id": 2595, "source_gdir": "w526geom2595v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92595", "registered_lia_length_m": 10172.570674583534},
+    {"system_id": 2649, "source_gdir": "w265geom2649v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92649", "registered_lia_length_m": 17097.70335592256},
+    {"system_id": 3080, "source_gdir": "w592geom3080v1/synthetic_gdir/RGI60-15/RGI60-15.93/RGI60-15.93080", "registered_lia_length_m": 16528.698936744509},
+    {"system_id": 3247, "source_gdir": "w521geom3247v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93247", "registered_lia_length_m": 13904.159908389751},
+    {"system_id": 3911, "source_gdir": "w540geom3911v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93911", "registered_lia_length_m": 10747.591362107994},
+    {"system_id": 4491, "source_gdir": "w562geom4491v1/synthetic_gdir/RGI60-14/RGI60-14.94/RGI60-14.94491", "registered_lia_length_m": 16403.79457763445},
+    {"system_id": 4628, "source_gdir": "w280geom4628v1/synthetic_gdir/RGI60-14/RGI60-14.94/RGI60-14.94628", "registered_lia_length_m": 15079.540259056055},
+    {"system_id": 5168, "source_gdir": "w323geom5168v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95168", "registered_lia_length_m": 13673.706489929553},
+    {"system_id": 5460, "source_gdir": "w517geom5460v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95460", "registered_lia_length_m": 24615.635021049238},
+    {"system_id": 5524, "source_gdir": "w223geom5524v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95524", "registered_lia_length_m": 14461.471396373385}
+  ]
+}

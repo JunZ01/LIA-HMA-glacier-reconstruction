@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "project_facts": "LIA_PROJECT_FACTS.md",
+  "inputs": {
+    "system_targets": "validation_data/results/paleo_surface_validation_v0/lia_design_b_targets_and_inputs_v1/lia_design_b_system_targets.csv",
+    "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+    "reference_audit": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_reference_audit.csv",
+    "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+    "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+    "reconstruction_climate": "E:\\3spyderProject\\HMA_500\\Down_scale_new\\out_data\\oggm_climate\\Ensemble\\climate_oggm_ensemble_rec_ref.nc",
+    "modern_geometry": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/target_rgi60_1205_esri102027.gpkg",
+    "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+    "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+    "geometry_audit": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1/audit/core191_elevation_band_audit.csv"
+  },
+  "forcing": {
+    "climate_id": "ensemble_rec_ref",
+    "ensemble_role": "mid-turnover",
+    "monthly_climatology": "GSWP3-W5E5 1961-1990",
+    "precipitation_anomaly_mode": "off",
+    "maximum_reconstruction_pixel_distance_m": 100000.0,
+    "temperature_offset_policy": "constant-through-spinup-and-forward"
+  },
+  "workflow": {
+    "spinup_window_start": 1441,
+    "spinup_window_end": 1470,
+    "forward_start_year": 1470,
+    "forward_end_year": 2000,
+    "spinup_min_years": 500,
+    "spinup_max_years": 1500,
+    "spinup_checkpoint_years": 100,
+    "spinup_stability_window_years": 200,
+    "spinup_stability_tolerance": 0.02
+  },
+  "acceptance": {
+    "mode": "first-layer-routing-tolerance",
+    "endpoint_tolerance_fraction_of_separation": 0.2,
+    "normalization": "absolute LIA-RGI length separation",
+    "lia_anchor": "forward_peak",
+    "spinup_length_is_lia_constraint": false,
+    "corridor_buffer_fraction": 0.2,
+    "corridor_is_hard_gate": false,
+    "minimum_at_2000_is_hard_gate": false,
+    "modern_mb_is_hard_gate": false
+  },
+  "pilot_design": {
+    "block": "B_curve_loop_delta_bisection_r1_v2",
+    "purpose": "First adaptive delta-T bisection round. Test exact midpoints of the existing long/non-converged versus stable brackets before any delta-T direction is closed. For system 3010, test both the branch-boundary interval and the stable-curve response interval.",
+    "systems": {
+      "520": {
+        "delta_t": [0.6875],
+        "melt_f_stage2_multipliers": [1.0]
+      },
+      "2697": {
+        "delta_t": [0.3125],
+        "melt_f_stage2_multipliers": [1.0]
+      },
+      "3010": {
+        "delta_t": [0.1875, 0.3125],
+        "melt_f_stage2_multipliers": [1.0]
+      }
+    },
+    "prcp_fac_multiplier": 1.0,
+    "glen_a_source": "stage2",
+    "temp_melt": -1.0
+  },
+  "execution": {
+    "python_executable": "D:\\Anaconda\\envs\\oggm_env2\\python.exe",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_curve_loop_delta_bisection_r1_v2",
+    "work_root": "w191_dtbi1v2",
+    "allow_runs": true,
+    "max_workers": 4,
+    "timeout_seconds": 1200
+  }
+}

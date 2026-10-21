@@ -1,0 +1,9 @@
+{
+  "output_root": "w584reggeom2689_batch38_v1",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {"maximum_adjustment_m": 150.0, "mean_adjustment_m": 20.0, "cdf_error_100m": 0.02, "root_length_relative_error": 0.1},
+  "cases": [{"system_id": 2689, "source_gdir": "w570geom2689v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92689", "registered_lia_length_m": 22189.617223601195}]
+}

@@ -1,0 +1,14 @@
+{
+  "experiment_id": "cycle4_state_shooting_gen0_three_representatives_v3",
+  "base_config": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/cycle4_state_shooting_gen0_three_representatives_v1.json",
+  "pre_run_correction": "v1/v2 were not run; all parent physics values use exact registered task/Stage2 strings",
+  "representative_overrides": {
+    "2727": {"parent_physics": {"melt_f": 2.7154421322856974, "prcp_fac": 2.893543478900942, "glen_a": 1.8792023398145145e-23}},
+    "2559": {"parent_physics": {"melt_f": 4.271956523928457, "prcp_fac": 3.6723618605752266, "glen_a": 2.5953793517526052e-23}},
+    "5180": {"parent_physics": {"melt_f": 2.343273191976388, "prcp_fac": 3.969551977184944, "glen_a": 5.279634265120009e-24}}
+  },
+  "path_overrides": {
+    "workdir_root": "w191_cycle4_state_shooting_gen0_v3",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle4/state_shooting_eki_v1/gen0_three_representatives_v3"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "regularization_summary": "w679reggeom3137_continuous_rebuild_v1/summary.json",
+  "cases": [
+    {"system_id": 3137, "original_geometry_summary": "w677geom3137_rebuild_v1/geometry_summary.json", "output": "w679reggeom3137_continuous_rebuild_v1/system_3137/geometry_summary_formal.json"}
+  ]
+}

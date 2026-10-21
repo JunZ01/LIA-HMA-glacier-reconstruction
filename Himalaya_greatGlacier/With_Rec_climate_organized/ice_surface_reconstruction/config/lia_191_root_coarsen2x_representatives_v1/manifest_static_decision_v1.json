@@ -1,0 +1,13 @@
+{
+  "status": "static-batch-closed",
+  "static_completed": true,
+  "static_pass_count": 0,
+  "static_fail_count": 3,
+  "failed_systems": [2378, 2541, 520],
+  "shared_failure": "fixed 2x pair crosses the final active/zero-ice root cell, so mapped area and active surface/bed integrals are not conserved",
+  "zero_mb_authorized": false,
+  "steady_authorized": false,
+  "historical_authorized": false,
+  "evidence": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_representatives_static_v1/static_batch_manifest.json",
+  "supersedes_manifest_current_action": "closed at static conservation gate; do not run zero-MB"
+}

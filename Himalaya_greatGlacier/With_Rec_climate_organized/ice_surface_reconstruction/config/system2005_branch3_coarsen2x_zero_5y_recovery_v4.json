@@ -1,0 +1,34 @@
+{
+  "experiment": "lia-191-system2005-branch3-coarsen2x-zero-5y-recovery-v4",
+  "system_id": 2005,
+  "model_flowlines": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_branch3_coarsen2x_static_v2/candidate_model_flowlines.pkl.gz",
+  "failure_state_step_gate": "validation_data/results/paleo_surface_validation_v0/lia_191_network_monotone_positive_conservative_system2005_failure_state_step_v3/summary.json",
+  "closed_predecessor": "validation_data/results/paleo_surface_validation_v0/lia_191_network_monotone_positive_conservative_system2005_zero_mb_0p1y_v1/summary.json",
+  "technical_predecessor": "validation_data/results/paleo_surface_validation_v0/lia_191_network_topology_adaptive_split_system2005_zero_mb_0p1y_v3/summary.json",
+  "registered_0p1y_pass": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_branch3_coarsen2x_zero_0p1y_reproduction_v2/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_branch3_coarsen2x_zero_5y_recovery_v4",
+  "years": 5.0,
+  "maximum_timestep_seconds": 3600.0,
+  "minimum_timestep_seconds": 30.0,
+  "section_solver_interior_floor_m2": 0.0,
+  "active_set_tolerance": 1e-13,
+  "boundary_canonicalization_tolerance_m2": 1e-12,
+  "active_thickness_tolerance_m": 1e-6,
+  "glen_a": 4.355770498109968e-23,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "terminal_thickness_m_max": 10.0
+  },
+  "authorization": {
+    "static_gate": "lia_191_system2005_branch3_coarsen2x_static_v2/static-pass",
+    "registered_0p1y_gate": true,
+    "recovery_reproduction_gate": true,
+    "serialization_compatibility_only": true,
+    "background_process_isolation": true,
+    "dynamic_component_split": true,
+    "artificial_positive_support": false,
+    "steady_on_pass": true,
+    "historical": false
+  }
+}

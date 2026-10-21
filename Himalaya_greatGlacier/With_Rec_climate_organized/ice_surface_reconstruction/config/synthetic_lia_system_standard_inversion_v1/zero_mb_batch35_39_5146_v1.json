@@ -1,0 +1,22 @@
+{
+  "experiment": "synthetic-lia-system-zero-mb-v2",
+  "stage": "batch-35-39-formal-zero-mb",
+  "system_id": 5146,
+  "synthetic_rgi_id": "RGI60-14.95146",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w530inv5146v1"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "w627zero_batch35_39_5146_v1"
+  },
+  "glen_a": 4.6832327711364025e-24,
+  "fs": 0.0,
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "mass_creation_relative_fraction": 1e-12,
+    "mass_creation_absolute_m3": 1e-06
+  }
+}

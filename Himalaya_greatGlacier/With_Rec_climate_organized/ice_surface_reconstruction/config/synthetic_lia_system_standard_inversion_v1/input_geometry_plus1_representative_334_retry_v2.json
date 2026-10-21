@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "experiment": "deterministic-invalid-lia-polygon-topology-repair-v2",
+  "stage": "input-geometry-plus1-representative-334-unique-retry-v2",
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_input_geometry_plus1_pilot_v2/representative_334/topology_repair"
+  },
+  "topology_repair_gates": {
+    "maximum_area_relative_change": 1e-12,
+    "maximum_boundary_hausdorff_distance_m": 1e-6,
+    "required_explicit_hole_count_change": 1,
+    "raster_support_dx_m": 25.0,
+    "maximum_raster_support_changed_cells": 0,
+    "required_output_geometry_type": "Polygon"
+  },
+  "cases": [
+    {
+      "system_id": 334,
+      "source_geometry_config": {
+        "anchor": "project",
+        "sub": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/synthetic_lia_system_standard_inversion_v1/geometry_334_input_plus1_rep_retry_v2.json"
+      }
+    }
+  ],
+  "retry_contract": {
+    "prior_attempt": "lia_191_input_geometry_plus1_pilot_v1/representative_334",
+    "prior_decision": "technical host-memory failure before geometry hard-gate adjudication",
+    "scientific_contract_changed": false,
+    "maximum_retry_count": 1,
+    "require_no_peer_project_simulations": true,
+    "inversion_on_geometry_pass": false,
+    "zero_mb_on_geometry_pass": false,
+    "confirmation_on_geometry_pass": false
+  }
+}

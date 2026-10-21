@@ -1,0 +1,18 @@
+{
+  "project_root": ".",
+  "system_id": 2576,
+  "python_executable": "D:/Anaconda/envs/oggm_env2/python.exe",
+  "task_manifest": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle1/Q2_25m_promotion35_v1/task_manifest.csv",
+  "geometry_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle2/Q2_spatial_25m_preflight_2576_v1",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle2/Q2_spatial_25m_historical_2576_v1",
+  "work_root": "w191_cycle2_q2_spatial_25m_2576_v1",
+  "required_geometry_variant": "core-lia-plus-spatial-dem-downstream-v2",
+  "required_remap_variant": "cycle2-q2-spatial-downstream-preserving-25m-v1",
+  "required_node_dx_m": 25.0,
+  "spinup_stability_tolerance": 0.02,
+  "total_length_tolerance": 0.10,
+  "separation_tolerance": 0.20,
+  "precipitation_anomalies": "off",
+  "reuse_50m_spinup_state": false,
+  "release_1856_5353": false
+}

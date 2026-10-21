@@ -1,0 +1,8 @@
+{
+  "regularization_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_regularization_v1/summary.json",
+  "cases": [
+    {"system_id": 1012, "original_geometry_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_pilot_v2/system_1012/geometry/geometry_summary.json", "output": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_regularization_v1/system_1012/geometry_summary_formal.json"},
+    {"system_id": 2005, "original_geometry_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_pilot_v2/system_2005/geometry/geometry_summary.json", "output": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_regularization_v1/system_2005/geometry_summary_formal.json"},
+    {"system_id": 3915, "original_geometry_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_pilot_v2/system_3915/geometry/geometry_summary.json", "output": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/invalid_polygon_regularization_v1/system_3915/geometry_summary_formal.json"}
+  ]
+}

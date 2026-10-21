@@ -1,0 +1,20 @@
+{
+  "experiment": "synthetic-lia-system-conservative-junction-v1",
+  "stage": "historical-forward-ramp-screening",
+  "system_id": 5265,
+  "main_rgi_id": "RGI60-14.15308",
+  "synthetic_rgi_id": "RGI60-14.95265",
+  "inversion_root": {"anchor": "project", "sub": "w227inv5265v1"},
+  "steady_root": {"anchor": "project", "sub": "w230steady5265dtm025v1"},
+  "output_root": {"anchor": "project", "sub": "w231hist5265rampendp025v1"},
+  "climate_pixels": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv"},
+  "climate_id": "ensemble_rec_ref",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "start_year": 1470,
+  "end_year": 2000,
+  "forward_delta_t_end_c": 0.25,
+  "minimum_timestep_seconds": 60.0,
+  "lia_registered_length_m": 10718.299128032277,
+  "rgi_registered_length_m": 8600.288306652788,
+  "stage2": {"melt_f": 3.1805944235309056, "prcp_fac": 3.528779007827974, "glen_a": 4.8260103603271876e-24, "fs": 0.0, "temp_melt_c": -1.0, "base_temp_bias_c": 0.0, "delta_t_c": -0.25, "prcp_anomaly_mode": "off"}
+}

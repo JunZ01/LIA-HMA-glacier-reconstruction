@@ -1,0 +1,37 @@
+﻿{
+  "experiment": "zero-mb-root-near-junction-other-velocity-proxy-reconstruction-pilot-v1",
+  "system_id": 2603,
+  "synthetic_rgi_id": "RGI60-15.92603",
+  "inversion_root": {
+    "anchor": "project",
+    "sub": "w620inv2603v2"
+  },
+  "source_zero_mb_root": {
+    "anchor": "project",
+    "sub": "w643zero_conservative_batch35_39_2603_v1"
+  },
+  "output_root": {
+    "anchor": "validation",
+    "sub": "results/paleo_surface_validation_v0/lia_191_zero_mb_root_near_junction_other_2603_v1"
+  },
+  "glen_a": 4.395047756208763e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 60.0,
+  "repair": {
+    "flowline": 21,
+    "failure_node": 172,
+    "junction_node": 174,
+    "window": [168, 175],
+    "method": "fixed-endpoint velocity-proxy drop redistribution with exact rectangular-section local-volume correction",
+    "velocity_proxy_drop_exponent": -1.3333333333333333
+  },
+  "gates": {
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0,
+    "area_relative_change_max": 1e-12,
+    "volume_relative_change_max": 1e-10,
+    "reverse_surface_step_tolerance_m": 1e-8
+  },
+  "stop_rule": "One conservative near-junction reconstruction only. Static failure or 5-year zero-MB failure closes this mechanism class; no micro-tuning."
+}
+

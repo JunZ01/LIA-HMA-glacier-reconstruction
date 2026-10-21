@@ -1,0 +1,38 @@
+{
+  "experiment": "lia-191-root-coarsen2x-even-active-representative-2177-static-v1",
+  "stage": "static-preflight-only",
+  "system_id": 2177,
+  "size_class": "medium",
+  "mechanism": "uniform-root-2x-width-weighted-conditioned-mixedbed-control-volumes",
+  "source_model_flowlines": "w621inv2177v2/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92177/model_flowlines.pkl",
+  "source_model_flowlines_sha256": "03895e60b8d9b5e0547347cc5d9294da2faefe4a7786863cc31a941c2b309abd",
+  "source_inversion_summary": "w621inv2177v2/inversion_summary_formal.json",
+  "source_inversion_summary_sha256": "b2abb45daea15942fe9b9392d788ebacb7ff60f2fd410e6d7fab488b203e819e",
+  "registered_lia_length_m": 14279.31869996705,
+  "root_index": 9,
+  "root_nodes_before": 425,
+  "root_dx_before_m": 50.0,
+  "static_output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_even_active_representatives_static_v1/system_2177",
+  "zero_mb_output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_even_active_representatives_zero_mb_v1/system_2177",
+  "static_gates": {
+    "root_length_relative_error_max": 0.1,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "frozen_dynamics": {
+    "glen_a": 3.4106108122175773e-23,
+    "fs": 0.0
+  },
+  "zero_mb_gate": {
+    "minimum_timestep_seconds": 30.0,
+    "checkpoint_years": [0.1, 5.0],
+    "volume_drift_fraction_max": 0.001,
+    "root_terminal_thickness_m_max": 10.0
+  },
+  "authorization": {
+    "static_build": true,
+    "zero_mb_run": false,
+    "steady_50y_run": false,
+    "historical_run": false,
+    "unlock_condition": "system 3660 formal historical pass plus independent reproduction pass"
+  }
+}

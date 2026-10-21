@@ -1,0 +1,15 @@
+{
+  "output_root": "w574reggeom_batch38_wave1_v1",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {"maximum_adjustment_m": 150.0, "mean_adjustment_m": 20.0, "cdf_error_100m": 0.02, "root_length_relative_error": 0.1},
+  "cases": [
+    {"system_id": 3654, "source_gdir": "w564geom3654v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93654", "registered_lia_length_m": 16791.73498237078},
+    {"system_id": 3244, "source_gdir": "w565geom3244v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93244", "registered_lia_length_m": 8230.435953679758},
+    {"system_id": 902, "source_gdir": "w569geom902v1/synthetic_gdir/RGI60-15/RGI60-15.90/RGI60-15.90902", "registered_lia_length_m": 11413.247612849207},
+    {"system_id": 1880, "source_gdir": "w571geom1880v1/synthetic_gdir/RGI60-15/RGI60-15.91/RGI60-15.91880", "registered_lia_length_m": 11312.193132642737},
+    {"system_id": 1645, "source_gdir": "w572geom1645v1/synthetic_gdir/RGI60-15/RGI60-15.91/RGI60-15.91645", "registered_lia_length_m": 11807.478506712085}
+  ]
+}

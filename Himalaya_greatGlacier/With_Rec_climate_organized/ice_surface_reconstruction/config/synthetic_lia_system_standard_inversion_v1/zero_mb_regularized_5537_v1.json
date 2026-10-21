@@ -1,0 +1,12 @@
+{
+  "experiment": "pre-inversion-network-consistent-surface-regularization-v1",
+  "stage": "three-representative-zero-mb",
+  "system_id": 5537,
+  "synthetic_rgi_id": "RGI60-14.95537",
+  "inversion_root": {"anchor": "project", "sub": "w194inv5537v4"},
+  "output_root": {"anchor": "project", "sub": "w194zero5537v1"},
+  "glen_a": 1.3824967419984442e-23,
+  "fs": 0.0,
+  "gates": {"volume_drift_fraction_max": 0.001, "root_terminal_thickness_m_max": 10.0, "mass_creation_relative_fraction": 1e-12, "mass_creation_absolute_m3": 1e-6},
+  "authorization": {"steady_50y": false, "historical": false}
+}

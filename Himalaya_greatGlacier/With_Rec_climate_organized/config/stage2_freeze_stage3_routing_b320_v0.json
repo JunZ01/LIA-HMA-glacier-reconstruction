@@ -1,0 +1,20 @@
+{
+  "run_id": "stage2-b320-v0",
+  "method_version": "unweighted-mb-equivalence-three-point-freeze-b320-v0",
+  "manifest_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/system_manifest_work/system_manifest_245_v0.csv",
+  "farinotti_stage0_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_f19_b320_v0",
+  "millan_stage0_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage0_m22_b320_v0",
+  "farinotti_turnover_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0",
+  "attribution_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/attribution_preflight_v0",
+  "section_audit_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/section_width_audit_v0",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_b320_v0",
+  "ensemble_roles": ["low-turnover", "mid-turnover", "high-turnover"],
+  "ensemble_weight": 0.3333333333333333,
+  "prcp_fac_min": 0.1,
+  "prcp_fac_max": 10.0,
+  "expected_manifest_systems": 245,
+  "expected_core_systems": 191,
+  "expected_excluded_systems": 54,
+  "expected_millan_systems": 186,
+  "expected_core_members": 950
+}

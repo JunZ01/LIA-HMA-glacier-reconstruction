@@ -1,0 +1,166 @@
+<div id="core191-routing-distribution">
+  <h2>191 条 LIA 系统：当前路由分布</h2>
+  <div class="chart-host"></div>
+</div>
+
+<style>
+  #core191-routing-distribution {
+    width: 100%;
+    color: var(--foreground);
+  }
+  #core191-routing-distribution h2 {
+    margin: 0 0 10px;
+    font-weight: 500;
+  }
+  #core191-routing-distribution .chart-host {
+    width: 100%;
+    min-height: 590px;
+  }
+  #core191-routing-distribution .routing-chart {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #core191-routing-distribution .routing-chart text {
+    fill: var(--foreground);
+    font-size: 12px;
+  }
+  #core191-routing-distribution .routing-chart .domain,
+  #core191-routing-distribution .routing-chart .tick line,
+  #core191-routing-distribution .routing-chart [data-chart-frame] {
+    stroke: var(--border);
+  }
+  #core191-routing-distribution .routing-chart .domain {
+    display: none;
+  }
+  #core191-routing-distribution .routing-chart .axis-title {
+    fill: var(--foreground);
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>
+(() => {
+  const root = document.getElementById('core191-routing-distribution');
+  const host = root.querySelector('.chart-host');
+  const total = 191;
+  const data = [
+    { label: '两端均不可达', short: '两端均不可达', count: 103, tone: 1 },
+    { label: '仅 RGI 端点可达', short: '仅 RGI 可达', count: 38, tone: 1 },
+    { label: '端点差距过小，需复核', short: '差距过小', count: 22, tone: 3 },
+    { label: '目标方向需复核', short: '方向需复核', count: 14, tone: 3 },
+    { label: '仅 LIA 端点可达', short: '仅 LIA 可达', count: 5, tone: 1 },
+    { label: '零 MB 动力学阻塞（2387、5508）', short: '动力学阻塞', count: 2, tone: 4 },
+    { label: 'melt_f–ΔT 权衡已关闭（2259、4959）', short: '权衡已关闭', count: 2, tone: 2 },
+    { label: '无稳定链（2711、3053）', short: '无稳定链', count: 2, tone: 4 },
+    { label: '已知未解决配置（1545、3584）', short: '未解决配置', count: 2, tone: 2 },
+    { label: '暂定历史候选（1044）', short: '暂定候选', count: 1, tone: 5 }
+  ];
+  const colors = {
+    1: 'var(--viz-series-1)',
+    2: 'var(--viz-series-2)',
+    3: 'var(--viz-series-3)',
+    4: 'var(--viz-series-4)',
+    5: 'var(--viz-series-5)'
+  };
+
+  function draw() {
+    host.replaceChildren();
+    const width = Math.max(320, Math.floor(host.getBoundingClientRect().width || 736));
+    const height = 590;
+    const narrow = width <= 420;
+    const margin = {
+      top: 12,
+      right: 18,
+      bottom: 52,
+      left: narrow ? 132 : 232
+    };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const labelReserve = narrow ? 70 : 82;
+    const barRange = Math.max(54, innerWidth - labelReserve);
+    const countExtent = d3.extent(data, d => d.count);
+    const x = d3.scaleLinear()
+      .domain([0, countExtent[1]])
+      .range([0, barRange]);
+    const y = d3.scaleBand()
+      .domain(data.map(d => d.label))
+      .range([0, innerHeight])
+      .padding(0.24);
+
+    const svg = d3.select(host)
+      .append('svg')
+      .attr('class', 'routing-chart')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('role', 'img')
+      .attr('aria-label', '191条LIA系统当前路由类别及系统数量的水平条形图');
+    svg.append('title').text('191 条 LIA 系统：当前路由分布');
+    svg.append('desc').text('两端均不可达为最大类别，共103条；仅RGI端点可达为38条。');
+
+    const plot = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+    plot.append('rect')
+      .attr('data-chart-frame', '')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', innerWidth)
+      .attr('height', innerHeight)
+      .attr('fill', 'none');
+
+    const rows = plot.selectAll('g.route-row')
+      .data(data)
+      .join('g')
+      .attr('class', 'route-row')
+      .attr('transform', d => `translate(0,${y(d.label)})`);
+
+    rows.append('rect')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', d => x(d.count))
+      .attr('height', y.bandwidth())
+      .attr('fill', d => colors[d.tone])
+      .attr('fill-opacity', 0.82);
+
+    rows.append('text')
+      .attr('x', d => x(d.count) + 6)
+      .attr('y', y.bandwidth() / 2)
+      .attr('dominant-baseline', 'middle')
+      .text(d => `${d.count} · ${(100 * d.count / total).toFixed(1)}%`);
+
+    const xTicks = narrow ? 4 : 6;
+    plot.append('g')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(x).ticks(xTicks).tickFormat(d3.format('d')));
+
+    plot.append('g')
+      .call(
+        d3.axisLeft(y)
+          .tickSize(0)
+          .tickPadding(8)
+          .tickFormat(label => {
+            const row = data.find(d => d.label === label);
+            return narrow ? row.short : row.label;
+          })
+      );
+
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'x')
+      .attr('x', margin.left + barRange / 2)
+      .attr('y', height - 8)
+      .attr('text-anchor', 'middle')
+      .text('系统数量');
+
+    svg.append('text')
+      .attr('class', 'axis-title')
+      .attr('data-axis', 'y')
+      .attr('transform', `translate(15,${margin.top + innerHeight / 2}) rotate(-90)`)
+      .attr('text-anchor', 'middle')
+      .text('路由类别');
+  }
+
+  const observer = new ResizeObserver(draw);
+  observer.observe(host);
+  draw();
+})();
+</script>

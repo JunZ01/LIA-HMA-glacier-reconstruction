@@ -1,0 +1,37 @@
+{
+  "schema": "negative-flux-eb50-state-preserving-1026-v1",
+  "system_id": 1026,
+  "rgi_id": "RGI60-15.07173",
+  "parent_task": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/runs/system_1026/B_delta_t_profile_stage2_physics/ca9532a7ceede83f/task.json",
+  "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+  "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+  "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+  "reconstruction_climate": "E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc",
+  "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+  "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+  "workdir": "wnf1026eb50v1",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_negative_flux_eb50_state_preserving_v1/system_1026",
+  "ensemble_role": "mid-turnover",
+  "climate_id": "ensemble_rec_ref",
+  "prcp_mode": "off",
+  "spinup_window": [1441, 1470],
+  "duration_years": 50,
+  "checkpoint_years": 10,
+  "parameters": {
+    "delta_t_c": 0.5,
+    "melt_f": 3.1052501459820725,
+    "prcp_fac_multiplier": 1.0,
+    "glen_a_pa_3_s_1": 9.469011277430376e-24,
+    "fs": 0.0,
+    "temp_melt_c": -1.0
+  },
+  "gates": {
+    "maximum_absolute_volume_change_fraction": 0.02,
+    "maximum_lia_length_error_fraction": 0.10,
+    "minimum_free_downstream_distance_m": 5000.0,
+    "maximum_terminal_thickness_m": 10.0,
+    "observation_domain_overflow_thickness_tolerance_m": 0.0
+  },
+  "historical_run_authorized": false,
+  "promotion_authorized": false
+}

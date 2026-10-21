@@ -1,0 +1,16 @@
+{
+  "experiment_id": "cycle4_state_shooting_gen0_three_representatives_v2",
+  "base_config": "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction/config/cycle4_state_shooting_gen0_three_representatives_v1.json",
+  "pre_run_correction": "v1 was not run; 5180 prcp_fac was corrected to the exact mid-turnover registered-parent value",
+  "representative_overrides": {
+    "5180": {
+      "parent_physics": {
+        "prcp_fac": 3.969551977184944
+      }
+    }
+  },
+  "path_overrides": {
+    "workdir_root": "w191_cycle4_state_shooting_gen0_v2",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle4/state_shooting_eki_v1/gen0_three_representatives_v2"
+  }
+}

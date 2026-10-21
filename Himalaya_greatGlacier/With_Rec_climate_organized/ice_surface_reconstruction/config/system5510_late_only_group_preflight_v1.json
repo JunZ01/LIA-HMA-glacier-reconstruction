@@ -1,0 +1,28 @@
+{
+  "schema": "lia-system5510-late-only-group-preflight-config-v1",
+  "system_id": 5510,
+  "expected_route_version": "v10.73",
+  "baseline_root": "w664linear_5510_e0p375_v1",
+  "steady_root": "w319steady5510dtp0375mindt30v1",
+  "output_root": "w5510latepre1850v1",
+  "start_year": 1470,
+  "split_year": 1850,
+  "preflight_end_year": 1860,
+  "end_year": 2000,
+  "baseline_effective_delta_t_1470_c": 0.375,
+  "baseline_effective_delta_t_2000_c": 0.375,
+  "late_delta_t_2000_c": [
+    0.5,
+    0.75
+  ],
+  "expected_volume_response_sign": "negative",
+  "steady_state_sha256": "C5A2E918BCB62EC89ABCCFA5F7C2D5FC471ADD59E2EFBA3DC97BDFFDFEF78B73",
+  "baseline_curve_sha256": "67848BDED69BBC5DAC6A6975F5C72BA0DD91345C34C7B6C1BF8D8E3739154C66",
+  "prefix_equivalence_required": "exact annual metrics for every year 1470-1850 after identical CSV serialization",
+  "checkpoint_interval_years": 5,
+  "resume_allowed": true,
+  "minimum_free_downstream_m": 5000.0,
+  "initial_thickness_modification_allowed": false,
+  "prohibited_source_accessed": false,
+  "full_historical_authorized": false
+}

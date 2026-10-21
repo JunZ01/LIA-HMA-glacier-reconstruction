@@ -1,0 +1,17 @@
+{
+  "run_id": "turnover-attribution-preflight-v0",
+  "method_version": "imbalance-envelope-debris-stratification-v0",
+  "farinotti_scan_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0",
+  "millan_scan_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_m22_full_v0",
+  "manifest_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/system_manifest_work/system_manifest_245_v0.csv",
+  "velocity_gate_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/velocity_gate_1205_stats.csv",
+  "debris_registry_path": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/debris_work/debris_glacier_registry_1205.csv",
+  "output_dir": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/attribution_preflight_v0",
+  "ice_density_kg_m3": 900.0,
+  "seconds_per_year": 31557600.0,
+  "balance_surface_factor": 1.25,
+  "sliding_sensitivity_surface_factor": 1.0,
+  "debris_explanation_threshold": 0.1,
+  "workers": 4,
+  "checkpoint_every_task": true
+}

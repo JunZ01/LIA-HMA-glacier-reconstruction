@@ -1,0 +1,15 @@
+{
+  "experiment_id": "cycle4_last50y_shooting_diagnostic_v1",
+  "source_generation_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle4/state_shooting_eki_v1/gen0_contracted_three_representatives_v1",
+  "members": [
+    "system_2727_gen0_member_11",
+    "system_2727_gen0_member_15",
+    "system_2559_gen0_member_14"
+  ],
+  "checkpoint_years": [0, 50, 100, 150, 200],
+  "last_window_years": 50,
+  "volume_stability_tolerance": 0.02,
+  "max_workers": 3,
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle4/state_shooting_eki_v1/last50y_shooting_diagnostic_v1",
+  "workdir_root": "w191_cycle4_last50y_shooting_diagnostic_v1"
+}

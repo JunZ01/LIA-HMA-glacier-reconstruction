@@ -1,0 +1,9 @@
+{
+  "experiment":"synthetic-lia-system-conservative-junction-v1","stage":"rescore4-historical-linear-midpoint-v1","system_id":5443,
+  "main_rgi_id":"RGI60-14.15592","synthetic_rgi_id":"RGI60-14.95443","inversion_root":{"anchor":"project","sub":"w270inv5443v1"},
+  "steady_root":{"anchor":"project","sub":"w733steady_rescore4_5443_mindt30_bisect_dt0p0_v1"},"output_root":{"anchor":"project","sub":"w735hist_linear_5443_endp0p75_from_w733steady_v1"},
+  "climate_pixels":{"anchor":"validation","sub":"results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv"},"climate_id":"ensemble_rec_ref",
+  "reconstruction_climate":"E:/3spyderProject/HMA_500/Down_scale_new/out_data/oggm_climate/Ensemble/climate_oggm_ensemble_rec_ref.nc","start_year":1470,"end_year":2000,
+  "stage2":{"ensemble_role":"mid-turnover","melt_f":2.359008239513563,"prcp_fac":3.7202626186724315,"glen_a":3.5525414505349314e-24,"fs":0.0,"temp_melt_c":-1.0,"base_temp_bias_c":0.0,"delta_t_c":0.0,"prcp_anomaly_mode":"off"},
+  "forward_delta_t_end_c":0.75,"minimum_timestep_seconds":30.0,"lia_registered_length_m":10035.301541603874,"rgi_registered_length_m":7512.875318579695
+}

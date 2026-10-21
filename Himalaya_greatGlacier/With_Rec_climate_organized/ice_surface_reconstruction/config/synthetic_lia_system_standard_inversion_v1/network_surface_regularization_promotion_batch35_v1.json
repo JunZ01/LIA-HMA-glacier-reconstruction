@@ -1,0 +1,26 @@
+{
+  "output_root": "w506reggeom_batch35_v1",
+  "minimum_slope_deg": 1.5,
+  "node_dx_m": 50.0,
+  "map_dx_m": 25.0,
+  "tolerance_m": 1e-7,
+  "gates": {
+    "maximum_adjustment_m": 150.0,
+    "mean_adjustment_m": 20.0,
+    "cdf_error_100m": 0.02,
+    "root_length_relative_error": 0.1
+  },
+  "cases": [
+    {"system_id": 3897, "source_gdir": "w498geom3897v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93897", "registered_lia_length_m": 12888.188419270591},
+    {"system_id": 3632, "source_gdir": "w499geom3632v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93632", "registered_lia_length_m": 10002.29197282942},
+    {"system_id": 3297, "source_gdir": "w500geom3297v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93297", "registered_lia_length_m": 10300.0428921535},
+    {"system_id": 3495, "source_gdir": "w501geom3495v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93495", "registered_lia_length_m": 9634.713606672656},
+    {"system_id": 2378, "source_gdir": "w504geom2378v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92378", "registered_lia_length_m": 10181.061518539673},
+    {"system_id": 5143, "source_gdir": "w495geom5143v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95143", "registered_lia_length_m": 16908.785069995487},
+    {"system_id": 5536, "source_gdir": "w496geom5536v1/synthetic_gdir/RGI60-14/RGI60-14.95/RGI60-14.95536", "registered_lia_length_m": 11666.956426940536},
+    {"system_id": 3523, "source_gdir": "w497geom3523v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93523", "registered_lia_length_m": 17990.01550382856},
+    {"system_id": 5770, "source_gdir": "w502geom5770v1/synthetic_gdir/RGI60-15/RGI60-15.95/RGI60-15.95770", "registered_lia_length_m": 13630.278886173555},
+    {"system_id": 3082, "source_gdir": "w503geom3082v1/synthetic_gdir/RGI60-15/RGI60-15.93/RGI60-15.93082", "registered_lia_length_m": 20179.94350920523},
+    {"system_id": 2534, "source_gdir": "w505geom2534v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92534", "registered_lia_length_m": 14476.947804517147}
+  ]
+}

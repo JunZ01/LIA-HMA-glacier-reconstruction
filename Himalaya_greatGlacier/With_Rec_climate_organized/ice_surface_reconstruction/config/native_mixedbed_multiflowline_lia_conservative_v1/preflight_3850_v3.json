@@ -1,0 +1,41 @@
+{
+  "experiment": "native-mixedbed-multiflowline-lia-conservative-v1-oggm-schema-v3",
+  "system_id": 3850,
+  "main_rgi_id": "RGI60-14.15895",
+  "member_rgi_ids": ["RGI60-14.15895", "RGI60-14.15883", "RGI60-14.15882", "RGI60-14.15885"],
+  "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+  "f19_inversion_suffix": "_f19_fs0_full_v0",
+  "paired_system_grid": "validation_data/results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_3850_RGI60-14.15895_system_grid_v1.nc",
+  "paired_lia_network": "validation_data/results/paleo_surface_validation_v0/lia_gdir_anchor_reroute_core191_v3/3850/component_0/lia_centerline_network.pkl.gz",
+  "registered_lia_main_length_m": 12027.010296472956,
+  "positive_ice_tolerance_m": 1e-6,
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle5/native_mixedbed_multiflowline_lia_conservative_v1/preflight_3850_v3",
+  "static_gates": {
+    "expected_member_count": 4,
+    "expected_native_flowline_count": 10,
+    "expected_lia_branch_count": 9,
+    "area_relative_error_max": 0.005,
+    "volume_relative_error_max": 0.005,
+    "hypsometry_100m_cumulative_error_max": 0.02,
+    "length_relative_error_max": 0.005,
+    "reverse_slope_tolerance_m": 1e-7,
+    "terminal_tail_ice_tolerance_m": 1e-6
+  },
+  "zero_mb": {
+    "checkpoints_years": [0.1, 5.0],
+    "volume_drift_fraction_max": 0.001,
+    "material_creation_tolerance_m3": 1e-6,
+    "terminal_tail_thickness_max_m": 10.0,
+    "glen_a_pa_3_s_1": 2.4e-24,
+    "fs": 0.0,
+    "smooth_tributary_influx": true,
+    "check_for_boundaries": true
+  },
+  "authorization": {
+    "static_only_until_all_static_gates_pass": true,
+    "historical_forcing_authorized": false,
+    "other_systems_authorized": false,
+    "integer_branch_bijection_forbidden": true,
+    "v2_failure": "pre-static OGGM public/private lambda schema mismatch"
+  }
+}

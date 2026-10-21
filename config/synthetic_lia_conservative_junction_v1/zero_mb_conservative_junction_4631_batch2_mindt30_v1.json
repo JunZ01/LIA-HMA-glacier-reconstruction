@@ -1,0 +1,14 @@
+{
+  "experiment": "synthetic_lia_conservative_junction_v1",
+  "stage": "promotion-batch-2-zero-mb-mindt30",
+  "system_id": 4631,
+  "synthetic_rgi_id": "RGI60-14.94631",
+  "inversion_root": "w208inv4631v1",
+  "output_root": "w218zero4631mindt30v1",
+  "glen_a": 1.3018439183941169e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "years": [0.1, 5.0],
+  "volume_drift_tolerance": 0.001,
+  "terminal_thickness_tolerance_m": 10.0
+}

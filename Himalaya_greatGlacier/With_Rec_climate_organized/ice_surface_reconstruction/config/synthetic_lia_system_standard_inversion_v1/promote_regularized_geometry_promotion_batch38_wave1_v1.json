@@ -1,0 +1,10 @@
+{
+  "regularization_summary": "w574reggeom_batch38_wave1_v1/summary.json",
+  "cases": [
+    {"system_id": 3654, "original_geometry_summary": "w564geom3654v1/geometry_summary.json", "output": "w574reggeom_batch38_wave1_v1/system_3654/geometry_summary_formal.json"},
+    {"system_id": 3244, "original_geometry_summary": "w565geom3244v1/geometry_summary.json", "output": "w574reggeom_batch38_wave1_v1/system_3244/geometry_summary_formal.json"},
+    {"system_id": 902, "original_geometry_summary": "w569geom902v1/geometry_summary.json", "output": "w574reggeom_batch38_wave1_v1/system_902/geometry_summary_formal.json"},
+    {"system_id": 1880, "original_geometry_summary": "w571geom1880v1/geometry_summary.json", "output": "w574reggeom_batch38_wave1_v1/system_1880/geometry_summary_formal.json"},
+    {"system_id": 1645, "original_geometry_summary": "w572geom1645v1/geometry_summary.json", "output": "w574reggeom_batch38_wave1_v1/system_1645/geometry_summary_formal.json"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "experiment": "synthetic-lia-joint-network-rebuild-pilot-v1",
+  "stage": "regularization-adjustment-and-hypsometry-repair-static-pilot",
+  "system_id": 1856,
+  "main_rgi_id": "RGI60-15.09771",
+  "synthetic_rgi_id": "RGI60-15.91856",
+  "lia_outline": {"anchor": "project", "sub": "Himalaya_greatGlacier/Him_10_lia_with_large.shp"},
+  "paired_grid": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_1856_RGI60-15.09771_system_grid_v1.nc"},
+  "source_gdir_root": {"anchor": "repo", "sub": "outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier"},
+  "registered_network": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_gdir_anchor_reroute_core191_v3/1856/component_0/lia_centerline_network.pkl.gz"},
+  "regional_dem": "D:/01 文件整理/04 数据/HMA_newregion/DEM_clip/Himalaya_3regions_DEM.tif",
+  "output_root": {"anchor": "validation", "sub": "results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/regularization_pilot_1856_v1/geometry"},
+  "map_dx_m": 25.0,
+  "flowline_dx": 2.0,
+  "buffer_m": 5000.0,
+  "registered_lia_length_m": 14211.6322914621,
+  "gates": {"root_length_relative_error_max": 0.1, "outline_area_relative_error_max": 0.1, "minimum_free_downstream_m": 5000.0, "reverse_slope_tolerance_m": 1e-7},
+  "anchor_rules": {"duplicate_head_radius_px": 0.0, "anchor_snap_max_m": 75.0, "root_endpoint_max_m": 150.0},
+  "authorization": {"inversion": false, "zero_mb": false, "steady_50y": false, "historical": false},
+  "geometry_parameters": {"filter_min_slope": true, "min_slope_flowline_filter_deg": 1.5, "implementation": "OGGM-native joint network rebuild with registered main selected first; dx unchanged"}
+}

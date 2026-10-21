@@ -1,0 +1,58 @@
+{
+  "experiment": "system2005-policy-v6-v2-state-temperature-only-correction-v4",
+  "system_id": 2005,
+  "synthetic_rgi_id": "RGI60-15.92005",
+  "inversion_root": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_2005",
+  "model_flowlines": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_2005/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92005/model_flowlines.pkl",
+  "formal_zero_mb_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_network_topology_adaptive_split_system2005_zero_mb_5y_recovery_v2/summary.json",
+  "source_materialized_state": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_year9_materialization_v1/lia_natural_state_year9.pkl.gz",
+  "source_materialization_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_year9_materialization_v1/summary.json",
+  "source_reproduction_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_year9_reproduction_v1/summary.json",
+  "candidate_initial_state": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_joint_candidate_v2/joint_candidate_initial_state.pkl.gz",
+  "candidate_initial_state_sha256": "1B8D9E606538F69E5FE19BEAAD75ACB6DF0C8DD77731F3703BDC8700F1C4DA24",
+  "design_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_temperature_correction_v4_design_v2/summary.json",
+  "static_feasibility": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_uniform_thickness_lift_audit_v2/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_system2005_policy_v6_temperature_correction_v4",
+  "climate_filesuffix": "_batch1_1441_1470_prcp_off",
+  "spinup_window": [1441, 1470],
+  "preflight_years": 10.0,
+  "formal_years": 50.0,
+  "maximum_timestep_seconds": 21600.0,
+  "minimum_timestep_seconds": 30.0,
+  "section_solver_interior_floor_m2": 0.0,
+  "active_set_tolerance": 1e-13,
+  "boundary_canonicalization_tolerance_m2": 1e-9,
+  "active_thickness_tolerance_m": 1e-6,
+  "registered_lia_length_m": 25985.52229946727,
+  "uniform_active_thickness_lift_m": 2.8052643058495814,
+  "target_volume_scale": 1.02,
+  "stage2": {
+    "melt_f": 4.423276567913738,
+    "prcp_fac": 4.4304250713067,
+    "glen_a": 4.355770498109968e-23,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 3.749750918800543,
+    "delta_t_c": -0.21875,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "static_hypsometry_cdf_max": 0.02,
+    "static_area_change_fraction_max": 0.005,
+    "static_relative_tolerance": 1e-12,
+    "preflight_volume_change_fraction_max": 0.015,
+    "preflight_connected_root_length_min_m": 25500.0,
+    "formal_volume_change_fraction_max": 0.02,
+    "lia_length_relative_error_max": 0.1,
+    "formal_connected_root_length_min_m": 25450.125918037134,
+    "minimum_free_downstream_m": 5000.0
+  },
+  "authorization": {
+    "static_candidate_construction": true,
+    "conditional_10y_preflight": true,
+    "conditional_single_formal_50y": true,
+    "historical": false,
+    "candidate_count_max": 1
+  }
+}
+

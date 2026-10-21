@@ -1,0 +1,12 @@
+{
+  "experiment": "conservative-one-way-tributary-fluxbased-v1",
+  "stage": "promotion-batch-2-zero-mb-mindt30",
+  "system_id": 4631,
+  "synthetic_rgi_id": "RGI60-14.94631",
+  "inversion_root": {"anchor": "project", "sub": "w208inv4631v1"},
+  "output_root": {"anchor": "project", "sub": "w218zero4631mindt30v1"},
+  "glen_a": 1.3018439183941169e-23,
+  "fs": 0.0,
+  "minimum_timestep_seconds": 30.0,
+  "gates": {"volume_drift_fraction_max": 0.001, "root_terminal_thickness_m_max": 10.0, "mass_creation_relative_fraction": 1e-12, "mass_creation_absolute_m3": 1e-6}
+}

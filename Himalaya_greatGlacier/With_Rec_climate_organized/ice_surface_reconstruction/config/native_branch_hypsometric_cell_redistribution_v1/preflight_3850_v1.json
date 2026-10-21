@@ -1,0 +1,15 @@
+{
+  "experiment": "cycle7-native-branch-hypsometric-cell-redistribution-v1",
+  "system_id": 3850,
+  "cycle5_v3_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle5/native_mixedbed_multiflowline_lia_conservative_v1/preflight_3850_v3",
+  "paired_grid_nc": "validation_data/results/paleo_surface_validation_v0/core191_anchor_reroute_f19_v3/lia_3850_RGI60-14.15895_system_grid_v1.nc",
+  "positive_ice_tolerance_m": 1e-6,
+  "reverse_slope_tolerance_m": 1e-7,
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_continuous_class_controller_v1/cycle7/native_branch_hypsometric_cell_redistribution_v1/preflight_3850_v1",
+  "authorization": {
+    "read_only_saved_state_audit": true,
+    "oggm_run_authorized": false,
+    "zero_mb_authorized": false,
+    "historical_chain_authorized": false
+  }
+}

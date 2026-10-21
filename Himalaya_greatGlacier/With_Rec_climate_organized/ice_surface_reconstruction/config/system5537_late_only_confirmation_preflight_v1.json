@@ -1,0 +1,21 @@
+{
+  "schema": "lia-system5537-late-only-confirmation-preflight-config-v1",
+  "system_id": 5537,
+  "expected_route_version": "v10.73",
+  "baseline_root": "w702linear5537_e1p375_v1",
+  "steady_root": "w419steady5537dtp0875mindt30v1",
+  "output_root": "w5537lateconfirmpre1850v1",
+  "start_year": 1470,
+  "split_year": 1850,
+  "preflight_end_year": 1860,
+  "end_year": 2000,
+  "late_delta_t_2000_c": -0.25,
+  "steady_state_sha256": "F6EB07595665701C644F27F233CDBE1145389DF7CBA4BE5EEF31B1EADD7C9037",
+  "baseline_curve_sha256": "3D5C43F8ECE15270424E55640AB4DD431DE68FE0D53D747086722796FE55EA44",
+  "baseline_config_sha256": "B1B8124A0A10D461186D47CE348BE0FA036FF0E5A546BF1579C075CD3C5AE310",
+  "checkpoint_cadence_years": 1,
+  "resume_supported": true,
+  "initial_thickness_modification_allowed": false,
+  "prohibited_source_accessed": false,
+  "full_historical_authorized": false
+}

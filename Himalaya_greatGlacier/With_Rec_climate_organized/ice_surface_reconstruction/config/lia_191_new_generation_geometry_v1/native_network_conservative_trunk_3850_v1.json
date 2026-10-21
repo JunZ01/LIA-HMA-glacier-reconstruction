@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment": "native-network-conservative-trunk-condensation-v1",
+  "stage": "static-preflight",
+  "system_id": 3850,
+  "synthetic_rgi_id": "RGI60-14.93850",
+  "source_model_flowlines": "w187inv3850dtm025v1/synthetic_gdir/RGI60-14/RGI60-14.93/RGI60-14.93850/model_flowlines.pkl",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_new_generation_geometry_v1/native_network_conservative_trunk_3850_v1",
+  "registered_lia_length_m": 12027.010296472956,
+  "stage2": {
+    "melt_f": 2.216804259641789,
+    "prcp_fac": 4.1771494354930905,
+    "glen_a": 7.375294604960076e-24,
+    "fs": 0.0,
+    "temp_melt_c": -1.0,
+    "base_temp_bias_c": 0.0,
+    "delta_t_c": -0.25,
+    "prcp_anomaly_mode": "off"
+  },
+  "gates": {
+    "area_relative_error_max": 5e-10,
+    "volume_relative_error_max": 5e-10,
+    "hypsometry_cdf_error_max": 0.02,
+    "length_relative_error_max": 0.10,
+    "minimum_free_downstream_m": 5000.0,
+    "reverse_slope_tolerance_m": 1e-7,
+    "terminal_thickness_m_max": 1e-6
+  },
+  "authorization": {
+    "static": true,
+    "zero_mb": false,
+    "steady_50y": false,
+    "historical": false
+  }
+}

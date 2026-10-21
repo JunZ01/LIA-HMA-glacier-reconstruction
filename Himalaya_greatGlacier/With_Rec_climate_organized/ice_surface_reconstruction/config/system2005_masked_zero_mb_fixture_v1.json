@@ -1,0 +1,17 @@
+{
+  "schema": "lia-191-system2005-masked-zero-mb-fixture-config-v1",
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "system_id": 2005,
+  "geology": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_igm_planform2d_system2005_static_v1\\geology.nc",
+  "geology_sha256": "94942C8024533E34EAC721A750FD53823005DA14E80D15DD376EF208799315AC",
+  "domain_variable": "lia_source_mask",
+  "glen_a": 4.355770498109968e-23,
+  "mass_balance": "zero",
+  "target_years": 0.1,
+  "output_root": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_system2005_masked_zero_mb_fixture_v1",
+  "expected_route": "validation_data\\results\\paleo_surface_validation_v0\\lia_191_current_route_v10_137\\summary.json",
+  "expected_route_sha256": "6BEC27F379A556F499D3D4D822343C5F212DB863F36A31AF18E7020695344D85",
+  "initial_thickness_modification_allowed": false,
+  "climate_run_authorized": false,
+  "historical_run_authorized": false
+}

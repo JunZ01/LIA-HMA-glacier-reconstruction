@@ -1,0 +1,17 @@
+{
+  "experiment": "lia-191-root-coarsen2x-active-singleton-2378-static-feasibility-v1",
+  "system_id": 2378,
+  "source_model_flowlines": "w511inv2378v1/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92378/model_flowlines.pkl",
+  "source_model_flowlines_sha256": "e921ce27a85662d2d6fef732075bfdd8108de0268467d3ea5f5f0ac191251844",
+  "root_index": 11,
+  "registered_lia_length_m": 10181.061518539673,
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_root_coarsen2x_active_singleton_2378_static_feasibility_v1",
+  "authorization": {
+    "static_read_only_audit": true,
+    "candidate_write": false,
+    "zero_mb": false,
+    "steady": false,
+    "historical": false,
+    "promotion": false
+  }
+}

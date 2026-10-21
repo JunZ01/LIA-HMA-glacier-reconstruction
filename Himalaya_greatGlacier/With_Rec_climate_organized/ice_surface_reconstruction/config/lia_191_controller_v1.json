@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "project_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+  "project_facts": "LIA_PROJECT_FACTS.md",
+  "inputs": {
+    "system_targets": "validation_data/results/paleo_surface_validation_v0/lia_design_b_targets_and_inputs_v1/lia_design_b_system_targets.csv",
+    "references": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_references.csv",
+    "reference_audit": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_length_reference_audit.csv",
+    "stage2_members": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/stage2_freeze_stage3_routing_v0/stage2_member_ensemble.csv",
+    "climate_pixels": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1/core191_climate_pixels_ensemble_rec_ref.csv",
+    "reconstruction_climate": "E:\\3spyderProject\\HMA_500\\Down_scale_new\\out_data\\oggm_climate\\Ensemble\\climate_oggm_ensemble_rec_ref.nc",
+    "modern_geometry": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/velocity_work/target_rgi60_1205_esri102027.gpkg",
+    "source_gdir_root": "Himalaya_greatGlacier/With_Rec_climate_organized/outputs/019f730c-ee32-74d0-8b77-fdb7832f6a06/s1_turnover_f19_full_v0/oggm_workdir/per_glacier",
+    "elevation_band_root": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1",
+    "geometry_audit": "validation_data/results/paleo_surface_validation_v0/lia_elevation_band_core191_length_corrected_v1/audit/core191_elevation_band_audit.csv"
+  },
+  "forcing": {
+    "climate_id": "ensemble_rec_ref",
+    "ensemble_role": "mid-turnover",
+    "monthly_climatology": "GSWP3-W5E5 1961-1990",
+    "precipitation_anomaly_mode": "off",
+    "maximum_reconstruction_pixel_distance_m": 100000.0,
+    "temperature_offset_policy": "constant-through-spinup-and-forward"
+  },
+  "workflow": {
+    "spinup_window_start": 1441,
+    "spinup_window_end": 1470,
+    "forward_start_year": 1470,
+    "forward_end_year": 2000,
+    "spinup_min_years": 500,
+    "spinup_max_years": 1500,
+    "spinup_checkpoint_years": 100,
+    "spinup_stability_window_years": 200,
+    "spinup_stability_tolerance": 0.02
+  },
+  "acceptance": {
+    "mode": "pending-explicit-tolerance",
+    "endpoint_tolerance_fraction_of_separation": null,
+    "normalization": "absolute LIA-RGI length separation",
+    "lia_anchor": "forward_peak",
+    "corridor_buffer_fraction": 0.2,
+    "corridor_is_hard_gate": false,
+    "minimum_at_2000_is_hard_gate": false,
+    "modern_mb_is_hard_gate": false
+  },
+  "search": {
+    "blocks": [
+      {
+        "name": "B_delta_t_profile_stage2_physics",
+        "enabled": true,
+        "purpose": "Bracket a stable LIA state under frozen Stage-2 physical parameters.",
+        "auto_advance": false,
+        "design": {
+          "delta_t": [-3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5],
+          "melt_f": {"source": "stage2", "column": "melt_f"},
+          "prcp_fac_multiplier": 1.0,
+          "glen_a": {"source": "stage2", "column": "glen_a_pa_3_s_1"},
+          "temp_melt": -1.0
+        }
+      },
+      {
+        "name": "B_melt_f_delta_t_local",
+        "enabled": false,
+        "purpose": "Enable only after reviewing the delta-T response branch.",
+        "auto_advance": false,
+        "design": {}
+      },
+      {
+        "name": "B_declared_secondary_parameter_block",
+        "enabled": false,
+        "purpose": "Reserved for one explicitly approved prcp_fac, temp_melt, or glen_a block.",
+        "auto_advance": false,
+        "design": {}
+      }
+    ]
+  },
+  "existing_decisions": {
+    "1044": {
+      "status": "accepted",
+      "acceptance_level": "provisional-historical-B-window",
+      "evidence": "layered_coordinate_search_v1/B_parameter_estimation_pilot_summary_v1.csv; selected mf_4p666_dt_p1p192"
+    },
+    "1545": {
+      "status": "unresolved_target_curve",
+      "acceptance_level": "named-B-window-configuration",
+      "evidence": "B-window melt_f-delta_t, prcp_fac, temp_melt, and glen_a blocks closed"
+    },
+    "3584": {
+      "status": "unresolved_target_curve",
+      "acceptance_level": "named-B-window-configuration",
+      "evidence": "LIA-RGI amplitude deficit; physical blocks and factor>1 anomaly direction closed"
+    }
+  },
+  "execution": {
+    "python_executable": "D:\\Anaconda\\envs\\oggm_env2\\python.exe",
+    "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_controller_v1",
+    "work_root": "w191",
+    "allow_runs": true,
+    "max_workers": 12,
+    "timeout_seconds": 1200
+  }
+}

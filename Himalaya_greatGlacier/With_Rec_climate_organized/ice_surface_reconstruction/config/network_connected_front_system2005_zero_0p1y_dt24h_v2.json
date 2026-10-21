@@ -1,0 +1,16 @@
+{
+  "experiment": "network-connected-front-system2005-zero-0p1y-dt24h-v2",
+  "system_id": 2005,
+  "model_flowlines": "validation_data/results/paleo_surface_validation_v0/lia_191_geometry_repair_v1/topology_repair_inversion_v1/system_2005/synthetic_gdir/RGI60-15/RGI60-15.92/RGI60-15.92005/model_flowlines.pkl",
+  "fixture_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_network_connected_front_fixture_v1/summary.json",
+  "real_single_step_summary": "validation_data/results/paleo_surface_validation_v0/lia_191_network_connected_front_system2005_step_v1/summary.json",
+  "output_root": "validation_data/results/paleo_surface_validation_v0/lia_191_network_connected_front_system2005_zero_0p1y_dt24h_v2",
+  "years": 0.1,
+  "maximum_timestep_seconds": 86400.0,
+  "minimum_timestep_seconds": 30.0,
+  "glen_a": 4.355770498109968e-23,
+  "fs": 0.0,
+  "gates": {"volume_drift_fraction_max": 0.001, "terminal_thickness_m_max": 10.0},
+  "authorization": {"zero_mb_5y_on_pass": true, "steady_on_pass": false, "historical": false}
+}
+

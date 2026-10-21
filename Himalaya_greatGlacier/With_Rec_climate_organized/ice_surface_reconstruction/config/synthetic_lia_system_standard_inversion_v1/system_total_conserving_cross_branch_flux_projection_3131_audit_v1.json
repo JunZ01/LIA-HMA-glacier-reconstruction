@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "experiment": "system-total-conserving-cross-branch-flux-projection-3131-v1",
+  "stage": "read-only-mathematical-feasibility-audit",
+  "system_id": 3131,
+  "activation_floor_relative_to_system_flux_scale": 1e-12,
+  "maximum_projected_active_area_relative_error": 0.10,
+  "maximum_system_outlet_flux_absolute_error": 1e-8,
+  "source_nodes": {
+    "anchor": "project",
+    "sub": "validation_data/results/paleo_surface_validation_v0/lia_191_inversion_area_repair_v1/diagnostics/representative_active_loss_v1/system_3131_node_active_loss.csv"
+  },
+  "source_area_budget": {
+    "anchor": "project",
+    "sub": "validation_data/results/paleo_surface_validation_v0/lia_191_inversion_area_repair_v1/diagnostics/representative_area_budget_v3/system_3131_area_budget.json"
+  },
+  "output_root": {
+    "anchor": "project",
+    "sub": "validation_data/results/paleo_surface_validation_v0/lia_191_system_total_cross_branch_flux_projection_audit_3131_v1"
+  },
+  "frozen_fields": [
+    "outline",
+    "widths",
+    "bed_h",
+    "surface_h",
+    "climate",
+    "Stage2 parameters",
+    "sum of branch outlet apparent fluxes"
+  ],
+  "no_oggm_run": true,
+  "downstream_authorization": "on audit pass only, register one 3131 standard inversion-static-zeroMB pilot"
+}
