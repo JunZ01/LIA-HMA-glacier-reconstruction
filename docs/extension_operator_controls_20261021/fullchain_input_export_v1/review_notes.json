@@ -1,0 +1,63 @@
+{
+  "status": "reviewed-no-new-model-runs",
+  "supplied_patch_commit": "ec58d241b2c5a52f20a7c754ab5381c51925b2cc",
+  "supplied_variant_results_recomputed": false,
+  "baseline_max_bias_delta_pp": 8.88655815600714e-09,
+  "boundary_linearity_consistency": [
+    {
+      "uid": 3632,
+      "raw_A_boundary_difference_pp": 14.520503391138817,
+      "previous_harmonic_boundary_effect_pp": 14.520503404717193,
+      "difference_pp": -1.3578375757106187e-08,
+      "surface_RMSE_zeroH_boundary_m": 23.29628369432965,
+      "surface_RMSE_DEM_boundary_m": 25.317250547835098
+    },
+    {
+      "uid": 3131,
+      "raw_A_boundary_difference_pp": 15.537326937746288,
+      "previous_harmonic_boundary_effect_pp": 15.537326937190688,
+      "difference_pp": 5.556000104434133e-10,
+      "surface_RMSE_zeroH_boundary_m": 28.49930065949328,
+      "surface_RMSE_DEM_boundary_m": 28.139346570615416
+    },
+    {
+      "uid": 2906,
+      "raw_A_boundary_difference_pp": 12.863699311277589,
+      "previous_harmonic_boundary_effect_pp": 12.86369931304415,
+      "difference_pp": -1.766560231430958e-09,
+      "surface_RMSE_zeroH_boundary_m": 33.344482354220915,
+      "surface_RMSE_DEM_boundary_m": 32.52591831702684
+    }
+  ],
+  "modern_outlet_values": [
+    {
+      "uid": 2906,
+      "flowline": 1,
+      "target_reference_H_m": 15.33163810151854,
+      "native_reference_H_m": 15.309889930917205,
+      "OGGM_surface_minus_target_bed_m": 29.495675476787255
+    },
+    {
+      "uid": 3131,
+      "flowline": 4,
+      "target_reference_H_m": 18.437135414796675,
+      "native_reference_H_m": 18.567630960275864,
+      "OGGM_surface_minus_target_bed_m": 25.691432294644073
+    },
+    {
+      "uid": 3632,
+      "flowline": 6,
+      "target_reference_H_m": 17.46950643427502,
+      "native_reference_H_m": 17.469506434234518,
+      "OGGM_surface_minus_target_bed_m": 26.31104555685124
+    }
+  ],
+  "qualifications": [
+    "boundary-versus-shape separation is conditional, not a unique physical attribution",
+    "two tested boundary scenarios are sensitivity cases, not rigorous error bounds",
+    "DEM-boundary surface RMSE remains large; not all A spatial error is due to edge thickness",
+    "smoothing/density results on these cases do not establish universal interpolation limits",
+    "modern replay does not establish LIA temporal transfer"
+  ],
+  "new_PP_tau_LIA_or_dynamic_runs": 0
+}

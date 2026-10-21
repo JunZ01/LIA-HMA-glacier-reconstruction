@@ -9496,3 +9496,8 @@ Fact 1496. 已执行的观测核查、逐测点生产床面对照及历史资料
 ## 2026-10-21T03:30:30.048819+00:00 — Extension operator diagnostic completed
 
 Facts1497; synthetic reproduction and three modern-reference controls registered. Boundary propagation and clipping limitations quantified. Research candidates only; production and accepted counts unchanged. Evidence `validation_data/results/paleo_surface_validation_v0/lia_extension_operator_controls_20261021_v1/evidence.json`.
+
+
+## 2026-10-21T04:42:53.856523+00:00 — Full-chain input export and residual review
+
+Facts1498; supplied residual variants not rerun. Frozen modern inputs exported, outlet reference thickness versus zero-start convention recorded. No new model run or production promotion. Counts/current_focus/next_action unchanged. Evidence `validation_data/results/paleo_surface_validation_v0/lia_fullchain_input_export_20261021_v1/evidence.json`.

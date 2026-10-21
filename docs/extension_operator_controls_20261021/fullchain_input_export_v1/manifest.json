@@ -1,0 +1,982 @@
+{
+  "status": "completed",
+  "scope": "read-only data export; no tau calibration, PP, LIA or dynamic solve",
+  "schema": "modern-fullchain-inputs-v1",
+  "records": [
+    {
+      "file": "fullchain_inputs_3131.npz",
+      "uid": 3131,
+      "rgi_id": "RGI60-15.10279",
+      "bytes": 2672988,
+      "sha256": "238df1793aae282f3f07d50bce27377546a94716a4b8418bf8f4ce73504ec715",
+      "flowlines": 5,
+      "flowline_nodes": 132,
+      "native_dx_m": 61.0,
+      "target_dx_m": 15.25,
+      "keys": {
+        "schema_version": {
+          "shape": [],
+          "dtype": "<U26"
+        },
+        "lia_unique_id": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "region": {
+          "shape": [],
+          "dtype": "<U16"
+        },
+        "rgi_id": {
+          "shape": [],
+          "dtype": "<U14"
+        },
+        "reference_H_m": {
+          "shape": [
+            577,
+            417
+          ],
+          "dtype": "float64"
+        },
+        "topo_m": {
+          "shape": [
+            577,
+            417
+          ],
+          "dtype": "float64"
+        },
+        "modern_mask": {
+          "shape": [
+            577,
+            417
+          ],
+          "dtype": "bool"
+        },
+        "bed_m": {
+          "shape": [
+            577,
+            417
+          ],
+          "dtype": "float64"
+        },
+        "dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "grid_x_m": {
+          "shape": [
+            417
+          ],
+          "dtype": "float64"
+        },
+        "grid_y_m": {
+          "shape": [
+            577
+          ],
+          "dtype": "float64"
+        },
+        "crs_wkt": {
+          "shape": [],
+          "dtype": "<U880"
+        },
+        "grid_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "constraint_rows": {
+          "shape": [
+            537
+          ],
+          "dtype": "int32"
+        },
+        "constraint_cols": {
+          "shape": [
+            537
+          ],
+          "dtype": "int32"
+        },
+        "native_reference_H_m": {
+          "shape": [
+            255,
+            247
+          ],
+          "dtype": "float64"
+        },
+        "native_topo_m": {
+          "shape": [
+            255,
+            247
+          ],
+          "dtype": "float64"
+        },
+        "native_modern_mask": {
+          "shape": [
+            255,
+            247
+          ],
+          "dtype": "bool"
+        },
+        "native_bed_m": {
+          "shape": [
+            255,
+            247
+          ],
+          "dtype": "float64"
+        },
+        "native_dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "native_grid_json": {
+          "shape": [],
+          "dtype": "<U227"
+        },
+        "native_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "native_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "inversion_1d_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "flowline_offsets": {
+          "shape": [
+            6
+          ],
+          "dtype": "int64"
+        },
+        "flowline_index": {
+          "shape": [
+            5
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to": {
+          "shape": [
+            5
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to_indice": {
+          "shape": [
+            5
+          ],
+          "dtype": "int32"
+        },
+        "flowline_dx_m": {
+          "shape": [
+            5
+          ],
+          "dtype": "float64"
+        },
+        "flowline_distance_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_native": {
+          "shape": [
+            132,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_lia": {
+          "shape": [
+            132,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_native_m": {
+          "shape": [
+            132,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_lia_m": {
+          "shape": [
+            132,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_oggm_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_H_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_volume_m3": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_bed_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_bilinear_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_bilinear_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_nearest_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_nearest_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_native_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_lia_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_native_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_lia_m": {
+          "shape": [
+            132
+          ],
+          "dtype": "float64"
+        },
+        "shape_factor": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "ice_density_kg_m3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "gravity_m_s2": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "maximum_thickness_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_config_json": {
+          "shape": [],
+          "dtype": "<U5633"
+        },
+        "legacy_tau_kpa": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_tau_row_json": {
+          "shape": [],
+          "dtype": "<U789"
+        },
+        "source_manifest_json": {
+          "shape": [],
+          "dtype": "<U2229"
+        }
+      },
+      "source_hashes": {
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-15\\RGI60-15.10\\RGI60-15.10279\\gridded_data.nc": "103b854f23905b1e0d6f680b6abd3799493c70ee7e27c79d6b7190b06f86fb09",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-15\\RGI60-15.10\\RGI60-15.10279\\glacier_grid.json": "bc441d4b9524ea6078fb48c566645a56704b86d38c94ed4bb7a11b5938d7b00e",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-15\\RGI60-15.10\\RGI60-15.10279\\inversion_flowlines.pkl": "892d6dfdc2b6230b3ff803d7b2367f955663fc436dc086b388b9086436ee9d90",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-15\\RGI60-15.10\\RGI60-15.10279\\inversion_output_f19_fs0_full_v0.pkl": "5400838bcd68322d40720ee1f74de4ddce48e2a0a8b378f17d0be62017669736",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3\\lia_3131_RGI60-15.10279_system_grid_v1.nc": "e0ee3f112bb87060dc81ab004e5e2f729fb4ba6a97c00b5e91de561bf667157c",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\core191_tau_calibration_config_v1.json": "b8846fb840a48e46bf14b47a5418cbba7f59804c91e4e694c4952083e00b3401",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\modern_tau_calibration_v1\\modern_tau_calibration_v0.csv": "09ba81425715e5f3b8d1efb9183a63eae8f6315b55c9397fb5dcf9eb1520161c",
+        "H:\\ToYangxin\\result_yx\\extension_operator_controls_20261021_v1\\npz_export\\modern_control_3131.npz": "737e203147d865a1b2b025ec5dd058327f429355430ba88dd6adc26630f17bd1"
+      },
+      "sources_unchanged": true,
+      "same_operator_control_constraints": true
+    },
+    {
+      "file": "fullchain_inputs_2906.npz",
+      "uid": 2906,
+      "rgi_id": "RGI60-13.26439",
+      "bytes": 3339517,
+      "sha256": "a196c913808fc11b91de0020fd2aa65834f47d5f7313efc2bf83a26fe9c99751",
+      "flowlines": 2,
+      "flowline_nodes": 62,
+      "native_dx_m": 67.0,
+      "target_dx_m": 16.75,
+      "keys": {
+        "schema_version": {
+          "shape": [],
+          "dtype": "<U26"
+        },
+        "lia_unique_id": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "region": {
+          "shape": [],
+          "dtype": "<U13"
+        },
+        "rgi_id": {
+          "shape": [],
+          "dtype": "<U14"
+        },
+        "reference_H_m": {
+          "shape": [
+            844,
+            648
+          ],
+          "dtype": "float64"
+        },
+        "topo_m": {
+          "shape": [
+            844,
+            648
+          ],
+          "dtype": "float64"
+        },
+        "modern_mask": {
+          "shape": [
+            844,
+            648
+          ],
+          "dtype": "bool"
+        },
+        "bed_m": {
+          "shape": [
+            844,
+            648
+          ],
+          "dtype": "float64"
+        },
+        "dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "grid_x_m": {
+          "shape": [
+            648
+          ],
+          "dtype": "float64"
+        },
+        "grid_y_m": {
+          "shape": [
+            844
+          ],
+          "dtype": "float64"
+        },
+        "crs_wkt": {
+          "shape": [],
+          "dtype": "<U880"
+        },
+        "grid_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "constraint_rows": {
+          "shape": [
+            253
+          ],
+          "dtype": "int32"
+        },
+        "constraint_cols": {
+          "shape": [
+            253
+          ],
+          "dtype": "int32"
+        },
+        "native_reference_H_m": {
+          "shape": [
+            225,
+            231
+          ],
+          "dtype": "float64"
+        },
+        "native_topo_m": {
+          "shape": [
+            225,
+            231
+          ],
+          "dtype": "float64"
+        },
+        "native_modern_mask": {
+          "shape": [
+            225,
+            231
+          ],
+          "dtype": "bool"
+        },
+        "native_bed_m": {
+          "shape": [
+            225,
+            231
+          ],
+          "dtype": "float64"
+        },
+        "native_dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "native_grid_json": {
+          "shape": [],
+          "dtype": "<U227"
+        },
+        "native_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "native_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "inversion_1d_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "flowline_offsets": {
+          "shape": [
+            3
+          ],
+          "dtype": "int64"
+        },
+        "flowline_index": {
+          "shape": [
+            2
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to": {
+          "shape": [
+            2
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to_indice": {
+          "shape": [
+            2
+          ],
+          "dtype": "int32"
+        },
+        "flowline_dx_m": {
+          "shape": [
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_distance_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_native": {
+          "shape": [
+            62,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_lia": {
+          "shape": [
+            62,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_native_m": {
+          "shape": [
+            62,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_lia_m": {
+          "shape": [
+            62,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_oggm_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_H_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_volume_m3": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_bed_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_bilinear_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_bilinear_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_nearest_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_nearest_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_native_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_lia_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_native_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_lia_m": {
+          "shape": [
+            62
+          ],
+          "dtype": "float64"
+        },
+        "shape_factor": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "ice_density_kg_m3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "gravity_m_s2": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "maximum_thickness_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_config_json": {
+          "shape": [],
+          "dtype": "<U5633"
+        },
+        "legacy_tau_kpa": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_tau_row_json": {
+          "shape": [],
+          "dtype": "<U778"
+        },
+        "source_manifest_json": {
+          "shape": [],
+          "dtype": "<U2229"
+        }
+      },
+      "source_hashes": {
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-13\\RGI60-13.26\\RGI60-13.26439\\gridded_data.nc": "084c6a91d4c7d5e299eef7ccbf02394c1eb9a259507f9933226e56e9294f5fae",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-13\\RGI60-13.26\\RGI60-13.26439\\glacier_grid.json": "4b5332373bf635c672143e9383265fc98132f5751e839c011f20ab91fe37b289",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-13\\RGI60-13.26\\RGI60-13.26439\\inversion_flowlines.pkl": "d40a5c02f92b30817cf82e2a6a3187032a7d15f4fce5b9541d98476b4824abd0",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-13\\RGI60-13.26\\RGI60-13.26439\\inversion_output_f19_fs0_full_v0.pkl": "7ca521efb986562393f70dbe9436eb2bdfc6a4e5168f2a3c7a3339b8d02683e3",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3\\lia_2906_RGI60-13.26439_system_grid_v1.nc": "e41ab5147b8fe542dcb23b91ca6ad9a064f45b9fb71efa2473030cf80757f8ab",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\core191_tau_calibration_config_v1.json": "b8846fb840a48e46bf14b47a5418cbba7f59804c91e4e694c4952083e00b3401",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\modern_tau_calibration_v1\\modern_tau_calibration_v0.csv": "09ba81425715e5f3b8d1efb9183a63eae8f6315b55c9397fb5dcf9eb1520161c",
+        "H:\\ToYangxin\\result_yx\\extension_operator_controls_20261021_v1\\npz_export\\modern_control_2906.npz": "ef6d43085066aef630954ad6485b99cdaa9a652fe7b127f62e1c8d6c9b77b614"
+      },
+      "sources_unchanged": true,
+      "same_operator_control_constraints": true
+    },
+    {
+      "file": "fullchain_inputs_3632.npz",
+      "uid": 3632,
+      "rgi_id": "RGI60-14.18909",
+      "bytes": 2968467,
+      "sha256": "7a1003efbadcd62e34512bc33d422b3105787940c31549f27bc7ad4c91d267f1",
+      "flowlines": 7,
+      "flowline_nodes": 156,
+      "native_dx_m": 62.0,
+      "target_dx_m": 15.5,
+      "keys": {
+        "schema_version": {
+          "shape": [],
+          "dtype": "<U26"
+        },
+        "lia_unique_id": {
+          "shape": [],
+          "dtype": "int32"
+        },
+        "region": {
+          "shape": [],
+          "dtype": "<U13"
+        },
+        "rgi_id": {
+          "shape": [],
+          "dtype": "<U14"
+        },
+        "reference_H_m": {
+          "shape": [
+            581,
+            455
+          ],
+          "dtype": "float64"
+        },
+        "topo_m": {
+          "shape": [
+            581,
+            455
+          ],
+          "dtype": "float64"
+        },
+        "modern_mask": {
+          "shape": [
+            581,
+            455
+          ],
+          "dtype": "bool"
+        },
+        "bed_m": {
+          "shape": [
+            581,
+            455
+          ],
+          "dtype": "float64"
+        },
+        "dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "grid_x_m": {
+          "shape": [
+            455
+          ],
+          "dtype": "float64"
+        },
+        "grid_y_m": {
+          "shape": [
+            581
+          ],
+          "dtype": "float64"
+        },
+        "crs_wkt": {
+          "shape": [],
+          "dtype": "<U880"
+        },
+        "grid_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "constraint_rows": {
+          "shape": [
+            629
+          ],
+          "dtype": "int32"
+        },
+        "constraint_cols": {
+          "shape": [
+            629
+          ],
+          "dtype": "int32"
+        },
+        "native_reference_H_m": {
+          "shape": [
+            274,
+            249
+          ],
+          "dtype": "float64"
+        },
+        "native_topo_m": {
+          "shape": [
+            274,
+            249
+          ],
+          "dtype": "float64"
+        },
+        "native_modern_mask": {
+          "shape": [
+            274,
+            249
+          ],
+          "dtype": "bool"
+        },
+        "native_bed_m": {
+          "shape": [
+            274,
+            249
+          ],
+          "dtype": "float64"
+        },
+        "native_dx_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "native_grid_json": {
+          "shape": [],
+          "dtype": "<U227"
+        },
+        "native_transform_gdal": {
+          "shape": [
+            6
+          ],
+          "dtype": "float64"
+        },
+        "native_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "inversion_1d_volume_km3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "flowline_offsets": {
+          "shape": [
+            8
+          ],
+          "dtype": "int64"
+        },
+        "flowline_index": {
+          "shape": [
+            7
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to": {
+          "shape": [
+            7
+          ],
+          "dtype": "int32"
+        },
+        "flowline_flows_to_indice": {
+          "shape": [
+            7
+          ],
+          "dtype": "int32"
+        },
+        "flowline_dx_m": {
+          "shape": [
+            7
+          ],
+          "dtype": "float64"
+        },
+        "flowline_distance_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_native": {
+          "shape": [
+            156,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_lia": {
+          "shape": [
+            156,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_native_m": {
+          "shape": [
+            156,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_xy_projected_lia_m": {
+          "shape": [
+            156,
+            2
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_oggm_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_H_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_volume_m3": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_inversion_bed_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_bilinear_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_bilinear_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_native_nearest_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_bed_lia_nearest_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_native_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_surface_dem_lia_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_native_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "flowline_reference_H_lia_m": {
+          "shape": [
+            156
+          ],
+          "dtype": "float64"
+        },
+        "shape_factor": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "ice_density_kg_m3": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "gravity_m_s2": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "maximum_thickness_m": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_config_json": {
+          "shape": [],
+          "dtype": "<U5633"
+        },
+        "legacy_tau_kpa": {
+          "shape": [],
+          "dtype": "float64"
+        },
+        "legacy_tau_row_json": {
+          "shape": [],
+          "dtype": "<U788"
+        },
+        "source_manifest_json": {
+          "shape": [],
+          "dtype": "<U2229"
+        }
+      },
+      "source_hashes": {
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-14\\RGI60-14.18\\RGI60-14.18909\\gridded_data.nc": "6f7d218bb68602a9db885c6f6a13b597d8aa45ae24f66a730c681197e48143ef",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-14\\RGI60-14.18\\RGI60-14.18909\\glacier_grid.json": "21392816ef882e433e30b4ad162256d4cf77dbf277df032dd06b1f83e511321f",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-14\\RGI60-14.18\\RGI60-14.18909\\inversion_flowlines.pkl": "1ce5f88b633388d6b78265cebe18a2db9768ad06e17fc0ac5c4b3c557a399ea7",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized\\outputs\\019f730c-ee32-74d0-8b77-fdb7832f6a06\\stage0_bed_full_farinotti_v0\\oggm_workdir\\per_glacier\\RGI60-14\\RGI60-14.18\\RGI60-14.18909\\inversion_output_f19_fs0_full_v0.pkl": "21df891f507c0bb97e132c3db5b0d6eddf01eb603b3bf540c2f7eec23278c117",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_anchor_reroute_f19_v3\\lia_3632_RGI60-14.18909_system_grid_v1.nc": "ced581ff1fb6821028e1e4cc415455c6d953c3579b941e7eeee5ff6c58d066f1",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\core191_tau_calibration_config_v1.json": "b8846fb840a48e46bf14b47a5418cbba7f59804c91e4e694c4952083e00b3401",
+        "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\core191_production_candidate_v1\\modern_tau_calibration_v1\\modern_tau_calibration_v0.csv": "09ba81425715e5f3b8d1efb9183a63eae8f6315b55c9397fb5dcf9eb1520161c",
+        "H:\\ToYangxin\\result_yx\\extension_operator_controls_20261021_v1\\npz_export\\modern_control_3632.npz": "03cadbde41ab265330c045968bf22053e1f73ef3fe321c1f173b41b1ddf1a9a7"
+      },
+      "sources_unchanged": true,
+      "same_operator_control_constraints": true
+    }
+  ]
+}
