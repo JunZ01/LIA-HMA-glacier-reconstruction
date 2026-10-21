@@ -1,0 +1,19 @@
+{
+  "lia_unique_id": 2907,
+  "region": "East Himalaya",
+  "rgi_id": "RGI60-13.26239",
+  "status": "solved",
+  "profile_tau_kpa": 108.67111259215889,
+  "flowline_rmse_m": 58.237134830781145,
+  "constraints": 197,
+  "reference_volume_km3": 12.486621119427225,
+  "static_volume_harmonic_km3": 7.502016808862089,
+  "ratio_harmonic": 0.6008043919255407,
+  "static_volume_thinplate_km3": 10.247754124260467,
+  "ratio_thinplate": 0.8206987323669627,
+  "thinplate_negative_cells_percent": 0.03765900468645392,
+  "thickness_rmse_harmonic_m": 74.09334833939069,
+  "thickness_rmse_thinplate_m": 60.37805756225434,
+  "checkpoint_pass": true,
+  "seconds": 2.1555441000382416
+}

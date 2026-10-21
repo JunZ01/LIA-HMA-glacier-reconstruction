@@ -9526,3 +9526,20 @@ Facts1502; original float64 inputs, unchanged gates,22denominator,3supplied cont
 ## 2026-10-21T11:37:41.749687+00:00 — Human closes static extension branch
 
 Facts1503;12/22passes below80percent;5unbracketed roots plus5spatial-fit failures;156/191multi-member gap. A not promoted, affected static volume-change conclusions remain withdrawn. No further A repair/multi-member expansion/pilot enlargement. Read-only accepted-mainline snapshot handoff requested. Counts/current_focus/next_action and unrelated branches preserved.
+
+
+## lia_dated_bilateral3_20261019_r1: technical-failure
+
+Evidence `wdatedbilateral3r1/terminal.json` SHA 8BDCC0A5A9E3AF5396ACEE77357E2ABBA3D5CEB01982E604C3FB9F2C5EF52DC6. No formal acceptance or unrelated state change.
+
+
+## static-samemethod-ck1-20261021-authorized
+
+Fact1505. Human explicitly authorizes a NEW thin-plate/same-method static research checkpoint, step1 only, on all22 frozen singleton NPZ controls. This supersedes fact1503 only for this new checkpoint; the old A/volume-tau route stays closed and its12/22 result remains unchanged. Apply supplied7d3a7e5 patch; unified-bed profile tau, H0 outlet,100m raster exclusion, legacy loss/grid/refinement unchanged. New discrete squared-Laplacian thickness interpolation has zero raster boundary; negative overshoots are clipped and reported. This is a simplified surrogate, NOT an exact ANUDEM/TopoToRaster implementation. Exact Zhang2024 methods/full text and SI remain unverified; do not claim a replication. Human fixes inclusive0.7<=V_T/V_reference<=1.3 and>=80percent of ALL22 systems (at least18); every error/failure counts. The band is a prospective human plausibility policy, not a verified universal literature uncertainty interval. The3existing controls informed development, so this is not independent validation of those cases. Reference thickness/volume is a model product, not observed truth. Minimal runner hardening uses the frozen22 selection rather than existing-file enumeration and saves each system immediately; physics and thresholds unchanged. All10 extension tests passed. Execute provided runner in oggm_env2, original full-precision exports, one worker/one numerical thread, estimate120-600s, immutable output. No new A repair, expanded selection, multi-member export, LIA/dynamic run or191promotion;156/191multi-member gap remains. Even if checkpoint passes, this turn authorizes no step2 launch. Dynamic32 comparison is model-to-model unless independence is separately demonstrated. Accepted counts/current_focus/next_action and unrelated branches unchanged.
+Evidence `validation_data/results/paleo_surface_validation_v0/lia_static_samemethod_ck1_20261021_v1/authorized/evidence.json`.
+
+
+## static-samemethod-ck1-20261021-completed
+
+Fact1506. Checkpoint1 completed on all22 systems: solved22, passed21/22 (95.454545percent), elapsed48.105s. Frozen inclusive0.7-1.3 and80percent rule unchanged. Result: completed-modern-checkpoint-pass. Modern/reference comparison is against a model product and does not validate LIA time transfer. No LIA volume difference,191run, operator-A repair, accepted-count change or step2 execution occurred. Existing A closure and multi-member156/191gap remain. Results and per-system records are hashed; completed fingerprints are not rerun. Counts/current_focus/next_action and all unrelated branches preserved. Failed systems: [{"lia_unique_id": 3053, "ratio": 1.475902337168573}]. Median ratio harmonic=0.611153276, thin-plate=0.857096625; total-volume ratio thin-plate=0.874728578. Maximum negative raw-cell fraction (clipped by the supplied operator)=7.735006percent; this is a diagnostic, not a retrospectively added gate. Passing the checkpoint does not restore withdrawn static LIA volume conclusions or authorize step2 this turn.
+Evidence `validation_data/results/paleo_surface_validation_v0/lia_static_samemethod_ck1_20261021_v1/completed/evidence.json`.

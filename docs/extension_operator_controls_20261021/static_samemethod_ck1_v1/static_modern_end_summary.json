@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 48.104750099999364,
+  "systems": 22,
+  "solved": 22,
+  "passed": 21,
+  "pass_share_of_all_systems": 0.9545454545454546,
+  "route_continues_to_lia_end": true,
+  "median_ratio_harmonic": 0.6111532758089082,
+  "median_ratio_thinplate": 0.8570966247045897,
+  "sum_ratio_thinplate": 0.8747285781243412,
+  "status_counts": {
+    "solved": 22
+  },
+  "checkpoint": {
+    "ratio_low": 0.7,
+    "ratio_high": 1.3,
+    "route_pass_share": 0.8
+  },
+  "scope": "modern end of the same-method static route; reference is a model estimate; no LIA, climate or dynamic run"
+}

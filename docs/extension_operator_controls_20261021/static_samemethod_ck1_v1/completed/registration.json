@@ -1,0 +1,12 @@
+{
+  "facts_section": 1506,
+  "status": "pass",
+  "branch": "lia_static_samemethod_ck1_20261021_v1",
+  "fingerprint": "25b97d05de579e3a89e7455d54d332e62f010bcd9815229bd9c532cf3bb8db04",
+  "counts": {
+    "accepted": 32,
+    "active": 0,
+    "queued": 26,
+    "remaining": 159
+  }
+}

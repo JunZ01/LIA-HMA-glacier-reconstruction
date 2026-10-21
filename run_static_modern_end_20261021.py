@@ -1,10 +1,10 @@
 """Checkpoint 1 of the same-method static route: the modern end.
 
-Route (literature-aligned, Li 2023 PalaeoIce / Zhang et al. 2024): the LIA and
+Candidate route (the exact Zhang et al. 2024 settings remain unverified): the LIA and
 modern volumes are both produced by the same static pipeline -- perfect-
 plasticity flowline network, then 2-D thickness interpolation with zero
 thickness on the outline -- and differenced. The interpolator is the thin-plate
-(minimum-curvature) operator T, the class used by ANUDEM/'Topo to Raster',
+(minimum-curvature) operator T, a simplified surrogate for ANUDEM/'Topo to Raster',
 instead of the legacy harmonic operator.
 
 This script runs the MODERN end on fullchain_inputs_<uid>.npz:
@@ -14,8 +14,8 @@ This script runs the MODERN end on fullchain_inputs_<uid>.npz:
      legacy harmonic operator and operator T;
   3. modern static volume / modern reference volume for both operators.
 Checkpoint rule fixed before running (CHECKPOINT): a system passes when the
-operator-T ratio lies in [0.7, 1.3], the accuracy range reported for VOLTA and
-GlaRe against field volumes; the route continues to the LIA end only if at
+operator-T ratio lies in [0.7, 1.3], a human-specified plausibility band,
+not a universal literature confidence interval; the checkpoint passes only if at
 least 80 % of ALL systems pass. The reference is an OGGM redistribution, so
 this checks stability and plausibility, not truth. No LIA, climate or dynamic
 run.
@@ -116,7 +116,18 @@ def main() -> None:
     npz_dir, out_dir = Path(sys.argv[1]), Path(sys.argv[2])
     out_dir.mkdir(parents=True, exist_ok=False)
     started = time.perf_counter()
-    uids = sorted(int(p.stem.split("_")[-1]) for p in npz_dir.glob("fullchain_inputs_*.npz"))
+    selection = npz_dir.parent / "selection" / "pilot_systems.csv"
+    if not selection.is_file():
+        raise FileNotFoundError("Frozen pilot selection is required; missing exports must count as failures")
+    selected = pd.read_csv(selection)["lia_unique_id"].astype(int)
+    if selected.duplicated().any() or len(selected) != 22:
+        raise ValueError("This checkpoint requires the frozen 22 unique systems")
+    uids = sorted(selected.tolist())
+    exported = {int(p.stem.split("_")[-1]) for p in npz_dir.glob("fullchain_inputs_*.npz")}
+    if exported - set(uids):
+        raise ValueError("Input NPZ includes systems outside the frozen selection")
+    member_dir = out_dir / "systems"
+    member_dir.mkdir()
     rows = []
     for uid in uids:
         t0 = time.perf_counter()
@@ -126,6 +137,8 @@ def main() -> None:
             row = {"lia_unique_id": uid, "status": "error", "error": f"{type(error).__name__}: {error}",
                    "traceback": traceback.format_exc()}
         row["seconds"] = time.perf_counter() - t0
+        with (member_dir / f"system_{uid}.json").open("x", encoding="utf-8") as stream:
+            json.dump(row, stream, indent=2, ensure_ascii=False)
         rows.append(row)
         pd.DataFrame(rows).to_csv(out_dir / "static_modern_end.csv", index=False)
         print(json.dumps({k: (round(v, 3) if isinstance(v, float) else v) for k, v in row.items()

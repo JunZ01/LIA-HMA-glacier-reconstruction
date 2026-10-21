@@ -1,0 +1,55 @@
+{
+  "phase": "completed",
+  "status": "completed-modern-checkpoint-pass",
+  "protocol_fingerprint": "25b97d05de579e3a89e7455d54d332e62f010bcd9815229bd9c532cf3bb8db04",
+  "protocol_sha256": "69DCAC7C1101F594C2FDFBFE5E4BCE58AEBA0EAC8B0897E77EE582067648F11D",
+  "time_utc": "2026-10-21T14:08:00.543453+00:00",
+  "decision": "Checkpoint1 completed on all22 systems: solved22, passed21/22 (95.454545percent), elapsed48.105s. Frozen inclusive0.7-1.3 and80percent rule unchanged. Result: completed-modern-checkpoint-pass. Modern/reference comparison is against a model product and does not validate LIA time transfer. No LIA volume difference,191run, operator-A repair, accepted-count change or step2 execution occurred. Existing A closure and multi-member156/191gap remain. Results and per-system records are hashed; completed fingerprints are not rerun. Counts/current_focus/next_action and all unrelated branches preserved. Failed systems: [{\"lia_unique_id\": 3053, \"ratio\": 1.475902337168573}]. Median ratio harmonic=0.611153276, thin-plate=0.857096625; total-volume ratio thin-plate=0.874728578. Maximum negative raw-cell fraction (clipped by the supplied operator)=7.735006percent; this is a diagnostic, not a retrospectively added gate. Passing the checkpoint does not restore withdrawn static LIA volume conclusions or authorize step2 this turn.",
+  "summary": {
+    "status": "completed",
+    "elapsed_seconds": 48.104750099999364,
+    "systems": 22,
+    "solved": 22,
+    "passed": 21,
+    "pass_share_of_all_systems": 0.9545454545454546,
+    "route_continues_to_lia_end": true,
+    "median_ratio_harmonic": 0.6111532758089082,
+    "median_ratio_thinplate": 0.8570966247045897,
+    "sum_ratio_thinplate": 0.8747285781243412,
+    "status_counts": {
+      "solved": 22
+    },
+    "checkpoint": {
+      "ratio_low": 0.7,
+      "ratio_high": 1.3,
+      "route_pass_share": 0.8
+    },
+    "scope": "modern end of the same-method static route; reference is a model estimate; no LIA, climate or dynamic run"
+  },
+  "outputs_sha256": {
+    "static_modern_end.csv": "C0187A2A879B3D90FF0FEEAC832E2B22DD78595262CBD93E9CE017AC129E10A5",
+    "static_modern_end_summary.json": "4D7A4288426D39762B34E826E0659E9CB050D6FEB3838195D0FC5D4F9B9B2974",
+    "systems\\system_1412.json": "F834DC3CAB19EB7EF2CAF90CBD196B2CAFB09E1A7BFA3F13BFFD6B8DD4211D1B",
+    "systems\\system_1545.json": "61D1A3918DE14AF67CC22E4C5379D68F17EE9ACA8407A1B2377F46DF127E29DF",
+    "systems\\system_1871.json": "37EDFB5AD03817EFA588A83AC126A7AD70902F64F62ACB31C0D2654AAE4F190B",
+    "systems\\system_1931.json": "A2C975506178AB761053FD0AE9CFF8D1EEC55981B50182D220DECBD868910E4A",
+    "systems\\system_214.json": "FDAFB838BEE9449A316DEA8681B9C9CEC88CEBE2B3140F63EB8EBAE5363EDF0F",
+    "systems\\system_2321.json": "4A329E4CB46B104B3FEAFBACF3D11E818C03E092A994E071AC76E89F4DDE7DAF",
+    "systems\\system_2353.json": "DF2F8C522C8F583EF6D0C94178C8AC09A21B151146FA2A7F2CDF084177D7BE5D",
+    "systems\\system_2727.json": "2A0C005215C6D1F9B2172610508A16D9C24AEF457B6AD836AB39E319ECAA6B0E",
+    "systems\\system_2729.json": "E34C2EEBF4F4912DB627AFE33A26E62D1AFA647CE551E6E62B04D23EDC1F88C7",
+    "systems\\system_2815.json": "1319EEDC1FFFACC740F973C311712454BA1A997D84E1C0311542B4EC88729BC9",
+    "systems\\system_2906.json": "06E92BBE5C107A903A68CF002845303622F2C989C04884949624FA1AA45C0FBE",
+    "systems\\system_2907.json": "38BAFFF71DC7ED4D1FB8068084CB1A828FF1AF96131D7BD765736E3E69BBB976",
+    "systems\\system_3053.json": "F3CE31B0B1E41BAC2FF898992F92C1F4965DEFA18A20D29544BD70745A784075",
+    "systems\\system_3131.json": "A0EB19C8ACDA1C225F176E1A5E3CFE09A510977BC9799085E55E173EBF52A1B9",
+    "systems\\system_3185.json": "A761463DBDB33ED1459AACE3D91F72A42D587866336CBD069ECE5C5681BD9B37",
+    "systems\\system_3244.json": "66A364FFADE4C6FFD8C339E5FD46960CC0845C943183E38A81F66D7CD1DB9595",
+    "systems\\system_3632.json": "E338DFE02B4B65C6202E38AF2612412E23C40947A650B3E5D9C4159311EC538F",
+    "systems\\system_3904.json": "8377E511B162F49803258DFBAB3085C9EC7D824A3D0214530E685792B1CD7C0A",
+    "systems\\system_4464.json": "ABF23EB5FA82FC284E347EDF0F9F96D67478789AFD01ECFBC1B3EDE4BA51197D",
+    "systems\\system_5127.json": "3073D0E8C127560D8C7FFCF0EC0C2DC11A682D7D08ED7D8CDFA1DB9FEAC27DF0",
+    "systems\\system_5443.json": "30A1901E251F05365586054172965CD32F1397157987C556649933AEF055506D",
+    "systems\\system_558.json": "571A78960507BFF721D4F9C61E5AC59AF161B068111FE85ED8C8315D5F805362"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "lia_unique_id": 2353,
+  "region": "Central Himalaya",
+  "rgi_id": "RGI60-15.04600",
+  "status": "solved",
+  "profile_tau_kpa": 91.13791344834978,
+  "flowline_rmse_m": 31.31262631272168,
+  "constraints": 214,
+  "reference_volume_km3": 1.541992789304126,
+  "static_volume_harmonic_km3": 0.8631239627097,
+  "ratio_harmonic": 0.5597457839599966,
+  "static_volume_thinplate_km3": 1.2790755168189547,
+  "ratio_thinplate": 0.8294951349261359,
+  "thinplate_negative_cells_percent": 0.0,
+  "thickness_rmse_harmonic_m": 57.443967095820845,
+  "thickness_rmse_thinplate_m": 30.80883077294103,
+  "checkpoint_pass": true,
+  "seconds": 2.66021170001477
+}

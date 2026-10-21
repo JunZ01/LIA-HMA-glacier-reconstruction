@@ -1,0 +1,16 @@
+{
+  "pid": 5840,
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_modern_end_20261021.py",
+    "H:/ToYangxin/result_yx/volume_tau_pilot_20261021/npz",
+    "H:/ToYangxin/result_yx/static_samemethod_20261021/modern_end"
+  ],
+  "cwd": "E:\\lia-gh-20261021-v2",
+  "started_at_utc": "2026-10-21T14:05:37.967556+00:00",
+  "per_system_checkpoint": "systems/system_<uid>.json",
+  "expected_systems": 22,
+  "threads": 1,
+  "workers": 1
+}

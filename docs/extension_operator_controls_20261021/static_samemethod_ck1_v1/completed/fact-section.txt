@@ -1,0 +1,6 @@
+
+
+## 1506. Same-method thin-plate static modern checkpoint / completed, 2026-10-21
+
+- Checkpoint1 completed on all22 systems: solved22, passed21/22 (95.454545percent), elapsed48.105s. Frozen inclusive0.7-1.3 and80percent rule unchanged. Result: completed-modern-checkpoint-pass. Modern/reference comparison is against a model product and does not validate LIA time transfer. No LIA volume difference,191run, operator-A repair, accepted-count change or step2 execution occurred. Existing A closure and multi-member156/191gap remain. Results and per-system records are hashed; completed fingerprints are not rerun. Counts/current_focus/next_action and all unrelated branches preserved. Failed systems: [{"lia_unique_id": 3053, "ratio": 1.475902337168573}]. Median ratio harmonic=0.611153276, thin-plate=0.857096625; total-volume ratio thin-plate=0.874728578. Maximum negative raw-cell fraction (clipped by the supplied operator)=7.735006percent; this is a diagnostic, not a retrospectively added gate. Passing the checkpoint does not restore withdrawn static LIA volume conclusions or authorize step2 this turn.
+- Evidence `validation_data/results/paleo_surface_validation_v0/lia_static_samemethod_ck1_20261021_v1/completed/evidence.json`; protocol fingerprint `25b97d05de579e3a89e7455d54d332e62f010bcd9815229bd9c532cf3bb8db04`.
