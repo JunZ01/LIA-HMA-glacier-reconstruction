@@ -1,0 +1,35 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 325.17966776699996,
+  "systems": [
+    3632,
+    3131,
+    2906
+  ],
+  "tau_grid_kpa": [
+    40.0,
+    60.0,
+    80.0,
+    100.0,
+    120.0,
+    140.0,
+    160.0,
+    180.0,
+    200.0,
+    220.0,
+    240.0,
+    260.0
+  ],
+  "outlets": [
+    "H0",
+    "Href"
+  ],
+  "legacy_tau_reproduced": true,
+  "frame": "saved LIA grid; unified bed B = topo - H_ref; projected modern OGGM flowlines",
+  "departures_from_production": [
+    "100 m exclusion uses raster distance, not the vector polygon",
+    "modern footprint and modern flowlines instead of LIA ones",
+    "Href outlet uses network-solver outlet_surface_m (new optional argument)"
+  ],
+  "scope": "self-consistency replay against an OGGM reference; not validation; no LIA, climate or dynamic run"
+}

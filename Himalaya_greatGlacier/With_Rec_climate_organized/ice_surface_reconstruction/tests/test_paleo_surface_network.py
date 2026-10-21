@@ -139,3 +139,37 @@ def test_sampled_network_recomputes_consistent_coarse_diagnostics() -> None:
     np.testing.assert_allclose(solution.surface_slope[1:], expected_slope)
     assert solution.diagnostics["sampled_at_original_nodes"] is True
     assert np.isfinite(solution.driving_shear_stress_pa).all()
+
+
+def test_outlet_surface_is_optional_and_prescribes_start_surface() -> None:
+    branches = [branch("trunk", "terminus", "head", [0.0, 50.0])]
+    scenario = SurfaceScenario("test", 80_000.0, 0.8)
+    default = solve_flowline_network(branches, scenario, outlet_node_ids={"terminus"})
+    explicit_none = solve_flowline_network(
+        branches, scenario, outlet_node_ids={"terminus"}, outlet_surface_m=None
+    )
+    prescribed = solve_flowline_network(
+        branches, scenario, outlet_node_ids={"terminus"},
+        outlet_surface_m={"terminus": 20.0},
+    )
+    assert default.success and explicit_none.success and prescribed.success
+    assert default.branch_solutions["trunk"].surface_elevation_m[0] == 0.0
+    assert np.array_equal(
+        default.branch_solutions["trunk"].surface_elevation_m,
+        explicit_none.branch_solutions["trunk"].surface_elevation_m,
+    )
+    assert prescribed.branch_solutions["trunk"].surface_elevation_m[0] == 20.0
+    assert prescribed.branch_solutions["trunk"].thickness_m[0] == 20.0
+
+
+def test_outlet_surface_rejects_non_outlet_node() -> None:
+    branches = [branch("trunk", "terminus", "head", [0.0, 50.0])]
+    try:
+        solve_flowline_network(
+            branches, SurfaceScenario("test", 80_000.0, 0.8),
+            outlet_node_ids={"terminus"}, outlet_surface_m={"head": 60.0},
+        )
+    except ValueError as error:
+        assert "non-outlet" in str(error)
+    else:
+        raise AssertionError("expected ValueError")

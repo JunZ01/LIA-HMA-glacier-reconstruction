@@ -172,6 +172,7 @@ def solve_flowline_network(
     *,
     outlet_node_ids: set[str],
     junction_surface_tolerance_m: float = 1e-3,
+    outlet_surface_m: dict[str, float] | None = None,
 ) -> FlowlineNetworkSolution:
     """Solve an acyclic flowline graph from outlets toward ice divides.
 
@@ -180,6 +181,10 @@ def solve_flowline_network(
     inherits exactly that surface. Flux continuity is deliberately not inferred
     without an independent LIA flux constraint and remains an explicit missing
     diagnostic.
+
+    ``outlet_surface_m`` optionally prescribes the surface at named outlet
+    nodes. When omitted (default) an outlet starts at its bed, i.e. zero
+    thickness, exactly as before.
     """
 
     if not branches:
@@ -188,6 +193,12 @@ def solve_flowline_network(
         raise ValueError("At least one outlet node is required")
     if junction_surface_tolerance_m < 0:
         raise ValueError("junction_surface_tolerance_m must be non-negative")
+    outlet_surface = dict(outlet_surface_m or {})
+    unknown_outlets = sorted(set(outlet_surface) - set(outlet_node_ids))
+    if unknown_outlets:
+        raise ValueError(f"outlet_surface_m names non-outlet nodes: {unknown_outlets}")
+    if not all(np.isfinite(float(value)) for value in outlet_surface.values()):
+        raise ValueError("outlet_surface_m values must be finite")
     for branch in branches:
         branch.validate()
     identifiers = [branch.branch_id for branch in branches]
@@ -238,6 +249,8 @@ def solve_flowline_network(
 
         for branch in ready:
             inherited = node_surface.get(branch.downstream_node_id)
+            if inherited is None and branch.downstream_node_id in outlet_surface:
+                inherited = float(outlet_surface[branch.downstream_node_id])
             solution = solve_flowline(
                 branch.distance_m,
                 branch.bed_elevation_m,
