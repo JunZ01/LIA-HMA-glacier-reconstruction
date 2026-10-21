@@ -1,0 +1,51 @@
+{
+  "status": "closed-current-branch",
+  "operator_A_production_allowed": false,
+  "static191_volume_change_conclusions": "remain withdrawn",
+  "prohibited_followups": [
+    "further operator A repair",
+    "multi-member export extension on this branch",
+    "pilot expansion"
+  ],
+  "next_human_request": "read-only accepted-mainline dynamic snapshot example and source directory; no new glacier run",
+  "failure_classes": {
+    "unbracketed_volume_root": {
+      "count": 5,
+      "systems": [
+        1412,
+        1545,
+        1871,
+        1931,
+        3053
+      ],
+      "reason": "A reference-relative volume is already positive at tau40 kPa and remains positive over the prescribed scan; no closure root in 40-260 kPa"
+    },
+    "spatial_fit_degradation": {
+      "count": 5,
+      "flowline_rmse_ratio_gt_1_25": [
+        2353,
+        2729,
+        2907,
+        5127
+      ],
+      "surface_rmse_increase_gt_1m": [
+        214
+      ],
+      "reason": "volume closure can worsen profile/surface agreement beyond frozen gates; not unique proof that reference or model alone is wrong"
+    }
+  },
+  "multi_member_gap": {
+    "excluded": 156,
+    "population": 191,
+    "share_percent": 81.7
+  },
+  "pilot": {
+    "passed": 12,
+    "denominator": 22,
+    "pass_share_percent": 54.54545454545455,
+    "required_percent": 80
+  },
+  "accepted_ledger_effect": 0,
+  "new_model_runs": 0,
+  "closure_authority": "explicit latest human instruction"
+}

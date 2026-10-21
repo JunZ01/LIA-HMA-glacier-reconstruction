@@ -9521,3 +9521,8 @@ Facts1501; original float64 inputs, unchanged gates,22denominator,3supplied cont
 ## 2026-10-21T08:56:51.108217+00:00 — Volume-tau pilot completed
 
 Facts1502; original float64 inputs, unchanged gates,22denominator,3supplied controls reused/19new local systems. No191promotion or unrelated state change. Evidence `validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_execution_20261021_v1/completed/evidence.json`.
+
+
+## 2026-10-21T11:37:41.749687+00:00 — Human closes static extension branch
+
+Facts1503;12/22passes below80percent;5unbracketed roots plus5spatial-fit failures;156/191multi-member gap. A not promoted, affected static volume-change conclusions remain withdrawn. No further A repair/multi-member expansion/pilot enlargement. Read-only accepted-mainline snapshot handoff requested. Counts/current_focus/next_action and unrelated branches preserved.
