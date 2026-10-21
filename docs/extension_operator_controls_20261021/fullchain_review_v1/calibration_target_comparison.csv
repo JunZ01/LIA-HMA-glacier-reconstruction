@@ -1,0 +1,4 @@
+lia_unique_id,flowline_spacing_m,profile_fit_tau_kpa,volume_tau_interpolated_kpa,interpolation_bracket_kpa,volume_calibration_actually_run,profile_fit_rmse_m,A_volume_bias_at_profile_fit_percent,max_fixed_tau_outlet_A_volume_difference_pp,archived_tau_rmse_point_count_exact_match
+3632,[124.0],92.86995155359526,92.0551755994043,"[80.0, 100.0]",False,16.447646002748584,0.6107543517678282,0.06851510491232204,True
+3131,[122.0],105.86055864561688,152.0631737841955,"[140.0, 160.0]",False,59.03562008375676,-15.117581801019142,0.056965574700470256,True
+2906,[134.0],107.23076898366698,119.20875989128366,"[100.0, 120.0]",False,20.297521586592715,-5.264811691596094,0.07292311549500852,True

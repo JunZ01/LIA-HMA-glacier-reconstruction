@@ -1,6 +1,6 @@
 # LIA HMA glacier reconstruction
 
-Private research source snapshot, prepared on 2026-10-21.
+Research source snapshot, prepared on 2026-10-21.
 
 ## Contents
 
@@ -29,3 +29,5 @@ Requirements differ between model branches; consult their requirements files. Pr
 The local research branch adds candidate harmonic-surface and Poisson-thickness extensions. Nine pytest cases pass and seven supplied synthetic cases reproduce. Three modern-reference controls improve aggregate volume consistency with operator A, but surface interpolation error and negative-thickness clipping remain. Boundary propagation accounts for a substantial part of the legacy deficit. Candidates are not connected to production. See `docs/extension_operator_controls_20261021/report.html` and the accompanying CSV/JSON files. These modern controls are not independent validation of reconstructed LIA thickness.
 
 The follow-up residual-analysis mail patch was integrated without rerunning its new variants. `export_fullchain_inputs_npz_20261021.py` exports native flowline topology, both grid frames and unified-bed samples for offline modern replay; schema and review notes are in `docs/extension_operator_controls_20261021/fullchain_input_export_v1/`. Native main-flowline endpoints retain about 15-18 m of reference thickness, whereas the existing network solver starts unseen outlets at zero thickness; endpoint conventions must be disclosed in a replay. No new tau/PP/LIA/dynamic solve or production promotion has been performed.
+
+The subsequent supplied full-chain modern replay is integrated in `replay_modern_fullchain_20261021.py` and `docs/extension_operator_controls_20261021/fullchain_replay_v1/`. Eight network tests passed locally; the supplied replay itself was not rerun locally. The optional outlet surface preserves the network solver's default behavior. Local review and calibration-target comparison are in `docs/extension_operator_controls_20261021/fullchain_review_v1/`, registered as project fact1499. Modern-volume calibration is the primary experimental target for a proposed next pilot, with profile fitting retained as structural sensitivity. Curve-interpolated volume roots are not completed volume fits, and modern closure is calibration rather than independent validation. No production route is switched or new glacier-model batch launched by this integration.

@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "facts_section": 1499,
+  "evidence": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_fullchain_replay_review_20261021_v1/evidence.json",
+    "sha256": "965290449E85DB722DDAEC797D31E2992A17A4CFD6C3EC0F5B4E19506A10A714"
+  },
+  "route": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_fullchain_replay_review_20261021_v1/route-completed-review-v1.json",
+    "sha256": "0CA50E436CE46E94229DB83E6FEBBB4176660DACCE759363EB653346BCEC81CB"
+  },
+  "facts_sha256": "4E6AB20A36AE8CA779B2170968703CCE364D41BA1975A12BF1C8AB423459847E",
+  "counts_preserved": true,
+  "existing_branches_preserved": true,
+  "current_focus_preserved": true,
+  "next_action_preserved": true,
+  "production_promoted": false,
+  "new_model_runs": 0
+}

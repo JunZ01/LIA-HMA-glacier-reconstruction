@@ -9501,3 +9501,8 @@ Facts1497; synthetic reproduction and three modern-reference controls registered
 ## 2026-10-21T04:42:53.856523+00:00 — Full-chain input export and residual review
 
 Facts1498; supplied residual variants not rerun. Frozen modern inputs exported, outlet reference thickness versus zero-start convention recorded. No new model run or production promotion. Counts/current_focus/next_action unchanged. Evidence `validation_data/results/paleo_surface_validation_v0/lia_fullchain_input_export_20261021_v1/evidence.json`.
+
+
+## 2026-10-21T05:21:29.052058+00:00 — Supplied modern full-chain replay review
+
+Facts1499; supplied replay not rerun locally, eight network unit tests passed and archive metadata matched. Next-pilot experimental choice: volume calibration primary, profile fit structural sensitivity; interpolated volume roots are not completed fits. No production promotion or new model run. Counts/current_focus/next_action and prior branches preserved. Evidence `validation_data/results/paleo_surface_validation_v0/lia_fullchain_replay_review_20261021_v1/evidence.json`.

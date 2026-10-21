@@ -1,0 +1,75 @@
+{
+  "status": "reviewed-research-only",
+  "result_provenance": "supplied patch; not locally rerun",
+  "new_local_glacier_model_or_calibration_runs": 0,
+  "local_network_unit_tests": {
+    "passed": 8,
+    "seconds": 0.42
+  },
+  "original_patch_sha256": "4e19a20318e384a800ad2622be740c69f60eb91a62fc2321c0523d20a740ec5f",
+  "replay_script_sha256": "2d2a2c1635db8e2eaed830646412fd6c4146a4e2b5507a1eb092fa948c07bfe2",
+  "source_hashes": {
+    "fullchain_summary.csv": "5c6884485bde593530fcf61be393d52feac5fd8788a35bdb2e4b17a3a6b6018a",
+    "legacy_tau_harness_check.csv": "972be7bf6dc539178a1cca544690cc07240be3fae9341764ec76c8947e1ecde8",
+    "README.md": "b4f550cc4641404603698398753a01f63c9f4e2d1258b138d8f5ffe01c9b3e8d",
+    "summary.json": "873bf302c03dcad14533caee3c77c7dfc409de76d6b2ddd3898a3e38360cfc1b",
+    "tau_curves.csv": "1fe4868e44a3fef99d8781995dca7d3e9e30254bf87cc8f1f7ba6cdcd51b450c"
+  },
+  "calibration_decision": "Modern volume primary in next research pilot only; profile fit retained as structural sensitivity.",
+  "production_promotion": false,
+  "records": [
+    {
+      "lia_unique_id": 3632,
+      "flowline_spacing_m": [
+        124.0
+      ],
+      "profile_fit_tau_kpa": 92.86995155359526,
+      "volume_tau_interpolated_kpa": 92.0551755994043,
+      "interpolation_bracket_kpa": [
+        80.0,
+        100.0
+      ],
+      "volume_calibration_actually_run": false,
+      "profile_fit_rmse_m": 16.447646002748584,
+      "A_volume_bias_at_profile_fit_percent": 0.6107543517678282,
+      "max_fixed_tau_outlet_A_volume_difference_pp": 0.06851510491232204,
+      "archived_tau_rmse_point_count_exact_match": true
+    },
+    {
+      "lia_unique_id": 3131,
+      "flowline_spacing_m": [
+        122.0
+      ],
+      "profile_fit_tau_kpa": 105.86055864561688,
+      "volume_tau_interpolated_kpa": 152.0631737841955,
+      "interpolation_bracket_kpa": [
+        140.0,
+        160.0
+      ],
+      "volume_calibration_actually_run": false,
+      "profile_fit_rmse_m": 59.03562008375676,
+      "A_volume_bias_at_profile_fit_percent": -15.117581801019142,
+      "max_fixed_tau_outlet_A_volume_difference_pp": 0.056965574700470256,
+      "archived_tau_rmse_point_count_exact_match": true
+    },
+    {
+      "lia_unique_id": 2906,
+      "flowline_spacing_m": [
+        134.0
+      ],
+      "profile_fit_tau_kpa": 107.23076898366698,
+      "volume_tau_interpolated_kpa": 119.20875989128366,
+      "interpolation_bracket_kpa": [
+        100.0,
+        120.0
+      ],
+      "volume_calibration_actually_run": false,
+      "profile_fit_rmse_m": 20.297521586592715,
+      "A_volume_bias_at_profile_fit_percent": -5.264811691596094,
+      "max_fixed_tau_outlet_A_volume_difference_pp": 0.07292311549500852,
+      "archived_tau_rmse_point_count_exact_match": true
+    }
+  ],
+  "uncertainties": "Alternative objectives are not a confidence interval or guaranteed bounds; modern volume closure is calibration, not validation.",
+  "production_network_sha256": "04f6c987d264ee4040b43e84309f428b77c62dfba310c36d983ab0e6c8cd4ef6"
+}
