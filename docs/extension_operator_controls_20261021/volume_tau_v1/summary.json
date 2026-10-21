@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 35.92094804999999,
+  "outlet": "H0",
+  "operator": "A",
+  "closure_tolerance_percent": 0.1,
+  "all_closed": true,
+  "scope": "modern calibration only; closure is the target, not validation; no LIA, climate or dynamic run"
+}
