@@ -1,0 +1,94 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 293.69321559998207,
+  "systems": 22,
+  "completed": 22,
+  "solved": 17,
+  "passed": 12,
+  "pass_share_of_all_systems": 0.5454545454545454,
+  "status_counts": {
+    "solved": 17,
+    "volume-root-outside-tau-bounds": 5
+  },
+  "gates": {
+    "closure_abs_bias_percent_max": 0.1,
+    "flowline_rmse_ratio_max": 1.25,
+    "surface_rmse_increase_m_max": 1.0,
+    "tau_strictly_inside_kpa": [
+      40.0,
+      260.0
+    ]
+  },
+  "weak_identifiability_systems": [
+    1412,
+    2321,
+    3131
+  ],
+  "reused_supplied_controls": 3,
+  "locally_run_systems": 19,
+  "fingerprint": "685a95183878277f6cf30a0e1485ce88bf43e98fce241f37bd944e7580aa77cd",
+  "pass_share_threshold": 0.8,
+  "input_precision": "original float64; not transfer float32",
+  "selection_systems": 22,
+  "intended_balanced_design_systems": 27,
+  "multi_member_population_not_covered": 156,
+  "population": 191,
+  "scope": "modern calibration pilot; closure is calibration, not independent validation; no LIA, climate or dynamic run",
+  "route_rule": "at least 80% of all actual 22 selected systems; no automatic promotion to 191; multi-member gap disclosed",
+  "failed": 10,
+  "failure_reason_counts": {
+    "surface_rmse_increase_gt_1m": 1,
+    "volume-root-outside-tau-bounds": 5,
+    "flowline_rmse_ratio_gt_1.25": 4
+  },
+  "failed_systems": [
+    {
+      "lia_unique_id": 214,
+      "reasons": "surface_rmse_increase_gt_1m"
+    },
+    {
+      "lia_unique_id": 1412,
+      "reasons": "volume-root-outside-tau-bounds"
+    },
+    {
+      "lia_unique_id": 1545,
+      "reasons": "volume-root-outside-tau-bounds"
+    },
+    {
+      "lia_unique_id": 1871,
+      "reasons": "volume-root-outside-tau-bounds"
+    },
+    {
+      "lia_unique_id": 1931,
+      "reasons": "volume-root-outside-tau-bounds"
+    },
+    {
+      "lia_unique_id": 2353,
+      "reasons": "flowline_rmse_ratio_gt_1.25"
+    },
+    {
+      "lia_unique_id": 2729,
+      "reasons": "flowline_rmse_ratio_gt_1.25"
+    },
+    {
+      "lia_unique_id": 2907,
+      "reasons": "flowline_rmse_ratio_gt_1.25"
+    },
+    {
+      "lia_unique_id": 3053,
+      "reasons": "volume-root-outside-tau-bounds"
+    },
+    {
+      "lia_unique_id": 5127,
+      "reasons": "flowline_rmse_ratio_gt_1.25"
+    }
+  ],
+  "pass_rule_met": false,
+  "route_decision": "STOP_CURRENT_ROUTE_BEFORE_191_RERUN",
+  "production_promotion": false,
+  "tau_curve_rows": 264,
+  "local_new_passed": 9,
+  "reused_control_passed": 3,
+  "result_provenance": "19 new local float64 calculations, 3 external supplied controls reused; not 22 independent local recalculations",
+  "arithmetic_review": "Pass flags and failure reasons recomputed from saved per-system metrics under unchanged gates; no model rerun."
+}

@@ -9511,3 +9511,13 @@ Facts1499; supplied replay not rerun locally, eight network unit tests passed an
 ## 2026-10-21T07:48:03.802875+00:00 — Volume-tau pilot input handoff
 
 Facts1500; unchanged selection rule yields22, not27, due sparse East singleton population. Export22success/0failure. Multi-member coverage gap156/191. Runner denominator fixed, gates unchanged. No local model run or production promotion; unrelated state preserved. Evidence `validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_input_export_20261021_v1/evidence.json`.
+
+
+## 2026-10-21T08:50:58.535357+00:00 — Volume-tau pilot authorized
+
+Facts1501; original float64 inputs, unchanged gates,22denominator,3supplied controls reused/19new local systems. No191promotion or unrelated state change. Evidence `validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_execution_20261021_v1/authorized/evidence.json`.
+
+
+## 2026-10-21T08:56:51.108217+00:00 — Volume-tau pilot completed
+
+Facts1502; original float64 inputs, unchanged gates,22denominator,3supplied controls reused/19new local systems. No191promotion or unrelated state change. Evidence `validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_execution_20261021_v1/completed/evidence.json`.

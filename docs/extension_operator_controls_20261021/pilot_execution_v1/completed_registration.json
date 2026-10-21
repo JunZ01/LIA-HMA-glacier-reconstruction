@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "stage": "completed",
+  "facts_section": 1502,
+  "evidence": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_execution_20261021_v1/completed/evidence.json",
+    "sha256": "D31C9BDA0E3EA2BCD6F4E792A0F146AAC97D1DBF7FC32F82DF0DC50E29A6D645"
+  },
+  "route": {
+    "path": "validation_data/results/paleo_surface_validation_v0/lia_volume_tau_pilot_execution_20261021_v1/completed/route-completed-v1.json",
+    "sha256": "D34FD82706595B91705908CB57D5F1B98C4F275F467B46FC558C42700984A7D3"
+  },
+  "counts_preserved": true,
+  "unrelated_branches_preserved": true
+}

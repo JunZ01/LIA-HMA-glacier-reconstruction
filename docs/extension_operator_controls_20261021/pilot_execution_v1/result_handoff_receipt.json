@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "archive": "H:\\ToYangxin\\result_yx\\volume_tau_pilot_20261021\\pilot\\volume_tau_pilot_results_20261021.zip",
+  "bytes": 43884,
+  "sha256": "c5c9a6e3731715c21bda4e861a927aad034fc32cf86b637ae71ca273f0b8fab3",
+  "files": {
+    "pilot_results.csv": {
+      "bytes": 11150,
+      "sha256": "171f6ec6193eeb61a6190025f3188b9104f622c02235e27c3f14dc3490bfd42e"
+    },
+    "pilot_tau_curves.csv": {
+      "bytes": 87769,
+      "sha256": "e0f13901ee4cbcb6fa3c7dba0467ae4c04db88efa3f1da2a70f170f34045e64f"
+    },
+    "pilot_summary.json": {
+      "bytes": 2829,
+      "sha256": "9df03a8563de9c4024a34bb01154a8d9c0d4ce20200a89b6e912261214e599e8"
+    }
+  },
+  "systems": 22,
+  "passed": 12,
+  "failed": 10,
+  "pass_share": 0.5454545454545454,
+  "failure_reason_counts": {
+    "surface_rmse_increase_gt_1m": 1,
+    "volume-root-outside-tau-bounds": 5,
+    "flowline_rmse_ratio_gt_1.25": 4
+  },
+  "new_model_runs_during_review": 0
+}
