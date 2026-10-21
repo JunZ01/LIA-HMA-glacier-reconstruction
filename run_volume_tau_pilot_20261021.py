@@ -137,7 +137,17 @@ def main() -> None:
     npz_dir, out_dir = Path(sys.argv[1]), Path(sys.argv[2])
     out_dir.mkdir(parents=True, exist_ok=False)
     started = time.perf_counter()
-    uids = sorted(int(p.stem.split("_")[-1]) for p in npz_dir.glob("fullchain_inputs_*.npz"))
+    exported_uids = {int(p.stem.split("_")[-1]) for p in npz_dir.glob("fullchain_inputs_*.npz")}
+    selection_path = npz_dir / "pilot_systems.csv"
+    if selection_path.exists():
+        selected = pd.read_csv(selection_path)
+        if selected.lia_unique_id.duplicated().any():
+            raise ValueError("duplicate system IDs in frozen pilot selection")
+        uids = sorted(int(u) for u in selected.lia_unique_id)
+        if exported_uids - set(uids):
+            raise ValueError("NPZ directory contains systems outside the frozen pilot selection")
+    else:
+        uids = sorted(exported_uids)
     rows, curves = [], []
     for uid in uids:
         t0 = time.perf_counter()
@@ -161,6 +171,9 @@ def main() -> None:
     summary = {
         "status": "completed", "elapsed_seconds": time.perf_counter() - started,
         "systems": len(table), "solved": int(len(solved)), "passed": passed,
+        "selection_manifest_used": selection_path.exists(),
+        "exported_systems": len(exported_uids),
+        "missing_exports_counted_in_denominator": len(set(uids) - exported_uids),
         "pass_share_of_all_systems": passed / max(len(table), 1),
         "status_counts": table["status"].value_counts().to_dict() if len(table) else {},
         "weak_identifiability_systems": [int(u) for u in solved.loc[solved.weak_identifiability, "lia_unique_id"]] if len(solved) else [],
