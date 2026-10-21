@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "systems": [
+    3632,
+    3131,
+    2906
+  ],
+  "gap_m": 100.0,
+  "scope": "offline operator diagnostic on frozen modern controls; reference is an OGGM redistribution, not observation",
+  "no_PP_tau_LIA_or_dynamic_runs": true
+}
