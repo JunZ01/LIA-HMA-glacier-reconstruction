@@ -1,0 +1,61 @@
+{
+  "scope": "two-system centerline-generation/export smoke then authorized191export and A/B/C only after successful smoke; no829launch",
+  "smoke_population": [
+    "HIM-01038",
+    "HIM-01044"
+  ],
+  "smoke_members": 12,
+  "planned_total_systems": 191,
+  "planned_total_members": 950,
+  "workers_smoke": 1,
+  "workers_full": 8,
+  "output_smoke": "H:/ToYangxin/result_yx/unified_191_smoke",
+  "output_full": "H:/ToYangxin/result_yx/unified_191",
+  "smoke_hard_seconds": 600,
+  "scientific_definitions": {
+    "DK": "27000*(sum area/cos band slope)^0.106 Pa; 300m bands; supplied variant uses mean raster terrain slope",
+    "modern": "all members same production OGGM generator; local plastic DEM-slope H, T interpolation; bed=DEM-H",
+    "LIA": "frozen network integration on same generated bed and same tau; T interpolation",
+    "F19": "scalar calibration target only inA/B; never spatialHinputorvalidation",
+    "gate": "abs A-B andA-C total dV percent <=2pp on common complete systems; no new gate or auto829launch"
+  },
+  "literature_evidence": {
+    "VOLTA": "local accepted PDF method2.5.1 and2.5.2 inspected; published200mbands, adaptive smoothing and4deg floor differ from this variant",
+    "PalaeoIce_author_code": "Git tree5c0efebf116b356a0171b5dba5b976efa1947ba1;SharedFunctions.py sum_a_cos power0.106 and300m confirm; band-angle calculation differs",
+    "Li2023_Zhang2024_fulltexts": "still unavailable per canonical reading_status; implementation is supplied research adaptation, not strict publishedmethodreplication"
+  },
+  "sources": [
+    {
+      "path": "E:\\lia-gh-20261021-v2\\export_unified_static_inputs_20261022.py",
+      "sha256": "92CEA727B454BCD06883C8FA22A77B5FF5B2DF15DD84248970EF388432A88662"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\static_unified_engine_20261022.py",
+      "sha256": "9990F7A1C3DA6BA5614D0A003390BED7395927317BE183E3C6AE8A1823DEB9A1"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\run_unified_abc_20261022.py",
+      "sha256": "7135705146665FC20331605CD58D771B06263021F83A8F944EEFC3EAE033AA0A"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\replay_modern_fullchain_20261021.py",
+      "sha256": "2D2A2C1635DB8E2EAED830646412FD6C4146A4E2B5507A1EB092FA948C07BFE2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\input829_inventory_20261022_v1\\systems829_input_index.csv",
+      "sha256": "614DE1DB506CDB99B28DB6813D1DFFFBF1E9111A6DAEA7CC174C45EEA3341DA0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\input829_inventory_20261022_v1\\modern_members829_input_index.csv",
+      "sha256": "0CC32A3D5E1C93D92A992782DE5EE542E0CC69D1E34F4D58EFBFAD233463310A"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+      "sha256": "7D629880E2C56DBA9FB7E632E5855D93109FF6BE590BB49E7B6827923C49A072"
+    },
+    {
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\unified_static_engine_20261022.patch",
+      "sha256": "93A1ED13A56D0B74DF70DCB15AC9EDD86329439B723147FAEC842C6766B8FD7C"
+    }
+  ]
+}

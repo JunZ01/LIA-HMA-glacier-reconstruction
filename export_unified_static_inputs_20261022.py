@@ -33,6 +33,8 @@ import os
 import pickle
 import tempfile
 import traceback
+import shutil
+import time
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
@@ -49,6 +51,7 @@ from rasterio.transform import Affine
 from rasterio.warp import Resampling, reproject
 from scipy.ndimage import label
 from shapely.geometry import shape as shp_shape
+from unified_static_io_20261022 import atomic_json, sha256, fingerprint
 
 from Himalaya_greatGlacier.With_Rec_climate_organized.ice_surface_reconstruction.drivers.lia_centerline_pilot import (
     _configure_oggm,
@@ -205,7 +208,7 @@ def lia_lines(row, grid: Grid) -> tuple[list[dict], list[str]]:
 def modern_lines(grid: Grid, dem: np.ndarray, members: pd.DataFrame, work: Path):
     sg = grid.salem_grid(work)
     union = np.zeros(grid.shape, bool)
-    out, failures, nxt = [], [], 0
+    out, failures, nxt, excluded_cells = [], [], 0, 0
     for m in members.itertuples():
         try:
             mask = member_mask(grid, Path(m.static_reference_gdir))
@@ -214,6 +217,7 @@ def modern_lines(grid: Grid, dem: np.ndarray, members: pd.DataFrame, work: Path)
             if n == 0:
                 raise ValueError("empty member mask on LIA grid")
             keep = lab == (np.argmax(np.bincount(lab.ravel())[1:]) + 1)
+            excluded_cells += int((mask & ~keep).sum())
             geom = max((shp_shape(g) for g, v in shapes(keep.astype(np.uint8), mask=keep, transform=grid.transform) if v == 1),
                        key=lambda g: g.area)
             with tempfile.TemporaryDirectory(dir=work) as tmp:
@@ -223,7 +227,7 @@ def modern_lines(grid: Grid, dem: np.ndarray, members: pd.DataFrame, work: Path)
             out.extend(part)
         except Exception as error:
             failures.append({"rgi_id": m.rgi_id, "is_main": bool(m.is_main), "error": f"{type(error).__name__}: {error}"[:200]})
-    return union, out, failures
+    return union, out, failures, excluded_cells
 
 
 def ragged(prefix: str, ls: list[dict]) -> dict:
@@ -240,6 +244,7 @@ def export_system(task):
     row, members, out_dir, dem_override = task
     rid = str(row["record_id"])
     rec = {"record_id": rid, "cohort": row["cohort"], "region": row["region"]}
+    started = time.perf_counter()
     try:
         grid = Grid(Path(row["lia_netcdf"]))
         dem_path = dem_override or grid.dem_source
@@ -248,7 +253,7 @@ def export_system(task):
         dem = dem_on_grid(grid, dem_path)
         work = out_dir / "_work" / rid
         work.mkdir(parents=True, exist_ok=True)
-        mod_mask, mod_lines, failures = modern_lines(grid, dem, members, work)
+        mod_mask, mod_lines, failures, excluded_cells = modern_lines(grid, dem, members, work)
         if any(f["is_main"] for f in failures) or not mod_lines:
             raise ValueError(f"main member centerlines failed: {failures[:2]}")
         lia, notes = lia_lines(row, grid)
@@ -258,19 +263,29 @@ def export_system(task):
         arr = {"schema": np.asarray("unified-static-v1"), "record_id": np.asarray(rid),
                "region": np.asarray(str(row["region"])), "cohort": np.asarray(str(row["cohort"])),
                "n_members": np.asarray(int(len(members))),
+               "modern_member_failures": np.asarray(len(failures)),
+               "modern_unrouted_component_cells": np.asarray(excluded_cells),
+               "modern_member_failure_detail": np.asarray(json.dumps(failures, ensure_ascii=False)),
                "f19_volume_km3": np.asarray(float(row["native_reference_volume_km3"])),
                "dx_m": np.asarray(abs(grid.dx)), "dem_m": dem.astype(np.float32),
                "modern_mask": mod_mask, "lia_mask": grid.lia_mask,
                "crs_wkt": np.asarray(grid.crs_wkt), "grid_x_m": grid.x, "grid_y_m": grid.y,
                **ragged("mod", mod_lines), **ragged("lia", lia)}
-        np.savez_compressed(out_dir / f"system_{rid}.npz", **arr)
+        target = out_dir / f"system_{rid}.npz"
+        temporary = target.with_suffix('.tmp.npz')
+        np.savez_compressed(temporary, **arr)
+        os.replace(temporary, target)
         rec.update({"status": "exported", "modern_member_failures": len(failures),
                     "modern_member_failure_detail": json.dumps(failures, ensure_ascii=False),
                     "modern_lines": len(mod_lines), "lia_lines": len(lia), "notes": ";".join(notes),
-                    "dem_path": dem_path})
+                    "dem_path": dem_path, "modern_unrouted_component_cells": excluded_cells,
+                    "npz_sha256": sha256(target)})
     except Exception as error:
         rec.update({"status": "export-failed", "error": f"{type(error).__name__}: {error}"[:300],
                     "traceback": traceback.format_exc()[-1500:]})
+    rec['seconds'] = time.perf_counter() - started
+    atomic_json(out_dir / 'records' / f'{rid}.json', rec)
+    print(json.dumps({'record_id':rid,'status':rec['status'],'seconds':rec['seconds']},ensure_ascii=False),flush=True)
     return rec
 
 
@@ -284,29 +299,58 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--workers", type=int, default=1)
     ap.add_argument("--dem", default=None)
+    ap.add_argument("--reuse-dir", type=Path, default=None, help="Explicit reuse of the successful two-system smoke exports")
+    ap.add_argument("--resume", action="store_true")
     args = ap.parse_args()
     config = json.loads(args.config.read_text(encoding="utf-8"))
-    args.out_dir.mkdir(parents=True, exist_ok=False)
+    args.out_dir.mkdir(parents=True, exist_ok=args.resume)
     systems = pd.read_csv(args.systems_index)
     members = pd.read_csv(args.members_index)
     if args.cohort:
         systems = systems[systems.cohort == args.cohort]
     if args.limit:
         systems = systems.head(args.limit)
+    signature=fingerprint({'config':config,'systems':sha256(args.systems_index),'members':sha256(args.members_index),'code':sha256(__file__),'cohort':args.cohort,'limit':args.limit,'dem_override':args.dem})
+    protocol=args.out_dir/'export_protocol.json'
+    if protocol.exists():
+        if json.loads(protocol.read_text(encoding='utf-8'))['fingerprint'] != signature:raise ValueError('resume fingerprint mismatch')
+    else:atomic_json(protocol,{'fingerprint':signature,'config':config})
+    records=[];done=set()
+    if args.resume:
+        for p in (args.out_dir/'records').glob('*.json'):
+            rec=json.loads(p.read_text(encoding='utf-8'))
+            if rec['status']=='exported':
+                target=args.out_dir/f"system_{rec['record_id']}.npz"
+                if sha256(target)!=rec['npz_sha256']:raise ValueError(f'changed completed export {target}')
+            records.append(rec);done.add(rec['record_id'])
+    if args.reuse_dir:
+        reuse=pd.read_csv(args.reuse_dir/'export_manifest.csv')
+        for rec in reuse[reuse.status=='exported'].to_dict('records'):
+            rid=rec['record_id']
+            if rid not in set(systems.record_id) or rid in done:continue
+            source=args.reuse_dir/f'system_{rid}.npz'
+            with np.load(source,allow_pickle=False) as z:
+                if str(z['record_id'])!=rid or str(z['schema'])!='unified-static-v1':raise ValueError('reuse identity mismatch')
+            target=args.out_dir/source.name;shutil.copyfile(source,target)
+            rec.update({'npz_sha256':sha256(target),'reused_from':str(source),'modern_unrouted_component_cells':int(rec.get('modern_unrouted_component_cells',0))})
+            if sha256(source)!=rec['npz_sha256']:raise ValueError('reuse copy hash mismatch')
+            atomic_json(args.out_dir/'records'/f'{rid}.json',rec);records.append(rec);done.add(rid)
     tasks = [(r, members[members.record_id == r["record_id"]], args.out_dir, args.dem)
-             for r in systems.to_dict("records")]
+             for r in systems.to_dict("records") if r['record_id'] not in done]
     if args.workers > 1:
         with ProcessPoolExecutor(args.workers, initializer=_init, initargs=(config,)) as pool:
-            records = list(pool.map(export_system, tasks, chunksize=1))
+            records.extend(pool.map(export_system, tasks, chunksize=1))
     else:
         _init(config)
-        records = [export_system(t) for t in tasks]
+        records.extend(export_system(t) for t in tasks)
     table = pd.DataFrame(records)
     table.drop(columns=["traceback"], errors="ignore").to_csv(args.out_dir / "export_manifest.csv", index=False)
     summary = {"systems": int(len(table)), "exported": int((table.status == "exported").sum()),
-               "failed": table.loc[table.status != "exported", ["record_id", "error"]].to_dict("records"),
+               "failed": table.loc[table.status != "exported"].reindex(columns=["record_id", "error"]).to_dict("records"),
                "modern_member_failures_total": int(table.get("modern_member_failures", pd.Series(dtype=float)).fillna(0).sum()),
                "scope": "read-only export; no thickness product read; no reconstruction run"}
+    summary['reused_exports']=int(table.get('reused_from',pd.Series(dtype=str)).notna().sum())
+    summary['modern_unrouted_component_cells_total']=int(table.get('modern_unrouted_component_cells',pd.Series(dtype=float)).fillna(0).sum())
     (args.out_dir / "export_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({k: v for k, v in summary.items() if k != "failed"}, indent=2), flush=True)
     for f in summary["failed"][:20]:

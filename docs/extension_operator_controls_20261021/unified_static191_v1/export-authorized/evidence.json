@@ -1,0 +1,37 @@
+{
+  "status": "full191-export-authorized",
+  "label": "export-authorized",
+  "decision": "Real modernflowline export smoke completed2/2,12members,0failures,elapsed10.981s. Originalall-success summaryfix passes realdata. Authorize full191export using8workers1thread,950members; reuse2verified smokeNPZs explicitly,no duplicateflowlinegeneration for those12members,189newexports. Immutable input/codehash manifest includesregionalDEM,191savedLIAgrids,193frozennetworkfiles,950modernmaskgrids+gridJSONs,indices/config/engine/core. Export budget1800s,estimated120..600s basedsmoke withlargergridgeometrycaveat. Addedatomicper-systemNPZ+JSONreceipts,SHAvalidatedresumeandexplicit smoke reuse,not newphysics. Existinglargestcomponent selection is preserved but its omittedcellsnowreported, memberfailurecounts embedded inNPZ; these incompleteinputs cannot be called complete inABCcommonpopulation. This is inputcompleteness,not a new scientificerror threshold; fixed2ppgateunchanged. Sourcehashes and identities frozen beforelaunch. OriginaltauA/Balgorithm retains twofixed-pointiterationsand40..260bounds; finalcalibrationresiduals will be measured/reported,not assumedclosed. No A/B/C calculationlaunchuntil exportreview andone necessary realfixture. No829run, no dynamicrun,noacceptedcountchange. CK3withdrawal and unverified68km3attributionstatus per1518 remain. Counts/current_focus/next_action and unrelatedbranches preserved.",
+  "payload": {
+    "plan": {
+      "population": 191,
+      "members": 950,
+      "reused_smoke_exports": 2,
+      "new_exports": 189,
+      "workers": 8,
+      "threads_each": 1,
+      "hard_seconds": 1800,
+      "expected_seconds": [
+        120,
+        600
+      ],
+      "out_dir": "H:/ToYangxin/result_yx/unified_191/npz",
+      "source_manifest": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_unified_static191_20261022_v1\\full_frozen_sources.json",
+      "source_count": 2300,
+      "source_manifest_sha256": "E873E0B13CAA3E4F868EAFAC4A402C74B0F97F2EDEC08B0506BD4CE32DF1FF04",
+      "checkpoint": "atomicNPZ and per-system JSON, completed exports SHAvalidated and no failed member retried; explicit --reuse-dir smoke",
+      "technical_changes": "all-success summary fix;atomic individual receipts;source-fingerprinted resume;explicit smoke reuse;report ungenerated member/component geometry;complete comparison excludes incomplete input, without adding a numerical gate",
+      "tau_solver": "retain supplied two fixed-point updates and40..260kPa bounds; disclose actual final volume residuals, not assumed exact closure",
+      "scope": "export only now; A/B/C fixture and full run next after export review; no829launch"
+    },
+    "smoke_summary": {
+      "systems": 2,
+      "exported": 2,
+      "failed": [],
+      "modern_member_failures_total": 0,
+      "scope": "read-only export; no thickness product read; no reconstruction run"
+    },
+    "source_hash_seconds": 9.019922000006773
+  },
+  "created_at_utc": "2026-10-22T06:37:22.995582+00:00"
+}

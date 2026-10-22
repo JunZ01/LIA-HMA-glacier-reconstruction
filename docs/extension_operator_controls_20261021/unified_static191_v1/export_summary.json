@@ -1,0 +1,9 @@
+{
+  "systems": 191,
+  "exported": 191,
+  "failed": [],
+  "modern_member_failures_total": 5,
+  "scope": "read-only export; no thickness product read; no reconstruction run",
+  "reused_exports": 2,
+  "modern_unrouted_component_cells_total": 876
+}

@@ -1,0 +1,821 @@
+{
+  "population": 191,
+  "schemes": [
+    "A",
+    "B",
+    "C"
+  ],
+  "workers": 8,
+  "threads_each": 1,
+  "GPU": 0,
+  "hard_seconds": 1800,
+  "estimated_seconds": [
+    120,
+    900
+  ],
+  "fixture_seconds": 1.0527994000003673,
+  "frozen_tau_bounds_kpa": [
+    40,
+    260
+  ],
+  "tau_calibration": "unchanged two fixed-point iterations; actual final residuals and clamping reported",
+  "gate_pp": 2,
+  "comparison_population": "same systems with numerical success in allA/B/C; QA flags separate, no new threshold",
+  "cache": "atomic task receipts keyed byNPZhash,engine/core/runner sourcehash,tau;deduplicate identicalfulltau acrossscheme labels; fixtureC reused",
+  "npz_inputs": [
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00007.npz",
+      "sha256": "7225D6642BB8AF98A040815B3A540E38828FEA58D6F9BB0470116D81736DEF78"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00014.npz",
+      "sha256": "2265D369C0B56EDD92DEEC7B3DCAFB3FEC245CDC03AC787BAB5073D8F5C0057A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00079.npz",
+      "sha256": "9C937EA5E9CCC465C0563F5814D9761B9AA015599754847C931485EF270399BB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00084.npz",
+      "sha256": "03C78740C5461BA53720067F74A6EF2660B641683FA0CEACABE12A6FBE0B3FA3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00130.npz",
+      "sha256": "0278D725FCE3FA76863911CF5FA02EB2332B13D3B9B8E1EBFBD662A64D580464"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00214.npz",
+      "sha256": "F97EF5D22F58EE98AB9A7A375FA6EDB52F4E70A715AAF9CCE0C0CA18CB1390FB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00252.npz",
+      "sha256": "BECDFE3DA09B45BAE432D5F05B77C51900FB4EE2A6DBC9BE12F43AA707432428"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00313.npz",
+      "sha256": "A34D1C1FE2526ACF34ADBB95CB7C19FD6CD3DA8D90763970518B592F142CDA15"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00334.npz",
+      "sha256": "74F05BB5B71F5D4557353B61B8449505ED25B9B0385D28DCCBCD26012DE420B2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00512.npz",
+      "sha256": "7D11E19D865C69A24C724E6DB5D867147B34E82233C7356E098A88BAE8B1AB02"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00516.npz",
+      "sha256": "103D44A7E45DBBDF964EE9C4D233B107B03DAF7805068D7582DCEF47D5A5E8E5"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00518.npz",
+      "sha256": "B1D286A454BE818307B06A214D8C57868F18A572544D8D11BE38B77AA9CD7882"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00520.npz",
+      "sha256": "E612DD06EF791BCE47F4E6D5EACE711AECA3A47D452196FF1633349728CDCBC7"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00551.npz",
+      "sha256": "B77EA1F65FA6889387F570B285C777FEC994D06533ACB0C18A2BFCCA20634F46"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00553.npz",
+      "sha256": "C8F472DC04E66B00F0F4E95E2F9240A878195812A6B3617DDC166101D3A0E3D5"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00558.npz",
+      "sha256": "1655DC59473D69FB59E035BC5A5FC98BEE7D205DF56ACFEA49512D99EAB8F858"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00584.npz",
+      "sha256": "281641F1A9F2917F244B876532555ED21573B5BB2E696DF520A04E44D3BEDAAE"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00660.npz",
+      "sha256": "65FF71D55646BA9B8F9B1C003699CC16B642255C1EBB525518421DEA45121301"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00705.npz",
+      "sha256": "1F8BE18AE7469A90BA6F61378FD0189BB892879E72CB38CE3E87A60449F98683"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00709.npz",
+      "sha256": "FCE46DB7AF538D31819C66703715BB41DCCF0CC046A8806393AAB260BD1CA16A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00801.npz",
+      "sha256": "0E2BFF48449A376422440CFADDDA560D990AD98094AEED283BE91663C6A55B13"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00843.npz",
+      "sha256": "C15022E1ED652E90287FC6E80E828D6C9B288E479066D968B566261259BD6D6B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00890.npz",
+      "sha256": "5B6DB4D0278831FBCC5E346EBFF6B52EE10C5673B35F20882F2AF87C9EC8787C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00902.npz",
+      "sha256": "B47F9B23721725F1BF2317B96D0078C1C3C1FCD1DDB1C0E42EC17CFD596350C0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00904.npz",
+      "sha256": "7DB42F33AB7FC5A8CD9131CF4CC041134A7D4A5EF29171757C97C2E9A2BB7D32"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00988.npz",
+      "sha256": "26BC6F8268636A06D4DEEB97345D57DA6F6F5DB035402310C0D49F0A43AECA59"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-00991.npz",
+      "sha256": "46A51F4277317DB03D8D4204D2512FB89B47208C8F763457E73B1FF59BAC20A2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01012.npz",
+      "sha256": "B4AFFE9293CC16EEFABB6D7EE44750814788366F45536562936576DE170F88BD"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01014.npz",
+      "sha256": "9582B8A6B57C066701F37C9427805B9FBB45001F897724971DDDD69CE1E1ABA6"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01026.npz",
+      "sha256": "A7166BA457BFF185C80372B1309EA964AE817F0C42440A49F0E1A8A410FCEC52"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01038.npz",
+      "sha256": "D7C1584EFB1ED399ADB4349AAA0DC20F99AEE44C8A0B4C0184246EC22EEA4ECC"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01044.npz",
+      "sha256": "CAEE9EA69BC9ECE72F6BA07D3E6B61606EDD37FE7CEE87916D46928187C3374B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01077.npz",
+      "sha256": "5009E9D3E49A9D2809B393C5F453CE54936477C8CFDEB3863949DCB7E4CD377F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01120.npz",
+      "sha256": "A2BB8A0C7DEBEA1E5A7BE67407B110C80DF96BE717F78CD2B9D6EAC6EFE77A20"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01133.npz",
+      "sha256": "649756C25309AC68168953AD2FC1F4B2B14B14E9EF06189CDD90212FCE67906A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01301.npz",
+      "sha256": "B5D9AD5722629A1B79C52309E403CA48F7838D10F736CA4FDC9F67CFB9AD2F5F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01326.npz",
+      "sha256": "3F775FCEFBF3F1B92B4554ACABAA80E37B16EF14AD93FFE7800182BCC719244A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01412.npz",
+      "sha256": "27A63AE21D59A15E22A1E57D184DF1B987637C06ACDDD3A71B96DB484147F001"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01425.npz",
+      "sha256": "F77CF45AEEA32390495BC091FCBDD5CC2FAC1DF161D9C947FBF502E60DE82125"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01441.npz",
+      "sha256": "9D59937AFCB88BE593E049A27E7EF2F26510D4B90AAE3BD3D3515FF7994638C8"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01499.npz",
+      "sha256": "55200CDC7E8C41291AB3E9B782B15323051B2A5FDF75DAE76C413533EA2DB29A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01524.npz",
+      "sha256": "0615B3FF0792E33E77AC3977C9128C0FF7C02F75EB9351A1F4330C33F0BB823D"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01545.npz",
+      "sha256": "D1FA823CE63D911971E65511F6ADC376704B181A005E091BBA96493002051308"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01546.npz",
+      "sha256": "C9CC27BD5346789395208251CC4F14D11BA98B64C1A226BF8A55243E1CC1C2FB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01574.npz",
+      "sha256": "026685E77962E373EA27E555A6C0E1717536921409B5A8852BA6B18F0DD66D02"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01616.npz",
+      "sha256": "6E886D8757E3C77838A3CB5D690ABBA9150E691CE5569BFA234DBF35F755B094"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01631.npz",
+      "sha256": "586825F40420128FD0F6C944ED3876EEE1EFCA96CC05CF64ED7914D1D43D274B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01639.npz",
+      "sha256": "D39A5327CF84DF613D0F3FDE723301B33A53F98AFB5AB6A13D9DF6612C2CF2B1"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01642.npz",
+      "sha256": "570D82ADD4F1C66EEB9B3C742776508763423C93EB153A2D2386DAC0C0E64840"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01645.npz",
+      "sha256": "AB91FF18D6284326988D227F0490404AE3968C683291839D5461EBFDE54EBD56"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01653.npz",
+      "sha256": "E33E9FEA5F8EBCD37B5B511E33C885F88578697973116D26B761DCDA6DA749A8"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01743.npz",
+      "sha256": "EC5466FCA98BA45AD1476E28CB77434AE141787644771AD130E8EA121832B824"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01856.npz",
+      "sha256": "C6976EA7EF837456770A40E29689EF71E736940F0F51455A9E46D087FD376A0F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01871.npz",
+      "sha256": "643B24609888D80533B3D8C532544A97816A6299B6F9ACA63BF8522408CB26D4"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01880.npz",
+      "sha256": "C49822CD6F293E63F2900C9388E34DBD57DC9872E041E5CEE1C0329199948078"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01886.npz",
+      "sha256": "B74E80D52BE69159DD2B21BFEA925A596D972E941AE5544722D1398FFE796130"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-01931.npz",
+      "sha256": "18B0C2BEE2CA2DA2C2293E97AFD98E2517CF32BC876C7228A9C38748321AB07E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02005.npz",
+      "sha256": "3F033A22229FCE60CE0097A34B8643C4E545F91C8ED0A401AD0B98B69F6AA46E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02086.npz",
+      "sha256": "A1E9185C5F0A62F297F028B23964ABBC069FF0F062C35C4664170BA6AC4CBC00"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02141.npz",
+      "sha256": "927AD241444C6AF441DF8D2ABC5623000D1FF648319D1C4B8DBCBB9A30F308A2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02155.npz",
+      "sha256": "FC1A91E58C1366B6E902A0C46F31BBCE947AFCA35AB91EB38C1A0ADBDF1AA5DF"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02177.npz",
+      "sha256": "2E0A8018ACC7448CB76C6314EA95BA320D9E96D992D67EE00B20D796F2C60667"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02185.npz",
+      "sha256": "61E63542EDCFE693BA66F92C680FC5634FC6A4C31C1ABF11CD34512E50FE6E97"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02226.npz",
+      "sha256": "C8D1FAA830E08F76777344098D05D4135420FE786071523E65C78451C2D6C04A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02255.npz",
+      "sha256": "BDFD1B0F153DC7CA7D57AE61A63FE0CCBADCE8A41D511A4094DCE1254F894245"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02259.npz",
+      "sha256": "A931236EF9C6479470F9869D27BEB816581834E240402AB8EE5C2300BB8584CB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02266.npz",
+      "sha256": "729359256AE61897307C9DF40F36FD4D12EB43849CD1935C9057B437953CE3CC"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02321.npz",
+      "sha256": "810377424232495AA6BC962591D0417355CE97F2429E97B54CA7160A1239F5AA"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02328.npz",
+      "sha256": "AA927DB6389CEC847F95523AA42B898DD8121FF4E42F7EE32D4B395963D5BB9E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02337.npz",
+      "sha256": "FD61AC32FAD3FE82F9D064BA55BBBBDA13D62144D5574E1D0429F05AAEC92671"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02342.npz",
+      "sha256": "FF4D265BDB4751673A3D24F2994FC4982E80D9CF214C9D971B080C6D91CE8A4A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02353.npz",
+      "sha256": "70709BD92D76503E8EAC6188D206B16E51CB3B3ACC3AB49932966C6800AA6ABA"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02378.npz",
+      "sha256": "16DF82C63692AA760A054CC886808E39222C291AB73834F1C2B374A124F45C91"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02387.npz",
+      "sha256": "04F36ABE7C913E549ACCE5D3A3C3C78D5AD25C071315AA272DC8544E5C674A39"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02473.npz",
+      "sha256": "CBE0592EA9596AD84E341A2B59BB28EE55DFBE42C3CF5B5E486BC5CA470750F2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02528.npz",
+      "sha256": "2391C60AEF9682A5DD7BD7CD582F2FA0B778ACA624B85447A51C3BF5970BF377"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02534.npz",
+      "sha256": "F5AD509AD3F094714A9AFA1793043B206063E0C48DF91299811781AFE8BE0029"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02535.npz",
+      "sha256": "23979F08152F9BF412CB29B69BEFA6289F02F5482E6698CC55830D88A2603588"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02538.npz",
+      "sha256": "9D91594F310CEC4EC0000238E3100902F00A1CCBBB23D5DD34E4A10B881D1568"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02541.npz",
+      "sha256": "4EF2634917CE1C75BB6B86E08AC55C8A848152218C84172FE7FD535C6DC48CFC"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02546.npz",
+      "sha256": "FA5EE260B2C581F3FC3403B72761A356AF0ABC0543C1A4C97C54F5656FBC9EEB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02547.npz",
+      "sha256": "8BC9051EEAF296F30EF0CBFC113605BE91E358E943A8E5547567D55A2E237E84"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02559.npz",
+      "sha256": "1182315413A92F37E9B7885C00C52308B135D6EA954389CCFAF77A0421C1E611"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02569.npz",
+      "sha256": "0B8AD40599162F8F740C4D8B44AEC31DDC03AE04D7D5A1D6FA538A9435CBCED0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02570.npz",
+      "sha256": "54AE235AB7EE65D081F14976FF00315ECC833B4E27A69FEA3C0AA71543A20A85"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02574.npz",
+      "sha256": "7D228324917EAC457E5869493D7AD1DCAC7C02A922828961FF76CD93E779885C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02576.npz",
+      "sha256": "16044DF9BD63FDE90E99BCD90F53ADC1032A7B49660F71C6E8A93D9A77288998"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02580.npz",
+      "sha256": "6D7406EA0E86D279D3560310EFA974B74770E0096173EBECE3EE12AD80BDE4B0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02595.npz",
+      "sha256": "F4C10762A5CAB26A9D6E61D2FD83BCAC502054A2C40249C7E67E5E045277BBA4"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02602.npz",
+      "sha256": "D9A13BAB0BCB49AEAF0F628F68D8D32233C11D89AB7654B59FC193A774637838"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02603.npz",
+      "sha256": "FE0CA22AB8E298F40E94B1FD0838D7D0EA6DC42199EA92F061C616E1B571F46D"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02611.npz",
+      "sha256": "3946C4850C7EEDB83202CA96485A6CB805222C6AA41F0CCB21CE98BF3BE6D393"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02619.npz",
+      "sha256": "3422FE961FD15C39537D2F92AB514CA1CEB79B3CCD6CE3660D2BEB5824FAC4FD"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02622.npz",
+      "sha256": "C9922D5DF739453B8F0737ED2C342BCB04BE20822E1D333291E1379F54BAF435"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02645.npz",
+      "sha256": "DBE27B7943F682A7F1286FE203C72F5B25106F9D521D3D0CB1FDE37B32215A3A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02649.npz",
+      "sha256": "AD8090F30DF3863428FF7CD20746778F2772A0F8A39F9A6602C80EEE92F2677B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02677.npz",
+      "sha256": "F32C67E1927CD31BC0CB04FF93F36BAD80A92117EF5241E9EC370AC204591370"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02689.npz",
+      "sha256": "7BADCC21385E69953969E4E965EEECE4803E381C5586C4D17CD66DB2973C2060"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02692.npz",
+      "sha256": "260F880E44274E7E8928E665FBDA6D766612F451A155954481CC5588C36C4594"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02697.npz",
+      "sha256": "8833D2D01E5B8FEB14D54BCF00AA30D3BF5839F1015F370D87FF277BDAD7AB3B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02711.npz",
+      "sha256": "7B41F810EF5127CA44654BFFA94DB630EB1155949FCB33DE4837295FA26CA48C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02727.npz",
+      "sha256": "185223DD55917613699FF9A24A0ADFF54A6A8CD1143DF210379BD4680140D60C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02729.npz",
+      "sha256": "5517ED51F18249C8D43966CBF40814BFC5B0BA585DFDD5CE991BE9B0041A064C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02748.npz",
+      "sha256": "C7585CB7E6719B6B7F3D8BE582A9D57AC73BAEB7CCB1D65857F9A3C050D22112"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02790.npz",
+      "sha256": "E0D738B123A563D865A6FC0767C8D555C8C5C666AA4825F9B5DB4A20D53A02AE"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02793.npz",
+      "sha256": "0F337A8229B9205F45E7FE8B732B4DAEF56E084725FC2385BFCD95B23BF07285"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02806.npz",
+      "sha256": "AC6623134FB4F3551A15D845F7334CD073B81CF2CBD48D48AE8487E06769940F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02815.npz",
+      "sha256": "AC8A441E67B958D3BD37F47DB1F3663C2D71DBC40B2A37823CA9CCAB14090BB2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02827.npz",
+      "sha256": "4BFD63CB8487A304188C835F72EB3EB31FACCD0B15BA73B1C707617E7E6A5B99"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02898.npz",
+      "sha256": "95F044DDCBE7416091E86F45A9BDB0DCEEE15BE65ADD75F8FCC7AF5570A201CA"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02902.npz",
+      "sha256": "3E86F3E5E133CE36DEF42929DB257724B6B5D6A8FE921870A01F53AB8997BBB3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02906.npz",
+      "sha256": "F0793DF471E2D21AEC5325BD99B83D207B05FA417CDD8A40600C35D03E703195"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02907.npz",
+      "sha256": "926A03E5D0F575807A968E8A41DB47C1248F063C12D2D4635BF00A46C20440AF"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02919.npz",
+      "sha256": "30AF657BE60BF5DB8DF79DE2B98862A636868FEF032BEACBDF59F4CE27DE2AA6"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02925.npz",
+      "sha256": "4786273786C19109D4EB056049C230115B5C65B2ABA0C2A6E9979810710B9761"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02928.npz",
+      "sha256": "739FF44783D9BBD92484365DF3E994372A055918B862376FDB8469C0892F83C3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02939.npz",
+      "sha256": "3B25E70E87B2CEB43682B9BDEF0D26A1CC996FD8C38DE50C6F8999959ABD3837"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-02955.npz",
+      "sha256": "ABD412B9E9DC8792E8F4C164C6326E16079F231D199C038435C7EF8E42555978"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03010.npz",
+      "sha256": "FE267D7E5039FFE256E629E557C374FD8FF62BE573D1177247329A917E79B980"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03016.npz",
+      "sha256": "484F5F56F62090BFE63934454869DB17DB90663BCF813212CBB54301941A75CE"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03053.npz",
+      "sha256": "EC9F851EBFEBC8552B8C8919CCC0D2384550B330690C15002B5CAAEE5E3055F7"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03058.npz",
+      "sha256": "3F23A8E18DED7A9FAF4C0295D1DD395E45742F4FE02242A49CF06062F755FFAB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03075.npz",
+      "sha256": "899BEC5C73A15B79921AA3FE57C8B70721359C6A6F76CD59147C8F0842A27C0A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03080.npz",
+      "sha256": "AED736EB1B1B3E9B2516C0BE68DC33F607E7C3EF12FF0DFCAA177244941E044E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03082.npz",
+      "sha256": "5000463E0C7688C626F617F433C97ACE369E6FB03291F180914A86AF0FC3DA1C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03131.npz",
+      "sha256": "013A632C02388BAED949649A1A23EE4BC94778E5C3B525E5FFB8903B3B63FB59"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03137.npz",
+      "sha256": "E9B32EDCB3EC802BDDD173919BFAA8795A32AE9F98B0D621CC9187A0F25B46DE"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03144.npz",
+      "sha256": "5A6F93F8305E06F1A3B7261E89C46CB773414070A702AC891231DBEF2F5B0B64"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03175.npz",
+      "sha256": "61F8105FE0BE4DA97EC4EB169EE31AAEA0922B147B3A5364B7964779AB6D4BAE"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03185.npz",
+      "sha256": "EC62588FE449E6BA406E5D396BBCF8536D5F196977F98FC722304FC031DF6DBA"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03244.npz",
+      "sha256": "435D6B46DC1A511B5CF696ED1482EA8CD7916E01BD0E2CD40367CC45669BA431"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03247.npz",
+      "sha256": "1B94AA8DA606684ABC9C9E411BD70193F05A1BA60ADC91D7520219560280BD02"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03297.npz",
+      "sha256": "0FE6DBB4F8FF667C58747DC7344D5D1F298AAFD380DA127B770516059C76D769"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03495.npz",
+      "sha256": "F80A537047B1861374B20CAE5044B44CBAA2297CFFE2DD5B39FD2F47343650E3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03523.npz",
+      "sha256": "E50F3C7D1F01B2FAA2E5439EA3929907BA0C2FEEB81E4344FC18BFEA8A8A341C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03584.npz",
+      "sha256": "E81803DD9664AF05A14971E6F16CAB1E8798CB9C34F8BD50A1F4B67F3FBCA70A"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03632.npz",
+      "sha256": "1D3F6829527A16D3036B6E4352B1A613CE5199EC26D3EEF673461D8B9E77ECC1"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03654.npz",
+      "sha256": "5F2ED581042789773D7DAB1E18C5F9E7BF5DE4F0D7D878CF040FD954FCE8BE69"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03660.npz",
+      "sha256": "242D648D83BCF7E263C42A6369E239E5C5AC40FB9AA3A93A673B29A979DA608E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03808.npz",
+      "sha256": "3E417EB271DCEEC568699305BC5C52BB6ED0B33E7584CB75E65285C7F5D0B1EB"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03850.npz",
+      "sha256": "73E60A90486C4527E9B7CF8BA100766D18E2AC46ECC9051279AA6466115C17E1"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03897.npz",
+      "sha256": "A9293D72DE4D66FAA502EBED0E878BBFBB85BA00816BF795ED94AB3E01EEB43F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03899.npz",
+      "sha256": "BCB07387FBA07C0D5BB15AD5018755F52FA9CBA273B7B5AE70AE749F95C26BB5"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03904.npz",
+      "sha256": "A3B2466A90B7F0B90F2853C3D8CC8CF073E06FF492E69426272DD61A7F5DD491"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03906.npz",
+      "sha256": "73A2DED97A1AF5C50A54AA6C4855CCF1D71A33943411E7BEF0E20A2D80888734"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03907.npz",
+      "sha256": "285BECA486FEF03ACC643D43CC3162C36D0672B9521FC709F50873AF4F8993B6"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03909.npz",
+      "sha256": "CADB41CADE13D65FFD58052BB3AD837950041D0DF9D8B35B3A1E45E57EBD4344"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03910.npz",
+      "sha256": "F3A39776A2B490B242DDB424B2230B65F0D4CFCDF5644BB197C4C4AB1420F06C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03911.npz",
+      "sha256": "AEC9307C517E8DA6845307F8D6115F75C97ECCC322497B0CA224C9B918E8F410"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03912.npz",
+      "sha256": "AEE5A7807DF13074DED5177D9318D6E985C445810004F0647FB17078452C6DDD"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03914.npz",
+      "sha256": "CE39134AE11FFE6BF1551A4C843823CBCB03CC89EB066479BF1B6186827E2837"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-03915.npz",
+      "sha256": "80B8CE9F1840D077FEB75E1E6704AEB2A27C3653103CACADEFA2A6DBFF72F35B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04319.npz",
+      "sha256": "337E07DFDD3BF918F551B93189DC0C080863D5D06AC2A68A5D8C992855B077D0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04369.npz",
+      "sha256": "B20FD52919C302FD9FA17643596629B37DDE9D6C15293FBDDB97D7593473E7A4"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04378.npz",
+      "sha256": "104A450A87AFF507B85483A32B66A0B8DD1CD90035FD5C246AD91AE26670D377"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04464.npz",
+      "sha256": "C5955B680B14480C7E1CB5D15E24DC03FAEC64AC75C9335382D12357F1263066"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04489.npz",
+      "sha256": "64676786021637474E975FC12376099685A3E0488B38F42478B2EC6E288A36F7"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04491.npz",
+      "sha256": "D077626E767FB7030BD1FC51E11F883A5FE4D6E6021953710EEFF33CF6C40CC0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04492.npz",
+      "sha256": "548768CBCCCD3F08390164774970FD40A6487041018030C91F496F06F125DC87"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04565.npz",
+      "sha256": "059376A21BF5DA5B0BB1344429E58C63799FAECFAE8F1D43123909065D08E274"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04588.npz",
+      "sha256": "0CEB40DE8150472D168C2590A1F93138D7125ACAD13457FE65E8E463C2EAE630"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04607.npz",
+      "sha256": "D1F5F05E413EE1BD712F5B7C743A5DEC546FA99D87D5F119387F96F16000E2C5"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04628.npz",
+      "sha256": "822AB71E099D4AEB3ACF519E052CC8F90ED93F665F3FC1907A224295356AA3CD"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04631.npz",
+      "sha256": "CA8660BBFF0862C9B2BC59475B6CFC56A1814AE5B41A99FA6F6CCB42F30ABDA7"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04637.npz",
+      "sha256": "D240823DBCE0390ECF21D693B71657E487BE7E34742337A7A190159B949AC5E1"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04750.npz",
+      "sha256": "7F8FCB45DC17E426153543C295309DE05B2FA7262C4A297D54CB59A52E939723"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-04959.npz",
+      "sha256": "479FDE591477EB4FDB817E530D057B69D0E7818ACFD5F6C1DDB6BBD0D3AF54F8"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05014.npz",
+      "sha256": "DAE95FB68BA90A8CB75D89E696296DF2B4D97E4CFE8ADCCCB12338FF7D402F2F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05062.npz",
+      "sha256": "53D53A8DDCF0E8CEEFD68C1DC39467F8DFB8C2049152BFF954FB8982BD239605"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05127.npz",
+      "sha256": "CEAEB34519C298CD9BA3DC11A2A0CF28A43B2807381E2703B656BFCD9EC23ACD"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05142.npz",
+      "sha256": "32049A74FB52A712954BBAE4FE3B885D3112AE875675D18627C9288AB27512E3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05143.npz",
+      "sha256": "05D0D9D0BFBB9232FB8253D82DE53BCB63DE0731D43660A7C5BC0552B73E6DC4"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05146.npz",
+      "sha256": "78DEFC48CC89169E86E09F2F8618701FEFE675147D1FE6461110B5B86AE9A877"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05168.npz",
+      "sha256": "1AB428DBC18BB38FA1350C9D2F364559DFC13F4E11E072C5C89126F3503E7E1F"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05180.npz",
+      "sha256": "AFA8E398F7E824146E06AB98664C108A25846D926BB800068A19F341F5B959E6"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05225.npz",
+      "sha256": "37A422B544B507D65A5D6E2C98729B349AE496A2E672D936A856B60B836882F8"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05231.npz",
+      "sha256": "C8AFEAED5A6BF1C62542E8C0D0F6817BCCEA90C13FAB022ECBBF7B251FAE3DD2"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05265.npz",
+      "sha256": "6D0B71231FF597586E3F7837ADCC2A01E75578EED365C75E8ED7601F35ADF762"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05288.npz",
+      "sha256": "495E37F207FD7469E53E3EBA3BCD81296A70D7ADEBEB3EBC58D42E24B6F2BCFF"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05353.npz",
+      "sha256": "691CE6C7853628E01614B501EC1AB409BD9E2D326159360346986A800903ED62"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05398.npz",
+      "sha256": "145BCA22B80EE79880DA95F999C33488B8CB37E64CA95EA0D853FB611880CFF9"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05443.npz",
+      "sha256": "A26A41329551B0C8A5022C7D522A1551409FA2005DB39268CBC55298A314D3E5"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05460.npz",
+      "sha256": "701B63AF72F639F5E9877F12463D74F0FF23F4DE16451B20B5CA81937CF4B9FA"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05465.npz",
+      "sha256": "75A7457E6D43691877F260E1DC00130AA3F3E01ADBFDB3615D97B2C4D248FF6C"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05508.npz",
+      "sha256": "A61C187E385B5A9931F93CB19063D5BE6AA18ECA52E475ECE1904E119F9B4DA4"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05510.npz",
+      "sha256": "88D0DF735CBAD31D5D6916BF3A793207543C72CA50952610D004B9C70C55F529"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05524.npz",
+      "sha256": "B7F3C2F02AFF50A3B276804ECD5F8A89AF8208D2185CEBE1AD23A2B0D3A01C8D"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05536.npz",
+      "sha256": "1521A25BABB036A9CF253D9CC4FB97CA7CB21FC9F12578286CF4474D89EDBDEF"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05537.npz",
+      "sha256": "A04BEBC55AF10870F92840B4E888F1F65A7B7B8095D096B0C876910129EA882B"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05598.npz",
+      "sha256": "9B0FC58458458D6FA08C33A0382777D85CC8149BD8F9563899266D31052A0EA0"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\npz\\system_HIM-05770.npz",
+      "sha256": "0417211B9226F6C955A0E230064C52CB5F0A94EDB34F42F3FA295AA3F8524A4F"
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "E:\\lia-gh-20261021-v2\\run_unified_abc_20261022.py",
+      "sha256": "58322E981E3A450FA1E1CEDC09A3FB8E05F22A61830735E2DFA659FF02988943"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\static_unified_engine_20261022.py",
+      "sha256": "9990F7A1C3DA6BA5614D0A003390BED7395927317BE183E3C6AE8A1823DEB9A1"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\unified_static_io_20261022.py",
+      "sha256": "BD7483CE555E441559EF7CFE001EA92FEFDE21BF786C9E5294FB750F08AE20DD"
+    }
+  ],
+  "fixture_result": {
+    "file": "system_HIM-01038.npz",
+    "scheme": "C",
+    "status": "ok",
+    "tau_kpa": 177.62576117409694,
+    "V_mod_km3": 6.815883421499312,
+    "V_lia_km3": 8.301829648219028,
+    "dV_km3": -1.485946226719716,
+    "modern_area_km2": 49.47800725,
+    "lia_area_km2": 51.8507955,
+    "modern_constraints": 1323,
+    "lia_constraints": 1090,
+    "lia_failed_tree_length_share": 0.0,
+    "seconds": 1.0527994000003673
+  },
+  "no_829_launch": true
+}

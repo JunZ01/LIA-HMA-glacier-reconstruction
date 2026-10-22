@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\handoff\\abc_summary.json",
+      "bytes": 9288,
+      "sha256": "0B26BF69D4EEE6E189653A42FADA3DAB8BFFCB7583A21773729834708EBB97D3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\handoff\\export_summary.json",
+      "bytes": 252,
+      "sha256": "4E34D08607CC5B6A38584F125CF4F626FE38711E8BEC2BA1EB996D504C948E03"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\handoff\\systems_by_scheme.csv",
+      "bytes": 127418,
+      "sha256": "D2D99F2735C0079F812FCE8754166BF8C4A1854697158CECAFA666B520112C23"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\unified_191\\handoff\\tau_schemes.csv",
+      "bytes": 65823,
+      "sha256": "E2CCC06D33EA1198FFC66E4062CA2E6CFC38E4D78D6D19C7147995361F141362"
+    }
+  ],
+  "archive": {
+    "path": "H:\\ToYangxin\\result_yx\\unified_191\\unified_191_four_results_20261022.zip",
+    "bytes": 61037,
+    "sha256": "AB43C63C119B5C52B6A070AA7CE4DD28091EDC6119961ADA76B88359F298B424"
+  }
+}

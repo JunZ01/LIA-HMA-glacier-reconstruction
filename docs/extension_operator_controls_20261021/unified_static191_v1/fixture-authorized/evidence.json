@@ -1,0 +1,37 @@
+{
+  "status": "real-ABC-fixture-authorized",
+  "label": "fixture-authorized",
+  "decision": "Full191export completed191/191,0system-exportfailures,43.953s,2smokeexports reused.950modern members attempted;2692has5secondary centerlinegeneration failures,retained explicitly;16systems have876total islandcells outside selectedlargest membercomponents,nowexplicitmetadata. Exported does not mean allgeometryhasflowlineconstraints. BeforeanyABCresult, clarify1519overstrict wording: inputQAflags remainreported,notnewfilter/passgate; preserve human supplied common numerical-success A/B/C comparison with2pp rule. Aseparate strict-input-complete count is diagnostic only; do not silently change primarycommonpopulation to excludeall16. All191NPZsha/identities validated. Authorizeone realCfull-chain fixture onHIM01038,180shardlimit,cache resultfor fullbatch; no completedfullcase replay. Sourceversions frozen inabc_fixture_protocol. Thenfull191ABC remainsauthorized subjectpassedfixtureand budgetregistration,notnewapproval. Existingmodern mismatchevidence audited: storedreference503.987781629187km3 versusCK3modern436.94989720759963km3,arithmeticdifference67.03788442158736km3 (notexact68). This confirms an endpointvolume discrepancy,notthatall67.038km3 is measured artificialloss or thatnewLIAvolume willdifferbythatamount; no causalcorrection factor. CK3primary -35.7percent withdrawnperhuman; oldarrayspreserved. No829/dynamicrun/acceptancechange; counts/current_focus/next_action unchanged.",
+  "payload": {
+    "fixture": "one real exported systemHIM-01038,Ctau; complete modern+LIA solve; resultcached for fullbatch",
+    "fixture_hard_seconds": 180,
+    "subsequent_full_systems": 191,
+    "subsequent_workers": 8,
+    "export_summary": {
+      "systems": 191,
+      "exported": 191,
+      "failed": [],
+      "modern_member_failures_total": 5,
+      "scope": "read-only export; no thickness product read; no reconstruction run",
+      "reused_exports": 2,
+      "modern_unrouted_component_cells_total": 876
+    },
+    "export_elapsed_seconds": 43.95292258262634,
+    "source_hashes": [
+      {
+        "path": "E:\\lia-gh-20261021-v2\\run_unified_abc_20261022.py",
+        "sha256": "58322E981E3A450FA1E1CEDC09A3FB8E05F22A61830735E2DFA659FF02988943"
+      },
+      {
+        "path": "E:\\lia-gh-20261021-v2\\static_unified_engine_20261022.py",
+        "sha256": "9990F7A1C3DA6BA5614D0A003390BED7395927317BE183E3C6AE8A1823DEB9A1"
+      },
+      {
+        "path": "E:\\lia-gh-20261021-v2\\unified_static_io_20261022.py",
+        "sha256": "BD7483CE555E441559EF7CFE001EA92FEFDE21BF786C9E5294FB750F08AE20DD"
+      }
+    ],
+    "coverage_policy": "Preserve supplied common numerical success rule and2pp gate. Coverage flags do not add a new pass gate. Separately report strict zero-QA subset count and incomplete IDs. No volume or geometry values silently changed."
+  },
+  "created_at_utc": "2026-10-22T06:41:50.981985+00:00"
+}

@@ -1,0 +1,15 @@
+{
+  "file": "system_HIM-01038.npz",
+  "scheme": "C",
+  "status": "ok",
+  "tau_kpa": 177.62576117409694,
+  "V_mod_km3": 6.815883421499312,
+  "V_lia_km3": 8.301829648219028,
+  "dV_km3": -1.485946226719716,
+  "modern_area_km2": 49.47800725,
+  "lia_area_km2": 51.8507955,
+  "modern_constraints": 1323,
+  "lia_constraints": 1090,
+  "lia_failed_tree_length_share": 0.0,
+  "seconds": 1.0527994000003673
+}

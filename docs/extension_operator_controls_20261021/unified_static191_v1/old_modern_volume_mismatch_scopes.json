@@ -1,0 +1,18 @@
+{
+  "primary187": {
+    "reference_modern_km3": 498.339573124688,
+    "model_modern_km3": 430.29652751573667,
+    "difference_km3": 68.04304560895133
+  },
+  "all191": {
+    "reference_modern_km3": 503.987781629187,
+    "model_modern_km3": 436.94989720759963,
+    "difference_km3": 67.03788442158736
+  },
+  "newA_minus_old191": {
+    "V_mod_km3": 67.03788442158759,
+    "V_lia_km3": 96.5223904891593,
+    "dV_km3": -29.484506067571687
+  },
+  "interpretation": "Arithmetic endpoint discrepancies only; changed modern bed also changes LIA estimate, so 68.04 km3 is not an independently measured artificial-loss correction."
+}
