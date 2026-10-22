@@ -46,7 +46,15 @@ def sample(values, xy, order=1):
                            mode='constant', cval=np.nan, prefilter=False)
 
 
-def export_one(case, config, tau_table, out_dir):
+def export_one(case, config, tau_table, out_dir, *, file_stem=None, require_tau=True, check_prior=True):
+    """Export one modern gdir. Defaults reproduce the 22-system pilot exporter exactly.
+
+    ``file_stem`` names the NPZ (member exports use '<uid>_<rgi_id>');
+    ``require_tau=False`` records NaN legacy tau instead of failing when the
+    archived calibration has no row for this gdir (non-main members);
+    ``check_prior=False`` skips the comparison with the earlier single-system
+    modern-control exports.
+    """
     uid = int(case['lia_unique_id'])
     d = diag.load_case(case)
     gdir = Path(case['gdir'])
@@ -114,11 +122,15 @@ def export_one(case, config, tau_table, out_dir):
         'legacy_config_json': np.asarray(json.dumps(config, ensure_ascii=False)),
     }
     tau_rows = tau_table[(tau_table.rgi_id == case['rgi_id']) & (tau_table.bed_scenario == 'farinotti2019')]
-    if tau_rows.empty:
+    if tau_rows.empty and require_tau:
         raise ValueError('no archived legacy tau row for this rgi_id/farinotti2019')
-    tau_row = tau_rows.iloc[0]
-    array['legacy_tau_kpa'] = np.asarray(float(tau_row.tau_kpa))
-    array['legacy_tau_row_json'] = np.asarray(json.dumps({k: None if pd.isna(v) else v for k, v in tau_row.to_dict().items()}, allow_nan=False))
+    if tau_rows.empty:
+        array['legacy_tau_kpa'] = np.asarray(np.nan)
+        array['legacy_tau_row_json'] = np.asarray('{}')
+    else:
+        tau_row = tau_rows.iloc[0]
+        array['legacy_tau_kpa'] = np.asarray(float(tau_row.tau_kpa))
+        array['legacy_tau_row_json'] = np.asarray(json.dumps({k: None if pd.isna(v) else v for k, v in tau_row.to_dict().items()}, allow_nan=False))
     for key in ['flowline_bed_native_bilinear_m', 'flowline_bed_lia_bilinear_m',
                 'flowline_surface_dem_native_m', 'flowline_surface_dem_lia_m']:
         if not np.isfinite(array[key]).all():
@@ -129,7 +141,7 @@ def export_one(case, config, tau_table, out_dir):
         assert parent == -1 or (0 <= parent < len(inputs) and 0 <= join < offsets[parent+1]-offsets[parent])
     assert np.isclose(inv_volume.sum()/1e9, d['inversion_1d_volume'], rtol=1e-12)
     prior = PRIOR / f'modern_control_{uid}.npz'
-    prior_checked = prior.exists()
+    prior_checked = check_prior and prior.exists()
     if prior_checked:
         with np.load(prior, allow_pickle=False) as previous:
             assert np.array_equal(previous['modern_mask'], d['modern'])
@@ -140,7 +152,7 @@ def export_one(case, config, tau_table, out_dir):
                     gdir/diag.INVERSION, Path(case['lia_netcdf']), CONFIG, TAU]
     source_hashes = {str(p): sha(p) for p in source_paths}
     array['source_manifest_json'] = np.asarray(json.dumps(source_hashes))
-    path = out_dir / f'fullchain_inputs_{uid}.npz'
+    path = out_dir / f'fullchain_inputs_{file_stem or uid}.npz'
     np.savez_compressed(path, **array)
     with np.load(path, allow_pickle=False) as loaded:
         assert all(loaded[k].dtype.kind != 'O' for k in loaded.files)
