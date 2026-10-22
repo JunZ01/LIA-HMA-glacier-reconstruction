@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "systems_in_manifest": 32,
+  "systems_used": 31,
+  "length_source_columns": {
+    "observation_length_m": 20,
+    "length_m": 12
+  },
+  "excluded": [
+    {
+      "system_id": 1326,
+      "status": "ok",
+      "endpoint_guard_pass": false
+    }
+  ],
+  "lia_endpoint": "first forward year of maximum observation_length_m (accepted LIA length peak)",
+  "modern_endpoint": "forward year 2000",
+  "sum_lia_volume_km3": 71.71109749182015,
+  "sum_modern_volume_km3": 61.300847137620266,
+  "sum_dV_km3": -10.410250354199892,
+  "sum_dV_percent_of_lia": -14.5169307377946,
+  "sum_dA_km2": -38.88104203161044,
+  "sum_dA_percent_of_lia": -5.409437415604057,
+  "median_dV_percent": -16.478811770615657,
+  "systems_gaining_volume": [],
+  "sensitivity_sum_dV_km3_if_lia_at_volume_max": -10.988815140885878,
+  "median_modern_model_over_reference": 1.3335867901789156,
+  "scope": "accepted mainline dynamic states only; same model and bed at both endpoints; length-calibrated, not volume-calibrated; descriptive, no new run"
+}

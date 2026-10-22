@@ -18,6 +18,10 @@ Optionally, the modern model volume is divided by the modern reference volume
 
 No model run, recalibration or reconstruction.
 
+Local schema compatibility (2026-10-22): historical exports that lack
+observation_length_m use their saved length_m column. The unchanged registry
+endpoint guard still applies; the selected column is reported per system.
+
 Usage (repo root):
     python mainline_volume_change_20261021.py MANIFEST_CSV REGISTRY_CSV OUT_DIR [REFERENCE_PAIRING_CSV]
 """
@@ -57,6 +61,11 @@ def analyse(row: pd.Series, registry: pd.Series | None, root: Path | None) -> di
     if sha256(path) != str(row.curve_source_sha256).upper():
         return {**out, "status": "sha256-mismatch"}
     f = forward_rows(pd.read_csv(path))
+    if "observation_length_m" in f.columns:
+        out["length_source_column"] = "observation_length_m"
+    elif "length_m" in f.columns:
+        out["length_source_column"] = "length_m"
+        f = f.assign(observation_length_m=f["length_m"])
     required = {"year", "volume_m3", "area_m2", "observation_length_m"}
     missing = sorted(required - set(f.columns))
     if missing:
@@ -127,6 +136,7 @@ def main() -> None:
         "status": "completed",
         "systems_in_manifest": int(len(table)),
         "systems_used": int(len(ok)),
+        "length_source_columns": table.get("length_source_column", pd.Series(dtype=str)).value_counts().to_dict(),
         "excluded": table.loc[~table.index.isin(ok.index), ["system_id", "status", "endpoint_guard_pass"]].to_dict("records"),
         "lia_endpoint": "first forward year of maximum observation_length_m (accepted LIA length peak)",
         "modern_endpoint": f"forward year {MODERN_YEAR}",

@@ -1,0 +1,356 @@
+{
+  "status": "completed-with-one-registry-guard-mismatch",
+  "checks": {
+    "unique_population": 32,
+    "source_hashes_match": 32,
+    "all_32_have_finite_extracted_endpoints": true,
+    "guard_pass": 31,
+    "guard_failed_ids": [
+      1326
+    ],
+    "original20_values_unchanged": true,
+    "delta_arithmetic_verified": true,
+    "endpoint_rule_unchanged": true,
+    "tolerance_unchanged": 1e-06,
+    "model_runs": 0
+  },
+  "source_tables": [
+    {
+      "path": "H:\\ToYangxin\\result_yx\\accepted_mainline_dynamic_sample_20261021_v1\\accepted32_dynamic_source_manifest.csv",
+      "sha256": "123F8C2EA03A925196A06DDC62FC0C4B6B1D0BF03EBD5178228EB85FE91E8832"
+    },
+    {
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_accepted32_research26_v1\\retained_32_registry.csv",
+      "sha256": "FF1F523FB5B591DEF3E20EA5EB40DF6E5297669B4027E215E2108B728115FD32"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\hma_harmonized_analysis_20261012_v1\\legacy_volume_comparability\\legacy191_source_pairing_diagnostic.csv",
+      "sha256": "7C90ACBDCC8FBD2253C51E75FF25A780AD87F74E4EB818E7FECB5DFD0D7203A5"
+    },
+    {
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w1326epulse_repro_v1\\reproduction_comparison.json",
+      "sha256": "BB0E94501B21917DA9E8F1C3694CDDFFE74C717BE87754F499F8EAD1199743C6"
+    },
+    {
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w1326epulse_repro_v1\\historical_summary.json",
+      "sha256": "A47FDC38EE1D721465E167C03D1DC362E84A128D048598579727948247F76F7D"
+    },
+    {
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\mainline_volume_change_20261021.patch",
+      "sha256": "971043F2D9A30BD467A6DB305AAAC3C73EA870AED836016E6AC013946139C20A"
+    },
+    {
+      "path": "E:\\lia-gh-20261021-v2\\mainline_volume_change_20261021.py",
+      "sha256": "11CE0E10722F9782070FD61C704129CE9C6922DAECBF375A4E4C3B9DEF52BC4E"
+    }
+  ],
+  "curves": [
+    {
+      "system_id": 130,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_130\\timeseries.csv",
+      "sha256": "63035E876413773D3E63029BE187475C3FDC375F288E5019BC5D32ED704B4033",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 214,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_214\\timeseries.csv",
+      "sha256": "2EF4217CBD4EC440A414EA638B7C2A4AE152E6A3667AE8E85ECB66DF1A3B1A44",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 252,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_252\\timeseries.csv",
+      "sha256": "956FAFA8D1634FB14728F757E02BBFD3F78AF6AC07F858D2E13AF86BCF5B994E",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 518,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_518\\timeseries.csv",
+      "sha256": "6C9F92AEEA43DFF09D7A9F9F0349E80C46007D48A2CA96A5E2151FF4E20711D9",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 991,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_991\\timeseries.csv",
+      "sha256": "F2032A81E9A1AA33999E6964ECFEB545A19E9146F4749B786282E8403440623E",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 1077,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_1077\\timeseries.csv",
+      "sha256": "F8209044F653280C93A61305D159A4E4D747371B97BC7EECADFD72B11DA30457",
+      "forward_rows": 54,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 1301,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_1301\\timeseries.csv",
+      "sha256": "DFB2E5DEAD3980C32CBC88CF22AA052C01878DA216044BEE34F192E8F3E40EA0",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 1326,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w1326epulse_repro_v1\\historical_1470_2000.csv",
+      "sha256": "F038DFED5C27A19F4A5D72E0453C689E3C6363466555FEE6B498DCEF0D797869",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": false
+    },
+    {
+      "system_id": 1524,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_1524\\timeseries.csv",
+      "sha256": "DF11D5751F0E2B34D504DDC3871F9D9CFD5820FD461A7D0D900FCFFE43A1F3C1",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 1546,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_1546\\timeseries.csv",
+      "sha256": "78B9225F0DC28296E84F1F67D23D8731AB2368DBA4F8D7021CA59230CFB1D2AD",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 1616,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_1616\\timeseries.csv",
+      "sha256": "F72DF54D6F958ADC4486F06C8D557FB0934F47720353DB350AE632F880364432",
+      "forward_rows": 54,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2226,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w237hist2226powerg050endm025reprov1\\historical_1470_2000.csv",
+      "sha256": "7BEC359683A5981C30271842D148A3945DE54FEA4AAA4A184D2849EE8FCF237E",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2259,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w252hist2259rampendp000reprov1\\historical_1470_2000.csv",
+      "sha256": "E04ECDDD5D5EF6D14312A72020417C6110B861913B758B8851A51708BF575AC5",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2266,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2266\\timeseries.csv",
+      "sha256": "05BE7CCDAF3313F06DD52E2EBF12473C6758A0CD0A531D142CA53FF3DAB20B9C",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2328,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w730hist_power_2328_endm0p55_g0p25_from_w726steady_v1_independent_reproduction_v1\\historical_1470_2000.csv",
+      "sha256": "092A24587A84A9C2A756ABD30A2ED808A0F449D0734E034075B0DBF2ED4755C0",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2337,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2337\\timeseries.csv",
+      "sha256": "C01666E2599DAAC2FF45EC6B23B52599FE6157E5CD18B2E65308D5143DB81C85",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2546,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w205hist2546rampendp0375reprov1\\historical_1470_2000.csv",
+      "sha256": "0D44C3A92D7BA4249907B9313ADDF8BCC40D2B9124416C3EC0D472567780256E",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2569,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2569\\timeseries.csv",
+      "sha256": "90AB1B93F6055282F6F5DF304A24BB051AAF30DA1A82C3CCA226C6E5B1D36624",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2595,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w709repro2595_power_e0p25_g0p1_v1\\historical_1470_2000.csv",
+      "sha256": "40D26BE6F7D84B6792C62C6797427961C9C391C02F4E1584B46581F63C8F8D36",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2622,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2622\\timeseries.csv",
+      "sha256": "959EB71E4864E1BA84F51C8743926592A1143E9B92E26A83AAC807DD28B07267",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2645,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2645\\timeseries.csv",
+      "sha256": "4AF93A25B93FC0476B67AB2886E2CE49915AF84C452E5CDCE4270A66E46E5CB0",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2729,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w730hist_power_2729_endp0p6_g0p25_from_w728steady_v1_independent_reproduction_v1\\historical_1470_2000.csv",
+      "sha256": "0091514E25524084A975D75C33D075A60E2E7E60AC148DDEDE1AD15EFB82F6D0",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2748,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w685repro2748_power_e0p1_g0p25_v1\\historical_1470_2000.csv",
+      "sha256": "D6884C3673CBAAB85886D008CFA373B5C7613AADC2C9EDAFEF667F68741C6162",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2806,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w220hist2806power_g00625_endm045reprov1\\historical_1470_2000.csv",
+      "sha256": "38D5EE80A3C73CB5FC9030642F8027AEEB80A67B557277CF36CE6494701A7C29",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2815,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2815\\timeseries.csv",
+      "sha256": "CA6C343F00F10FB9C5314041D80541B3C339086EAE0FCA215A1BF3FEF2207D37",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2827,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2827\\timeseries.csv",
+      "sha256": "0CC3980CC6FBDCDE1862A69929C698FB6A913E84627836CA02B77B61782921DB",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2902,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2902\\timeseries.csv",
+      "sha256": "F39287830DDCD198324F5134DA3266DA022687E14DAE339E2C451FCAABE36FDA",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2928,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2928\\timeseries.csv",
+      "sha256": "4C85A7901E673679A9E709B1C2ACD99A610D89E099DB4542CFD555C113651EA9",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 2939,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_2939\\timeseries.csv",
+      "sha256": "CC839F801842FF77BAEBF9B2AF0C388400A1DB7CFAE4283082676D3934447084",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 3010,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\w663repro3010_power_e0p1_g0p25_v1\\historical_1470_2000.csv",
+      "sha256": "B986A67077B319C5325BA65975A31787D0C22BC3128B3F22CBF3E2733CC14C1D",
+      "forward_rows": 531,
+      "length_field": "length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 4319,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_4319\\timeseries.csv",
+      "sha256": "AC2BBF9B103CCE6FF05BD09167368F9B11CBF2AF582D84676B2A57A31C28C896",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    },
+    {
+      "system_id": 4565,
+      "path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_191_frozen_curve_registry_v1\\system_4565\\timeseries.csv",
+      "sha256": "2942E6A47BB61C3306240602B377E8764D56C8225BB1E26F0F962BF1A9296926",
+      "forward_rows": 54,
+      "length_field": "observation_length_m",
+      "endpoint_guard_pass": true
+    }
+  ],
+  "registry_conflict": {
+    "system_id": 1326,
+    "registry": {
+      "e_lia": 0.258177171861342,
+      "e_rgi": 0.011146468382613
+    },
+    "recomputed": {
+      "e_lia": 0.1908226391575638,
+      "e_rgi": 0.0082385227893004
+    },
+    "frozen_reproduction_scores": {
+      "e_lia_total": 0.026366609812365147,
+      "e_lia_separation": 0.1908226391575641,
+      "e_rgi_total": 0.0013208510303977493,
+      "e_rgi_separation": 0.008238522789299138
+    },
+    "historical_peak_year": 1477,
+    "historical_peak_length_m": 10050.0,
+    "historical_modern_length_m": 8450.0,
+    "action": "Keep extracted row and false guard; exclude only from guarded totals. Do not change original guard or accepted registry/counts."
+  },
+  "results_summary": {
+    "status": "completed",
+    "systems_in_manifest": 32,
+    "systems_used": 31,
+    "length_source_columns": {
+      "observation_length_m": 20,
+      "length_m": 12
+    },
+    "excluded": [
+      {
+        "system_id": 1326,
+        "status": "ok",
+        "endpoint_guard_pass": false
+      }
+    ],
+    "lia_endpoint": "first forward year of maximum observation_length_m (accepted LIA length peak)",
+    "modern_endpoint": "forward year 2000",
+    "sum_lia_volume_km3": 71.71109749182015,
+    "sum_modern_volume_km3": 61.300847137620266,
+    "sum_dV_km3": -10.410250354199892,
+    "sum_dV_percent_of_lia": -14.5169307377946,
+    "sum_dA_km2": -38.88104203161044,
+    "sum_dA_percent_of_lia": -5.409437415604057,
+    "median_dV_percent": -16.478811770615657,
+    "systems_gaining_volume": [],
+    "sensitivity_sum_dV_km3_if_lia_at_volume_max": -10.988815140885878,
+    "median_modern_model_over_reference": 1.3335867901789156,
+    "scope": "accepted mainline dynamic states only; same model and bed at both endpoints; length-calibrated, not volume-calibrated; descriptive, no new run"
+  },
+  "note": "任务A提取完成。原补丁已用git am应用；仅补上缺少observation_length_m时读取length_m的历史字段兼容，并逐行报告length_source_column。32条全部保留；31条通过原1e-6端点核对，1326未通过，未放宽门槛。1326原年度曲线与独立复现摘要吻合，但retained32登记表的e_lia/e_rgi与冻结摘要不一致，故单列、暂不计入合计。31条合计V_LIA=71.71109749182015 km3，V_2000=61.300847137620266 km3，dV=-10.410250354199892 km3（-14.5169307377946%），dA=-38.88104203161044 km2。LIA端为各条历史正演长度首次达到最大值的年份，现代端固定2000年，不是当前年份。现代参考体积比仅描述，不参与校准。本次只读取已有状态，未启动新模拟或改变accepted32。与静态结果只作模型之间的对照；不能将31条合计百分比直接与全191条比较。原始补丁第一次运行仅20条通过字段读取，输出保留在v1；本v2为字段兼容后的交付版本。"
+}
