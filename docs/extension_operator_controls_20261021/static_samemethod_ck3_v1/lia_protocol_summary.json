@@ -1,0 +1,75 @@
+{
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_lia_end_191_20261022.py",
+    "--config",
+    "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+    "--npz-dir",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+    "--modern-dir",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\modern",
+    "--pairing-csv",
+    "H:/ToYangxin/result_yx/hma_harmonized_analysis_20261012_v1/legacy_volume_comparability/legacy191_source_pairing_diagnostic.csv",
+    "--output-subdir",
+    "static_samemethod_ck3_lia_end_20261022_v1",
+    "--external-flowline-root",
+    "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+    "--ck2-csv",
+    "H:/ToYangxin/result_yx/static_samemethod_20261021/lia_end/static_samemethod_volume_change.csv"
+  ],
+  "cwd": "E:\\lia-gh-20261021-v2",
+  "environment": {
+    "PYTHONIOENCODING": "utf-8",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "LIA_PROJECT_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+    "LIA_REPO_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized",
+    "LIA_VALIDATION_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data"
+  },
+  "output": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_ck3_lia_end_20261022_v1",
+  "systems": 191,
+  "dry_run": {
+    "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_ck3_lia_end_20261022_v1",
+    "population_systems": 191,
+    "systems_with_modern_tau": 191,
+    "systems_to_run": 191,
+    "tau_rgi_not_in_driver_selection": [],
+    "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+    "grid_output_subdir": "static_samemethod_ck3_lia_end_20261022_v1/system_grids",
+    "operator": "thin-plate (operator T)",
+    "bed": "farinotti2019",
+    "gates": {
+      "technical_complete_share_min": 0.8,
+      "volume_loss_share_unflagged_min": 0.8
+    }
+  },
+  "workers": 1,
+  "threads": 1,
+  "estimated_seconds": [
+    60,
+    900
+  ],
+  "checkpoint": "atomic per-system NetCDF; no automatic restart",
+  "modern_audit": {
+    "systems": 191,
+    "members": 950,
+    "member_own_tau_solved": 653,
+    "member_system_tau_solved": 853,
+    "systems_with_tolerated_member_failures": 52,
+    "max_failed_member_area_share": 0.0210833645535933,
+    "total_failed_modern_area_km2": 11.510966374999999,
+    "total_known_modern_area_km2": 5867.3487486875,
+    "source_and_code_unchanged": true,
+    "qc_systems": [
+      1856,
+      2387,
+      3053,
+      3137
+    ]
+  },
+  "source_hash_count": 2421,
+  "full_local_protocol_path": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_static_samemethod_ck3_20261022_v1\\lia_protocol.json",
+  "full_protocol_sha256": "5feb22de5d10a424e594524807059f5fa330a2638281454a0d04941c8f3f20e2"
+}

@@ -1,0 +1,32 @@
+{
+  "archive": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\static_samemethod_ck3_results_20261022.zip",
+  "archive_bytes": 53221,
+  "archive_sha256": "089D9427C9006A2845F4F9242FBBBA36EA901A9F16E4458BDBFA4817605CCA0E",
+  "requested_files": [
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\manifest.json",
+      "bytes": 317,
+      "sha256": "1CAC77ACAC454A2E16EE1AFA5FA034F2E5BD0151036D64EC495159073C47285D"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\modern_summary.json",
+      "bytes": 623,
+      "sha256": "18D18B531ECFB205837A77C9CF2456E983772838E80C2DD2E1EB7FF13BE5A63E"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\modern_systems.csv",
+      "bytes": 43537,
+      "sha256": "54C56E580379CCE05D9C7D450FE37E58F8BA4A74AF305FE944A7EE210A20BBA3"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\static_samemethod_ck3_summary.json",
+      "bytes": 4705,
+      "sha256": "F0DF21EBFFACFDB83B429A9A3EDC97E00B32D62217299704B40A9F9F85511D95"
+    },
+    {
+      "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\static_samemethod_ck3_volume_change.csv",
+      "bytes": 80795,
+      "sha256": "7C64664DE7AA694D47BA74F4FD189C9964501693D665C9AE5173BEC6A3FF4AC1"
+    }
+  ]
+}

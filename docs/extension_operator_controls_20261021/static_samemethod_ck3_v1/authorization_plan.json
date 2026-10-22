@@ -1,0 +1,28 @@
+{
+  "selection_sha256": "6DACAF9BCEF941EC8BD70D8C39CCBBCE3C6E1DB015412561A36AF2B02DC95910",
+  "source_manifest_sha256": "58275B877CF42404F4F50E53C49CD018425D249D197B7B14C385970D8429E7CE",
+  "systems": 191,
+  "members": 950,
+  "unique_rgi_members": 950,
+  "patch": "F:\\work4\\01 论文和数据\\static_samemethod_ck3_20261022.patch",
+  "patch_sha256": "6991B8036A4F1C9B2DB6D0671963B4F266478A868335BD65E9E9C37491C609AF",
+  "remote_head": "a8a0bea",
+  "rules": {
+    "system_tau": "production selection main_rgi_id unified-bed profile-fit tau, shared by all modern members and LIA",
+    "main_failure": "system failed",
+    "failed_nonmain_member_area_share_max": 0.05,
+    "missing_export_or_unknown_area": "system incomplete",
+    "qc_tau_max_kpa": 45.0,
+    "qc_role": "reported separately, excluded from primary totals; heuristic flag only",
+    "paired_complete_min_share": 0.8,
+    "paired_complete_denominator": 191,
+    "paired_complete_minimum": 153,
+    "loss_min_share": 0.8,
+    "loss_denominator": "complete unflagged systems",
+    "per_member_own_tau": "sensitivity only",
+    "comparison_to_ck2": "explicitly authorized rerun of existing22 inside this191 run"
+  },
+  "output_root": "H:/ToYangxin/result_yx/static_samemethod_ck3_20261022",
+  "source_config": "lia_surface_production_v01.json",
+  "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3"
+}

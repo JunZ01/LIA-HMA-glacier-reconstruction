@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "systems": 191,
+  "published_netcdf": 191,
+  "both_ends_complete": 191,
+  "complete_unflagged": 187,
+  "losses_unflagged": 186,
+  "qc_flagged": [
+    1856,
+    2387,
+    3053,
+    3137
+  ],
+  "source_files_checked": 6421,
+  "source_files_changed": [],
+  "modern_primary_solved_members": 853,
+  "modern_own_tau_solved_members": 653,
+  "tolerated_failed_members": 97,
+  "systems_with_tolerated_failures": 52,
+  "maximum_failed_area_share": 0.0210833645535933,
+  "lia_status_counts": {
+    "success": 190,
+    "success-with-documented-exclusion": 1
+  },
+  "ck2_max_abs_dV_difference_km3": 8.881784197001252e-16,
+  "all_arithmetic_and_gates_verified": true
+}

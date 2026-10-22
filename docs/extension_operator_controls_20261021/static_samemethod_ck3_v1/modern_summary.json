@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 103.56698489998234,
+  "systems": 191,
+  "modern_complete": 191,
+  "members_listed": 950,
+  "members_phase1_solved": 653,
+  "qc_flagged_systems": [
+    1856,
+    2387,
+    3053,
+    3137
+  ],
+  "median_ratio_T_to_reference": 0.862662745123551,
+  "status_counts": {
+    "complete": 191
+  },
+  "rules": {
+    "failed_member_area_share_max": 0.05,
+    "qc_tau_max_kpa": 45.0,
+    "tau_scan_kpa": [
+      40.0,
+      260.0
+    ]
+  },
+  "scope": "same-method static modern end, all members; reference is a model estimate; no LIA, climate or dynamic run"
+}

@@ -88,7 +88,9 @@ def volume_change(population: pd.DataFrame, modern: pd.DataFrame, lia_results: p
         "systems": n, "both_ends_complete": int(ok.sum()),
         "technical_complete_share": float(ok.sum() / max(n, 1)),
         "qc_flagged_complete": complete.loc[complete.qc_flowline_solve_unreliable, "lia_unique_id"].astype(int).tolist(),
+        "qc_flagged_all_systems": t.loc[t.qc_flowline_solve_unreliable, "lia_unique_id"].astype(int).tolist(),
         "all_complete": totals(complete), "complete_unflagged": totals(clean),
+        "by_region_all_complete": {r: totals(g) for r, g in complete.groupby("region")},
         "by_region_unflagged": {r: totals(g) for r, g in clean.groupby("region")},
         "by_member_type_unflagged": {k: totals(g) for k, g in clean.groupby(clean.modern_member_count.gt(1).map({True: "multi", False: "single"}))},
         "gaining_unflagged": clean.loc[~clean.volume_loss, "lia_unique_id"].astype(int).tolist(),
@@ -117,11 +119,12 @@ def main() -> None:
     config = copy.deepcopy(json.loads(args.config.read_text(encoding="utf-8")))
     population = pd.read_csv(args.npz_dir / "systems_population.csv")
     pairing = pd.read_csv(args.pairing_csv, encoding="utf-8-sig")
-    if set(population.lia_unique_id) != set(pairing.lia_unique_id) or population.lia_unique_id.duplicated().any():
+    if (len(population) != 191 or len(pairing) != 191 or pairing.lia_unique_id.duplicated().any()
+            or set(population.lia_unique_id) != set(pairing.lia_unique_id) or population.lia_unique_id.duplicated().any()):
         raise ValueError("systems_population.csv must list exactly the pairing systems once each")
     modern = pd.read_csv(args.modern_dir / "modern_systems.csv")
     taus = pd.read_csv(args.modern_dir / "system_tau_for_lia_end.csv")
-    if taus.rgi_id.duplicated().any() or not np.isfinite(taus.tau_kpa).all() or taus.empty:
+    if taus.rgi_id.duplicated().any() or taus.lia_unique_id.duplicated().any() or not np.isfinite(taus.tau_kpa).all() or taus.empty:
         raise ValueError("system tau table must be non-empty, finite and unique per main rgi_id")
     root = resolve(config["output_dir"])
     out_dir = root / args.output_subdir
@@ -134,6 +137,9 @@ def main() -> None:
     config["bed_scenarios"] = [BED]
     selection = pd.read_csv(resolve(config["pilot_selection_path"]))
     selected = set(taus.rgi_id.astype(str)) & set(selection.main_rgi_id.astype(str))
+    crosswalk = dict(zip(selection.lia_unique_id.astype(int), selection.main_rgi_id.astype(str)))
+    if any(crosswalk.get(int(r.lia_unique_id)) != str(r.rgi_id) for r in taus.itertuples(index=False)):
+        raise ValueError("System tau identity differs from production main-member selection")
     plan = {"output_dir": str(out_dir), "population_systems": int(len(population)),
             "systems_with_modern_tau": int(len(taus)), "systems_to_run": len(selected),
             "tau_rgi_not_in_driver_selection": sorted(set(taus.rgi_id.astype(str)) - selected),
@@ -143,6 +149,8 @@ def main() -> None:
     print(json.dumps(plan, indent=2, ensure_ascii=False))
     if not selected:
         raise ValueError("empty selection; never launch the driver without an explicit selection")
+    if plan["tau_rgi_not_in_driver_selection"]:
+        raise ValueError("Tau owner not in production selection")
     if args.dry_run:
         return
     (root / tau_subdir).mkdir(parents=True, exist_ok=False)
@@ -155,8 +163,13 @@ def main() -> None:
     table, summary = volume_change(population, modern, lia_results)
     if args.ck2_csv:
         c2 = pd.read_csv(args.ck2_csv)[["lia_unique_id", "dV_T_km3"]].rename(columns={"dV_T_km3": "dV_ck2_km3"})
-        cmp = table.merge(c2, on="lia_unique_id", how="inner")
+        cmp = table.merge(c2, on="lia_unique_id", how="inner", validate="one_to_one")
         summary["ck2_overlap_systems"] = int(len(cmp))
+        finite = np.isfinite(cmp.dV_T_km3) & np.isfinite(cmp.dV_ck2_km3)
+        summary["ck2_compared_complete_systems"] = int(finite.sum())
+        summary["ck2_missing_or_nonfinite_ids"] = sorted(
+            (set(c2.lia_unique_id.astype(int)) - set(cmp.lia_unique_id.astype(int)))
+            | set(cmp.loc[~finite, "lia_unique_id"].astype(int)))
         summary["ck2_max_abs_dV_difference_km3"] = float((cmp.dV_T_km3 - cmp.dV_ck2_km3).abs().max()) if len(cmp) else None
     summary.update({"elapsed_seconds": time.perf_counter() - started, "plan": plan,
                     "scope": "same-method static volume change, all legacy systems; model estimates; no dynamic run"})

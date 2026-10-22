@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "systems": 191,
+  "members": 950,
+  "exported": 950,
+  "failed": 0,
+  "systems_without_main_member_row": [],
+  "systems_where_member_native_sum_differs_from_pairing_gt_1e-6_km3": [],
+  "failures": [],
+  "scope": "read-only export; no tau calibration, PP, LIA or dynamic solve"
+}

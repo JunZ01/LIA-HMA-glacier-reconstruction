@@ -1,0 +1,18 @@
+{
+  "pid": 45780,
+  "started_at_utc": "2026-10-22T01:48:48.388010+00:00",
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\export_fullchain_inputs_members_20261022.py",
+    "--config",
+    "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+    "--out-dir",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+    "--workers",
+    "8"
+  ],
+  "workers": 8,
+  "threads": 1,
+  "output": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz"
+}

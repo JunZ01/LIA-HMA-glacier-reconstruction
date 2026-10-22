@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "glacier_solves": 0,
+  "checks": [
+    "4percent known-area failure retained/listed",
+    "6percent fails",
+    "main nominal-tau failure fails whole system",
+    "unknown-area failure fails system"
+  ],
+  "export_manifest_checks": "191/950/0 failures/no main or native-volume anomalies"
+}

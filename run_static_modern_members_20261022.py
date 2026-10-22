@@ -32,7 +32,8 @@ import json
 import os
 import time
 import traceback
-from concurrent.futures import ProcessPoolExecutor
+import hashlib
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 for key in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"]:
@@ -53,9 +54,12 @@ RULES = {"failed_member_area_share_max": 0.05, "qc_tau_max_kpa": 45.0,
          "tau_scan_kpa": [replay.TAU_GRID_KPA[0], replay.TAU_GRID_KPA[-1]]}
 
 
-def _load(npz_dir: Path, file: str, uid: int) -> dict:
-    z = np.load(npz_dir / file, allow_pickle=False)
-    d = {k: z[k] for k in z.files}
+def _load(npz_dir: Path, file: str, uid: int, expected_sha=None) -> dict:
+    path = npz_dir / file
+    if expected_sha and hashlib.sha256(path.read_bytes()).hexdigest().lower() != str(expected_sha).lower():
+        raise ValueError("NPZ hash differs from frozen member manifest")
+    with np.load(path, allow_pickle=False) as z:
+        d = {k: z[k] for k in z.files}
     d["config"] = json.loads(str(d["legacy_config_json"]))
     d["uid"] = uid
     return d
@@ -86,7 +90,7 @@ def phase1(task) -> dict:
     out = {"lia_unique_id": uid, "rgi_id": rgi, "is_main": bool(row["is_main"])}
     t0 = time.perf_counter()
     try:
-        d = _load(npz_dir, row["file"], uid)
+        d = _load(npz_dir, row["file"], uid, row.get("sha256"))
         archived = float(d["legacy_tau_kpa"])
         if np.isfinite(archived):
             legacy = replay.legacy_calibration(d)
@@ -132,7 +136,7 @@ def phase2(task) -> dict:
     uid, rgi = int(row["lia_unique_id"]), str(row["rgi_id"])
     out = {"lia_unique_id": uid, "rgi_id": rgi}
     try:
-        d = _load(npz_dir, row["file"], uid)
+        d = _load(npz_dir, row["file"], uid, row.get("sha256"))
         chain = replay.ModernChain(d)
         network, status = chain.solve(round(system_tau, 6), OUTLET)
         if network is None:
@@ -147,11 +151,36 @@ def phase2(task) -> dict:
     return out
 
 
-def _map(fn, tasks, workers):
+def _map(fn, tasks, workers, checkpoint_dir, fingerprint):
+    checkpoint_dir.mkdir(exist_ok=True)
+    completed, pending = [], []
+    for task in tasks:
+        row = task[1]
+        path = checkpoint_dir / f"{row['lia_unique_id']}_{row['rgi_id']}.json"
+        if path.exists():
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            if saved["fingerprint"] != fingerprint:
+                raise ValueError("Checkpoint fingerprint mismatch")
+            completed.append(saved["result"])
+        else:
+            pending.append(task)
+    def commit(result):
+        path = checkpoint_dir / f"{result['lia_unique_id']}_{result['rgi_id']}.json"
+        temporary = path.with_suffix(".tmp")
+        with temporary.open("x", encoding="utf-8") as stream:
+            json.dump({"fingerprint": fingerprint, "result": result}, stream, ensure_ascii=False, indent=2)
+        os.replace(temporary, path)
+        completed.append(result)
+        if len(completed) % 25 == 0 or result.get("status", result.get("system_tau_status")) != "solved":
+            print(json.dumps({"phase": fn.__name__, "completed": len(completed), "total": len(tasks)}), flush=True)
     if workers > 1:
         with ProcessPoolExecutor(workers) as pool:
-            return list(pool.map(fn, tasks))
-    return [fn(t) for t in tasks]
+            for future in as_completed([pool.submit(fn, task) for task in pending]):
+                commit(future.result())
+    else:
+        for task in pending:
+            commit(fn(task))
+    return completed
 
 
 def aggregate(manifest: pd.DataFrame, members: pd.DataFrame, systems_population: pd.DataFrame | None) -> pd.DataFrame:
@@ -170,6 +199,11 @@ def aggregate(manifest: pd.DataFrame, members: pd.DataFrame, systems_population:
             continue
         mrow = main.iloc[0]
         tau = float(mrow.own_tau_kpa)
+        if mrow.get("system_tau_status") != "solved":
+            rows.append({**row, "main_rgi_id": mrow.rgi_id, "system_tau_kpa": tau,
+                         "qc_flowline_solve_unreliable": bool(tau <= RULES["qc_tau_max_kpa"]),
+                         "modern_status": f"main-member-system-tau-{mrow.get('system_tau_status', 'not-solved')}"})
+            continue
         ok = m.get("system_tau_status", pd.Series(dtype=str)).eq("solved")
         area_ok = float(m.loc[ok, "modern_area_km2"].sum())
         # failed members include those that never exported (area unknown -> counted as failure by count)
@@ -186,6 +220,9 @@ def aggregate(manifest: pd.DataFrame, members: pd.DataFrame, systems_population:
                      "members_solved_at_system_tau": int(ok.sum()),
                      "members_unexported": unexported,
                      "members_failed_unknown_area": unknown_area_failures,
+                     "failed_member_rgi_ids": ";".join(sorted(set(listed.rgi_id.astype(str)) - set(m.loc[ok, "rgi_id"].astype(str)))),
+                     "modern_area_failed_km2": area_failed,
+                     "modern_area_total_km2": area_ok + area_failed,
                      "failed_member_area_share": share_failed,
                      "modern_area_solved_km2": area_ok,
                      "V_mod_T_km3": float(m.loc[ok, "system_V_T_km3"].sum()),
@@ -204,30 +241,65 @@ def main():
     ap.add_argument("npz_dir", type=Path)
     ap.add_argument("out_dir", type=Path)
     ap.add_argument("--workers", type=int, default=1)
+    ap.add_argument("--resume", action="store_true", help="Reuse only matching per-phase member checkpoints")
     args = ap.parse_args()
-    args.out_dir.mkdir(parents=True, exist_ok=False)
-    (args.out_dir / "members").mkdir()
+    args.out_dir.mkdir(parents=True, exist_ok=args.resume)
+    if (args.out_dir / "modern_summary.json").exists():
+        raise FileExistsError("Completed modern batch must not be recomputed")
+    (args.out_dir / "members").mkdir(exist_ok=args.resume)
     started = time.perf_counter()
     manifest = pd.read_csv(args.npz_dir / "members_manifest.csv")
     pop_path = args.npz_dir / "systems_population.csv"
     population = pd.read_csv(pop_path) if pop_path.exists() else None
+    if population is None or len(population) != 191 or population.lia_unique_id.duplicated().any():
+        raise ValueError("Frozen 191-system population required")
+    digest = hashlib.sha256()
+    for path in [Path(__file__), ROOT / "replay_modern_fullchain_20261021.py",
+                 args.npz_dir / "members_manifest.csv", pop_path]:
+        digest.update(path.read_bytes())
+    digest.update(json.dumps(RULES, sort_keys=True).encode())
+    package = ROOT / "Himalaya_greatGlacier/With_Rec_climate_organized/ice_surface_reconstruction"
+    for path in sorted((package / "core").glob("*.py")):
+        digest.update(path.read_bytes())
+    for name in ["modern_tau_calibration.py", "oggm_network_adapter.py", "junction_connector.py", "gridded_bed.py"]:
+        digest.update((package / "drivers" / name).read_bytes())
+    fingerprint = digest.hexdigest()
     exported = manifest[manifest.status == "exported"].to_dict("records")
-    p1 = _map(phase1, [(args.npz_dir, r) for r in exported], args.workers)
+    p1 = _map(phase1, [(args.npz_dir, r) for r in exported], args.workers,
+              args.out_dir / "phase1", fingerprint)
     members = pd.DataFrame(p1).merge(
-        manifest[["lia_unique_id", "rgi_id", "file", "region", "modern_member_count"]],
+        manifest[["lia_unique_id", "rgi_id", "file", "region", "modern_member_count", "sha256"]],
         on=["lia_unique_id", "rgi_id"], how="left", validate="one_to_one")
+    members = members.sort_values(["lia_unique_id", "rgi_id"]).reset_index(drop=True)
+    # Known exported areas remain usable when fitting a member's sensitivity tau fails.
+    for col in ["modern_area_km2", "reference_volume_km3"]:
+        if col not in members:
+            members[col] = np.nan
+        if col in manifest:
+            fallback = manifest.set_index(["lia_unique_id", "rgi_id"])[col]
+            keys = pd.MultiIndex.from_frame(members[["lia_unique_id", "rgi_id"]])
+            members[col] = members[col].fillna(pd.Series(fallback.reindex(keys).to_numpy(), index=members.index))
+    for col in ["own_V_T_km3", "own_tau_kpa"]:
+        if col not in members:
+            members[col] = np.nan
     system_tau = {int(r.lia_unique_id): float(r.own_tau_kpa) for r in members.itertuples()
                   if r.is_main and r.status == "solved"}
     tasks = [(args.npz_dir, r, system_tau[int(r["lia_unique_id"])]) for r in members.to_dict("records")
-             if int(r["lia_unique_id"]) in system_tau and r["status"] in ("solved", "no-identifiable-tau")]
-    p2 = pd.DataFrame(_map(phase2, tasks, args.workers))
+             if int(r["lia_unique_id"]) in system_tau and r["status"] != "harness-failed"]
+    p2 = pd.DataFrame(_map(phase2, tasks, args.workers, args.out_dir / "phase2", fingerprint))
     if len(p2):
         members = members.merge(p2, on=["lia_unique_id", "rgi_id"], how="left", validate="one_to_one")
+    for col in ["system_tau_status", "system_V_T_km3"]:
+        if col not in members:
+            members[col] = np.nan
     for r in members.to_dict("records"):
-        with (args.out_dir / "members" / f"{r['lia_unique_id']}_{r['rgi_id']}.json").open("x", encoding="utf-8") as f:
+        with (args.out_dir / "members" / f"{r['lia_unique_id']}_{r['rgi_id']}.json").open("w", encoding="utf-8") as f:
             json.dump(r, f, indent=2, ensure_ascii=False, default=str)
     members.drop(columns=["traceback"], errors="ignore").to_csv(args.out_dir / "modern_members.csv", index=False)
     systems = aggregate(manifest, members, population)
+    for col in ["main_rgi_id", "system_tau_kpa", "qc_flowline_solve_unreliable", "ratio_T_to_reference"]:
+        if col not in systems:
+            systems[col] = np.nan
     if population is not None:
         systems = systems.merge(population[["lia_unique_id", "region", "modern_member_count",
                                             "modern_reference_native_sum_km3"]], on="lia_unique_id",

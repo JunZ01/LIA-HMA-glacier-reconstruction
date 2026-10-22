@@ -1,0 +1,67 @@
+{
+  "status": "authorized-static-modern-members",
+  "label": "modern-authorized",
+  "decision": "Export finished cleanly:191systems/950members,950exported,0failures, no missing main or native-volume closure anomalies; exporter/code hashes unchanged. Modern phase now authorized under the already-fixed rules,8workers/1numerical thread, estimate300-1500s. Interface/contract fixes made before any modern solve: main-member failure at system tau explicitly fails the system; all exported secondary members are attempted at nominal system tau even if their own-tau sensitivity fitting fails, except a failed archived-calibration harness; known exported raster-mask areas/reference volumes survive sensitivity-fit errors; failed-member IDs/area budgets are explicit. These enforce the stated primary-versus-sensitivity rule, not new parameters or gates. All4metadata fixtures passed, no glacier solve in fixtures. Atomic per-member phase checkpoints with input/code/rule fingerprint and explicit resume prevent loss or completed-member recomputation. Each NPZ is checked against its frozen SHA before use. Main tau remains production main_rgi_id, threshold5percent/45kPa/80percent unchanged. Final modern outputs distinguish incomplete systems, flagged systems, nominal tau and own-tau sensitivity. No LIA run yet; only this modern phase is launchable. Accepted counts/current_focus/next_action and unrelated branches unchanged.",
+  "payload": {
+    "command": [
+      "D:/Anaconda/envs/oggm_env2/python.exe",
+      "-u",
+      "E:\\lia-gh-20261021-v2\\run_static_modern_members_20261022.py",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\modern",
+      "--workers",
+      "8"
+    ],
+    "cwd": "E:\\lia-gh-20261021-v2",
+    "environment": {
+      "PYTHONIOENCODING": "utf-8",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "LIA_PROJECT_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+      "LIA_REPO_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized",
+      "LIA_VALIDATION_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data"
+    },
+    "systems": 191,
+    "members": 950,
+    "source_sha256": {
+      "E:\\lia-gh-20261021-v2\\run_static_modern_members_20261022.py": "FBA13EA0EE0DE8661395C5B45EA03B3F2E9C4F172ABE64B24E64B5506CED73C9",
+      "E:\\lia-gh-20261021-v2\\replay_modern_fullchain_20261021.py": "2D2A2C1635DB8E2EAED830646412FD6C4146A4E2B5507A1EB092FA948C07BFE2",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz\\manifest.json": "1CAC77ACAC454A2E16EE1AFA5FA034F2E5BD0151036D64EC495159073C47285D",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz\\members_manifest.csv": "1C4176B3BE15801B4F0C8D984D27EFDFCE7BC5558067ADBEC706A07E283BACC7",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz\\systems_population.csv": "5499F1EF99A16CBC671656AF97C219C48E187F487CD64CBCE513D4C7D8805009",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\core\\extension_operators.py": "82C840A3661BCC3C9A28BC4886F7BF14D0F02B8929C0319FFB5AA7007BE07E9D",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\core\\network.py": "07DD3F17D852E5EFF6CD82AFB3589DF78FA93F491D18EE06610A56D2E83F06D3",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\core\\solver.py": "E54A3F6780E6AFFA71E9E0D6BE9D29EBAD31C6261788279675CAA69955C0766B",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\core\\__init__.py": "5972DAC603A76277838583C35A8D6C2A7ABE628D3B3E29DBF7BF86C501D0C0F3",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\drivers\\modern_tau_calibration.py": "0BC4F387C3C037957973545A28AF54C472854F8F2A2252704B401F9AA1C80BA8",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\drivers\\oggm_network_adapter.py": "BA0F452DDB51C13954399A91A176077CEC753C7297CA264BFE8EF26FA27562EC",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\drivers\\junction_connector.py": "DECB8553B5922920D178D53A6DF6E558199A6B2D3C29ACAB672ED8EC273282F3",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\drivers\\gridded_bed.py": "6CB42F54CAB60827944FA2A91B21464ED072471EF67E86F1ECDB1571AD0E87D7"
+    },
+    "output": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\modern",
+    "workers": 8,
+    "threads_per_worker": 1,
+    "estimated_seconds": [
+      300,
+      1500
+    ],
+    "checkpoint": "per-member atomic phase1/phase2 JSON; matching-fingerprint --resume supports unfinished only",
+    "rules": {
+      "system_tau": "production selection main_rgi_id unified-bed profile-fit tau, shared by all modern members and LIA",
+      "main_failure": "system failed",
+      "failed_nonmain_member_area_share_max": 0.05,
+      "missing_export_or_unknown_area": "system incomplete",
+      "qc_tau_max_kpa": 45.0,
+      "qc_role": "reported separately, excluded from primary totals; heuristic flag only",
+      "paired_complete_min_share": 0.8,
+      "paired_complete_denominator": 191,
+      "paired_complete_minimum": 153,
+      "loss_min_share": 0.8,
+      "loss_denominator": "complete unflagged systems",
+      "per_member_own_tau": "sensitivity only",
+      "comparison_to_ck2": "explicitly authorized rerun of existing22 inside this191 run"
+    }
+  },
+  "created_at_utc": "2026-10-22T01:52:39.168385+00:00"
+}

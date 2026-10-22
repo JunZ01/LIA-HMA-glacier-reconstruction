@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "glacier_solves": 0,
+  "checks": [
+    "191 denominator retained",
+    "153 complete meets 80percent",
+    "3 flagged excluded from primary totals",
+    "120/150 loss meets 80percent",
+    "152 complete fails technical gate"
+  ]
+}

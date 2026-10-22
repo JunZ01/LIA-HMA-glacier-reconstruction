@@ -1,0 +1,49 @@
+{
+  "status": "authorized-readonly-member-export",
+  "label": "export-authorized",
+  "decision": "Read-only export phase frozen for191systems/950members/191main rows. Population/member counts match the source ledger. Applied b98caca patch. Pre-execution interface repair makes production selection main_rgi_id authoritative despite the same-named column in pairing input, and handles an all-success batch with no error column. No physics or rules changed. Added immediate per-member export records/progress and records modern-mask area/reference volume for failure accounting; native non-finite thickness is an export error. NPZ source provenance now hashes the actual supplied v01 config rather than the old default path. Prior22/three-control comparison checks retained. Use oggm_env2,8workers with1numerical thread each, new H-drive NPZ root, estimate120-1200s. This phase performs no tau/network/LIA solve and changes no source data. After export require191systems, no failed/missing-main/native-volume closure anomalies; otherwise send manifest and stop before modern/LIA calculation. No automatic failed-file retry or source substitution. Initial modern source tables themselves contain950members, not the earlier500-600 estimate. Accepted counts/current_focus/next_action and unrelated branches unchanged.",
+  "payload": {
+    "command": [
+      "D:/Anaconda/envs/oggm_env2/python.exe",
+      "-u",
+      "E:\\lia-gh-20261021-v2\\export_fullchain_inputs_members_20261022.py",
+      "--config",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json",
+      "--out-dir",
+      "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+      "--workers",
+      "8"
+    ],
+    "cwd": "E:\\lia-gh-20261021-v2",
+    "environment": {
+      "PYTHONIOENCODING": "utf-8",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "LIA_PROJECT_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm",
+      "LIA_REPO_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\Himalaya_greatGlacier\\With_Rec_climate_organized",
+      "LIA_VALIDATION_ROOT": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data"
+    },
+    "output": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+    "systems": 191,
+    "member_rows": 950,
+    "main_rows": 191,
+    "code_sha256": {
+      "E:\\lia-gh-20261021-v2\\export_fullchain_inputs_members_20261022.py": "27281860D3972F854E7781BCD3D3B124348CB5743FC8C838E07359902214C0DB",
+      "E:\\lia-gh-20261021-v2\\export_fullchain_inputs_batch_20261021.py": "35208AC6E4F6775A4DF770373D20788CECBFBEB354A0EE2788525596BC5DAB3A",
+      "E:\\lia-gh-20261021-v2\\diagnose_extension_operators_20261021.py": "26D79022C0FD9A05CA593066400ACBB23AEB01CF2B746F7BAA865E3DE8247EF3",
+      "E:\\lia-gh-20261021-v2\\select_pilot_systems_20261021.py": "B8E4387885D3DB0950503E919D724DBA436B959CA04A31EB20D513057D8E3EA3",
+      "E:\\lia-gh-20261021-v2\\Himalaya_greatGlacier\\With_Rec_climate_organized\\ice_surface_reconstruction\\config\\lia_surface_production_v01.json": "7D629880E2C56DBA9FB7E632E5855D93109FF6BE590BB49E7B6827923C49A072"
+    },
+    "workers": 8,
+    "threads_per_worker": 1,
+    "estimated_seconds": [
+      120,
+      1200
+    ],
+    "checkpoint": "atomic NPZ completed and per-member result JSON saved on completion; no automatic restart",
+    "stop_after_manifest_if_anomalous": true,
+    "glacier_model_solves": 0
+  },
+  "created_at_utc": "2026-10-22T01:48:47.929674+00:00"
+}

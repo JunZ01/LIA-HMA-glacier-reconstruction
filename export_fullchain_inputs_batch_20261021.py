@@ -46,7 +46,8 @@ def sample(values, xy, order=1):
                            mode='constant', cval=np.nan, prefilter=False)
 
 
-def export_one(case, config, tau_table, out_dir, *, file_stem=None, require_tau=True, check_prior=True):
+def export_one(case, config, tau_table, out_dir, *, file_stem=None, require_tau=True, check_prior=True,
+               config_source_path=None):
     """Export one modern gdir. Defaults reproduce the 22-system pilot exporter exactly.
 
     ``file_stem`` names the NPZ (member exports use '<uid>_<rgi_id>');
@@ -149,7 +150,7 @@ def export_one(case, config, tau_table, out_dir, *, file_stem=None, require_tau=
             assert np.array_equal(previous['constraint_cols'], d['cc'])
             assert np.array_equal(previous['reference_H_m'], d['hw'].astype(np.float32))
     source_paths = [gdir/'gridded_data.nc', gdir/'glacier_grid.json', gdir/'inversion_flowlines.pkl',
-                    gdir/diag.INVERSION, Path(case['lia_netcdf']), CONFIG, TAU]
+                    gdir/diag.INVERSION, Path(case['lia_netcdf']), Path(config_source_path) if config_source_path else CONFIG, TAU]
     source_hashes = {str(p): sha(p) for p in source_paths}
     array['source_manifest_json'] = np.asarray(json.dumps(source_hashes))
     path = out_dir / f'fullchain_inputs_{file_stem or uid}.npz'
@@ -161,6 +162,8 @@ def export_one(case, config, tau_table, out_dir, *, file_stem=None, require_tau=
     return {'file': path.name, 'uid': uid, 'rgi_id': case['rgi_id'], 'bytes': path.stat().st_size,
             'sha256': sha(path), 'flowlines': len(inputs), 'flowline_nodes': int(offsets[-1]),
             'native_dx_m': native.map_dx_m, 'target_dx_m': d['dx'],
+            'modern_area_km2': float(d['modern'].sum() * d['dx']**2 / 1e6),
+            'reference_volume_km3': float(d['hw'][d['modern']].sum() * d['dx']**2 / 1e9),
             'prior_control_checked': prior_checked, 'source_hashes': source_hashes}
 
 

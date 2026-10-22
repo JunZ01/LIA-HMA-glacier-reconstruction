@@ -1,0 +1,212 @@
+{
+  "status": "completed-checkpoint3-pass",
+  "label": "completed",
+  "decision": "Checkpoint3 completed and PASSED both unchanged fixed gates:191/191 paired endpoints complete;186/187 complete unflagged systems lose volume (99.465241percent). No failures removed from the191 technical denominator. Primary187 totals: V_LIA=669.204428252km3, V_modern=430.296527516km3, dV(modern-minus-LIA)=-238.907900736km3 (-35.700286885percent of LIA). All191 including4quality flags: V_LIA=677.331220145km3, V_modern=436.949897208km3, dV=-240.381322938km3 (-35.489479266percent). The4low-tau flags1856/2387/3053/3137 are retained in the complete table and excluded only from primary aggregates; the flag is not a diagnosed physical cause. The only unflagged gain is1412;3053also gains in the flagged set. Do not claim all gains disappeared. Modern nominal volumes solved for853/950members;97failed secondary members in52systems have known area and are tolerated under the prospective5percent policy, maximum failed share2.108337percent; no reference-volume substitution or invented zero volume was inserted for failed members. Their omitted modern volume is unknown, so an area budget does not establish a volume-error bound. Own-tau sensitivity solutions exist for653members, not all950. LIA statuses190success plus1success-with-existing-documented-small-component-exclusion under the unchanged production policy.191atomic NetCDFs exist. CK2 overlap22/22finite, max abs dV difference8.881784197001252e-16km3, numerical roundoff only. All6421 frozen source/code hashes and result arithmetic/gates checked with no source changes. LIA elapsed284.092s; modern103.567s. This completes the authorized191research calculation and five-file handoff, not independent ice-thickness validation, proof of temporal tau transfer, ANUDEM equivalence, production promotion or a mainline acceptance change. Old mixed-method results remain withdrawn; new estimates are isolated in the new output root. No low-tau rescue, further mechanism, climate/dynamic run or mainline32comparison started. All launch permissions are nowfalse; counts/current_focus/next_action and unrelated branches unchanged.",
+  "payload": {
+    "summary": {
+      "systems": 191,
+      "both_ends_complete": 191,
+      "technical_complete_share": 1.0,
+      "qc_flagged_complete": [
+        1856,
+        2387,
+        3053,
+        3137
+      ],
+      "qc_flagged_all_systems": [
+        1856,
+        2387,
+        3053,
+        3137
+      ],
+      "all_complete": {
+        "systems": 191,
+        "sum_V_lia_km3": 677.3312201454755,
+        "sum_V_mod_km3": 436.94989720759963,
+        "sum_dV_km3": -240.38132293787592,
+        "sum_dV_percent": -35.48947926632518,
+        "median_dV_percent": -30.865471455585,
+        "loss_share": 0.9895287958115183
+      },
+      "complete_unflagged": {
+        "systems": 187,
+        "sum_V_lia_km3": 669.2044282517779,
+        "sum_V_mod_km3": 430.29652751573667,
+        "sum_dV_km3": -238.90790073604123,
+        "sum_dV_percent": -35.70028688545315,
+        "median_dV_percent": -30.891553634817694,
+        "loss_share": 0.9946524064171123
+      },
+      "by_region_all_complete": {
+        "Central Himalaya": {
+          "systems": 89,
+          "sum_V_lia_km3": 281.9447588442999,
+          "sum_V_mod_km3": 175.61065980277166,
+          "sum_dV_km3": -106.33409904152819,
+          "sum_dV_percent": -37.71451523957916,
+          "median_dV_percent": -31.38910611030636,
+          "loss_share": 0.9775280898876404
+        },
+        "East Himalaya": {
+          "systems": 18,
+          "sum_V_lia_km3": 66.81744224910418,
+          "sum_V_mod_km3": 42.1408851051839,
+          "sum_dV_km3": -24.676557143920274,
+          "sum_dV_percent": -36.9313106178516,
+          "median_dV_percent": -29.909409115426968,
+          "loss_share": 1.0
+        },
+        "West Himalaya": {
+          "systems": 84,
+          "sum_V_lia_km3": 328.5690190520715,
+          "sum_V_mod_km3": 219.198352299644,
+          "sum_dV_km3": -109.37066675242747,
+          "sum_dV_percent": -33.28696876776883,
+          "median_dV_percent": -29.44360463158182,
+          "loss_share": 1.0
+        }
+      },
+      "by_region_unflagged": {
+        "Central Himalaya": {
+          "systems": 85,
+          "sum_V_lia_km3": 273.8179669506023,
+          "sum_V_mod_km3": 168.95729011090876,
+          "sum_dV_km3": -104.8606768396935,
+          "sum_dV_percent": -38.295761964594064,
+          "median_dV_percent": -32.4552325099683,
+          "loss_share": 0.9882352941176471
+        },
+        "East Himalaya": {
+          "systems": 18,
+          "sum_V_lia_km3": 66.81744224910418,
+          "sum_V_mod_km3": 42.1408851051839,
+          "sum_dV_km3": -24.676557143920274,
+          "sum_dV_percent": -36.9313106178516,
+          "median_dV_percent": -29.909409115426968,
+          "loss_share": 1.0
+        },
+        "West Himalaya": {
+          "systems": 84,
+          "sum_V_lia_km3": 328.5690190520715,
+          "sum_V_mod_km3": 219.198352299644,
+          "sum_dV_km3": -109.37066675242747,
+          "sum_dV_percent": -33.28696876776883,
+          "median_dV_percent": -29.44360463158182,
+          "loss_share": 1.0
+        }
+      },
+      "by_member_type_unflagged": {
+        "multi": {
+          "systems": 153,
+          "sum_V_lia_km3": 587.4149239447927,
+          "sum_V_mod_km3": 375.6417211502392,
+          "sum_dV_km3": -211.7732027945534,
+          "sum_dV_percent": -36.05172326443252,
+          "median_dV_percent": -31.305026249588696,
+          "loss_share": 1.0
+        },
+        "single": {
+          "systems": 34,
+          "sum_V_lia_km3": 81.7895043069853,
+          "sum_V_mod_km3": 54.654806365497464,
+          "sum_dV_km3": -27.13469794148782,
+          "sum_dV_percent": -33.17625919291745,
+          "median_dV_percent": -23.41376315379965,
+          "loss_share": 0.9705882352941176
+        }
+      },
+      "gaining_unflagged": [
+        1412
+      ],
+      "incomplete": [],
+      "gate_technical": true,
+      "gate_volume_loss": true,
+      "checkpoint3_pass": true,
+      "gates": {
+        "technical_complete_share_min": 0.8,
+        "volume_loss_share_unflagged_min": 0.8
+      },
+      "ck2_overlap_systems": 22,
+      "ck2_compared_complete_systems": 22,
+      "ck2_missing_or_nonfinite_ids": [],
+      "ck2_max_abs_dV_difference_km3": 8.881784197001252e-16,
+      "elapsed_seconds": 284.091683799983,
+      "plan": {
+        "output_dir": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\static_samemethod_ck3_lia_end_20261022_v1",
+        "population_systems": 191,
+        "systems_with_modern_tau": 191,
+        "systems_to_run": 191,
+        "tau_rgi_not_in_driver_selection": [],
+        "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3",
+        "grid_output_subdir": "static_samemethod_ck3_lia_end_20261022_v1/system_grids",
+        "operator": "thin-plate (operator T)",
+        "bed": "farinotti2019",
+        "gates": {
+          "technical_complete_share_min": 0.8,
+          "volume_loss_share_unflagged_min": 0.8
+        }
+      },
+      "scope": "same-method static volume change, all legacy systems; model estimates; no dynamic run"
+    },
+    "audit": {
+      "status": "pass",
+      "systems": 191,
+      "published_netcdf": 191,
+      "both_ends_complete": 191,
+      "complete_unflagged": 187,
+      "losses_unflagged": 186,
+      "qc_flagged": [
+        1856,
+        2387,
+        3053,
+        3137
+      ],
+      "source_files_checked": 6421,
+      "source_files_changed": [],
+      "modern_primary_solved_members": 853,
+      "modern_own_tau_solved_members": 653,
+      "tolerated_failed_members": 97,
+      "systems_with_tolerated_failures": 52,
+      "maximum_failed_area_share": 0.0210833645535933,
+      "lia_status_counts": {
+        "success": 190,
+        "success-with-documented-exclusion": 1
+      },
+      "ck2_max_abs_dV_difference_km3": 8.881784197001252e-16,
+      "all_arithmetic_and_gates_verified": true
+    },
+    "handoff": {
+      "archive": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\static_samemethod_ck3_results_20261022.zip",
+      "archive_bytes": 53221,
+      "archive_sha256": "089D9427C9006A2845F4F9242FBBBA36EA901A9F16E4458BDBFA4817605CCA0E",
+      "requested_files": [
+        {
+          "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\manifest.json",
+          "bytes": 317,
+          "sha256": "1CAC77ACAC454A2E16EE1AFA5FA034F2E5BD0151036D64EC495159073C47285D"
+        },
+        {
+          "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\modern_summary.json",
+          "bytes": 623,
+          "sha256": "18D18B531ECFB205837A77C9CF2456E983772838E80C2DD2E1EB7FF13BE5A63E"
+        },
+        {
+          "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\modern_systems.csv",
+          "bytes": 43537,
+          "sha256": "54C56E580379CCE05D9C7D450FE37E58F8BA4A74AF305FE944A7EE210A20BBA3"
+        },
+        {
+          "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\static_samemethod_ck3_summary.json",
+          "bytes": 4705,
+          "sha256": "F0DF21EBFFACFDB83B429A9A3EDC97E00B32D62217299704B40A9F9F85511D95"
+        },
+        {
+          "path": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\handoff\\static_samemethod_ck3_volume_change.csv",
+          "bytes": 80795,
+          "sha256": "7C64664DE7AA694D47BA74F4FD189C9964501693D665C9AE5173BEC6A3FF4AC1"
+        }
+      ]
+    }
+  },
+  "created_at_utc": "2026-10-22T02:06:47.427940+00:00"
+}

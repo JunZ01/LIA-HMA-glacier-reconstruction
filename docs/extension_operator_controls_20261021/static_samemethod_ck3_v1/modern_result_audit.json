@@ -1,0 +1,17 @@
+{
+  "systems": 191,
+  "members": 950,
+  "member_own_tau_solved": 653,
+  "member_system_tau_solved": 853,
+  "systems_with_tolerated_member_failures": 52,
+  "max_failed_member_area_share": 0.0210833645535933,
+  "total_failed_modern_area_km2": 11.510966374999999,
+  "total_known_modern_area_km2": 5867.3487486875,
+  "source_and_code_unchanged": true,
+  "qc_systems": [
+    1856,
+    2387,
+    3053,
+    3137
+  ]
+}

@@ -19,7 +19,7 @@ import json
 import os
 import shutil
 import traceback
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 for key in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"]:
@@ -40,6 +40,9 @@ def population(config: dict) -> pd.DataFrame:
     regions = pd.read_csv(REGIONS)[["lia_unique_id", "region", "region_zh"]]
     members = pd.read_csv(MEMBERS).drop_duplicates(["lia_unique_id", "rgi_id"])
     selection = pd.read_csv(resolve(config["pilot_selection_path"]))[["lia_unique_id", "main_rgi_id"]]
+    # The paired-volume table already has a main_rgi_id column. The production
+    # selection is the sole tau-owner authority for this checkpoint.
+    pairing = pairing.drop(columns=["main_rgi_id"], errors="ignore")
     systems = pairing.merge(regions, on="lia_unique_id", how="left", validate="one_to_one").merge(
         selection, on="lia_unique_id", how="left", validate="one_to_one")
     rows = members.merge(systems[["lia_unique_id", "region", "region_zh", "main_rgi_id", "modern_member_count",
@@ -56,11 +59,13 @@ def native_member_volume(gdir: Path) -> float:
     with xr.open_dataset(gdir / "gridded_data.nc") as ds:
         h = np.asarray(ds[diag.THICK_VAR], float)
         mask = np.asarray(ds.glacier_mask, bool)
+    if not np.isfinite(h[mask]).all():
+        raise ValueError("non-finite native thickness inside the glacier mask")
     return float(h[mask].sum() * abs(sx * sy) / 1e9)
 
 
 def export_member(task):
-    row, config, out_dir = task
+    row, config, out_dir, config_source_path = task
     tau_table = pd.read_csv(batch.TAU)
     uid, rgi = int(row["lia_unique_id"]), str(row["rgi_id"])
     base = {"lia_unique_id": uid, "rgi_id": rgi, "is_main": bool(row["is_main"]),
@@ -70,8 +75,11 @@ def export_member(task):
         case = {"lia_unique_id": uid, "region": row["region"], "rgi_id": rgi, "gdir": row["gdir"],
                 "lia_netcdf": row["lia_netcdf_path"], "native_modern_reference_volume_km3": native}
         record = batch.export_one(case, config, tau_table, out_dir, file_stem=f"{uid}_{rgi}",
-                                  require_tau=False, check_prior=int(row["modern_member_count"]) == 1)
+                                  require_tau=False, check_prior=int(row["modern_member_count"]) == 1,
+                                  config_source_path=config_source_path)
         return {**base, "status": "exported", "file": record["file"], "native_volume_km3": native,
+                "modern_area_km2": record["modern_area_km2"],
+                "reference_volume_km3": record["reference_volume_km3"],
                 "flowlines": record["flowlines"], "sha256": record["sha256"]}
     except Exception as error:  # recorded, never silently dropped
         return {**base, "status": "export-failed", "error": f"{type(error).__name__}: {error}",
@@ -88,13 +96,30 @@ def main():
     args.out_dir.mkdir(parents=True, exist_ok=False)
     systems, members = population(config)
     no_main = systems[~systems.lia_unique_id.isin(members.loc[members.is_main, "lia_unique_id"])]
-    tasks = [(r, config, args.out_dir) for r in members.to_dict("records")]
+    if len(systems) != 191 or systems.lia_unique_id.duplicated().any():
+        raise ValueError("Expected exactly 191 unique frozen systems")
+    tasks = [(r, config, args.out_dir, args.config) for r in members.to_dict("records")]
+    records = []
+    record_dir = args.out_dir / "member_records"
+    record_dir.mkdir()
+    systems.to_csv(args.out_dir / "systems_population.csv", index=False)
+    def save_record(record):
+        path = record_dir / f"{record['lia_unique_id']}_{record['rgi_id']}.json"
+        with path.open("x", encoding="utf-8") as stream:
+            json.dump(record, stream, ensure_ascii=False, indent=2)
+        records.append(record)
+        if len(records) % 25 == 0 or record["status"] != "exported":
+            print(json.dumps({"completed_members": len(records), "total_members": len(tasks),
+                              "failures": sum(r["status"] != "exported" for r in records)},
+                             ensure_ascii=False), flush=True)
     if args.workers > 1:
         with ProcessPoolExecutor(args.workers) as pool:
-            records = list(pool.map(export_member, tasks))
+            for future in as_completed([pool.submit(export_member, task) for task in tasks]):
+                save_record(future.result())
     else:
-        records = [export_member(t) for t in tasks]
-    table = pd.DataFrame(records)
+        for task in tasks:
+            save_record(export_member(task))
+    table = pd.DataFrame(records).sort_values(["lia_unique_id", "rgi_id"])
     table.drop(columns=["traceback"], errors="ignore").to_csv(args.out_dir / "members_manifest.csv", index=False)
     systems.to_csv(args.out_dir / "systems_population.csv", index=False)
     exported = table[table.status == "exported"]
@@ -105,8 +130,8 @@ def main():
                "exported": int(len(exported)), "failed": int((table.status != "exported").sum()),
                "systems_without_main_member_row": no_main.lia_unique_id.astype(int).tolist(),
                "systems_where_member_native_sum_differs_from_pairing_gt_1e-6_km3":
-                   diff[diff > 1e-6].index.astype(int).tolist(),
-               "failures": table.loc[table.status != "exported", ["lia_unique_id", "rgi_id", "error"]].to_dict("records"),
+                   diff[(diff > 1e-6) | ~np.isfinite(diff)].index.astype(int).tolist(),
+               "failures": table.loc[table.status != "exported"].reindex(columns=["lia_unique_id", "rgi_id", "error"]).to_dict("records"),
                "scope": "read-only export; no tau calibration, PP, LIA or dynamic solve"}
     (args.out_dir / "manifest.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     for f in (__file__, batch.__file__):

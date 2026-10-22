@@ -1,0 +1,34 @@
+{
+  "status": "authorized-checkpoint3-staged",
+  "label": "authorized",
+  "decision": "Human authorizes checkpoint3 for all191 selected systems under supplied b98caca patch. Remote and local research branch are clean at a8a0bea; checkpoint2 passed. Fixed prospective rules: production main_rgi_id member unified-bed profile tau is used for every modern member and LIA; own-member tau is sensitivity only. Main-member failure fails the system. Failed non-main members may be tolerated only at known modern area<=5percent of the total; missing export, unknown area or>5percent makes the system incomplete, with failed IDs/areas retained. System tau<=45kPa is a heuristic quality flag, retained and excluded from primary aggregate totals; it does not establish a cause or independently prove an unreliable flowline. At least153/191 complete paired endpoints, and>=80percent volume loss among complete unflagged systems. All191/failures retained in technical denominator; report flagged and all-complete results separately. These rules were informed by existing22 controls and are not retrospectively independent validation. Missing<=5percent area does not bound its unknown volume; omission must remain explicit. Use unchanged checkpoint2 static stress model/thin-plate operator, v01 config, Farinotti2019, external anchor-reroute-v3 LIA network, isolated outputs/cache and explicit path anchors. Export with8workers/one numerical thread each first; if manifest has missing main, native-volume closure mismatch, or export anomaly, provide it to the human and do not proceed. Modern and LIA execution are conditionally authorized only after the stated clean export and dry-run checks. User explicitly authorizes repeating the22 CK2 systems within the new191 fingerprint for consistency checking, not other completed-cell reruns. Scope excludes dynamic runs, mainline acceptance/promotion and later tau-rescue research. Supplied patch is now present at the human-provided F-drive path; no export or model solve has occurred. Rules and source ledger are versioned before applying it. Accepted counts/current_focus/next_action and unrelated branches unchanged.",
+  "payload": {
+    "selection_sha256": "6DACAF9BCEF941EC8BD70D8C39CCBBCE3C6E1DB015412561A36AF2B02DC95910",
+    "source_manifest_sha256": "58275B877CF42404F4F50E53C49CD018425D249D197B7B14C385970D8429E7CE",
+    "systems": 191,
+    "members": 950,
+    "unique_rgi_members": 950,
+    "patch": "F:\\work4\\01 论文和数据\\static_samemethod_ck3_20261022.patch",
+    "patch_sha256": "6991B8036A4F1C9B2DB6D0671963B4F266478A868335BD65E9E9C37491C609AF",
+    "remote_head": "a8a0bea",
+    "rules": {
+      "system_tau": "production selection main_rgi_id unified-bed profile-fit tau, shared by all modern members and LIA",
+      "main_failure": "system failed",
+      "failed_nonmain_member_area_share_max": 0.05,
+      "missing_export_or_unknown_area": "system incomplete",
+      "qc_tau_max_kpa": 45.0,
+      "qc_role": "reported separately, excluded from primary totals; heuristic flag only",
+      "paired_complete_min_share": 0.8,
+      "paired_complete_denominator": 191,
+      "paired_complete_minimum": 153,
+      "loss_min_share": 0.8,
+      "loss_denominator": "complete unflagged systems",
+      "per_member_own_tau": "sensitivity only",
+      "comparison_to_ck2": "explicitly authorized rerun of existing22 inside this191 run"
+    },
+    "output_root": "H:/ToYangxin/result_yx/static_samemethod_ck3_20261022",
+    "source_config": "lia_surface_production_v01.json",
+    "external_flowline_root": "E:\\3spyderProject\\1_LIA_himalaya_oggm\\validation_data\\results\\paleo_surface_validation_v0\\lia_gdir_anchor_reroute_core191_v3"
+  },
+  "created_at_utc": "2026-10-22T01:45:55.686607+00:00"
+}

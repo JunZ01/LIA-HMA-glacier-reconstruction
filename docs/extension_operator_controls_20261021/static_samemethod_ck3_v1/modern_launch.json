@@ -1,0 +1,16 @@
+{
+  "pid": 44756,
+  "started_at_utc": "2026-10-22T01:52:39.651163+00:00",
+  "command": [
+    "D:/Anaconda/envs/oggm_env2/python.exe",
+    "-u",
+    "E:\\lia-gh-20261021-v2\\run_static_modern_members_20261022.py",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\npz",
+    "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\modern",
+    "--workers",
+    "8"
+  ],
+  "workers": 8,
+  "threads": 1,
+  "output": "H:\\ToYangxin\\result_yx\\static_samemethod_ck3_20261022\\modern"
+}
